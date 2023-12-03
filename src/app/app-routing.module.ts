@@ -1,6 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
-import { AppMainComponent } from './layout/main/app.main.component';
 import { NgModule } from '@angular/core';
+import { AppMainComponent } from './components/layout/main/app.main.component';
 
 export const routes: Routes = [
     {path: '', component: AppMainComponent}
