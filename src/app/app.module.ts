@@ -3,6 +3,7 @@ import { AppComponent } from "./app.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { LayoutModule } from "./layout/layout.module";
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
     declarations: [
@@ -11,7 +12,8 @@ import { LayoutModule } from "./layout/layout.module";
     imports: [
         BrowserModule,
         AppRoutingModule,
-        LayoutModule
+        LayoutModule,
+        NgxSpinnerModule
     ],
     providers: [],
     bootstrap: [AppComponent]
