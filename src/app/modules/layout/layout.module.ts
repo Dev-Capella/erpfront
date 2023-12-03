@@ -84,14 +84,16 @@ import {TreeTableModule} from 'primeng/treetable';
 import {VirtualScrollerModule} from 'primeng/virtualscroller';
 import { AppMainComponent } from './main/app.main.component';
 import { AppConfigComponent } from './config/app.config.component';
-import { AppMenuComponent } from './menu/app.menu.component';
-import { AppMenuitemComponent } from './menu/app.menuitem.component';
 import { AppTopBarComponent } from './topbar/app.topbar.component';
 import { AppFooterComponent } from './footer/app.footer.component';
 import { AppRightPanelComponent } from './rightpanel/app.rightpanel.component';
-import { AppBreadcrumbComponent } from './breadcrumb/app.breadcrumb.component';
-import { MenuService } from './menu/app.menu.service';
-import { BreadcrumbService } from './breadcrumb/app.breadcrumb.service';
+import { AppMenuComponent } from './menu/components/app.menu.component';
+import { AppMenuitemComponent } from './menu/components/app.menuitem.component';
+import { AppBreadcrumbComponent } from './breadcrumb/components/app.breadcrumb.component';
+import { MenuService } from './menu/services/app.menu.service';
+import { BreadcrumbService } from './breadcrumb/services/app.breadcrumb.service';
+
+
 
 @NgModule({
     imports: [
