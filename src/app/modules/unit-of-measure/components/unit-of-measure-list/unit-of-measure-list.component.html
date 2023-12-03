@@ -1,0 +1,18 @@
+<p-table [value]="unitOfMeasureList" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>longText</th>
+            <th>searchText</th>
+            <th>shortText</th>
+            <th>unitOfMeasureType</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-uom>
+        <tr>
+            <td>{{ uom.longText }}</td>
+            <td>{{ uom.searchText }}</td>
+            <td>{{ uom.shortText }}</td>
+            <td>{{ uom.unitOfMeasureType }}</td>
+        </tr>
+    </ng-template>
+</p-table>

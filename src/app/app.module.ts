@@ -6,6 +6,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { LayoutModule } from "./modules/layout/layout.module";
 import { CoreModule } from "./core/core.module";
 import { SharedModule } from "./shared/shared.module";
+import { UnitOfMeasureModule } from "./modules/unit-of-measure/unit-of-measure.module";
+import { ToastModule } from "primeng/toast";
 
 @NgModule({
     declarations: [
@@ -17,7 +19,9 @@ import { SharedModule } from "./shared/shared.module";
         CoreModule,
         SharedModule,
         LayoutModule,
-        NgxSpinnerModule
+        NgxSpinnerModule,
+        UnitOfMeasureModule,
+        ToastModule
     ],
     providers: [],
     bootstrap: [AppComponent]
