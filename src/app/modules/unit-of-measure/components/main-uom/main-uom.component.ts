@@ -8,14 +8,13 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrl: './main-uom.component.scss'
 })
 export class MainUomComponent extends BaseComponent implements OnInit {
-/**
- *
- */
-constructor(spinner: NgxSpinnerService) {
-  super(spinner);
-  
-}
+  keepLeft: boolean = true;
+  keepRight: boolean = false;
+  constructor(spinner: NgxSpinnerService) {
+    super(spinner);
+
+  }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
   }
 }

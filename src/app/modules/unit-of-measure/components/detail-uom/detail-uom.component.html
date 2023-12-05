@@ -1,1 +1,13 @@
-<p>detail-uom works!</p>
+<p-panel>
+    <ng-template pTemplate="header">
+                <button  (click)="changeKeepLeft()" pButton pRipple type="button" [icon]="keepLeft ? 'pi pi-angle-double-left' : 'pi pi-angle-double-right'" class="p-button-rounded p-button-text"></button> 
+    </ng-template>
+    <ng-template pTemplate="icons">
+        <button  (click)="closeSplitter()" pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text"></button> 
+    </ng-template>
+    <p-tabView>
+        <p-tabPanel header="Temel">
+          
+        </p-tabPanel>
+    </p-tabView>
+</p-panel>

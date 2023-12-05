@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UnitOfMeasureService } from '../../services/unit-of-measure.service';
@@ -10,6 +10,8 @@ import { BreadcrumbService } from '../../../layout/breadcrumb/services/app.bread
   styleUrl: './uom-list.component.scss'
 })
 export class UomListComponent extends BaseComponent implements OnInit {
+  keepRight: boolean = true;
+  @Output() keepRightEvent : EventEmitter<any> = new EventEmitter();
   selectedUoM: any;
   unitOfMeasureList: any[] = []
   constructor(spinner: NgxSpinnerService,
@@ -28,6 +30,11 @@ export class UomListComponent extends BaseComponent implements OnInit {
   async getUnitOfMeasureList(){
     this.showSpinner();
     this.unitOfMeasureList = await this.unitOfMeasureService.getUnitOfMeasures(()=> this.hideSpinner());
+  }
+
+  onRowSelect(event){
+    this.keepRight = true;
+    this.keepRightEvent.emit(this.keepRight)
   }
 
 

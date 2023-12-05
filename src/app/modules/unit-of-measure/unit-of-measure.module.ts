@@ -6,6 +6,10 @@ import {SplitterModule} from 'primeng/splitter';
 import { DetailUomComponent } from './components/detail-uom/detail-uom.component';
 import { UomListComponent } from './components/uom-list/uom-list.component';
 import { MainUomComponent } from './components/main-uom/main-uom.component';
+import { AngularSplitModule } from 'angular-split';
+import { ResizableModule } from 'angular-resizable-element';
+import { ButtonModule } from 'primeng/button';
+import { TabViewModule } from 'primeng/tabview';
 
 @NgModule({
     imports: [
@@ -14,7 +18,11 @@ import { MainUomComponent } from './components/main-uom/main-uom.component';
         ]),
         TableModule,
         PanelModule,
-        SplitterModule
+        SplitterModule,
+        AngularSplitModule,
+        ResizableModule,
+        ButtonModule,
+        TabViewModule
     ],
     declarations: [DetailUomComponent,UomListComponent, MainUomComponent],
     providers: [],

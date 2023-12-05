@@ -1,5 +1,6 @@
 <p-table [value]="unitOfMeasureList"
-selectionMode="single" [(selection)]="selectedUoM" [autoLayout]="true"
+selectionMode="single" [(selection)]="selectedUoM" 
+[autoLayout]="true" (onRowSelect)="onRowSelect($event)"
  dataKey="code" styleClass="p-datatable-striped p-datatable-gridlines">
     <ng-template pTemplate="header" styleClass="w-full">
         <tr>
@@ -10,7 +11,7 @@ selectionMode="single" [(selection)]="selectedUoM" [autoLayout]="true"
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-uom>
-        <tr class="cursor-pointer">
+        <tr class="cursor-pointer" [pSelectableRow]="uom">
             <td>{{uom.id}}</td>
             <td>{{uom.code}}</td>
             <td>{{uom.shortText}}</td>

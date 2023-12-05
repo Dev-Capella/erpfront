@@ -1,9 +1,10 @@
-
-    <p-splitter [style]="{'height': '100%'}" styleClass="mb-5">
-        <ng-template pTemplate>
-            <app-uom-list></app-uom-list>
-        </ng-template>
-        <ng-template pTemplate>
-               <app-detail-uom></app-detail-uom>
-        </ng-template>
-    </p-splitter>
+<div style="height: 100%; border: 1px solid #eee">
+    <as-split [useTransition]="true" unit="percent" [gutterSize]="10">
+        <as-split-area [size]="35" [order]="1" [visible]="keepLeft">
+            <app-uom-list (keepRightEvent)="keepRight=$event"></app-uom-list>
+        </as-split-area>
+        <as-split-area [size]="65" [order]="2" [visible]="keepRight">
+            <app-detail-uom (keepLeftEvent)="keepLeft=$event" (keepRightEvent)="keepRight=$event"></app-detail-uom>
+        </as-split-area>
+    </as-split>
+</div>
