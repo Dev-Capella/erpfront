@@ -16,28 +16,28 @@
                 <div class="field grid">
                   <label for="shortText" class="col-fixed" style="width:100px">Short Name</label>
                   <div class="col">
-                    <input type="text" pInputText formControlName="shortText"/> 
+                    <input id="shortText" type="text" pInputText formControlName="shortText"/> 
                   </div>
               </div>
               <div class="field grid">
                 <label for="longText" class="col-fixed" style="width:100px">Long Name</label>
                 <div class="col">
-                  <input type="text" pInputText formControlName="longText"/> 
+                  <input id="longText" type="text" pInputText formControlName="longText"/> 
                 </div>
             </div>
             <div class="field grid">
               <label for="searchText" class="col-fixed" style="width:100px">Search Name</label>
               <div class="col">
-                <input type="text" pInputText formControlName="searchText"/> 
+                <input id="searchText" type="text" pInputText formControlName="searchText"/> 
               </div>
           </div>
               </fieldset>
   
   
               <div class="field grid">
-                <label for="searchText" class="col-fixed" style="width:100px">Type</label>
+                <label for="unitOfMeasureType" class="col-fixed" style="width:100px">Type</label>
                 <div class="col">
-                  <p-dropdown [autoDisplayFirst]="false" [options]="unitOfMeasureTypes" formControlName="unitOfMeasureType" optionLabel="name"></p-dropdown>
+                  <p-dropdown inputId="unitOfMeasureType" [autoDisplayFirst]="false" [options]="unitOfMeasureTypes" formControlName="unitOfMeasureType" optionLabel="name"></p-dropdown>
                 </div>
             </div>
             </div>

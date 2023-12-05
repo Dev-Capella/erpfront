@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { MenuItem } from 'primeng/api';
+import { MenuItem, MessageService } from 'primeng/api';
 import { FormGroup } from '@angular/forms';
 import { UnitOfMeasureService } from '../../services/unit-of-measure.service';
 
@@ -67,7 +67,8 @@ export class MainUomComponent extends BaseComponent implements OnInit {
     }
   ];
   constructor(spinner: NgxSpinnerService,
-    private unitOfMeasureService: UnitOfMeasureService) {
+    private unitOfMeasureService: UnitOfMeasureService,
+    private messageService: MessageService) {
     super(spinner);
   }
   ngOnInit(): void {}
@@ -101,10 +102,8 @@ export class MainUomComponent extends BaseComponent implements OnInit {
 
   async deleteUoM(){
     this.showSpinner();
-    console.log(this.selectedRowCode)
     await this.unitOfMeasureService.deleteUnitOfMeasureByCode(this.selectedRowCode, ()=> this.hideSpinner());
-    this.showSpinner();
-    await this.unitOfMeasureService.getUnitOfMeasures(()=> this.hideSpinner());
+    this.messageService.add({severity:'success', summary:'İşlem Sonucu', detail:'UoM başarıyla silinmiştir.'});
   }
 
   getFormValue(event){
