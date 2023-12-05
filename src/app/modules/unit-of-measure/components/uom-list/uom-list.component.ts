@@ -12,6 +12,7 @@ import { BreadcrumbService } from '../../../layout/breadcrumb/services/app.bread
 export class UomListComponent extends BaseComponent implements OnInit {
   keepRight: boolean = true;
   @Output() keepRightEvent : EventEmitter<any> = new EventEmitter();
+  @Output() selectedRowEvent : EventEmitter<any> = new EventEmitter();
   selectedUoM: any;
   unitOfMeasureList: any[] = []
   constructor(spinner: NgxSpinnerService,
@@ -34,6 +35,8 @@ export class UomListComponent extends BaseComponent implements OnInit {
 
   onRowSelect(event){
     this.keepRight = true;
+    var selectedRow = event.data.code
+    this.selectedRowEvent.emit(selectedRow)
     this.keepRightEvent.emit(this.keepRight)
   }
 

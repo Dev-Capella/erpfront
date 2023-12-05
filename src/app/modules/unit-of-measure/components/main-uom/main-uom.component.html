@@ -8,6 +8,7 @@
         </as-split-area>
         <as-split-area [size]="70" [order]="2" [visible]="keepRight">
             <app-data-uom 
+            (selectedRowEvent)="selectedRowCode=$event"
             (uomFormGroupValue)="getFormValue($event)"
             (keepLeftEvent)="changeKeepLeft($event)" 
             (keepRightEvent)="changeKeepRight($event)"></app-data-uom>

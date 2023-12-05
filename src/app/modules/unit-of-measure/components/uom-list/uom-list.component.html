@@ -4,18 +4,18 @@ selectionMode="single" [(selection)]="selectedUoM"
  dataKey="code" styleClass="p-datatable-striped p-datatable-gridlines">
     <ng-template pTemplate="header" styleClass="w-full">
         <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Quantity</th>
+            <th>Short Text</th>
+            <th>Long Text</th>
+            <th>Search Text</th>
+            <th>Type</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-uom>
         <tr class="cursor-pointer" [pSelectableRow]="uom">
-            <td>{{uom.id}}</td>
-            <td>{{uom.code}}</td>
             <td>{{uom.shortText}}</td>
             <td>{{uom.longText}}</td>
+            <td>{{uom.searchText}}</td>
+            <td>{{uom.unitOfMeasureType}}</td>
         </tr>
     </ng-template>
 </p-table>

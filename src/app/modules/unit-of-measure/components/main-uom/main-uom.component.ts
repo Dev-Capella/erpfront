@@ -11,6 +11,7 @@ import { UnitOfMeasureService } from '../../services/unit-of-measure.service';
   styleUrl: './main-uom.component.scss',
 })
 export class MainUomComponent extends BaseComponent implements OnInit {
+  selectedRowCode: any;
   keepLeft: boolean = true;
   keepRight: boolean = false;
   formData: FormGroup;
@@ -25,8 +26,8 @@ export class MainUomComponent extends BaseComponent implements OnInit {
     {
       label: 'Kaydet',
       icon: 'pi pi-save',
-      command: ()=>{
-        this.onSubmit();
+      command: async ()=>{
+        await this.onSubmit();
       }
     },
     {
@@ -40,6 +41,9 @@ export class MainUomComponent extends BaseComponent implements OnInit {
     {
       label: 'Sil',
       icon: 'pi pi-trash',
+      command: async ()=>{
+        await this.deleteUoM();
+      }
     },
     {
       label: 'Kopyala',
@@ -68,6 +72,9 @@ export class MainUomComponent extends BaseComponent implements OnInit {
   }
   ngOnInit(): void {}
 
+  getSelectedRow(event){
+    this.selectedRowCode = event;
+  }
 
   changeKeepLeft(event){
     this.keepLeft = event;
@@ -90,6 +97,14 @@ export class MainUomComponent extends BaseComponent implements OnInit {
     this.showSpinner();
     await this.unitOfMeasureService.saveUnitOfMeasure(request,()=> this.hideSpinner());
     
+  }
+
+  async deleteUoM(){
+    this.showSpinner();
+    console.log(this.selectedRowCode)
+    await this.unitOfMeasureService.deleteUnitOfMeasureByCode(this.selectedRowCode, ()=> this.hideSpinner());
+    this.showSpinner();
+    await this.unitOfMeasureService.getUnitOfMeasures(()=> this.hideSpinner());
   }
 
   getFormValue(event){
