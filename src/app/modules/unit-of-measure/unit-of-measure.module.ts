@@ -1,18 +1,22 @@
 import {NgModule} from '@angular/core';
-import { UnitOfMeasureListComponent } from './components/unit-of-measure-list/unit-of-measure-list.component';
 import { RouterModule } from '@angular/router';
 import { TableModule } from 'primeng/table';
 import { PanelModule } from 'primeng/panel';
+import {SplitterModule} from 'primeng/splitter';
+import { DetailUomComponent } from './components/detail-uom/detail-uom.component';
+import { UomListComponent } from './components/uom-list/uom-list.component';
+import { MainUomComponent } from './components/main-uom/main-uom.component';
 
 @NgModule({
     imports: [
         RouterModule.forChild([
-                {path:'',component: UnitOfMeasureListComponent}
+                {path:'',component: MainUomComponent}
         ]),
         TableModule,
-        PanelModule
+        PanelModule,
+        SplitterModule
     ],
-    declarations: [UnitOfMeasureListComponent],
+    declarations: [DetailUomComponent,UomListComponent, MainUomComponent],
     providers: [],
     
 })

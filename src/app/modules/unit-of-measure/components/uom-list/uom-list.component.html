@@ -1,0 +1,20 @@
+<p-table [value]="unitOfMeasureList"
+selectionMode="single" [(selection)]="selectedUoM" [autoLayout]="true"
+ dataKey="code" styleClass="p-datatable-striped p-datatable-gridlines">
+    <ng-template pTemplate="header" styleClass="w-full">
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-uom>
+        <tr class="cursor-pointer">
+            <td>{{uom.id}}</td>
+            <td>{{uom.code}}</td>
+            <td>{{uom.shortText}}</td>
+            <td>{{uom.longText}}</td>
+        </tr>
+    </ng-template>
+</p-table>

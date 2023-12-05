@@ -5,12 +5,12 @@ import { UnitOfMeasureService } from '../../services/unit-of-measure.service';
 import { BreadcrumbService } from '../../../layout/breadcrumb/services/app.breadcrumb.service';
 
 @Component({
-  selector: 'app-unit-of-measure-list',
-  templateUrl: './unit-of-measure-list.component.html',
-  styleUrl: './unit-of-measure-list.component.scss'
+  selector: 'app-uom-list',
+  templateUrl: './uom-list.component.html',
+  styleUrl: './uom-list.component.scss'
 })
-export class UnitOfMeasureListComponent extends BaseComponent implements OnInit {
-  
+export class UomListComponent extends BaseComponent implements OnInit {
+  selectedUoM: any;
   unitOfMeasureList: any[] = []
   constructor(spinner: NgxSpinnerService,
     private unitOfMeasureService: UnitOfMeasureService,
