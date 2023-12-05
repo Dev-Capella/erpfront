@@ -1,0 +1,49 @@
+<p-panel>
+    <ng-template pTemplate="header">
+                <button  (click)="changeKeepLeft()" pButton pRipple type="button" [icon]="keepLeft ? 'pi pi-angle-double-left' : 'pi pi-angle-double-right'" class="p-button-rounded p-button-text"></button> 
+    </ng-template>
+    <ng-template pTemplate="icons">
+        <button  (click)="closeSplitter()" pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text"></button> 
+    </ng-template>
+    <p-tabView>
+        <p-tabPanel header="Temel">
+          <form [formGroup]="uomForm">
+            <div class="flex flex-column flex-wrap gap-2">
+              <fieldset>
+                <legend>
+                  Açıklama
+                </legend>
+                <div class="field grid">
+                  <label for="shortText" class="col-fixed" style="width:100px">Short Name</label>
+                  <div class="col">
+                    <input type="text" pInputText formControlName="shortText"/> 
+                  </div>
+              </div>
+              <div class="field grid">
+                <label for="longText" class="col-fixed" style="width:100px">Long Name</label>
+                <div class="col">
+                  <input type="text" pInputText formControlName="longText"/> 
+                </div>
+            </div>
+            <div class="field grid">
+              <label for="searchText" class="col-fixed" style="width:100px">Search Name</label>
+              <div class="col">
+                <input type="text" pInputText formControlName="searchText"/> 
+              </div>
+          </div>
+              </fieldset>
+  
+  
+              <div class="field grid">
+                <label for="searchText" class="col-fixed" style="width:100px">Type</label>
+                <div class="col">
+                  <p-dropdown [autoDisplayFirst]="false" [options]="unitOfMeasureTypes" formControlName="unitOfMeasureType" optionLabel="name"></p-dropdown>
+                </div>
+            </div>
+            </div>
+            
+          </form>
+          
+        </p-tabPanel>
+    </p-tabView>
+</p-panel>

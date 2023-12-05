@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DetailUomComponent } from './detail-uom.component';
+import { DataUomComponent } from './data-uom.component';
 
 describe('DetailUomComponent', () => {
-  let component: DetailUomComponent;
-  let fixture: ComponentFixture<DetailUomComponent>;
+  let component: DataUomComponent;
+  let fixture: ComponentFixture<DataUomComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DetailUomComponent]
+      imports: [DataUomComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(DetailUomComponent);
+    fixture = TestBed.createComponent(DataUomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
