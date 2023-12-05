@@ -10,6 +10,7 @@ import { AngularSplitModule } from 'angular-split';
 import { ResizableModule } from 'angular-resizable-element';
 import { ButtonModule } from 'primeng/button';
 import { TabViewModule } from 'primeng/tabview';
+import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
     imports: [
@@ -22,7 +23,8 @@ import { TabViewModule } from 'primeng/tabview';
         AngularSplitModule,
         ResizableModule,
         ButtonModule,
-        TabViewModule
+        TabViewModule,
+        MenubarModule
     ],
     declarations: [DetailUomComponent,UomListComponent, MainUomComponent],
     providers: [],
