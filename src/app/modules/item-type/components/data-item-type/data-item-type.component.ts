@@ -77,6 +77,13 @@ export class DataItemTypeComponent extends BaseComponent implements OnInit {
       baseUoMPackagingType: new FormControl(null),
       packagingUOM: new FormControl(null),
       packagingConversionFactor: new FormControl(null),
+      qualityControlled: new FormControl(false),
+      lotControlled: new FormControl(false),
+      containerControlled: new FormControl(false),
+      elementControlled: new FormControl(false),
+      projectControlled: new FormControl(false),
+      customerControlled: new FormControl(false),
+      supplierControlled: new FormControl(false),
     });
 
   

@@ -156,6 +156,68 @@
                 </div>      
             }
 
+            <fieldset class="field">
+                <legend>
+                    <div class="field-checkbox">
+                        <p-checkbox formControlName="qualityControlled" [binary]="true" inputId="qualityControlled"></p-checkbox>
+                        <label for="qualityControlled">Quality controlled</label>
+                    </div>
+                </legend>
+            </fieldset>
+
+            <fieldset class="field">
+                <legend>
+                    <div class="field-checkbox">
+                        <p-checkbox formControlName="lotControlled" [binary]="true" inputId="lotControlled"></p-checkbox>
+                        <label for="lotControlled">Lot controlled</label>
+                    </div>
+                </legend>
+            </fieldset>
+
+            <fieldset class="field">
+                <legend>
+                    <div class="field-checkbox">
+                        <p-checkbox formControlName="containerControlled" [binary]="true" inputId="containerControlled"></p-checkbox>
+                        <label for="containerControlled">Container controlled</label>
+                    </div>
+                </legend>
+            </fieldset>
+
+
+            <fieldset class="field">
+                <legend>
+                    <div class="field-checkbox">
+                        <p-checkbox formControlName="elementControlled" [binary]="true" inputId="elementControlled"></p-checkbox>
+                        <label for="elementControlled">Element controlled</label>
+                    </div>
+                </legend>
+            </fieldset>
+
+
+            <fieldset class="field">
+                <legend>
+                    Controlled
+                </legend>
+                <div class="field flex flex-wrap align-items-center p-3">
+                    <label for="projectControlled" style="min-width:100px;" class="w-3">Project controlled</label>
+                    <div class="w-9">
+                        <p-checkbox formControlName="projectControlled" [binary]="true" inputId="projectControlled"></p-checkbox>
+                    </div>
+                </div>
+                <div class="field flex flex-wrap align-items-center p-3">
+                    <label for="customerControlled" style="min-width:100px;" class="w-3">Customer controlled</label>
+                    <div class="w-9">
+                        <p-checkbox formControlName="customerControlled" [binary]="true" inputId="customerControlled"></p-checkbox>
+                    </div>
+                </div>
+
+                <div class="field flex flex-wrap align-items-center p-3">
+                    <label for="supplierControlled" style="min-width:100px;" class="w-3">Supplier controlled</label>
+                    <div class="w-9">
+                        <p-checkbox formControlName="supplierControlled" [binary]="true" inputId="supplierControlled"></p-checkbox>
+                    </div>
+                </div>
+            </fieldset>
         </p-tabPanel>
     </p-tabView>
 </form>
