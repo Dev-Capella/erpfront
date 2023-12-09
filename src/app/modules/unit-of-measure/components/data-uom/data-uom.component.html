@@ -8,38 +8,39 @@
     <p-tabView>
         <p-tabPanel header="Temel">
           <form [formGroup]="uomForm">
-            <div class="flex flex-column flex-wrap gap-2">
+            <div class="">
               <fieldset>
                 <legend>
                   Açıklama
                 </legend>
-                <div class="field grid">
-                  <label for="shortText" class="col-fixed" style="width:100px">Short Name</label>
-                  <div class="col">
+                <div class="field flex flex-wrap align-items-center">
+                  <label for="shortText" style="min-width:100px;" class="w-3">Short Name</label>
+                  <div class="w-9">
                     <input id="shortText" type="text" pInputText formControlName="shortText"/> 
                   </div>
               </div>
-              <div class="field grid">
-                <label for="longText" class="col-fixed" style="width:100px">Long Name</label>
-                <div class="col">
+              <div class="field flex flex-wrap align-items-center">
+                <label for="longText" style="min-width:100px;" class="w-3">Long Name</label>
+                <div class="w-9">
                   <input id="longText" type="text" pInputText formControlName="longText"/> 
                 </div>
             </div>
-            <div class="field grid">
-              <label for="searchText" class="col-fixed" style="width:100px">Search Name</label>
-              <div class="col">
+            <div class="field flex flex-wrap align-items-center">
+              <label for="searchText" style="min-width:100px;" class="w-3">Search Name</label>
+              <div class="w-9">
                 <input id="searchText" type="text" pInputText formControlName="searchText"/> 
               </div>
           </div>
               </fieldset>
   
-  
-              <div class="field grid">
-                <label for="unitOfMeasureType" class="col-fixed" style="width:100px">Type</label>
-                <div class="col">
-                  <p-dropdown optionValue="code" inputId="unitOfMeasureType" [autoDisplayFirst]="false" [options]="unitOfMeasureTypes" formControlName="unitOfMeasureType" optionLabel="name"></p-dropdown>
+            
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="unitOfMeasureType" style="min-width:100px;" class="w-3">Type</label>
+                <div class="w-9">
+                  <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="unitOfMeasureType" [autoDisplayFirst]="false" [options]="unitOfMeasureTypes" formControlName="unitOfMeasureType" optionLabel="name"></p-dropdown>
                 </div>
             </div>
+    
             </div>
             
           </form>

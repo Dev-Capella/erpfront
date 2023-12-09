@@ -24,6 +24,7 @@ export class MainUomComponent extends BaseComponent implements OnInit {
       icon: 'pi pi-fw pi-plus',
       command: ()=>{
         this.unitOfMeasureService.keepRight.next(true);
+        this.unitOfMeasureService.selectedData.next(null);
       }
     },
     {
