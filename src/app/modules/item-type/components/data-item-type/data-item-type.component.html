@@ -14,19 +14,19 @@
                   Açıklama
                 </legend>
                 <div class="field flex flex-wrap align-items-center">
-                  <label for="shortText" style="min-width:100px;" class="w-3">Short Name</label>
+                  <label for="shortText" style="min-width:100px;" class="w-3">Short</label>
                   <div class="w-9">
                     <input id="shortText" type="text" pInputText formControlName="shortText"/> 
                   </div>
               </div>
               <div class="field flex flex-wrap align-items-center">
-                <label for="longText" style="min-width:100px;" class="w-3">Long Name</label>
+                <label for="longText" style="min-width:100px;" class="w-3">Long</label>
                 <div class="w-9">
                   <input id="longText" type="text" pInputText formControlName="longText"/> 
                 </div>
             </div>
             <div class="field flex flex-wrap align-items-center">
-              <label for="searchText" style="min-width:100px;" class="w-3">Search Name</label>
+              <label for="searchText" style="min-width:100px;" class="w-3">Search</label>
               <div class="w-9">
                 <input id="searchText" type="text" pInputText formControlName="searchText"/> 
               </div>
@@ -99,14 +99,14 @@
             <div class="field flex flex-wrap align-items-center p-3">
                 <label for="primaryUOM" style="min-width:100px;" class="w-3">Primary UoM</label>
                 <div class="w-9">
-                  <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="primaryUOM" [autoDisplayFirst]="false" [options]="uomList" formControlName="primaryUOM" optionLabel="shortText"></p-dropdown>
+                  <p-dropdown styleClass="w-full md:w-3" placeholder="Seçim Yapınız" inputId="primaryUOM" [autoDisplayFirst]="false" [options]="uomList" formControlName="primaryUOM" optionLabel="shortText"></p-dropdown>
                 </div>
             </div>
 
             <div class="field flex flex-wrap align-items-center p-3">
                 <label for="secondaryUnitControlled" style="min-width:100px;" class="w-3">Secondary unit controlled</label>
                 <div class="w-9">
-                    <p-checkbox (onChange)="changeSecondaryUoM($event)" formControlName="secondaryUnitControlled" [binary]="true" inputId="secondaryUnitControlled"></p-checkbox>
+                    <p-checkbox (onChange)="changeSecondaryUoM($event.checked)" formControlName="secondaryUnitControlled" [binary]="true" inputId="secondaryUnitControlled"></p-checkbox>
                 </div>
             </div>
 
@@ -114,7 +114,7 @@
                 <div class="field flex flex-wrap align-items-center p-3">
                     <label for="secondaryUOM" style="min-width:100px;" class="w-3">Secondary UoM</label>
                     <div class="w-9">
-                      <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="secondaryUOM" [autoDisplayFirst]="false" [options]="uomList" formControlName="secondaryUOM" optionLabel="shortText"></p-dropdown>
+                      <p-dropdown styleClass="w-full md:w-3" placeholder="Seçim Yapınız" inputId="secondaryUOM" [autoDisplayFirst]="false" [options]="uomList" formControlName="secondaryUOM" optionLabel="shortText"></p-dropdown>
                     </div>
                 </div>
     
@@ -129,7 +129,7 @@
             <div class="field flex flex-wrap align-items-center p-3">
                 <label for="packagingUnitControlled" style="min-width:100px;" class="w-3">Packaging unit controlled</label>
                 <div class="w-9">
-                    <p-checkbox (onChange)="changePackagingUoM($event)" formControlName="packagingUnitControlled" [binary]="true" inputId="packagingUnitControlled"></p-checkbox>
+                    <p-checkbox (onChange)="changePackagingUoM($event.checked)" formControlName="packagingUnitControlled" [binary]="true" inputId="packagingUnitControlled"></p-checkbox>
                 </div>
             </div>
 
@@ -144,7 +144,7 @@
                 <div class="field flex flex-wrap align-items-center p-3">
                     <label for="packagingUOM" style="min-width:100px;" class="w-3">Packaging UoM</label>
                     <div class="w-9">
-                      <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="packagingUOM" [autoDisplayFirst]="false" [options]="packagingUOMList" formControlName="packagingUOM" optionLabel="shortText"></p-dropdown>
+                      <p-dropdown styleClass="w-full md:w-3" placeholder="Seçim Yapınız" inputId="packagingUOM" [autoDisplayFirst]="false" [options]="packagingUOMList" formControlName="packagingUOM" optionLabel="shortText"></p-dropdown>
                     </div>
                 </div>
     

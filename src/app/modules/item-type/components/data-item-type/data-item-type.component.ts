@@ -84,12 +84,25 @@ export class DataItemTypeComponent extends BaseComponent implements OnInit {
       projectControlled: new FormControl(false),
       customerControlled: new FormControl(false),
       supplierControlled: new FormControl(false),
+
+      //bu iki alan sorulacak
+      statisticalGroupControlled: new FormControl(false),
+      costForStatisticalGroupControlled: new FormControl(false)
     });
 
   
     this.itemTypeService.selectedData.subscribe(result=>{
       if(!!result){
         this.itemTypeForm.setValue(result);
+        this.itemTypeForm.patchValue({
+          ...result,
+          primaryUOM: this.uomList.filter(x=> x.code==result.primaryUOM.code)[0],
+          secondaryUOM: this.uomList.filter(x=> x.code==result.secondaryUOM.code)[0],
+          packagingUOM: this.packagingUOMList.filter(x=> x.code==result.packagingUOM.code)[0]
+        })
+        this.changeSecondaryUoM(result.secondaryUnitControlled);
+        this.changePackagingUoM(result.packagingUnitControlled);
+
       }else{
         this.itemTypeForm.reset();
       }
@@ -129,8 +142,8 @@ export class DataItemTypeComponent extends BaseComponent implements OnInit {
     this.packagingUOMList = this.uomList.filter(x=> x.unitOfMeasureType == 'PACKAGING')
   }
 
-  changeSecondaryUoM(event){
-    if(event.checked){
+  changeSecondaryUoM(checked){
+    if(checked){
       this.secondaryUOMVisible = true;
     }else{
       this.secondaryUOMVisible = false;
@@ -139,8 +152,8 @@ export class DataItemTypeComponent extends BaseComponent implements OnInit {
     }
   }
 
-  changePackagingUoM(event){
-    if(event.checked){
+  changePackagingUoM(checked){
+    if(checked){
       this.packagingUOMVisible = true;
     }else{
       this.packagingUOMVisible = false;

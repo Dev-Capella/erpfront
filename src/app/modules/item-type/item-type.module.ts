@@ -8,7 +8,7 @@ import { ResizableModule } from 'angular-resizable-element';
 import { ButtonModule } from 'primeng/button';
 import { TabViewModule } from 'primeng/tabview';
 import { MenubarModule } from 'primeng/menubar';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { MainItemTypeComponent } from './components/main-item-type/main-item-type.component';
@@ -37,7 +37,8 @@ import { CheckboxModule } from 'primeng/checkbox';
     InputTextModule,
     DropdownModule,
     InputNumberModule,
-    CheckboxModule
+    CheckboxModule,
+    FormsModule
   ]
 })
 export class ItemTypeModule { }
