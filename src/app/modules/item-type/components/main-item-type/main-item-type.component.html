@@ -1,10 +1,9 @@
 <div>
     <p-menubar [model]="menus"></p-menubar>
 </div>
-<span class="p-buttonset">
-    <button pButton pRipple label="Quality"></button>
-    <button pButton pRipple label="Subcode"></button>
-</span>
+<div>
+    <p-menubar [model]="functionMenus"></p-menubar>
+</div>
 <div style="height: 100%; border: 1px solid #eee">
     <as-split [useTransition]="true" unit="percent" [gutterSize]="10">
         <as-split-area [size]="30" [order]="1" [visible]="keepLeft">

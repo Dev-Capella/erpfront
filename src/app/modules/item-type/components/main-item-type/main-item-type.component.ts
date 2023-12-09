@@ -16,7 +16,16 @@ export class MainItemTypeComponent extends BaseComponent implements OnInit {
   keepLeft: boolean = true;
   keepRight: boolean = false;
   formData: FormGroup;
-  
+  functionMenus: MenuItem[] = [
+    {
+      label: 'Quality',
+      disabled: true,
+    },
+    {
+      label: 'Subcode',
+      disabled: true,
+    },
+  ]
   menus: MenuItem[] = [
     {
       id:MenuItemActions.NEW,
