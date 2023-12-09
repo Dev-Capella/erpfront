@@ -5,9 +5,9 @@
     <ng-template pTemplate="icons">
         <button  (click)="closeSplitter()" pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text"></button> 
     </ng-template>
+    <form [formGroup]="itemTypeForm">
     <p-tabView>
         <p-tabPanel header="Temel">
-          <form [formGroup]="itemTypeForm">
             <div class="">
               <fieldset>
                 <legend>
@@ -78,8 +78,85 @@
             </div>
             </div>
             
-          </form>
+          
           
         </p-tabPanel>
+        <p-tabPanel header="Setup">
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="structure" style="min-width:100px;" class="w-3">Structure</label>
+                <div class="w-9">
+                  <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="structure" [autoDisplayFirst]="false" [options]="structures" formControlName="structure" optionLabel="name"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="statusAllowed" style="min-width:100px;" class="w-3">Status allowed</label>
+                <div class="w-9">
+                  <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="statusAllowed" [autoDisplayFirst]="false" [options]="statusAlloweds" formControlName="statusAllowed" optionLabel="name"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="primaryUOM" style="min-width:100px;" class="w-3">Primary UoM</label>
+                <div class="w-9">
+                  <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="primaryUOM" [autoDisplayFirst]="false" [options]="uomList" formControlName="primaryUOM" optionLabel="shortText"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="secondaryUnitControlled" style="min-width:100px;" class="w-3">Secondary unit controlled</label>
+                <div class="w-9">
+                    <p-checkbox (onChange)="changeSecondaryUoM($event)" formControlName="secondaryUnitControlled" [binary]="true" inputId="secondaryUnitControlled"></p-checkbox>
+                </div>
+            </div>
+
+            @if (secondaryUOMVisible) {
+                <div class="field flex flex-wrap align-items-center p-3">
+                    <label for="secondaryUOM" style="min-width:100px;" class="w-3">Secondary UoM</label>
+                    <div class="w-9">
+                      <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="secondaryUOM" [autoDisplayFirst]="false" [options]="uomList" formControlName="secondaryUOM" optionLabel="shortText"></p-dropdown>
+                    </div>
+                </div>
+    
+                <div class="field flex flex-wrap align-items-center p-3">
+                    <label for="secondaryConversionFactor" style="min-width:100px;" class="w-3">Secondary conversion factor</label>
+                    <div class="w-9">
+                        <p-inputNumber inputId="secondaryConversionFactor" formControlName="secondaryConversionFactor" mode="decimal"></p-inputNumber>
+                    </div>
+                </div>                
+            }
+
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="packagingUnitControlled" style="min-width:100px;" class="w-3">Packaging unit controlled</label>
+                <div class="w-9">
+                    <p-checkbox (onChange)="changePackagingUoM($event)" formControlName="packagingUnitControlled" [binary]="true" inputId="packagingUnitControlled"></p-checkbox>
+                </div>
+            </div>
+
+            @if (packagingUOMVisible) {
+                <div class="field flex flex-wrap align-items-center p-3">
+                    <label for="baseUoMPackagingType" style="min-width:100px;" class="w-3">Base UoM for packaging type</label>
+                    <div class="w-9">
+                      <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="baseUoMPackagingType" [autoDisplayFirst]="false" [options]="basePackagingTypes" formControlName="baseUoMPackagingType" optionLabel="name"></p-dropdown>
+                    </div>
+                </div>
+    
+                <div class="field flex flex-wrap align-items-center p-3">
+                    <label for="packagingUOM" style="min-width:100px;" class="w-3">Packaging UoM</label>
+                    <div class="w-9">
+                      <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="packagingUOM" [autoDisplayFirst]="false" [options]="packagingUOMList" formControlName="packagingUOM" optionLabel="shortText"></p-dropdown>
+                    </div>
+                </div>
+    
+                <div class="field flex flex-wrap align-items-center p-3">
+                    <label for="packagingConversionFactor" style="min-width:100px;" class="w-3">Packaging conversion factor</label>
+                    <div class="w-9">
+                        <p-inputNumber inputId="packagingConversionFactor" formControlName="packagingConversionFactor" mode="decimal"></p-inputNumber>
+                    </div>
+                </div>      
+            }
+
+        </p-tabPanel>
     </p-tabView>
+</form>
 </p-panel>
