@@ -127,10 +127,32 @@ export class MainItemTypeComponent extends BaseComponent implements OnInit {
     var request = {
       id: this.formData.value?.id,
       code: this.formData.value?.code,
-      longText: this.formData.value?.longText,
       shortText: this.formData.value?.shortText,
-      searchText: this.formData.value?.searchText,
-      unitOfMeasureType: this.formData.value?.unitOfMeasureType
+      longText: this.formData.value?.longText,
+      searchText:this.formData.value?.searchText,
+      itemNature: this.formData.value?.itemNature,
+      maxCodeLength: this.formData.value?.maxCodeLength,
+      sellingType: this.formData.value?.sellingType,
+      valid: this.formData.value?.valid,
+      managedByBox: this.formData.value?.managedByBox,
+      handleComponentStatus: this.formData.value?.handleComponentStatus,
+      structure: this.formData.value?.structure,
+      statusAllowed: this.formData.value?.statusAllowed,
+      primaryUOM: this.formData.value?.primaryUOM,
+      secondaryUnitControlled: this.formData.value?.secondaryUnitControlled,
+      secondaryUOM: this.formData.value?.secondaryUOM,
+      secondaryConversionFactor: this.formData.value?.secondaryConversionFactor,
+      packagingUnitControlled: this.formData.value?.packagingUnitControlled,
+      baseUoMPackagingType: this.formData.value?.baseUoMPackagingType,
+      packagingUOM: this.formData.value?.packagingUOM,
+      packagingConversionFactor: this.formData.value?.packagingConversionFactor,
+      qualityControlled: this.formData.value?.qualityControlled,
+      lotControlled: this.formData.value?.lotControlled,
+      containerControlled: this.formData.value?.containerControlled,
+      elementControlled: this.formData.value?.elementControlled,
+      projectControlled: this.formData.value?.projectControlled,
+      customerControlled: this.formData.value?.customerControlled,
+      supplierControlled: this.formData.value?.supplierControlled
     }
 
     this.showSpinner();
