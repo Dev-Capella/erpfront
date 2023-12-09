@@ -8,6 +8,7 @@ import { CoreModule } from "./core/core.module";
 import { SharedModule } from "./shared/shared.module";
 import { UnitOfMeasureModule } from "./modules/unit-of-measure/unit-of-measure.module";
 import { ToastModule } from "primeng/toast";
+import { ItemTypeModule } from "./modules/item-type/item-type.module";
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { ToastModule } from "primeng/toast";
         LayoutModule,
         NgxSpinnerModule,
         UnitOfMeasureModule,
-        ToastModule
+        ToastModule,
+        ItemTypeModule
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -13,6 +13,12 @@ export const routes: Routes = [
                     (m) => m.UnitOfMeasureModule
                 )
             },
+            {
+                path: 'item-type-list',
+                loadChildren: () => import('../app/modules/item-type/item-type.module').then(
+                    (m) => m.ItemTypeModule
+                )
+            }
         ]
     }
 ];
