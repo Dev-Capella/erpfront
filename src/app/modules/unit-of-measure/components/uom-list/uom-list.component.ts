@@ -10,10 +10,7 @@ import { BreadcrumbService } from '../../../layout/breadcrumb/services/app.bread
   styleUrl: './uom-list.component.scss'
 })
 export class UomListComponent extends BaseComponent implements OnInit {
-  keepRight: boolean = true;
-  @Output() keepRightEvent : EventEmitter<any> = new EventEmitter();
-  @Output() selectedRowEvent : EventEmitter<any> = new EventEmitter();
-  selectedUoM: any;
+  selectedUoM: any = null;
   unitOfMeasureList: any[] = []
   constructor(spinner: NgxSpinnerService,
     private unitOfMeasureService: UnitOfMeasureService,
@@ -26,6 +23,18 @@ export class UomListComponent extends BaseComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     await this.getUnitOfMeasureList();
+    this.unitOfMeasureService.isRefreshList.subscribe(async (result) =>{
+      if(result){
+        await this.getUnitOfMeasureList();
+        this.unitOfMeasureService.isRefreshList.next(false);
+      }
+    });
+
+    this.unitOfMeasureService.selectedData$.subscribe((result) =>{
+      if(result == null){
+        this.selectedUoM = null;
+      }
+    });
   }
 
   async getUnitOfMeasureList(){
@@ -33,12 +42,16 @@ export class UomListComponent extends BaseComponent implements OnInit {
     this.unitOfMeasureList = await this.unitOfMeasureService.getUnitOfMeasures(()=> this.hideSpinner());
   }
 
-  onRowSelect(event){
-    this.keepRight = true;
-    var selectedRow = event.data.code
-    this.selectedRowEvent.emit(selectedRow)
-    this.keepRightEvent.emit(this.keepRight)
+  async onRowSelect(event){
+    this.unitOfMeasureService.keepRight.next(true);
+    this.showSpinner();
+    var data = await this.unitOfMeasureService.getUnitOfMeasureByCode(event.data.code,()=>this.hideSpinner());
+    this.unitOfMeasureService.selectedData.next(data);
   }
 
+  onRowUnselect(){
+    this.unitOfMeasureService.keepRight.next(false);
+    this.unitOfMeasureService.selectedData.next(null);
+  }
 
 }

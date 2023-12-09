@@ -1,6 +1,7 @@
 <p-table [value]="unitOfMeasureList" [resizableColumns]="true"
 selectionMode="single" [(selection)]="selectedUoM" 
 [autoLayout]="true" (onRowSelect)="onRowSelect($event)"
+(onRowUnselect)="onRowUnselect()"
  dataKey="code" styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm">
     <ng-template pTemplate="header" styleClass="w-full">
         <tr>
