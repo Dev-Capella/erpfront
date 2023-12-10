@@ -142,6 +142,14 @@ export class MainItemTypeComponent extends BaseComponent implements OnInit {
       this.menus = [...this.menus];
     });
 
+    this.itemTypeService.visibleQualityTemplate$.subscribe(result=>{
+        this.visibleQualityTemplate = result;
+    });
+
+    this.itemTypeService.visibleSubcodeTemplate$.subscribe(result=>{
+        this.visibleSubcodeTemplate = result;
+    });
+    
   }
 
   async onSubmit(){

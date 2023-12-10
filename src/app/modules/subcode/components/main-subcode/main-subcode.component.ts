@@ -50,6 +50,9 @@ export class MainSubcodeComponent extends BaseComponent implements OnInit {
       id:MenuItemActions.BACK,
       label: 'Geri',
       icon: 'pi pi-arrow-left',
+      command: ()=>{
+        this.itemTypeService.visibleSubcodeTemplate.next(false);
+      }
     },
     {
       id:MenuItemActions.DELETE,

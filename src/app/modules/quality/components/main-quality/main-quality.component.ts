@@ -50,6 +50,9 @@ export class MainQualityComponent extends BaseComponent implements OnInit {
       id:MenuItemActions.BACK,
       label: 'Geri',
       icon: 'pi pi-arrow-left',
+      command: ()=>{
+        this.itemTypeService.visibleQualityTemplate.next(false);
+      }
     },
     {
       id:MenuItemActions.DELETE,

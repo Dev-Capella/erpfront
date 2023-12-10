@@ -15,6 +15,10 @@ export class ItemTypeService {
     isRefreshList:BehaviorSubject<boolean> = new BehaviorSubject(false);
     selectedData:BehaviorSubject<any> = new BehaviorSubject(null);
     selectedData$ = this.selectedData.asObservable();
+    visibleQualityTemplate:BehaviorSubject<boolean> = new BehaviorSubject(false);
+    visibleQualityTemplate$ = this.visibleQualityTemplate.asObservable();
+    visibleSubcodeTemplate:BehaviorSubject<boolean> = new BehaviorSubject(false);
+    visibleSubcodeTemplate$ = this.visibleSubcodeTemplate.asObservable();
     constructor(private http: HttpClient) { }
 
     async getItemTypes(callBackFunction?: () => void){
