@@ -1,0 +1,100 @@
+<p-panel>
+    <ng-template pTemplate="header">
+                <button  (click)="changeKeepLeft()" pButton pRipple type="button" [icon]="keepLeft ? 'pi pi-angle-double-left' : 'pi pi-angle-double-right'" class="p-button-rounded p-button-text"></button> 
+    </ng-template>
+    <ng-template pTemplate="icons">
+        <button  (click)="closeSplitter()" pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text"></button> 
+    </ng-template>
+    <form [formGroup]="subCodeForm">
+    <p-tabView>
+        <p-tabPanel header="Temel">
+            <div class="">
+              <fieldset>
+                <legend>
+                  Açıklama
+                </legend>
+                <div class="field flex flex-wrap align-items-center">
+                  <label for="shortText" style="min-width:100px;" class="w-3">Short</label>
+                  <div class="w-9">
+                    <input id="shortText" type="text" pInputText formControlName="shortText"/> 
+                  </div>
+              </div>
+              <div class="field flex flex-wrap align-items-center">
+                <label for="longText" style="min-width:100px;" class="w-3">Long</label>
+                <div class="w-9">
+                  <input id="longText" type="text" pInputText formControlName="longText"/> 
+                </div>
+            </div>
+            <div class="field flex flex-wrap align-items-center">
+              <label for="searchText" style="min-width:100px;" class="w-3">Search</label>
+              <div class="w-9">
+                <input id="searchText" type="text" pInputText formControlName="searchText"/> 
+              </div>
+          </div>
+              </fieldset>
+  
+        
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="position" style="min-width:100px;" class="w-3">Position</label>
+                <div class="w-9">
+                    <p-inputNumber inputId="position" formControlName="position">
+                    </p-inputNumber>
+                </div>
+            </div>
+
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="length" style="min-width:100px;" class="w-3">Length</label>
+                <div class="w-9">
+                    <p-inputNumber inputId="length" formControlName="length">
+                    </p-inputNumber>
+                </div>
+            </div>
+
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="type" style="min-width:100px;" class="w-3">Type</label>
+                <div class="w-9">
+                  <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="type" [autoDisplayFirst]="false" [options]="types" formControlName="type" optionLabel="name"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="mandatory" style="min-width:100px;" class="w-3">Mandatory</label>
+                <div class="w-9">
+                    <p-checkbox formControlName="mandatory" [binary]="true" inputId="mandatory"></p-checkbox>
+                </div>
+            </div>
+
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="itemSubCodeDataType" style="min-width:100px;" class="w-3">Data Type</label>
+                <div class="w-9">
+                  <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="itemSubCodeDataType" [autoDisplayFirst]="false" [options]="dataTypes" formControlName="itemSubCodeDataType" optionLabel="name"></p-dropdown>
+                </div>
+            </div>
+
+
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="outputSeparator" style="min-width:100px;" class="w-3">Initial output separator</label>
+                <div class="w-9">
+                    <input id="outputSeparator" type="text" pInputText formControlName="outputSeparator"> 
+                </div>
+            </div>
+
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="wareHouseManagement" style="min-width:100px;" class="w-3">Warehouse management</label>
+                <div class="w-9">
+                    <p-checkbox formControlName="wareHouseManagement" [binary]="true" inputId="wareHouseManagement"></p-checkbox>
+                </div>
+            </div>
+
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="excludedCostManagement" style="min-width:100px;" class="w-3">Excluded from cost management</label>
+                <div class="w-9">
+                    <p-checkbox formControlName="excludedCostManagement" [binary]="true" inputId="excludedCostManagement"></p-checkbox>
+                </div>
+            </div>
+
+            </div>       
+        </p-tabPanel>
+    </p-tabView>
+</form>
+</p-panel>

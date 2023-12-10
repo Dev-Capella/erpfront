@@ -16,13 +16,16 @@
     </as-split>
 </div>
 
+@if (visibleQualityTemplate) {
+    <p-sidebar [(visible)]="visibleQualityTemplate" [fullScreen]="true" [baseZIndex]="10000" [showCloseIcon]="false" [closeOnEscape]="false">
+        <ng-template pTemplate="header">Quality Template</ng-template>
+        <app-main-quality></app-main-quality>
+    </p-sidebar>
+}
 
-<p-sidebar [(visible)]="visibleQualityTemplate" [fullScreen]="true" [baseZIndex]="10000">
-    <ng-template pTemplate="header">Quality Template</ng-template>
-    <h3>Full Screen Sidebar</h3>
-</p-sidebar>
-
-<p-sidebar [(visible)]="visibleSubcodeTemplate" [fullScreen]="true" [baseZIndex]="10000">
-    <ng-template pTemplate="header">Subcode Template</ng-template>
-    <h3>Full Screen Sidebar</h3>
-</p-sidebar>
+@if (visibleSubcodeTemplate) {
+    <p-sidebar [(visible)]="visibleSubcodeTemplate" [fullScreen]="true" [baseZIndex]="10000" [showCloseIcon]="false" [closeOnEscape]="false">
+        <ng-template pTemplate="header">Subcode Template</ng-template>
+        <app-main-subcode></app-main-subcode>
+    </p-sidebar>
+}
