@@ -22,7 +22,7 @@ export class QualityListComponent extends BaseComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     await this.getQualityLevelList();
-    this.qualityLevelService.isRefreshList.subscribe(async (result) =>{
+    this.qualityLevelService.isRefreshList$.subscribe(async (result) =>{
       if(result){
         await this.getQualityLevelList();
         this.qualityLevelService.isRefreshList.next(false);

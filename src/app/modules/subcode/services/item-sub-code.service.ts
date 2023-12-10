@@ -13,6 +13,7 @@ export class ItemSubCodeService {
     keepRight:BehaviorSubject<boolean> = new BehaviorSubject(false);
     keepRight$ = this.keepRight.asObservable();
     isRefreshList:BehaviorSubject<boolean> = new BehaviorSubject(false);
+    isRefreshList$= this.isRefreshList.asObservable();
     selectedData:BehaviorSubject<any> = new BehaviorSubject(null);
     selectedData$ = this.selectedData.asObservable();
     constructor(private http: HttpClient) { }

@@ -20,7 +20,7 @@ export class SubcodeListComponent extends BaseComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     await this.getItemSubCodeList();
-    this.itemSubCodeService.isRefreshList.subscribe(async (result) =>{
+    this.itemSubCodeService.isRefreshList$.subscribe(async (result) =>{
       if(result){
         await this.getItemSubCodeList();
         this.itemSubCodeService.isRefreshList.next(false);
@@ -48,7 +48,7 @@ export class SubcodeListComponent extends BaseComponent implements OnInit {
   async onRowSelect(event){
     this.itemSubCodeService.keepRight.next(true);
     this.showSpinner();
-    var data = await this.itemSubCodeService.getItemSubCodeByCode(event.data.code,()=>this.hideSpinner());
+    var data = await this.itemSubCodeService.getItemSubCodeByCode(event.data.code,()=> this.hideSpinner());
     this.itemSubCodeService.selectedData.next(data);
   }
 

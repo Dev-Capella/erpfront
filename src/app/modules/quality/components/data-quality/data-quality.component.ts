@@ -31,8 +31,9 @@ export class DataQualityComponent extends BaseComponent implements OnInit {
     });
     
 
-    this.qualityLevelService.selectedData.subscribe(result=>{
+    this.qualityLevelService.selectedData$.subscribe(result=>{
       if(!!result){
+        delete result.itemType
         this.qualityLevelForm.setValue(result);
 
       }else{
@@ -46,10 +47,10 @@ export class DataQualityComponent extends BaseComponent implements OnInit {
         this.qualityLevelFormGroupValue.emit(this.qualityLevelForm);
     });
 
-    this.qualityLevelService.keepLeft.subscribe(value => {
+    this.qualityLevelService.keepLeft$.subscribe(value => {
       this.keepLeft=value
     });
-    this.qualityLevelService.keepRight.subscribe(value => {
+    this.qualityLevelService.keepRight$.subscribe(value => {
       this.keepRight=value
     })
   }

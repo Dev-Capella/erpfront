@@ -50,8 +50,9 @@ export class DataSubcodeComponent extends BaseComponent implements OnInit {
       itemSubCodeDataType: new FormControl(null),
     });
     
-    this.itemSubCodeService.selectedData.subscribe(result=>{
+    this.itemSubCodeService.selectedData$.subscribe(result=>{
       if(!!result){
+        delete result.itemType
         this.subCodeForm.setValue(result);
 
       }else{
@@ -65,10 +66,10 @@ export class DataSubcodeComponent extends BaseComponent implements OnInit {
         this.subCodeFormGroupValue.emit(this.subCodeForm);
     });
 
-    this.itemSubCodeService.keepLeft.subscribe(value => {
+    this.itemSubCodeService.keepLeft$.subscribe(value => {
       this.keepLeft=value
     });
-    this.itemSubCodeService.keepRight.subscribe(value => {
+    this.itemSubCodeService.keepRight$.subscribe(value => {
       this.keepRight=value
     })
   }

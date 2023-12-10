@@ -1,5 +1,5 @@
 <p-table [value]="itemSubCodeList" [resizableColumns]="true"
-selectionMode="single" [(selection)]="itemSubCodeList" 
+selectionMode="single" [(selection)]="selectedItemSubCode" 
 [autoLayout]="true" (onRowSelect)="onRowSelect($event)"
 (onRowUnselect)="onRowUnselect()"
  dataKey="code" styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm">
