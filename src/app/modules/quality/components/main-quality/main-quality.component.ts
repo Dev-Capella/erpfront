@@ -5,6 +5,7 @@ import { MenuItemActions } from '../../../../shared/enums/menu-item-actions.enum
 import { NgxSpinnerService } from 'ngx-spinner';
 import { QualityLevelService } from '../../services/quality-level.service';
 import { BaseComponent } from '../../../../core/components/base/base.component';
+import { ItemTypeService } from '../../../item-type/services/item-type.service';
 
 @Component({
   selector: 'app-main-quality',
@@ -13,6 +14,7 @@ import { BaseComponent } from '../../../../core/components/base/base.component';
 })
 export class MainQualityComponent extends BaseComponent implements OnInit {
   selectedData: any;
+  itemTypeCode: string = "";
   keepLeft: boolean = true;
   keepRight: boolean = false;
   formData: FormGroup;
@@ -92,10 +94,18 @@ export class MainQualityComponent extends BaseComponent implements OnInit {
 
   constructor(spinner: NgxSpinnerService,
     private qualityLevelService: QualityLevelService,
-    private messageService: MessageService) {
+    private messageService: MessageService,
+    private itemTypeService: ItemTypeService) {
     super(spinner);
   }
   ngOnInit(): void {
+    this.itemTypeService.selectedData$.subscribe(result=>{
+      if(!!result){
+        this.itemTypeCode = result.code;
+      }
+    })
+
+
     this.qualityLevelService.keepLeft$.subscribe(result=>{
         this.keepLeft = result;
     });
@@ -128,7 +138,7 @@ export class MainQualityComponent extends BaseComponent implements OnInit {
       longText: this.formData.value?.longText,
       searchText:this.formData.value?.searchText,
       level: this.formData.value?.level,
-      itemType: {code: this.formData.value?.itemType }
+      itemType: {code: this.itemTypeCode }
     }
 
     this.showSpinner();

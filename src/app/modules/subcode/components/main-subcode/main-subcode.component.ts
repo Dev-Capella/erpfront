@@ -5,6 +5,7 @@ import { MenuItem, MessageService } from 'primeng/api';
 import { MenuItemActions } from '../../../../shared/enums/menu-item-actions.enum';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ItemSubCodeService } from '../../services/item-sub-code.service';
+import { ItemTypeService } from '../../../item-type/services/item-type.service';
 
 @Component({
   selector: 'app-main-subcode',
@@ -13,6 +14,7 @@ import { ItemSubCodeService } from '../../services/item-sub-code.service';
 })
 export class MainSubcodeComponent extends BaseComponent implements OnInit {
   selectedData: any;
+  itemTypeCode: string = "";
   keepLeft: boolean = true;
   keepRight: boolean = false;
   formData: FormGroup;
@@ -92,10 +94,19 @@ export class MainSubcodeComponent extends BaseComponent implements OnInit {
 
   constructor(spinner: NgxSpinnerService,
     private itemSubCodeService: ItemSubCodeService,
+    private itemTypeService: ItemTypeService,
     private messageService: MessageService) {
     super(spinner);
   }
   ngOnInit(): void {
+
+    this.itemTypeService.selectedData$.subscribe(result=>{
+      if(!!result){
+        this.itemTypeCode = result.code;
+      }
+    })
+
+
     this.itemSubCodeService.keepLeft$.subscribe(result=>{
         this.keepLeft = result;
     });
@@ -135,7 +146,7 @@ export class MainSubcodeComponent extends BaseComponent implements OnInit {
       excludedCostManagement: this.formData.value?.excludedCostManagement,
       type: this.formData.value?.type,
       itemSubCodeDataType: this.formData.value?.itemSubCodeDataType,
-      itemType: {code: this.formData.value?.itemType }
+      itemType: {code: this.itemTypeCode }
     }
 
     this.showSpinner();

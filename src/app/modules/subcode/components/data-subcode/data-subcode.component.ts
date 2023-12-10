@@ -30,8 +30,7 @@ export class DataSubcodeComponent extends BaseComponent implements OnInit {
   constructor(
     spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
-    private itemSubCodeService:ItemSubCodeService,
-    private itemTypeService: ItemTypeService) {
+    private itemSubCodeService:ItemSubCodeService) {
     super(spinner)
   }
   async ngOnInit(): Promise<void> {
@@ -49,19 +48,8 @@ export class DataSubcodeComponent extends BaseComponent implements OnInit {
       excludedCostManagement: new FormControl(false),
       type: new FormControl(null),
       itemSubCodeDataType: new FormControl(null),
-      itemType: new FormControl(null)
     });
     
-
-    this.itemTypeService.selectedData$.subscribe(result=>{
-      if(!!result){
-        this.itemTypeCode = result.code;
-        this.subCodeForm.patchValue({
-          itemType: this.itemTypeCode
-        })
-      }
-    })
-
     this.itemSubCodeService.selectedData.subscribe(result=>{
       if(!!result){
         this.subCodeForm.setValue(result);

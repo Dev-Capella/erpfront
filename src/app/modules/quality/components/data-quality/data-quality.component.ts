@@ -18,8 +18,7 @@ export class DataQualityComponent extends BaseComponent implements OnInit {
   constructor(
     spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
-    private qualityLevelService:QualityLevelService,
-    private itemTypeService: ItemTypeService) {
+    private qualityLevelService:QualityLevelService) {
     super(spinner)
   }
   async ngOnInit(): Promise<void> {
@@ -29,19 +28,9 @@ export class DataQualityComponent extends BaseComponent implements OnInit {
       shortText: new FormControl(null),
       longText: new FormControl(null),
       searchText: new FormControl(null),
-      level: new FormControl(null),
-      itemType: new FormControl(null)
+      level: new FormControl(null)
     });
     
-
-    this.itemTypeService.selectedData$.subscribe(result=>{
-      if(!!result){
-        this.itemTypeCode = result.code;
-        this.qualityLevelForm.patchValue({
-          itemType: this.itemTypeCode
-        })
-      }
-    })
 
     this.qualityLevelService.selectedData.subscribe(result=>{
       if(!!result){
