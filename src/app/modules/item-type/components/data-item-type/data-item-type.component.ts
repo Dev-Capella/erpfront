@@ -96,9 +96,9 @@ export class DataItemTypeComponent extends BaseComponent implements OnInit {
         this.itemTypeForm.setValue(result);
         this.itemTypeForm.patchValue({
           ...result,
-          primaryUOM: this.uomList.filter(x=> x.code==result.primaryUOM.code)[0],
-          secondaryUOM: this.uomList.filter(x=> x.code==result.secondaryUOM.code)[0],
-          packagingUOM: this.packagingUOMList.filter(x=> x.code==result.packagingUOM.code)[0]
+          primaryUOM: result.primaryUOM ? this.uomList.filter(x=> x.code==result.primaryUOM.code)[0] : null,
+          secondaryUOM: result.secondaryUOM ? this.uomList.filter(x=> x.code==result.secondaryUOM.code)[0] : null,
+          packagingUOM: result.packagingUOM ? this.packagingUOMList.filter(x=> x.code==result.packagingUOM.code)[0] : null
         })
         this.changeSecondaryUoM(result.secondaryUnitControlled);
         this.changePackagingUoM(result.packagingUnitControlled);

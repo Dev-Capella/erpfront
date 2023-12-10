@@ -5,6 +5,7 @@ import { FormGroup } from '@angular/forms';
 import { MenuItem, MessageService } from 'primeng/api';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ItemTypeService } from '../../services/item-type.service';
+import { FunctionsMenuItemActions } from '../../../../shared/enums/functions-menu-item-actions.enum';
 
 @Component({
   selector: 'app-main-item-type',
@@ -16,14 +17,24 @@ export class MainItemTypeComponent extends BaseComponent implements OnInit {
   keepLeft: boolean = true;
   keepRight: boolean = false;
   formData: FormGroup;
+  visibleSubcodeTemplate: boolean = false;
+  visibleQualityTemplate: boolean = false;
   functionMenus: MenuItem[] = [
     {
+      id: FunctionsMenuItemActions.QUALITY,
       label: 'Quality',
       disabled: true,
+      command: ()=>{
+        this.openQualityTemplate();
+      }
     },
     {
+      id: FunctionsMenuItemActions.SUBCODE,
       label: 'Subcode',
       disabled: true,
+      command: ()=>{
+        this.openSubcodeTemplate();
+      }
     },
   ]
   menus: MenuItem[] = [
@@ -123,9 +134,10 @@ export class MainItemTypeComponent extends BaseComponent implements OnInit {
       if(!!result){
         this.selectedData = result;
         this.menus.filter(item=>item.id==MenuItemActions.DELETE)[0].disabled=false;
-        
+        this.functionMenus = this.functionMenus.map(item => {return {...item, disabled: false}})       
       }else{
         this.menus.filter(item=>item.id==MenuItemActions.DELETE)[0].disabled=true;
+        this.functionMenus = this.functionMenus.map(item => {return {...item, disabled: true}}) 
       }
       this.menus = [...this.menus];
     });
@@ -149,11 +161,11 @@ export class MainItemTypeComponent extends BaseComponent implements OnInit {
       statusAllowed: this.formData.value?.statusAllowed,
       primaryUOM: {code: this.formData.value?.primaryUOM?.code },
       secondaryUnitControlled: this.formData.value?.secondaryUnitControlled !== null,
-      secondaryUOM: {code: this.formData.value?.secondaryUOM?.code },
+      secondaryUOM: this.formData.value?.secondaryUOM?.code ? {code: this.formData.value?.secondaryUOM?.code } : null,
       secondaryConversionFactor: this.formData.value?.secondaryConversionFactor,
       packagingUnitControlled: this.formData.value?.packagingUnitControlled !== null,
       baseUoMPackagingType: this.formData.value?.baseUoMPackagingType,
-      packagingUOM: {code: this.formData.value?.packagingUOM?.code },
+      packagingUOM: this.formData.value?.packagingUOM?.code ? {code: this.formData.value?.packagingUOM?.code } : null,
       packagingConversionFactor: this.formData.value?.packagingConversionFactor,
       qualityControlled: this.formData.value?.qualityControlled,
       lotControlled: this.formData.value?.lotControlled,
@@ -181,5 +193,13 @@ export class MainItemTypeComponent extends BaseComponent implements OnInit {
 
   getFormValue(event){
     this.formData = event;
+  }
+
+  openSubcodeTemplate(){
+    this.visibleSubcodeTemplate = true;
+  }
+
+  openQualityTemplate(){
+    this.visibleQualityTemplate = true;
   }
 }

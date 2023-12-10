@@ -16,7 +16,7 @@ import { ItemTypeListComponent } from './components/item-type-list/item-type-lis
 import { DataItemTypeComponent } from './components/data-item-type/data-item-type.component';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CheckboxModule } from 'primeng/checkbox';
-
+import {SidebarModule} from 'primeng/sidebar';
 
 
 @NgModule({
@@ -38,7 +38,8 @@ import { CheckboxModule } from 'primeng/checkbox';
     DropdownModule,
     InputNumberModule,
     CheckboxModule,
-    FormsModule
+    FormsModule,
+    SidebarModule
   ]
 })
 export class ItemTypeModule { }

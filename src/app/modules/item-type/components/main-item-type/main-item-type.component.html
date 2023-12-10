@@ -15,3 +15,14 @@
         </as-split-area>
     </as-split>
 </div>
+
+
+<p-sidebar [(visible)]="visibleQualityTemplate" [fullScreen]="true" [baseZIndex]="10000">
+    <ng-template pTemplate="header">Quality Template</ng-template>
+    <h3>Full Screen Sidebar</h3>
+</p-sidebar>
+
+<p-sidebar [(visible)]="visibleSubcodeTemplate" [fullScreen]="true" [baseZIndex]="10000">
+    <ng-template pTemplate="header">Subcode Template</ng-template>
+    <h3>Full Screen Sidebar</h3>
+</p-sidebar>
