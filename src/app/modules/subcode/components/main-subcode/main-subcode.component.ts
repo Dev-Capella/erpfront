@@ -18,6 +18,7 @@ export class MainSubcodeComponent extends BaseComponent implements OnInit {
   keepLeft: boolean = true;
   keepRight: boolean = false;
   formData: FormGroup;
+  itemTypeList: any[] = []
   menus: MenuItem[] = [
     {
       id:MenuItemActions.NEW,
@@ -106,6 +107,7 @@ export class MainSubcodeComponent extends BaseComponent implements OnInit {
     this.itemTypeService.selectedData$.subscribe(result=>{
       if(!!result){
         this.itemTypeCode = result.code;
+        this.itemTypeList = [result]
       }
     })
 

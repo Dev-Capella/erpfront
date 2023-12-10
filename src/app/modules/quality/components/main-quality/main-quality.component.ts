@@ -14,6 +14,7 @@ import { ItemTypeService } from '../../../item-type/services/item-type.service';
 })
 export class MainQualityComponent extends BaseComponent implements OnInit {
   selectedData: any;
+  itemTypeList: any[] = []
   itemTypeCode: string = "";
   keepLeft: boolean = true;
   keepRight: boolean = false;
@@ -105,6 +106,7 @@ export class MainQualityComponent extends BaseComponent implements OnInit {
     this.itemTypeService.selectedData$.subscribe(result=>{
       if(!!result){
         this.itemTypeCode = result.code;
+        this.itemTypeList = [result]
       }
     })
 
