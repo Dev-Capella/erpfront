@@ -3,7 +3,6 @@ import { BaseComponent } from '../../../../core/components/base/base.component';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { QualityLevelService } from '../../services/quality-level.service';
-import { ItemTypeService } from '../../../item-type/services/item-type.service';
 
 @Component({
   selector: 'app-data-quality',
