@@ -71,10 +71,10 @@ export class DataSubcodeComponent extends BaseComponent implements OnInit {
       }
     });
 
-    this.qualityLevelFormGroupValue.emit(this.subCodeForm);
+    this.subCodeFormGroupValue.emit(this.subCodeForm);
     this.subCodeForm.valueChanges.subscribe(value => {
       if(value)
-        this.qualityLevelFormGroupValue.emit(this.subCodeForm);
+        this.subCodeFormGroupValue.emit(this.subCodeForm);
     });
 
     this.itemSubCodeService.keepLeft.subscribe(value => {
@@ -85,7 +85,7 @@ export class DataSubcodeComponent extends BaseComponent implements OnInit {
     })
   }
 
-  @Output() qualityLevelFormGroupValue : EventEmitter<any> = new EventEmitter();
+  @Output() subCodeFormGroupValue : EventEmitter<any> = new EventEmitter();
   changeKeepLeft(){
     this.keepLeft = !this.keepLeft;
     this.itemSubCodeService.keepLeft.next(this.keepLeft);
