@@ -19,6 +19,8 @@ export class AppMenuComponent implements OnInit {
                 items: [
                     {label: 'UOM', icon: 'pi pi-fw pi-id-card', routerLink: ['/unit-of-measure-list']},
                     {label: 'Item Type', icon: 'pi pi-fw pi-id-card', routerLink: ['/item-type-list']},
+                    {label: 'Cost Category', icon: 'pi pi-fw pi-id-card', routerLink: ['/cost-category-list']},
+                    {label: 'Cost Level', icon: 'pi pi-fw pi-id-card', routerLink: ['/cost-level-list']},
                 ]
             },
         ];

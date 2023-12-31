@@ -18,7 +18,19 @@ export const routes: Routes = [
                 loadChildren: () => import('../app/modules/item-type/item-type.module').then(
                     (m) => m.ItemTypeModule
                 )
-            }
+            },
+            {
+                path: 'cost-category-list',
+                loadChildren: () => import('../app/modules/cost-category/cost-category.module').then(
+                    (m) => m.CostCategoryModule
+                )
+            },
+            {
+                path: 'cost-level-list',
+                loadChildren: () => import('../app/modules/cost-level/cost-level.module').then(
+                    (m) => m.CostLevelModule
+                )
+            },
         ]
     }
 ];

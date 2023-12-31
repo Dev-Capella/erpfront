@@ -9,6 +9,8 @@ import { SharedModule } from "./shared/shared.module";
 import { UnitOfMeasureModule } from "./modules/unit-of-measure/unit-of-measure.module";
 import { ToastModule } from "primeng/toast";
 import { ItemTypeModule } from "./modules/item-type/item-type.module";
+import { CostLevelModule } from "./modules/cost-level/cost-level.module";
+import { CostCategoryModule } from "./modules/cost-category/cost-category.module";
 
 @NgModule({
     declarations: [
@@ -23,7 +25,9 @@ import { ItemTypeModule } from "./modules/item-type/item-type.module";
         NgxSpinnerModule,
         UnitOfMeasureModule,
         ToastModule,
-        ItemTypeModule
+        ItemTypeModule,
+        CostLevelModule,
+        CostCategoryModule
     ],
     providers: [],
     bootstrap: [AppComponent]
