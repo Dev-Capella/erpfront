@@ -11,6 +11,7 @@ import { ToastModule } from "primeng/toast";
 import { ItemTypeModule } from "./modules/item-type/item-type.module";
 import { CostLevelModule } from "./modules/cost-level/cost-level.module";
 import { CostCategoryModule } from "./modules/cost-category/cost-category.module";
+import { CompositionComponentModule } from "./modules/composition-component/composition-component.module";
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import { CostCategoryModule } from "./modules/cost-category/cost-category.module
         ToastModule,
         ItemTypeModule,
         CostLevelModule,
-        CostCategoryModule
+        CostCategoryModule,
+        CompositionComponentModule
     ],
     providers: [],
     bootstrap: [AppComponent]

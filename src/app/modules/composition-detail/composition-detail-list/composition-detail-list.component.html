@@ -1,0 +1,30 @@
+<p-table [value]="compositionDetailList" [resizableColumns]="true"
+selectionMode="single" [(selection)]="selectedCompositionDetail" 
+[autoLayout]="true" (onRowSelect)="onRowSelect($event)"
+(onRowUnselect)="onRowUnselect()"
+ dataKey="code" styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm">
+    <ng-template pTemplate="header" styleClass="w-full">
+        <tr>
+            <th pResizableColumn>Short description</th>
+            <th pResizableColumn>Long description</th>
+            <th pResizableColumn>Search description</th>
+            <th pResizableColumn>Sequence Number</th>
+            <th pResizableColumn>Component Percentage</th>
+            <th pResizableColumn>Use</th>
+            <th pResizableColumn>Sub-Composition</th>
+            <th pResizableColumn>Component</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-compositiondetail>
+        <tr class="cursor-pointer" [pSelectableRow]="compositiondetail">
+            <td>{{compositiondetail.shortText}}</td>
+            <td>{{compositiondetail.longText}}</td>
+            <td>{{compositiondetail.searchText}}</td>
+            <td>{{compositiondetail.sequenceNumber}}</td>
+            <td>{{compositiondetail.percentage}}</td>
+            <td>{{compositiondetail.useType}}</td>
+            <td>{{compositiondetail.subComposition}}</td>
+            <td>{{compositiondetail.compositionComponent?.shortText}}</td>
+        </tr>
+    </ng-template>
+</p-table>

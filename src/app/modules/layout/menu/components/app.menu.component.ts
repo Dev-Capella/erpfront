@@ -21,6 +21,8 @@ export class AppMenuComponent implements OnInit {
                     {label: 'Item Type', icon: 'pi pi-fw pi-id-card', routerLink: ['/item-type-list']},
                     {label: 'Cost Category', icon: 'pi pi-fw pi-id-card', routerLink: ['/cost-category-list']},
                     {label: 'Cost Level', icon: 'pi pi-fw pi-id-card', routerLink: ['/cost-level-list']},
+                    {label: 'Composition Component', icon: 'pi pi-fw pi-id-card', routerLink: ['/composition-component-list']},
+                    {label: 'Composition', icon: 'pi pi-fw pi-id-card', routerLink: ['/composition-list']},
                 ]
             },
         ];

@@ -31,6 +31,18 @@ export const routes: Routes = [
                     (m) => m.CostLevelModule
                 )
             },
+            {
+                path: 'composition-component-list',
+                loadChildren: () => import('../app/modules/composition-component/composition-component.module').then(
+                    (m) => m.CompositionComponentModule
+                )
+            },
+            {
+                path: 'composition-list',
+                loadChildren: () => import('../app/modules/composition/composition.module').then(
+                    (m) => m.CompositionModule
+                )
+            },
         ]
     }
 ];

@@ -1,0 +1,79 @@
+<p-panel>
+    <ng-template pTemplate="header">
+                <button  (click)="changeKeepLeft()" pButton pRipple type="button" [icon]="keepLeft ? 'pi pi-angle-double-left' : 'pi pi-angle-double-right'" class="p-button-rounded p-button-text"></button> 
+    </ng-template>
+    <ng-template pTemplate="icons">
+        <button  (click)="closeSplitter()" pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text"></button> 
+    </ng-template>
+    <form [formGroup]="compositionDetailForm">
+    <p-tabView>
+        <p-tabPanel header="Temel">
+            <div class="">
+              <fieldset>
+                <legend>
+                  Açıklama
+                </legend>
+                <div class="field flex flex-wrap align-items-center">
+                  <label for="shortText" style="min-width:100px;" class="w-3">Short</label>
+                  <div class="w-9">
+                    <input id="shortText" type="text" pInputText formControlName="shortText"/> 
+                  </div>
+              </div>
+              <div class="field flex flex-wrap align-items-center">
+                <label for="longText" style="min-width:100px;" class="w-3">Long</label>
+                <div class="w-9">
+                  <input id="longText" type="text" pInputText formControlName="longText"/> 
+                </div>
+            </div>
+            <div class="field flex flex-wrap align-items-center">
+              <label for="searchText" style="min-width:100px;" class="w-3">Search</label>
+              <div class="w-9">
+                <input id="searchText" type="text" pInputText formControlName="searchText"/> 
+              </div>
+          </div>
+              </fieldset>
+  
+        
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="sequenceNumber" style="min-width:100px;" class="w-3">Sequence Number</label>
+                <div class="w-9">
+                    <p-inputNumber inputId="sequenceNumber" formControlName="sequenceNumber">
+                    </p-inputNumber>
+                </div>
+            </div>
+
+
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="subComposition" style="min-width:100px;" class="w-3">Sub-Composition</label>
+                <div class="w-9">
+                  <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="subComposition" [autoDisplayFirst]="false" [options]="subCompositionTypes" formControlName="subComposition" optionLabel="name"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="useType" style="min-width:100px;" class="w-3">Use</label>
+                <div class="w-9">
+                  <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="useType" [autoDisplayFirst]="false" [options]="useTypes" formControlName="useType" optionLabel="name"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="compositionComponent" style="min-width:100px;" class="w-3">Component</label>
+                <div class="w-9">
+                  <p-dropdown styleClass="w-full md:w-3" placeholder="Seçim Yapınız" inputId="compositionComponent" [autoDisplayFirst]="false" [options]="compositionComponentList" formControlName="compositionComponent" optionLabel="shortText"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="percentage" style="min-width:100px;" class="w-3">Component percentage</label>
+                <div class="w-9">
+                    <p-inputNumber inputId="percentage" formControlName="percentage">
+                    </p-inputNumber>
+                </div>
+            </div>
+
+            </div>       
+        </p-tabPanel>
+    </p-tabView>
+</form>
+</p-panel>

@@ -1,0 +1,24 @@
+<div>
+    <p-menubar [model]="menus"></p-menubar>
+</div>
+<div>
+    <p-menubar [model]="functionMenus"></p-menubar>
+</div>
+<div style="height: 100%; border: 1px solid #eee">
+    <as-split [useTransition]="true" unit="percent" [gutterSize]="10">
+        <as-split-area [size]="30" [order]="1" [visible]="keepLeft">
+            <app-composition-list></app-composition-list>
+        </as-split-area>
+        <as-split-area [size]="70" [order]="2" [visible]="keepRight">
+            <app-data-composition 
+            (compositionFormGroupValue)="getFormValue($event)"></app-data-composition>
+        </as-split-area>
+    </as-split>
+</div>
+
+@if (visibleCompositionDetailTemplate) {
+    <p-sidebar [(visible)]="visibleCompositionDetailTemplate" [fullScreen]="true" [baseZIndex]="10000" [showCloseIcon]="false" [closeOnEscape]="false">
+        <ng-template pTemplate="header">Detail Template</ng-template>
+        <app-main-composition-detail></app-main-composition-detail>
+    </p-sidebar>
+}
