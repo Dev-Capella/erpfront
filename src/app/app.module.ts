@@ -12,6 +12,7 @@ import { ItemTypeModule } from "./modules/item-type/item-type.module";
 import { CostLevelModule } from "./modules/cost-level/cost-level.module";
 import { CostCategoryModule } from "./modules/cost-category/cost-category.module";
 import { CompositionComponentModule } from "./modules/composition-component/composition-component.module";
+import { UserGenericGroupModule } from "./modules/user-generic-group/user-generic-group.module";
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { CompositionComponentModule } from "./modules/composition-component/comp
         ItemTypeModule,
         CostLevelModule,
         CostCategoryModule,
-        CompositionComponentModule
+        CompositionComponentModule,
+        UserGenericGroupModule
     ],
     providers: [],
     bootstrap: [AppComponent]

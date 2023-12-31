@@ -43,6 +43,12 @@ export const routes: Routes = [
                     (m) => m.CompositionModule
                 )
             },
+            {
+                path: 'user-generic-group-list',
+                loadChildren: () => import('../app/modules/user-generic-group/user-generic-group.module').then(
+                    (m) => m.UserGenericGroupModule
+                )
+            },
         ]
     }
 ];
