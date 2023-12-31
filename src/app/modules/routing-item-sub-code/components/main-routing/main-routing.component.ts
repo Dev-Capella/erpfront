@@ -52,7 +52,7 @@ export class MainRoutingComponent extends BaseComponent implements OnInit {
       label: 'Geri',
       icon: 'pi pi-arrow-left',
       command: ()=>{
-        this.itemTypeService.visibleQualityTemplate.next(false);
+        this.itemTypeService.visibleRoutingTemplate.next(false);
       }
     },
     {

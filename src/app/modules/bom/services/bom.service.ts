@@ -34,7 +34,7 @@ export class BoMService {
     }
 
     async deleteBoMByCode(code:string,callBackFunction?: () => void){
-        const observable = this.http.get<any>(ROOT_PATH + `/bom-item-sub-code/${code}`)
+        const observable = this.http.delete<any>(ROOT_PATH + `/bom-item-sub-code/${code}`)
         const response = await firstValueFrom(observable);
         callBackFunction();
         return response.data;

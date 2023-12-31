@@ -19,6 +19,10 @@ export class ItemTypeService {
     visibleQualityTemplate$ = this.visibleQualityTemplate.asObservable();
     visibleSubcodeTemplate:BehaviorSubject<boolean> = new BehaviorSubject(false);
     visibleSubcodeTemplate$ = this.visibleSubcodeTemplate.asObservable();
+    visibleBoMTemplate:BehaviorSubject<boolean> = new BehaviorSubject(false);
+    visibleBoMTemplate$ = this.visibleBoMTemplate.asObservable();
+    visibleRoutingTemplate:BehaviorSubject<boolean> = new BehaviorSubject(false);
+    visibleRoutingTemplate$ = this.visibleRoutingTemplate.asObservable();
     constructor(private http: HttpClient) { }
 
     async getItemTypes(callBackFunction?: () => void){

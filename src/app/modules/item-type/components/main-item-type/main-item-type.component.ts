@@ -167,6 +167,14 @@ export class MainItemTypeComponent extends BaseComponent implements OnInit {
     this.itemTypeService.visibleSubcodeTemplate$.subscribe(result=>{
         this.visibleSubcodeTemplate = result;
     });
+
+    this.itemTypeService.visibleBoMTemplate$.subscribe(result=>{
+        this.visibleBoMTemplate = result;
+    });
+
+    this.itemTypeService.visibleRoutingTemplate$.subscribe(result=>{
+      this.visibleRoutingTemplate = result;
+    });
     
   }
 

@@ -34,7 +34,7 @@ export class RoutingService {
     }
 
     async deleteRoutingItemSubCodeByCode(code:string,callBackFunction?: () => void){
-        const observable = this.http.get<any>(ROOT_PATH + `/routing-item-sub-code/${code}`)
+        const observable = this.http.delete<any>(ROOT_PATH + `/routing-item-sub-code/${code}`)
         const response = await firstValueFrom(observable);
         callBackFunction();
         return response.data;
