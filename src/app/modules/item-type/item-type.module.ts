@@ -19,8 +19,8 @@ import { CheckboxModule } from 'primeng/checkbox';
 import {SidebarModule} from 'primeng/sidebar';
 import { QualityModule } from '../quality/quality.module';
 import { SubcodeModule } from '../subcode/subcode.module';
-
-
+import { BoMModule } from '../bom/bom.module';
+import { RoutingModule } from '../routing-item-sub-code/routing.module';
 @NgModule({
   declarations: [MainItemTypeComponent,ItemTypeListComponent,DataItemTypeComponent],
   imports: [
@@ -43,7 +43,9 @@ import { SubcodeModule } from '../subcode/subcode.module';
     FormsModule,
     SidebarModule,
     QualityModule,
-    SubcodeModule
+    SubcodeModule,
+    BoMModule,
+    RoutingModule
   ]
 })
 export class ItemTypeModule { }

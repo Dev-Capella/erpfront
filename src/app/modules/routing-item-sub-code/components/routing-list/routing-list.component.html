@@ -1,0 +1,24 @@
+<p-table [value]="routingList" [resizableColumns]="true"
+selectionMode="single" [(selection)]="selectedRouting" 
+[autoLayout]="true" (onRowSelect)="onRowSelect($event)"
+(onRowUnselect)="onRowUnselect()"
+ dataKey="code" styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm">
+    <ng-template pTemplate="header" styleClass="w-full">
+        <tr>
+            <th pResizableColumn>Short description</th>
+            <th pResizableColumn>Long description</th>
+            <th pResizableColumn>Search description</th>
+            <th pResizableColumn>Position</th>
+            <th pResizableColumn>Length</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-routing>
+        <tr class="cursor-pointer" [pSelectableRow]="routing">
+            <td>{{routing.shortText}}</td>
+            <td>{{routing.longText}}</td>
+            <td>{{routing.searchText}}</td>
+            <td>{{routing.position}}</td>
+            <td>{{routing.length}}</td>
+        </tr>
+    </ng-template>
+</p-table>

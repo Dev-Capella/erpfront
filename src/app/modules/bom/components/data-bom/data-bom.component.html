@@ -1,0 +1,63 @@
+<p-panel>
+    <ng-template pTemplate="header">
+                <button  (click)="changeKeepLeft()" pButton pRipple type="button" [icon]="keepLeft ? 'pi pi-angle-double-left' : 'pi pi-angle-double-right'" class="p-button-rounded p-button-text"></button> 
+    </ng-template>
+    <ng-template pTemplate="icons">
+        <button  (click)="closeSplitter()" pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text"></button> 
+    </ng-template>
+    <form [formGroup]="boMForm">
+    <p-tabView>
+        <p-tabPanel header="Temel">
+            <div class="">
+              <fieldset>
+                <legend>
+                  Açıklama
+                </legend>
+                <div class="field flex flex-wrap align-items-center">
+                  <label for="shortText" style="min-width:100px;" class="w-3">Short</label>
+                  <div class="w-9">
+                    <input id="shortText" type="text" pInputText formControlName="shortText"/> 
+                  </div>
+              </div>
+              <div class="field flex flex-wrap align-items-center">
+                <label for="longText" style="min-width:100px;" class="w-3">Long</label>
+                <div class="w-9">
+                  <input id="longText" type="text" pInputText formControlName="longText"/> 
+                </div>
+            </div>
+            <div class="field flex flex-wrap align-items-center">
+              <label for="searchText" style="min-width:100px;" class="w-3">Search</label>
+              <div class="w-9">
+                <input id="searchText" type="text" pInputText formControlName="searchText"/> 
+              </div>
+          </div>
+              </fieldset>
+  
+        
+            <div class="field flex flex-wrap align-items-center p-3">
+                <label for="position" style="min-width:100px;" class="w-3">Position</label>
+                <div class="w-9">
+                    <p-inputNumber inputId="position" formControlName="position">
+                    </p-inputNumber>
+                </div>
+            </div>
+
+            <div class="field flex flex-wrap align-items-center p-3">
+              <label for="length" style="min-width:100px;" class="w-3">Length</label>
+              <div class="w-9">
+                  <p-inputNumber inputId="length" formControlName="length">
+                  </p-inputNumber>
+              </div>
+          </div>
+
+          <div class="field flex flex-wrap align-items-center p-3">
+            <label for="outputSeparator" style="min-width:100px;" class="w-3">Initial output separator</label>
+            <div class="w-9">
+                <input id="outputSeparator" type="text" pInputText formControlName="outputSeparator"> 
+            </div>
+        </div>
+            </div>       
+        </p-tabPanel>
+    </p-tabView>
+</form>
+</p-panel>

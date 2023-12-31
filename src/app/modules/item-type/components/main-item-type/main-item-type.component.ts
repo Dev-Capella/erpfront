@@ -19,6 +19,8 @@ export class MainItemTypeComponent extends BaseComponent implements OnInit {
   formData: FormGroup;
   visibleSubcodeTemplate: boolean = false;
   visibleQualityTemplate: boolean = false;
+  visibleBoMTemplate: boolean = false;
+  visibleRoutingTemplate: boolean = false;
   functionMenus: MenuItem[] = [
     {
       id: FunctionsMenuItemActions.QUALITY,
@@ -34,6 +36,22 @@ export class MainItemTypeComponent extends BaseComponent implements OnInit {
       disabled: true,
       command: ()=>{
         this.openSubcodeTemplate();
+      }
+    },
+    {
+      id: FunctionsMenuItemActions.SUBCODE,
+      label: 'BoM Item Sub Code',
+      disabled: true,
+      command: ()=>{
+        this.openBoMTemplate();
+      }
+    },
+    {
+      id: FunctionsMenuItemActions.SUBCODE,
+      label: 'Routing Item Sub Code',
+      disabled: true,
+      command: ()=>{
+        this.openRoutingTemplate();
       }
     },
   ]
@@ -209,5 +227,13 @@ export class MainItemTypeComponent extends BaseComponent implements OnInit {
 
   openQualityTemplate(){
     this.visibleQualityTemplate = true;
+  }
+
+  openBoMTemplate(){
+    this.visibleBoMTemplate = true;
+  }
+
+  openRoutingTemplate(){
+    this.visibleRoutingTemplate = true;
   }
 }

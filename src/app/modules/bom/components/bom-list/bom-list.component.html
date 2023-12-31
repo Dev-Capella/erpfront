@@ -1,0 +1,24 @@
+<p-table [value]="BoMList" [resizableColumns]="true"
+selectionMode="single" [(selection)]="selectedBoM" 
+[autoLayout]="true" (onRowSelect)="onRowSelect($event)"
+(onRowUnselect)="onRowUnselect()"
+ dataKey="code" styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm">
+    <ng-template pTemplate="header" styleClass="w-full">
+        <tr>
+            <th pResizableColumn>Short description</th>
+            <th pResizableColumn>Long description</th>
+            <th pResizableColumn>Search description</th>
+            <th pResizableColumn>Position</th>
+            <th pResizableColumn>Length</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-bom>
+        <tr class="cursor-pointer" [pSelectableRow]="bom">
+            <td>{{bom.shortText}}</td>
+            <td>{{bom.longText}}</td>
+            <td>{{bom.searchText}}</td>
+            <td>{{bom.position}}</td>
+            <td>{{bom.length}}</td>
+        </tr>
+    </ng-template>
+</p-table>

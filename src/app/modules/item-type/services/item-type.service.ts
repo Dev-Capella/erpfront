@@ -63,4 +63,19 @@ export class ItemTypeService {
         return response.data;
     }
 
+    async getBoMByItemType(code:string,callBackFunction?: () => void){
+        const observable = this.http.get<any>(ROOT_PATH + `/item-type/${code}/bom-item-sub-code`)
+        const response = await firstValueFrom(observable);
+        callBackFunction();
+        return response.data;
+    }
+
+    async getRoutingItemSubCodeByItemType(code:string,callBackFunction?: () => void){
+        const observable = this.http.get<any>(ROOT_PATH + `/item-type/${code}/routing-item-sub-code`)
+        const response = await firstValueFrom(observable);
+        callBackFunction();
+        return response.data;
+    }
+
+    
 }
