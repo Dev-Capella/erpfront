@@ -1,1 +1,14 @@
-<p>main-user-generic-group works!</p>
+<div>
+    <p-menubar [model]="menus"></p-menubar>
+</div>
+<div style="height: 100%; border: 1px solid #eee">
+    <as-split [useTransition]="true" unit="percent" [gutterSize]="10">
+        <as-split-area [size]="30" [order]="1" [visible]="keepLeft">
+            <app-user-generic-group-list></app-user-generic-group-list>
+        </as-split-area>
+        <as-split-area [size]="70" [order]="2" [visible]="keepRight">
+            <app-data-user-generic-group
+            (userGenericGroupFormGroupValue)="getFormValue($event)"></app-data-user-generic-group>
+        </as-split-area>
+    </as-split>
+</div>

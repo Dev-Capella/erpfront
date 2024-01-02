@@ -14,7 +14,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { MainUserGenericGroupComponent } from './components/main-user-generic-group/main-user-generic-group.component';
 import { DataUserGenericGroupComponent } from './components/data-user-generic-group/data-user-generic-group.component';
 import { UserGenericGroupListComponent } from './components/user-generic-group-list/user-generic-group-list.component';
-
+import { InputNumberModule } from 'primeng/inputnumber';
 @NgModule({
     imports: [
         RouterModule.forChild([
@@ -30,7 +30,8 @@ import { UserGenericGroupListComponent } from './components/user-generic-group-l
         MenubarModule,
         ReactiveFormsModule,
         InputTextModule,
-        DropdownModule
+        DropdownModule,
+        InputNumberModule
     ],
     declarations: [MainUserGenericGroupComponent,DataUserGenericGroupComponent, UserGenericGroupListComponent],
     providers: [],
