@@ -49,6 +49,12 @@ export const routes: Routes = [
                     (m) => m.UserGenericGroupModule
                 )
             },
+            {
+                path: 'manufacturer-list',
+                loadChildren: () => import('../app/modules/manufacturer/manufacturer.module').then(
+                    (m) => m.ManufacturerModule
+                )
+            },
         ]
     }
 ];

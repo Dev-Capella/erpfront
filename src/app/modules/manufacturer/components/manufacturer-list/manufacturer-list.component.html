@@ -1,0 +1,20 @@
+<p-table [value]="manufacturerList" [resizableColumns]="true"
+selectionMode="single" [(selection)]="selectedManufacturer" 
+[autoLayout]="true" (onRowSelect)="onRowSelect($event)"
+(onRowUnselect)="onRowUnselect()"
+ dataKey="code" styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm">
+    <ng-template pTemplate="header" styleClass="w-full">
+        <tr>
+            <th pResizableColumn>Short Text</th>
+            <th pResizableColumn>Long Text</th>
+            <th pResizableColumn>Search Text</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-manufacturer>
+        <tr class="cursor-pointer" [pSelectableRow]="manufacturer">
+            <td>{{manufacturer.shortText}}</td>
+            <td>{{manufacturer.longText}}</td>
+            <td>{{manufacturer.searchText}}</td>
+        </tr>
+    </ng-template>
+</p-table>
