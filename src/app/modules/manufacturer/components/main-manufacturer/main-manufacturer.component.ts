@@ -130,6 +130,7 @@ export class MainManufacturerComponent extends BaseComponent implements OnInit {
       longText: this.formData.value?.longText,
       shortText: this.formData.value?.shortText,
       searchText: this.formData.value?.searchText,
+      name: this.formData.value?.name
     }
 
     this.showSpinner();

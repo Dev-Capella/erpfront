@@ -33,7 +33,53 @@
           </div>
               </fieldset>
   
-        
+              <div class="field flex flex-wrap align-items-center p-3">
+                <label for="name" style="min-width:100px;" class="w-3">Manufacturer</label>
+                <div class="w-9">
+                  <input id="searchText" type="text" pInputText formControlName="name"/> 
+                </div>
+            </div>
+
+            <div class="field flex flex-wrap w-full">
+              <p-fileUpload name="demo[]"  (onUpload)="onUpload($event)"
+              [multiple]="false" accept="image/*" [maxFileSize]="1000000">
+    <ng-template pTemplate="content">
+        <ul *ngIf="uploadedFiles.length">
+            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+        </ul>
+    </ng-template>
+</p-fileUpload>
+            </div>
+
+
+            <button type="button" pButton label="DataTable" (click)="op2.toggle($event)" class="p-button-success"></button>
+                    <p-overlayPanel #op2 [showCloseIcon]="true" [style]="{width: '450px'}">
+                        <ng-template pTemplate>
+                            <p-table [value]="medias" selectionMode="single" [(selection)]="selectedMedia" [paginator]="true" [rows]="5" (onRowSelect)="op2.hide()" responsiveLayout="scroll">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th pSortableColumn="name">Name<p-sortIcon field="name"></p-sortIcon></th>
+                                        <th>Image</th>
+                                        <th pSortableColumn="price">Size <p-sortIcon field="size"></p-sortIcon></th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-rowData let-media>
+                                    <tr [pSelectableRow]="rowData">
+                                        <td style="min-width: 10rem;">{{media.name}}</td>
+                                        <td style="min-width: 10rem;"><img [src]="media.absolutePath"  width="100" class="shadow-2"/></td>
+                                        <td style="min-width: 10rem;">{{media.size}}</td>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="emptymessage">
+                                  <tr>
+                                      <td [attr.colspan]="3">
+                                         Kayıt bulunamadı
+                                      </td>
+                                  </tr>
+                              </ng-template>
+                            </p-table>
+                        </ng-template>
+                    </p-overlayPanel>
     
             </div>
             

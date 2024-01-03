@@ -11,7 +11,9 @@ export class DataManufacturerComponent implements OnInit {
   manufacturerForm: FormGroup;
   keepLeft: boolean = true;
   keepRight: boolean = true;
-  
+  uploadedFiles: any[] = []
+  medias: any[] = []
+  selectedMedia: any;
   constructor(private formBuilder: FormBuilder,private manufacturerService:ManufacturerService) {
     
   }
@@ -23,6 +25,7 @@ export class DataManufacturerComponent implements OnInit {
       shortText: new FormControl(null),
       longText: new FormControl(null),
       searchText: new FormControl(null),
+      name: new FormControl(null)
     });
 
     this.manufacturerService.selectedData.subscribe(result=>{
@@ -57,5 +60,9 @@ export class DataManufacturerComponent implements OnInit {
     this.keepRight = false;
     this.manufacturerService.keepRight.next(this.keepRight);
     this.manufacturerService.selectedData.next(null);
+  }
+
+  onUpload(event){
+    console.log(event)
   }
 }

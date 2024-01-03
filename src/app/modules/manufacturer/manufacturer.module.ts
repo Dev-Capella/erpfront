@@ -15,6 +15,8 @@ import { MainManufacturerComponent } from './components/main-manufacturer/main-m
 import { DataManufacturerComponent } from './components/data-manufacturer/data-manufacturer.component';
 import { ManufacturerListComponent } from './components/manufacturer-list/manufacturer-list.component';
 import { CommonModule } from '@angular/common';
+import { FileUploadModule } from 'primeng/fileupload';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 
 
@@ -35,7 +37,9 @@ import { CommonModule } from '@angular/common';
     MenubarModule,
     ReactiveFormsModule,
     InputTextModule,
-    DropdownModule
+    DropdownModule,
+    FileUploadModule,
+    OverlayPanelModule
   ]
 })
 export class ManufacturerModule { }
