@@ -1,0 +1,17 @@
+@keyframes zoomIn {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+  
+  .card {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    animation: zoomIn 0.2s ease-out;
+    transform: scale(1.1);
+  }

@@ -1,0 +1,57 @@
+<div class="flex align-items-center justify-content-between mb-4">
+    <span class="text-xl font-medium text-900">Media Manager</span>
+    <p-button label="Media Yükle" icon="pi pi-upload" (click)="openDialog()"></p-button>
+</div>
+<div class="flex flex-wrap">
+    <div class="w-full md:w-2 shadow-2 border-round select-none">
+        <ul class="list-none p-2 m-0">
+            <li *ngFor="let category of mediaCategories">
+                <a pRipple class="flex align-items-center cursor-pointer p-3 hover:surface-100 border-round transition-colors transition-duration-150">
+                    <span class="font-medium text-700">{{category.name}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="w-full md:w-10 shadow-2 border-round p-4" style="background-color: #f1f5f9;">
+        <div class="grid">
+            <div *ngFor="let media of medias" class="card cursor-pointer shadow-1 border-round col-12 sm:col-6 lg:col-3 xl:col-2 p-3">
+                <div class="text-center">
+                   <div>
+                        <img [src]="media.absolutePath" [width]="60"[height]="60" style="border-radius: 0.375rem;"/>
+                    </div>
+                    <span class="text-900 font-medium">{{media.realFileName}}</span>
+                    <div class="text-600 text-sm mt-2">{{media.size}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<p-dialog header="Media Upload" [(visible)]="displayUploadMedia" [breakpoints]="{'960px': '75vw'}" [style]="{width: '50vw'}"
+    [draggable]="false" [resizable]="false">
+    <form [formGroup]="mediaForm">
+    <div class="formgroup-inline">
+        <div class="field col">
+            <label for="category">Kategori: </label>
+            <p-dropdown formControlName="mediaCategory" inputId="category" appendTo="body" [autoDisplayFirst]="false" [options]="mediaCategories" optionLabel="name"></p-dropdown>
+            <div *ngIf="submitted && formControls['mediaCategory'].errors">
+                <small *ngIf="formControls['mediaCategory'].errors['required']" class="p-error">
+                    Kategori alanı zorunludur.
+                </small>
+            </div>
+        </div>
+
+        <div class="field col-12 md:col-12">
+            <p-fileUpload #fileUpload name="demo[]" [showUploadButton]="false" [showCancelButton]="false" 
+            chooseLabel="Seç" accept="image/*" [maxFileSize]="1000000" (onSelect)="onSelect($event)">
+    </p-fileUpload>
+        </div>
+    </div>
+    </form>
+        <ng-template pTemplate="footer">
+        <p-button (click)="save()" label="Kaydet" styleClass="p-button-text"></p-button>
+        <p-button (click)="displayUploadMedia=false" label="İptal" styleClass="p-button-text"></p-button>
+        </ng-template>
+</p-dialog>
