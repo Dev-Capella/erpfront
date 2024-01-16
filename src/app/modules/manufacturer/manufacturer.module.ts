@@ -8,7 +8,7 @@ import { ResizableModule } from 'angular-resizable-element';
 import { ButtonModule } from 'primeng/button';
 import { TabViewModule } from 'primeng/tabview';
 import { MenubarModule } from 'primeng/menubar';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { MainManufacturerComponent } from './components/main-manufacturer/main-manufacturer.component';
@@ -17,8 +17,10 @@ import { ManufacturerListComponent } from './components/manufacturer-list/manufa
 import { CommonModule } from '@angular/common';
 import { FileUploadModule } from 'primeng/fileupload';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
-
-
+import { DividerModule } from 'primeng/divider';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { CheckboxModule } from 'primeng/checkbox';
+import { StyleClassModule } from 'primeng/styleclass';
 
 @NgModule({
   declarations: [MainManufacturerComponent,DataManufacturerComponent,ManufacturerListComponent],
@@ -39,7 +41,12 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
     InputTextModule,
     DropdownModule,
     FileUploadModule,
-    OverlayPanelModule
+    OverlayPanelModule,
+    DividerModule,
+    InputTextareaModule,
+    CheckboxModule,
+    StyleClassModule,
+    FormsModule
   ]
 })
 export class ManufacturerModule { }

@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TableModule } from 'primeng/table';
 import { PanelModule } from 'primeng/panel';
-import {SplitterModule} from 'primeng/splitter';
+import { SplitterModule } from 'primeng/splitter';
 import { AngularSplitModule } from 'angular-split';
 import { ResizableModule } from 'angular-resizable-element';
 import { ButtonModule } from 'primeng/button';
@@ -16,16 +16,30 @@ import { ItemTypeListComponent } from './components/item-type-list/item-type-lis
 import { DataItemTypeComponent } from './components/data-item-type/data-item-type.component';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CheckboxModule } from 'primeng/checkbox';
-import {SidebarModule} from 'primeng/sidebar';
+import { SidebarModule } from 'primeng/sidebar';
 import { QualityModule } from '../quality/quality.module';
 import { SubcodeModule } from '../subcode/subcode.module';
 import { BoMModule } from '../bom/bom.module';
 import { RoutingModule } from '../routing-item-sub-code/routing.module';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { StyleClassModule } from 'primeng/styleclass';
+import { MenuModule } from 'primeng/menu';
+import { CommonModule } from '@angular/common';
+import { NewItemTypeComponent } from './components/new-item-type/new-item-type.component';
+import { DetailItemTypeComponent } from './components/detail-item-type/detail-item-type.component';
+import { DividerModule } from 'primeng/divider';
+import { QualityComponent } from './components/quality/quality.component';
+import { SubcodeComponent } from './components/subcode/subcode.component';
+import { RoutingSbcComponent } from './components/routing-sbc/routing-sbc.component';
+import { BomSbcComponent } from './components/bom-sbc/bom-sbc.component';
+
 @NgModule({
-  declarations: [MainItemTypeComponent,ItemTypeListComponent,DataItemTypeComponent],
+  declarations: [MainItemTypeComponent, ItemTypeListComponent, DataItemTypeComponent, NewItemTypeComponent,DetailItemTypeComponent, QualityComponent,SubcodeComponent,RoutingSbcComponent,BomSbcComponent],
   imports: [
     RouterModule.forChild([
-      { path: '', component: MainItemTypeComponent }
+      { path: '', component: MainItemTypeComponent },
+      { path: 'new', component: NewItemTypeComponent },
+      { path: ':code', component: DetailItemTypeComponent }
     ]),
     TableModule,
     PanelModule,
@@ -45,7 +59,12 @@ import { RoutingModule } from '../routing-item-sub-code/routing.module';
     QualityModule,
     SubcodeModule,
     BoMModule,
-    RoutingModule
+    RoutingModule,
+    StyleClassModule,
+    ConfirmDialogModule,
+    MenuModule,
+    CommonModule,
+    DividerModule
   ]
 })
 export class ItemTypeModule { }

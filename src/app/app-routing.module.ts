@@ -55,6 +55,12 @@ export const routes: Routes = [
                     (m) => m.ManufacturerModule
                 )
             },
+            {
+                path: 'media-manager',
+                loadChildren: () => import('../app/modules/media-manager/media-manager.module').then(
+                    (m) => m.MediaManagerModule
+                )
+            },
         ]
     }
 ];

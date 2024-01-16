@@ -13,6 +13,7 @@ import { CostLevelModule } from "./modules/cost-level/cost-level.module";
 import { CostCategoryModule } from "./modules/cost-category/cost-category.module";
 import { CompositionComponentModule } from "./modules/composition-component/composition-component.module";
 import { UserGenericGroupModule } from "./modules/user-generic-group/user-generic-group.module";
+import { ConfirmationService } from "primeng/api";
 
 @NgModule({
     declarations: [
@@ -33,7 +34,7 @@ import { UserGenericGroupModule } from "./modules/user-generic-group/user-generi
         CompositionComponentModule,
         UserGenericGroupModule
     ],
-    providers: [],
+    providers: [ConfirmationService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
