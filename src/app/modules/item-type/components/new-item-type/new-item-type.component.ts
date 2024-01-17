@@ -47,7 +47,7 @@ export class NewItemTypeComponent extends BaseComponent implements OnInit {
   secondaryUOMVisible: boolean = false;
   packagingUOMVisible: boolean = false;
   activeTab: number = 0;
-  activeMenu: number;
+  activeMenu: number = 0;
   constructor(
     spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,

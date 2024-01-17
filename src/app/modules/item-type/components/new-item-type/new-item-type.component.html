@@ -10,17 +10,12 @@
         <div class="bg-black-alpha-90 flex-grow-1 justify-content-between hidden xl:flex absolute xl:static w-full left-0 top-100 z-1 shadow-2 xl:shadow-none surface-900">
             <ul class="list-none p-0 m-0 flex select-none flex-column xl:flex-row xl:gap-2">
                 <li class="xl:flex xl:align-items-end">
-                    <a pRipple class="xl:border-round-top flex align-items-center h-3rem px-3 font-medium cursor-pointer transition-colors transition-duration-150"
-                        [ngClass]="{'surface-50 text-900': activeTab === 0, 'surface-700 text-50': activeTab !== 0}" (click)="activeTab = 0">
+                    <a pRipple
+                        class="xl:border-round-top flex align-items-center h-3rem px-3 font-medium cursor-pointer transition-colors transition-duration-150"
+                        [ngClass]="{'surface-50 text-900': activeTab === 0, 'surface-700 text-50': activeTab !== 0}"
+                        (click)="activeTab = 0">
                         <i class="pi pi-bolt mr-2" [ngClass]="{'text-800': activeTab === 0}"></i>
-                        <span>Basic</span>
-                    </a>
-                </li>
-                <li class="xl:flex xl:align-items-end">
-                    <a pRipple class="xl:border-round-top flex align-items-center h-3rem px-3 font-medium cursor-pointer transition-colors transition-duration-150"
-                        [ngClass]="{'surface-50 text-900': activeTab === 1, 'surface-700 text-50': activeTab !== 1}" (click)="activeTab = 1">
-                        <i class="pi pi-cog mr-2" [ngClass]="{'text-800': activeTab === 1}"></i>
-                        <span>Setup</span>
+                        <span>Item Type</span>
                     </a>
                 </li>
             </ul>
@@ -38,73 +33,88 @@
             <p-divider styleClass="my-3"></p-divider>
             <form [formGroup]="itemTypeForm">
             <div class="p-fluid flex flex-column lg:flex-row">
+                @if (activeTab==0) {
+                <ul class="list-none m-0 p-0 flex flex-row lg:flex-column justify-content-between lg:justify-content-start mb-5 lg:mb-0">
+                    <li>
+                        <a pRipple class="lg:w-15rem flex align-items-center cursor-pointer p-3 border-round hover:surface-200 transition-duration-150 transition-colors" [ngClass]="{'surface-200': activeMenu === 0}" (click)="activeMenu = 0">
+                            <i class="pi pi-user md:mr-2" [ngClass]="{'text-700' : activeMenu === 0, 'text-600': activeMenu !== 0}"></i>
+                            <span class="font-medium hidden md:block" [ngClass]="{'text-800': activeMenu === 0, 'text-700': activeMenu !== 0}">Basic</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a pRipple class="lg:w-15rem flex align-items-center cursor-pointer p-3 border-round hover:surface-200 transition-duration-150 transition-colors" [ngClass]="{'surface-200': activeMenu === 1}" (click)="activeMenu = 1">
+                            <i class="pi pi-cog md:mr-2" [ngClass]="{'text-700' : activeMenu === 1, 'text-600': activeMenu !== 1}"></i>
+                            <span class="font-medium hidden md:block" [ngClass]="{'text-800': activeMenu === 1, 'text-700': activeMenu !== 1}">Setup</span>
+                        </a>
+                    </li>
+                </ul>
                 <div class="surface-card p-5 shadow-2 border-round flex-auto xl:ml-5">
                     <p-divider></p-divider>
-                    <ng-container *ngIf="activeTab==0">
-                              <div class="field flex flex-wrap align-items-center">
-                                <label for="shortText" style="min-width:100px;" class="w-3">Short</label>
-                                <div class="w-9">
-                                  <input id="shortText" type="text" pInputText formControlName="shortText"/> 
-                                </div>
-                            </div>
+                    @if (activeMenu==0) {
                             <div class="field flex flex-wrap align-items-center">
-                              <label for="longText" style="min-width:100px;" class="w-3">Long</label>
+                              <label for="shortText" style="min-width:100px;" class="w-3">Short</label>
                               <div class="w-9">
-                                <input id="longText" type="text" pInputText formControlName="longText"/> 
+                                <input id="shortText" type="text" pInputText formControlName="shortText"/> 
                               </div>
                           </div>
                           <div class="field flex flex-wrap align-items-center">
-                            <label for="searchText" style="min-width:100px;" class="w-3">Search</label>
+                            <label for="longText" style="min-width:100px;" class="w-3">Long</label>
                             <div class="w-9">
-                              <input id="searchText" type="text" pInputText formControlName="searchText"/> 
+                              <input id="longText" type="text" pInputText formControlName="longText"/> 
                             </div>
                         </div>
-                           
-                          
-                          <div class="field flex flex-wrap align-items-center">
-                              <label for="itemNature" style="min-width:100px;" class="w-3">Item nature</label>
-                              <div class="w-9">
-                                <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="itemNature" [autoDisplayFirst]="false" [options]="itemNatures" formControlName="itemNature" optionLabel="name"></p-dropdown>
-                              </div>
+                        <div class="field flex flex-wrap align-items-center">
+                          <label for="searchText" style="min-width:100px;" class="w-3">Search</label>
+                          <div class="w-9">
+                            <input id="searchText" type="text" pInputText formControlName="searchText"/> 
                           </div>
-              
-                          <div class="field flex flex-wrap align-items-center">
-                              <label for="maxCodeLength" style="min-width:100px;" class="w-3">Max code length</label>
-                              <div class="w-9">
-                                  <p-inputNumber inputId="maxCodeLength" formControlName="maxCodeLength">
-                                  </p-inputNumber>
-                              </div>
-                          </div>
-              
-                          <div class="field flex flex-wrap align-items-center">
-                              <label for="sellingType" style="min-width:100px;" class="w-3">Selling type</label>
-                              <div class="w-9">
-                                  <p-checkbox formControlName="sellingType" [binary]="true" inputId="sellingType"></p-checkbox>
-                              </div>
-                          </div>
-                  
-                          <div class="field flex flex-wrap align-items-center">
-                              <label for="valid" style="min-width:100px;" class="w-3">Valid</label>
-                              <div class="w-9">
-                                  <p-checkbox formControlName="valid" [binary]="true" inputId="valid"></p-checkbox>
-                              </div>
-                          </div>
-              
-                          <div class="field flex flex-wrap align-items-center">
-                              <label for="managedByBox" style="min-width:100px;" class="w-3">Managed by box</label>
-                              <div class="w-9">
-                                  <p-checkbox formControlName="managedByBox" [binary]="true" inputId="managedByBox"></p-checkbox>
-                              </div>
-                          </div>
-              
-                          <div class="field flex flex-wrap align-items-center">
-                              <label for="handleComponentStatus" style="min-width:100px;" class="w-3">Handle component status</label>
-                              <div class="w-9">
-                                  <p-checkbox formControlName="handleComponentStatus" [binary]="true" inputId="handleComponentStatus"></p-checkbox>
-                              </div>
-                          </div>
-                    </ng-container>
-                    <ng-container *ngIf="activeTab==1">
+                      </div>
+                         
+                        
+                        <div class="field flex flex-wrap align-items-center">
+                            <label for="itemNature" style="min-width:100px;" class="w-3">Item nature</label>
+                            <div class="w-9">
+                              <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="itemNature" [autoDisplayFirst]="false" [options]="itemNatures" formControlName="itemNature" optionLabel="name"></p-dropdown>
+                            </div>
+                        </div>
+            
+                        <div class="field flex flex-wrap align-items-center">
+                            <label for="maxCodeLength" style="min-width:100px;" class="w-3">Max code length</label>
+                            <div class="w-9">
+                                <p-inputNumber inputId="maxCodeLength" formControlName="maxCodeLength">
+                                </p-inputNumber>
+                            </div>
+                        </div>
+            
+                        <div class="field flex flex-wrap align-items-center">
+                            <label for="sellingType" style="min-width:100px;" class="w-3">Selling type</label>
+                            <div class="w-9">
+                                <p-checkbox formControlName="sellingType" [binary]="true" inputId="sellingType"></p-checkbox>
+                            </div>
+                        </div>
+                
+                        <div class="field flex flex-wrap align-items-center">
+                            <label for="valid" style="min-width:100px;" class="w-3">Valid</label>
+                            <div class="w-9">
+                                <p-checkbox formControlName="valid" [binary]="true" inputId="valid"></p-checkbox>
+                            </div>
+                        </div>
+            
+                        <div class="field flex flex-wrap align-items-center">
+                            <label for="managedByBox" style="min-width:100px;" class="w-3">Managed by box</label>
+                            <div class="w-9">
+                                <p-checkbox formControlName="managedByBox" [binary]="true" inputId="managedByBox"></p-checkbox>
+                            </div>
+                        </div>
+            
+                        <div class="field flex flex-wrap align-items-center">
+                            <label for="handleComponentStatus" style="min-width:100px;" class="w-3">Handle component status</label>
+                            <div class="w-9">
+                                <p-checkbox formControlName="handleComponentStatus" [binary]="true" inputId="handleComponentStatus"></p-checkbox>
+                            </div>
+                        </div>
+                    }
+                    @if (activeMenu==1) {
                             <div class="field flex flex-wrap align-items-center p-3">
                                 <label for="structure" style="min-width:100px;" class="w-3">Structure</label>
                                 <div class="w-9">
@@ -241,12 +251,15 @@
                                     </div>
                                 </div>
                             </fieldset>
-                    </ng-container>
+                    }
+                   
+                    
 
                     <div>
                         <button pButton pRipple label="Save Changes" class="w-auto mt-3" (click)="save(itemTypeForm.value)"></button>
                     </div>
                 </div>
+            }
             </div>
             </form>
          </div>
