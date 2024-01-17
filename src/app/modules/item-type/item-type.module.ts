@@ -12,8 +12,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { MainItemTypeComponent } from './components/main-item-type/main-item-type.component';
-import { ItemTypeListComponent } from './components/item-type-list/item-type-list.component';
-import { DataItemTypeComponent } from './components/data-item-type/data-item-type.component';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CheckboxModule } from 'primeng/checkbox';
 import { SidebarModule } from 'primeng/sidebar';
@@ -35,7 +33,7 @@ import { BomSbcComponent } from './components/bom-sbc/bom-sbc.component';
 import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
-  declarations: [MainItemTypeComponent, ItemTypeListComponent, DataItemTypeComponent, NewItemTypeComponent,DetailItemTypeComponent, QualityComponent,SubcodeComponent,RoutingSbcComponent,BomSbcComponent],
+  declarations: [MainItemTypeComponent, NewItemTypeComponent,DetailItemTypeComponent, QualityComponent,SubcodeComponent,RoutingSbcComponent,BomSbcComponent],
   imports: [
     RouterModule.forChild([
       { path: '', component: MainItemTypeComponent },
