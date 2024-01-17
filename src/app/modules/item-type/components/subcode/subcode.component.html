@@ -1,1 +1,148 @@
-<p>subcode works!</p>
+<section class="border-bottom-1 surface-border">
+    <div class="flex justify-content-between w-full align-items-center">
+        <h3 class="mb-4 mt-0 text-900 font-medium text-xl">Subcode List</h3>
+        <button pButton pRipple label="Add a Subcode" class="w-auto" (click)="new()"></button>
+    </div>
+    <div class="overflow-x-scroll">
+        <p-table [value]="subCodeList" [resizableColumns]="true" selectionMode="single" [autoLayout]="true"
+            dataKey="code" styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm">
+            <ng-template pTemplate="header" styleClass="w-full">
+                <tr>
+                    <th pResizableColumn>Short description</th>
+                    <th pResizableColumn>Long description</th>
+                    <th pResizableColumn>Search description</th>
+                    <th pResizableColumn>Position</th>
+                    <th pResizableColumn>Length</th>
+                    <th pResizableColumn>Type</th>
+                    <th pResizableColumn>Mandatory</th>
+                    <th pResizableColumn>Data Type</th>
+                    <th pResizableColumn>Int. output separator</th>
+                    <th pResizableColumn>Warehouse management</th>
+                    <th pResizableColumn>Excluded from cost management</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-subcode>
+                <tr class="cursor-pointer" [pSelectableRow]="subcode">
+                    <td>{{subcode.shortText}}</td>
+                    <td>{{subcode.longText}}</td>
+                    <td>{{subcode.searchText}}</td>
+                    <td>{{subcode.position}}</td>
+                    <td>{{subcode.length}}</td>
+                    <td>{{subcode.type}}</td>
+                    <td>
+                        <p-checkbox [(ngModel)]="subcode.mandatory" [binary]="true" inputId="binary"
+                            [readonly]="true"></p-checkbox>
+                    </td>
+                    <td>{{subcode.itemSubCodeDataType}}</td>
+                    <td>{{subcode.outputSeparator}}</td>
+                    <td>
+                        <p-checkbox [(ngModel)]="subcode.wareHouseManagement" [binary]="true" inputId="binary"
+                            [readonly]="true"></p-checkbox>
+                    </td>
+                    <td>
+                        <p-checkbox [(ngModel)]="subcode.excludedCostManagement" [binary]="true" inputId="binary"
+                            [readonly]="true"></p-checkbox>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</section>
+
+<p-dialog header="Header" [modal]="true" [(visible)]="subCodeDataDialog" [breakpoints]="{'960px': '75vw'}"
+    [style]="{width: '50vw'}" [draggable]="false" [resizable]="false">
+    <ng-template pTemplate="content">
+        <form [formGroup]="subCodeForm">
+                    <div class="field flex flex-wrap align-items-center">
+                        <label for="shortText" style="min-width:100px;" class="w-3">Short</label>
+                        <div class="w-9">
+                            <input id="shortText" type="text" pInputText formControlName="shortText" />
+                        </div>
+                    </div>
+                    <div class="field flex flex-wrap align-items-center">
+                        <label for="longText" style="min-width:100px;" class="w-3">Long</label>
+                        <div class="w-9">
+                            <input id="longText" type="text" pInputText formControlName="longText" />
+                        </div>
+                    </div>
+                    <div class="field flex flex-wrap align-items-center">
+                        <label for="searchText" style="min-width:100px;" class="w-3">Search</label>
+                        <div class="w-9">
+                            <input id="searchText" type="text" pInputText formControlName="searchText" />
+                        </div>
+                    </div>
+
+
+                <div class="field flex flex-wrap align-items-center">
+                    <label for="position" style="min-width:100px;" class="w-3">Position</label>
+                    <div class="w-9">
+                        <p-inputNumber inputId="position" formControlName="position">
+                        </p-inputNumber>
+                    </div>
+                </div>
+
+                <div class="field flex flex-wrap align-items-center">
+                    <label for="length" style="min-width:100px;" class="w-3">Length</label>
+                    <div class="w-9">
+                        <p-inputNumber inputId="length" formControlName="length">
+                        </p-inputNumber>
+                    </div>
+                </div>
+
+                <div class="field flex flex-wrap align-items-center">
+                    <label for="type" style="min-width:100px;" class="w-3">Type</label>
+                    <div class="w-9">
+                        <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız"
+                            inputId="type" [autoDisplayFirst]="false" [options]="types" formControlName="type"
+                            optionLabel="name"></p-dropdown>
+                    </div>
+                </div>
+
+                <div class="field flex flex-wrap align-items-center">
+                    <label for="mandatory" style="min-width:100px;" class="w-3">Mandatory</label>
+                    <div class="w-9">
+                        <p-checkbox formControlName="mandatory" [binary]="true" inputId="mandatory"></p-checkbox>
+                    </div>
+                </div>
+
+                <div class="field flex flex-wrap align-items-center">
+                    <label for="itemSubCodeDataType" style="min-width:100px;" class="w-3">Data Type</label>
+                    <div class="w-9">
+                        <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız"
+                            inputId="itemSubCodeDataType" [autoDisplayFirst]="false" [options]="dataTypes"
+                            formControlName="itemSubCodeDataType" optionLabel="name"></p-dropdown>
+                    </div>
+                </div>
+
+
+                <div class="field flex flex-wrap align-items-center">
+                    <label for="outputSeparator" style="min-width:100px;" class="w-3">Initial output separator</label>
+                    <div class="w-9">
+                        <input id="outputSeparator" type="text" pInputText formControlName="outputSeparator">
+                    </div>
+                </div>
+
+                <div class="field flex flex-wrap align-items-center">
+                    <label for="wareHouseManagement" style="min-width:100px;" class="w-3">Warehouse management</label>
+                    <div class="w-9">
+                        <p-checkbox formControlName="wareHouseManagement" [binary]="true"
+                            inputId="wareHouseManagement"></p-checkbox>
+                    </div>
+                </div>
+
+                <div class="field flex flex-wrap align-items-center">
+                    <label for="excludedCostManagement" style="min-width:100px;" class="w-3">Excluded from cost
+                        management</label>
+                    <div class="w-9">
+                        <p-checkbox formControlName="excludedCostManagement" [binary]="true"
+                            inputId="excludedCostManagement"></p-checkbox>
+                    </div>
+                </div>
+        </form>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <p-button (click)="delete()" label="Delete" icon="pi pi-trash" styleClass="p-button-danger p-button-text"></p-button>
+        <p-button (click)="subCodeDataDialog=false" label="Cancel" icon="pi pi-times" styleClass="p-button-text"></p-button>
+        <p-button (click)="onSubmit(subCodeForm.value)" label="Save" icon="pi pi-save" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-dialog>

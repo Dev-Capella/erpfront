@@ -47,8 +47,9 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
   secondaryUOMVisible: boolean = false;
   packagingUOMVisible: boolean = false;
   activeTab: number = 0;
-  activeMenu: number;
+  activeMenu: number = 0;
   code: string;
+  descriptionText: string = "";
   constructor(
     spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
@@ -143,6 +144,7 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
     })
     this.changeSecondaryUoM(result.secondaryUnitControlled);
     this.changePackagingUoM(result.packagingUnitControlled);
+    this.descriptionText = `Short: ${result.shortText ? result.shortText : "-"}, Long: ${result.longText ? result.longText : "-"}, Search: ${result.searchText ? result.searchText : "-"}`
   }
 
   save(value) {

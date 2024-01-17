@@ -14,6 +14,23 @@ import { Router } from '@angular/router';
   styleUrl: './main-item-type.component.scss'
 })
 export class MainItemTypeComponent extends BaseComponent implements OnInit {
+
+  menus: MenuItem[] = [
+  {
+      label: 'Update',
+      icon: 'pi pi-refresh',
+      command: () => {
+        this.detail(this.activeItem);
+      }
+    },
+    {
+      label: 'Delete',
+      icon: 'pi pi-times',
+      command: async () => {
+        await this.delete(this.activeItem);
+      }
+    }
+  ];
   activeItem: any;
   items: MenuItem[] = [{
     label: 'Options',
