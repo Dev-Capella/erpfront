@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { QualityLevelService } from '../../../quality/services/quality-level.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
 import { ItemTypeService } from '../../services/item-type.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { QualityLevelService } from '../../services/quality-level.service';
 
 @Component({
   selector: 'app-quality',

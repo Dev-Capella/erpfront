@@ -15,10 +15,6 @@ import { MainItemTypeComponent } from './components/main-item-type/main-item-typ
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CheckboxModule } from 'primeng/checkbox';
 import { SidebarModule } from 'primeng/sidebar';
-import { QualityModule } from '../quality/quality.module';
-import { SubcodeModule } from '../subcode/subcode.module';
-import { BoMModule } from '../bom/bom.module';
-import { RoutingModule } from '../routing-item-sub-code/routing.module';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { StyleClassModule } from 'primeng/styleclass';
 import { MenuModule } from 'primeng/menu';
@@ -55,10 +51,6 @@ import { DialogModule } from 'primeng/dialog';
     CheckboxModule,
     FormsModule,
     SidebarModule,
-    QualityModule,
-    SubcodeModule,
-    BoMModule,
-    RoutingModule,
     StyleClassModule,
     ConfirmDialogModule,
     MenuModule,

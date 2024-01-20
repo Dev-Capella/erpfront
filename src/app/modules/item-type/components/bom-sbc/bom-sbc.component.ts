@@ -4,8 +4,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ItemTypeService } from '../../services/item-type.service';
 import { ActivatedRoute } from '@angular/router';
-import { BoMService } from '../../../bom/services/bom.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { BoMSubcodeService } from '../../services/bom-subcode.service';
 
 @Component({
   selector: 'app-bom-sbc',
@@ -19,7 +19,7 @@ export class BomSbcComponent extends BaseComponent implements OnInit {
   bomSbcForm: FormGroup;
   selectedItem: any;
   constructor(spinner: NgxSpinnerService,
-    private boMService: BoMService,
+    private boMSubcodeService: BoMSubcodeService,
     private messageService: MessageService,
     private itemTypeService: ItemTypeService,
     private formBuilder: FormBuilder,
@@ -66,7 +66,7 @@ export class BomSbcComponent extends BaseComponent implements OnInit {
       outputSeparator: value?.outputSeparator
     }
     this.showSpinner();
-    await this.boMService.saveBoM(request,()=> this.hideSpinner());
+    await this.boMSubcodeService.saveBoM(request,()=> this.hideSpinner());
     this.bomSbcDataDialog = false;
     this.bomSbcForm.reset();
     await this.getBoMSbcList();
@@ -76,7 +76,7 @@ export class BomSbcComponent extends BaseComponent implements OnInit {
   async edit(){
     this.bomSbcForm.reset();
     var code = this.selectedItem?.code;
-    var result = await this.boMService.getBoMByCode(code,()=> this.hideSpinner());
+    var result = await this.boMSubcodeService.getBoMByCode(code,()=> this.hideSpinner());
     this.bomSbcForm.patchValue({
       id: result?.id,
       code: result?.code,
@@ -98,7 +98,7 @@ export class BomSbcComponent extends BaseComponent implements OnInit {
       message: 'The BoM Subode is being remove. Are you sure?',
       accept: async () => {
         this.showSpinner();
-        await this.boMService.deleteBoMByCode(code,()=> this.hideSpinner());
+        await this.boMSubcodeService.deleteBoMByCode(code,()=> this.hideSpinner());
         this.messageService.add({severity:'success', summary:'Transaction Result', detail:'BoM Subode has been removed successfully.'});
         if(this.bomSbcDataDialog)
           this.bomSbcDataDialog = false;

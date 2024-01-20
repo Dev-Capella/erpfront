@@ -4,8 +4,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ItemTypeService } from '../../services/item-type.service';
 import { ActivatedRoute } from '@angular/router';
-import { RoutingService } from '../../../routing-item-sub-code/services/routing.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { RoutingSubcodeService } from '../../services/routing-subcode.service';
 
 @Component({
   selector: 'app-routing-sbc',
@@ -19,7 +19,7 @@ export class RoutingSbcComponent extends BaseComponent implements OnInit {
   routingSbcForm: FormGroup;
   selectedItem: any;
   constructor(spinner: NgxSpinnerService,
-    private routingService: RoutingService,
+    private routingSubcodeService: RoutingSubcodeService,
     private messageService: MessageService,
     private itemTypeService: ItemTypeService,
     private route: ActivatedRoute,
@@ -66,7 +66,7 @@ export class RoutingSbcComponent extends BaseComponent implements OnInit {
       outputSeparator: value?.outputSeparator
     }
     this.showSpinner();
-    await this.routingService.saveRoutingItemSubCode(request,()=> this.hideSpinner());
+    await this.routingSubcodeService.saveRoutingItemSubCode(request,()=> this.hideSpinner());
     this.routingSbcDataDialog = false;
     this.routingSbcForm.reset();
     await this.getRoutingItemSubCodeList();
@@ -76,7 +76,7 @@ export class RoutingSbcComponent extends BaseComponent implements OnInit {
   async edit(){
     this.routingSbcForm.reset();
     var code = this.selectedItem?.code;
-    var result = await this.routingService.getRoutingItemSubCodeByCode(code,()=> this.hideSpinner());
+    var result = await this.routingSubcodeService.getRoutingItemSubCodeByCode(code,()=> this.hideSpinner());
     this.routingSbcForm.patchValue({
       id: result?.id,
       code: result?.code,
@@ -98,7 +98,7 @@ export class RoutingSbcComponent extends BaseComponent implements OnInit {
       message: 'The Routing Subode is being remove. Are you sure?',
       accept: async () => {
         this.showSpinner();
-        await this.routingService.deleteRoutingItemSubCodeByCode(code,()=> this.hideSpinner());
+        await this.routingSubcodeService.deleteRoutingItemSubCodeByCode(code,()=> this.hideSpinner());
         this.messageService.add({severity:'success', summary:'Transaction Result', detail:'Routing Subode has been removed successfully.'});
         if(this.routingSbcDataDialog)
           this.routingSbcDataDialog = false;
