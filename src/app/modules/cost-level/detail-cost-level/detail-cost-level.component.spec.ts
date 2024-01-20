@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DataCostLevelComponent } from './data-cost-level.component';
+import { DetailCostLevelComponent } from './detail-cost-level.component';
 
-describe('DataCostLevelComponent', () => {
-  let component: DataCostLevelComponent;
-  let fixture: ComponentFixture<DataCostLevelComponent>;
+describe('DetailCostLevelComponent', () => {
+  let component: DetailCostLevelComponent;
+  let fixture: ComponentFixture<DetailCostLevelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DataCostLevelComponent]
+      imports: [DetailCostLevelComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(DataCostLevelComponent);
+    fixture = TestBed.createComponent(DetailCostLevelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

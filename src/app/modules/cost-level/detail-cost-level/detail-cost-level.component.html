@@ -1,0 +1,81 @@
+
+<section class="flex flex-column bg-black-alpha-90">
+    <nav class="bg-black-alpha-90 px-4 flex justify-content-between relative xl:static" style="min-height:70px">
+        <div></div>
+        <!-- <img src="assets/images/blocks/logos/hyper-300.svg" alt="Image" height="40" class="mr-0 xl:mr-6 align-self-center"> -->
+        <a pRipple class="cursor-pointer block xl:hidden align-self-center text-700" pStyleClass="@next"
+            enterClass="hidden" leaveToClass="hidden" [hideOnOutsideClick]="true">
+            <i class="pi pi-bars text-4xl text-300"></i>
+        </a>
+        <div class="bg-black-alpha-90 flex-grow-1 justify-content-between hidden xl:flex absolute xl:static w-full left-0 top-100 z-1 shadow-2 xl:shadow-none surface-900">
+            <ul class="list-none p-0 m-0 flex select-none flex-column xl:flex-row xl:gap-2">
+                <li class="xl:flex xl:align-items-end">
+                    <a pRipple class="xl:border-round-top flex align-items-center h-3rem px-3 font-medium cursor-pointer transition-colors transition-duration-150"
+                        [ngClass]="{'surface-50 text-900': activeTab === 0, 'surface-700 text-50': activeTab !== 0}" (click)="activeTab = 0">
+                        <i class="pi pi-bolt mr-2" [ngClass]="{'text-800': activeTab === 0}"></i>
+                        <span>Cost Level</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="flex flex-column flex-auto bg-black-alpha-90">
+        <div class="surface-section px-4 py-4 lg:py-5 lg:px-6 h-full border-round-top-3xl">
+            <div class="flex flex-column md:flex-row w-full justify-content-between md:align-items-center">
+                <div>
+                    <h2 class="mt-0 mb-2 text-900 font-medium text-2xl">Cost Level</h2>
+                    <p class="mt-0 mb-2 text-500">{{descriptionText}}</p>
+                    <button (click)="goBack()" pButton pRipple type="button" icon="pi pi-arrow-left" label="Go Back" class="p-button-text"></button>
+                    <!-- <p class="mt-0 mb-0 text-500">You can review the details of your measurement units.</p> -->
+                </div>
+            </div>
+            <p-divider styleClass="my-3"></p-divider>
+            
+            <div class="p-fluid flex flex-column lg:flex-row">
+                @if (activeTab==0) {
+                    <ul class="list-none m-0 p-0 flex flex-row lg:flex-column justify-content-between lg:justify-content-start mb-5 lg:mb-0">
+                        <li>
+                            <a pRipple class="lg:w-15rem flex align-items-center cursor-pointer p-3 border-round hover:surface-200 transition-duration-150 transition-colors" [ngClass]="{'surface-200': activeMenu === 0}" (click)="activeMenu = 0">
+                                <i class="pi pi-user md:mr-2" [ngClass]="{'text-700' : activeMenu === 0, 'text-600': activeMenu !== 0}"></i>
+                                <span class="font-medium hidden md:block" [ngClass]="{'text-800': activeMenu === 0, 'text-700': activeMenu !== 0}">Basic</span>
+                            </a>
+                        </li>
+                    </ul>
+                }
+                <div class="surface-card p-5 shadow-2 border-round flex-auto xl:ml-5">
+                    <p-divider></p-divider>
+                    <form [formGroup]="costLevelForm">
+                        @if (activeMenu==0) {
+                            <div class="field flex flex-wrap align-items-center">
+                              <label for="shortText" style="min-width:100px;" class="w-3">Short</label>
+                              <div class="w-9">
+                                <input id="shortText" type="text" pInputText formControlName="shortText"/> 
+                              </div>
+                          </div>
+                          <div class="field flex flex-wrap align-items-center">
+                            <label for="longText" style="min-width:100px;" class="w-3">Long</label>
+                            <div class="w-9">
+                              <input id="longText" type="text" pInputText formControlName="longText"/> 
+                            </div>
+                        </div>
+                        <div class="field flex flex-wrap align-items-center">
+                          <label for="searchText" style="min-width:100px;" class="w-3">Search</label>
+                          <div class="w-9">
+                            <input id="searchText" type="text" pInputText formControlName="searchText"/> 
+                          </div>
+                      </div>
+                        
+                
+                        <div>
+                            <button pButton pRipple label="Save Changes" class="w-auto mt-3" (click)="save(costLevelForm.value)"></button>
+                        </div>
+                    }
+                      </form>
+                </div>
+            </div>
+         </div>
+    </div>
+</section>
+
+
+<p-confirmDialog key="save-uom" [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
