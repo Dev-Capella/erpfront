@@ -28,6 +28,7 @@ export class DetailUomComponent  extends BaseComponent implements OnInit {
     {code: 'MEASUREMENT', name: 'Measurement'}
   ]
   code: string;
+  descriptionText: string = "";
   constructor(spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
     private unitOfMeasureService:UnitOfMeasureService,
@@ -58,6 +59,7 @@ export class DetailUomComponent  extends BaseComponent implements OnInit {
     this.showSpinner();
     var result = await this.unitOfMeasureService.getUnitOfMeasureByCode(this.code, ()=> this.hideSpinner());
     this.uomForm.setValue(result);
+    this.descriptionText = `Short: ${result.shortText ? result.shortText : "-"}, Long: ${result.longText ? result.longText : "-"}, Search: ${result.searchText ? result.searchText : "-"}`
   }
 
   save(value){

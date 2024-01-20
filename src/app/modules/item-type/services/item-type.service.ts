@@ -8,21 +8,6 @@ const ROOT_PATH = environment.requestRoot;
     providedIn: 'root'
 })
 export class ItemTypeService {
-    keepLeft:BehaviorSubject<boolean> = new BehaviorSubject(true);
-    keepLeft$ = this.keepLeft.asObservable();
-    keepRight:BehaviorSubject<boolean> = new BehaviorSubject(false);
-    keepRight$ = this.keepRight.asObservable();
-    isRefreshList:BehaviorSubject<boolean> = new BehaviorSubject(false);
-    selectedData:BehaviorSubject<any> = new BehaviorSubject(null);
-    selectedData$ = this.selectedData.asObservable();
-    visibleQualityTemplate:BehaviorSubject<boolean> = new BehaviorSubject(false);
-    visibleQualityTemplate$ = this.visibleQualityTemplate.asObservable();
-    visibleSubcodeTemplate:BehaviorSubject<boolean> = new BehaviorSubject(false);
-    visibleSubcodeTemplate$ = this.visibleSubcodeTemplate.asObservable();
-    visibleBoMTemplate:BehaviorSubject<boolean> = new BehaviorSubject(false);
-    visibleBoMTemplate$ = this.visibleBoMTemplate.asObservable();
-    visibleRoutingTemplate:BehaviorSubject<boolean> = new BehaviorSubject(false);
-    visibleRoutingTemplate$ = this.visibleRoutingTemplate.asObservable();
     constructor(private http: HttpClient) { }
 
     async getItemTypes(callBackFunction?: () => void){
