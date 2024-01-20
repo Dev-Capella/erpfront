@@ -14,6 +14,7 @@ import { BaseComponent } from '../../../../core/components/base/base.component';
 export class DetailUomComponent  extends BaseComponent implements OnInit {
   uomForm: FormGroup;
   activeTab: number = 0;
+  activeMenu: number = 0;
   unitOfMeasureTypes: any[] = [
     {code: 'NUMBER', name: 'Number'},
     {code: 'WEIGHT', name: 'Weight'},
