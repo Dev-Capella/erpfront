@@ -14,29 +14,8 @@ import { Router } from '@angular/router';
   styleUrl: './main-item-type.component.scss'
 })
 export class MainItemTypeComponent extends BaseComponent implements OnInit {
-  activeItem: any;
-  items: MenuItem[] = [{
-    label: 'Options',
-    items: [{
-      label: 'Update',
-      icon: 'pi pi-refresh',
-      command: () => {
-        this.detail(this.activeItem);
-      }
-    },
-    {
-      label: 'Delete',
-      icon: 'pi pi-times',
-      command: async () => {
-        await this.delete(this.activeItem);
-      }
-    }
-    ]
-  }
-  ];
-
-
   itemTypeList: any[] = []
+  selectedItem: any;
   constructor(spinner: NgxSpinnerService,
     private itemTypeService: ItemTypeService,
     private messageService: MessageService,
@@ -54,19 +33,21 @@ export class MainItemTypeComponent extends BaseComponent implements OnInit {
     this.itemTypeList = await this.itemTypeService.getItemTypes(() => this.hideSpinner());
   }
 
-  async detail(activeItem) {
-    this.router.navigate(['/item-type-list/',activeItem.code])
+  async edit() {
+    var code = this.selectedItem?.code;
+    this.router.navigate(['/item-type-list/',code])
   }
 
-  async delete(activeItem) {
+  async delete() {
+    var code = this.selectedItem?.code;
     this.confirmationService.confirm({
-      key: 'delete-uom',
+      key: 'delete-item-type',
       header: 'Transaction Confirmation',
-      message: 'The unit of measurement is being remove. Are you sure?',
+      message: 'The item type is being remove. Are you sure?',
       accept: async () => {
         this.showSpinner();
-        await this.itemTypeService.deleteItemTypeByCode(activeItem.code,()=> this.hideSpinner());
-        this.messageService.add({severity:'success', summary:'Transaction Result', detail:'Unit of measure has been removed successfully.'});
+        await this.itemTypeService.deleteItemTypeByCode(code,()=> this.hideSpinner());
+        this.messageService.add({severity:'success', summary:'Transaction Result', detail:'Item type has been removed successfully.'});
         await this.getItemTypes();
       }
   });
@@ -75,9 +56,5 @@ export class MainItemTypeComponent extends BaseComponent implements OnInit {
 
   new() {
     this.router.navigate(['/item-type-list/new'])
-  }
-
-  handleMenu(item){
-    this.activeItem = item;
   }
 }
