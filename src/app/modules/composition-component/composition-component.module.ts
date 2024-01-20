@@ -8,21 +8,28 @@ import { ResizableModule } from 'angular-resizable-element';
 import { ButtonModule } from 'primeng/button';
 import { TabViewModule } from 'primeng/tabview';
 import { MenubarModule } from 'primeng/menubar';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { MainCompositionComponentComponent } from './main-composition-component/main-composition-component.component';
-import { CompositionComponentListComponent } from './composition-component-list/composition-component-list.component';
-import { DataCompositionComponentComponent } from './data-composition-component/data-composition-component.component';
+import { NewCompositionComponentComponent } from './new-composition-component/new-composition-component.component';
+import { DetailCompositionComponentComponent } from './detail-composition-component/detail-composition-component.component';
+import { CommonModule } from '@angular/common';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { DividerModule } from 'primeng/divider';
+import { StyleClassModule } from 'primeng/styleclass';
 
 
 
 @NgModule({
-  declarations: [MainCompositionComponentComponent,CompositionComponentListComponent,DataCompositionComponentComponent],
+  declarations: [MainCompositionComponentComponent,NewCompositionComponentComponent,DetailCompositionComponentComponent],
   imports: [
     RouterModule.forChild([
-      { path: '', component: MainCompositionComponentComponent }
+      { path: '', component: MainCompositionComponentComponent },
+      {path:'new',component: NewCompositionComponentComponent},
+      {path:':code',component: DetailCompositionComponentComponent}
     ]),
+    CommonModule,
     TableModule,
     PanelModule,
     SplitterModule,
@@ -33,7 +40,11 @@ import { DataCompositionComponentComponent } from './data-composition-component/
     MenubarModule,
     ReactiveFormsModule,
     InputTextModule,
-    DropdownModule
+    DropdownModule,
+    StyleClassModule,
+    FormsModule,
+    DividerModule,
+    ConfirmDialogModule
   ]
 })
 export class CompositionComponentModule { }
