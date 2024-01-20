@@ -11,8 +11,6 @@ import { SplitterModule } from 'primeng/splitter';
 import { PanelModule } from 'primeng/panel';
 import { TableModule } from 'primeng/table';
 import { MainCostCategoryComponent } from './main-cost-category/main-cost-category.component';
-import { DataCostCategoryComponent } from './data-cost-category/data-cost-category.component';
-import { CostCategoryListComponent } from './cost-category-list/cost-category-list.component';
 import { RouterModule } from '@angular/router';
 import { NewCostCategoryComponent } from './new-cost-category/new-cost-category.component';
 import { DetailCostCategoryComponent } from './detail-cost-category/detail-cost-category.component';
@@ -24,7 +22,7 @@ import { StyleClassModule } from 'primeng/styleclass';
 
 
 @NgModule({
-  declarations: [MainCostCategoryComponent,NewCostCategoryComponent,DetailCostCategoryComponent, DataCostCategoryComponent, CostCategoryListComponent],
+  declarations: [MainCostCategoryComponent,NewCostCategoryComponent,DetailCostCategoryComponent],
   imports: [
     RouterModule.forChild([
       { path: '', component: MainCostCategoryComponent },

@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../../../../environments/environment';
-import { BehaviorSubject } from 'rxjs';
 const ROOT_PATH = environment.requestRoot;
 
 @Injectable({
