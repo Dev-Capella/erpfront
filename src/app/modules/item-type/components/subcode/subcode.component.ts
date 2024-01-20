@@ -3,7 +3,7 @@ import { BaseComponent } from '../../../../core/components/base/base.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ItemSubCodeService } from '../../../subcode/services/item-sub-code.service';
 import { ItemTypeService } from '../../services/item-type.service';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
@@ -28,12 +28,14 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
     {code: 'NUMERIC', name: 'Numeric'},
     {code: 'ANYTHING', name: 'Anything'},
   ]
+  selectedItem: any;
   constructor(spinner: NgxSpinnerService,
     private itemSubCodeService: ItemSubCodeService,
     private itemTypeService: ItemTypeService,
     private messageService: MessageService,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private confirmationService: ConfirmationService) {
     super(spinner);
     this.code = this.route.snapshot.params['code']
   }
@@ -92,12 +94,42 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
     this.messageService.add({severity:'success', summary:'Transaction Result', detail:'Subcode has been saved successfully.'});
   }
 
+  async edit(){
+    this.subCodeForm.reset();
+    var code = this.selectedItem?.code;
+    var result = await this.itemSubCodeService.getItemSubCodeByCode(code,()=> this.hideSpinner());
+    this.subCodeForm.patchValue({
+      id: result?.id,
+      code: result?.code,
+      shortText: result?.shortText,
+      longText: result?.longText,
+      searchText:result?.searchText,
+      position: result?.position,
+      length: result?.length,
+      mandatory: result?.mandatory,
+      outputSeparator: result?.outputSeparator,
+      wareHouseManagement: result?.wareHouseManagement,
+      excludedCostManagement: result?.excludedCostManagement,
+      type: result?.type,
+      itemSubCodeDataType: result?.itemSubCodeDataType,
+    })
+    this.subCodeDataDialog = true;
+  }
+
   async delete(){
-    // this.showSpinner();
-    // await this.itemSubCodeService.deleteItemSubCodeByCode(this.selectedData.code, ()=> this.hideSpinner());
-    // this.subCodeDataDialog = false;
-    // this.subCodeForm.reset();
-    // await this.getItemSubCodeList();
-    // this.messageService.add({severity:'success', summary:'Transaction Result', detail:'Subcode has been removed successfully.'});
+    var code = this.selectedItem?.code;
+    this.confirmationService.confirm({
+      key: 'delete-subcode',
+      header: 'Transaction Confirmation',
+      message: 'The subcode is being remove. Are you sure?',
+      accept: async () => {
+        this.showSpinner();
+        await this.itemSubCodeService.deleteItemSubCodeByCode(code,()=> this.hideSpinner());
+        this.messageService.add({severity:'success', summary:'Transaction Result', detail:'Subcode has been removed successfully.'});
+        if(this.subCodeDataDialog)
+          this.subCodeDataDialog = false;
+        await this.getItemSubCodeList();
+      }
+  });
   }
 }

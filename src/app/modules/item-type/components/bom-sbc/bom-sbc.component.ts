@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { ItemTypeService } from '../../services/item-type.service';
 import { ActivatedRoute } from '@angular/router';
 import { BoMService } from '../../../bom/services/bom.service';
@@ -17,12 +17,14 @@ export class BomSbcComponent extends BaseComponent implements OnInit {
   code: string;
   bomSbcDataDialog: boolean = false;
   bomSbcForm: FormGroup;
+  selectedItem: any;
   constructor(spinner: NgxSpinnerService,
     private boMService: BoMService,
     private messageService: MessageService,
     private itemTypeService: ItemTypeService,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private confirmationService: ConfirmationService) {
     super(spinner);
     this.code = this.route.snapshot.params['code']
   }
@@ -47,6 +49,7 @@ export class BomSbcComponent extends BaseComponent implements OnInit {
   }
 
   new(){
+    this.bomSbcForm.reset();
     this.bomSbcDataDialog = true;
   }
 
@@ -70,12 +73,37 @@ export class BomSbcComponent extends BaseComponent implements OnInit {
     this.messageService.add({severity:'success', summary:'Transaction Result', detail:'BoM Sbc has been saved successfully.'});
   }
 
+  async edit(){
+    this.bomSbcForm.reset();
+    var code = this.selectedItem?.code;
+    var result = await this.boMService.getBoMByCode(code,()=> this.hideSpinner());
+    this.bomSbcForm.patchValue({
+      id: result?.id,
+      code: result?.code,
+      shortText: result?.shortText,
+      longText: result?.longText,
+      searchText:result?.searchText,
+      position: result?.position,
+      length: result?.length,
+      outputSeparator: result?.outputSeparator
+    })
+    this.bomSbcDataDialog = true;
+  }
+
   async delete(){
-    // this.showSpinner();
-    // await this.boMService.deleteBoMByCode(this.selectedData.code, ()=> this.hideSpinner());
-    // this.bomSbcDataDialog = false;
-    // this.bomSbcForm.reset();
-    // await this.getBoMSbcList();
-    // this.messageService.add({severity:'success', summary:'Transaction Result', detail:'BoM Sbc has been removed successfully.'});
+    var code = this.selectedItem?.code;
+    this.confirmationService.confirm({
+      key: 'delete-bom-sbc',
+      header: 'Transaction Confirmation',
+      message: 'The BoM Subode is being remove. Are you sure?',
+      accept: async () => {
+        this.showSpinner();
+        await this.boMService.deleteBoMByCode(code,()=> this.hideSpinner());
+        this.messageService.add({severity:'success', summary:'Transaction Result', detail:'BoM Subode has been removed successfully.'});
+        if(this.bomSbcDataDialog)
+          this.bomSbcDataDialog = false;
+        await this.getBoMSbcList();
+      }
+  });
   }
 }

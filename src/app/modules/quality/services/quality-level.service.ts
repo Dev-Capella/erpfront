@@ -33,7 +33,7 @@ export class QualityLevelService {
     }
 
     async deleteQualityLevelByCode(code:string,callBackFunction?: () => void){
-        const observable = this.http.get<any>(ROOT_PATH + `/quality-level/${code}`)
+        const observable = this.http.delete<any>(ROOT_PATH + `/quality-level/${code}`)
         const response = await firstValueFrom(observable);
         callBackFunction();
         return response.data;

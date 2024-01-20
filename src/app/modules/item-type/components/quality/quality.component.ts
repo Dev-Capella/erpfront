@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { QualityLevelService } from '../../../quality/services/quality-level.service';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
 import { ItemTypeService } from '../../services/item-type.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
@@ -17,12 +17,14 @@ export class QualityComponent extends BaseComponent implements OnInit {
   code: string;
   qualityDataDialog: boolean = false;
   qualityForm: FormGroup;
+  selectedItem: any;
   constructor(spinner: NgxSpinnerService,
     private qualityLevelService: QualityLevelService,
     private messageService: MessageService,
     private itemTypeService: ItemTypeService,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private confirmationService: ConfirmationService) {
     super(spinner);
     this.code = this.route.snapshot.params['code']
   }
@@ -45,6 +47,7 @@ export class QualityComponent extends BaseComponent implements OnInit {
   }
 
   new(){
+    this.qualityForm.reset();
     this.qualityDataDialog = true;
   }
 
@@ -66,12 +69,35 @@ export class QualityComponent extends BaseComponent implements OnInit {
     this.messageService.add({severity:'success', summary:'Transaction Result', detail:'Quality level has been saved successfully.'});
   }
 
+  async edit(){
+    this.qualityForm.reset();
+    var code = this.selectedItem?.code;
+    var result = await this.qualityLevelService.getQualityLevelByCode(code,()=> this.hideSpinner());
+    this.qualityForm.patchValue({
+      id: result?.id,
+      code: result?.code,
+      shortText: result?.shortText,
+      longText: result?.longText,
+      searchText:result?.searchText,
+      level: result?.level,
+    })
+    this.qualityDataDialog = true;
+  }
+
   async delete(){
-    // this.showSpinner();
-    // await this.qualityLevelService.deleteQualityLevelByCode(this.selectedData.code, ()=> this.hideSpinner());
-    // this.qualityDataDialog = false;
-    // this.qualityForm.reset();
-    // await this.getQualityLevelList();
-    // this.messageService.add({severity:'success', summary:'Transaction Result', detail:'Quality level has been removed successfully.'});
+    var code = this.selectedItem?.code;
+    this.confirmationService.confirm({
+      key: 'delete-quality-level',
+      header: 'Transaction Confirmation',
+      message: 'The quality level is being remove. Are you sure?',
+      accept: async () => {
+        this.showSpinner();
+        await this.qualityLevelService.deleteQualityLevelByCode(code,()=> this.hideSpinner());
+        this.messageService.add({severity:'success', summary:'Transaction Result', detail:'Quality level has been removed successfully.'});
+        if(this.qualityDataDialog)
+          this.qualityDataDialog = false;
+        await this.getQualityLevelList();
+      }
+  });
   }
 }

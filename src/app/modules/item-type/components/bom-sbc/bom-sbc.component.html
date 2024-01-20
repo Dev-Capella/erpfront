@@ -1,11 +1,15 @@
 <section class="border-bottom-1 surface-border">
-    <div class="flex justify-content-between w-full align-items-center">
+    <div class="flex flex-wrap justify-content-between w-full align-items-center">
         <h3 class="mb-4 mt-0 text-900 font-medium text-xl">BoM Sbc List</h3>
-        <button pButton pRipple label="Add a BoM Sbc" class="w-auto" (click)="new()"></button>
+        <div class="flex gap-1">
+            <button icon="pi pi-plus" pButton pRipple label="Add" class="w-auto" (click)="new()"></button>
+            <button [disabled]="!selectedItem" icon="pi pi-eye" pButton pRipple label="Edit" class="w-auto" (click)="edit()"></button>
+            <button [disabled]="!selectedItem" icon="pi pi-trash" pButton pRipple label="Delete" class="w-auto" (click)="delete()"></button>
+        </div>
     </div>
     <div class="overflow-x-scroll">
         <p-table [value]="bomSbcList" [resizableColumns]="true" selectionMode="single" [autoLayout]="true"
-            dataKey="code" styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm">
+            dataKey="code" [(selection)]="selectedItem" styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm">
             <ng-template pTemplate="header" styleClass="w-full">
                 <tr>
                     <th pResizableColumn>Short description</th>
@@ -82,3 +86,5 @@
         <p-button (click)="onSubmit(bomSbcForm.value)" label="Save" icon="pi pi-save" styleClass="p-button-text"></p-button>
     </ng-template>
 </p-dialog>
+
+<p-confirmDialog key="delete-bom-sbc" [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
