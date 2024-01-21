@@ -12,8 +12,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { MainUserGenericGroupComponent } from './components/main-user-generic-group/main-user-generic-group.component';
-import { DataUserGenericGroupComponent } from './components/data-user-generic-group/data-user-generic-group.component';
-import { UserGenericGroupListComponent } from './components/user-generic-group-list/user-generic-group-list.component';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CommonModule } from '@angular/common';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -46,7 +44,7 @@ import { DetailUserGenericGroupComponent } from './components/detail-user-generi
         ConfirmDialogModule,
         InputNumberModule
     ],
-    declarations: [MainUserGenericGroupComponent, DataUserGenericGroupComponent, UserGenericGroupListComponent, NewUserGenericGroupComponent, DetailUserGenericGroupComponent],
+    declarations: [MainUserGenericGroupComponent, NewUserGenericGroupComponent, DetailUserGenericGroupComponent],
     providers: [],
 
 })
