@@ -61,6 +61,12 @@ export const routes: Routes = [
                     (m) => m.MediaManagerModule
                 )
             },
+            {
+                path: 'production-group-list',
+                loadChildren: () => import('../app/modules/production-group/production-group.module').then(
+                    (m) => m.ProductionGroupModule
+                )
+            },
         ]
     }
 ];
