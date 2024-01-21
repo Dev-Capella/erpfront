@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, firstValueFrom } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 const ROOT_PATH = environment.requestRoot;
 
@@ -8,14 +8,6 @@ const ROOT_PATH = environment.requestRoot;
     providedIn: 'root'
 })
 export class CompositionDetailService {
-    keepLeft:BehaviorSubject<boolean> = new BehaviorSubject(true);
-    keepLeft$ = this.keepLeft.asObservable();
-    keepRight:BehaviorSubject<boolean> = new BehaviorSubject(false);
-    keepRight$ = this.keepRight.asObservable();
-    isRefreshList:BehaviorSubject<boolean> = new BehaviorSubject(false);
-    isRefreshList$= this.isRefreshList.asObservable();
-    selectedData:BehaviorSubject<any> = new BehaviorSubject(null);
-    selectedData$ = this.selectedData.asObservable();
     constructor(private http: HttpClient) { }
 
     async saveCompositionDetail(compositionDetailData, callBackFunction?: () => void){

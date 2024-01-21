@@ -15,15 +15,23 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { CheckboxModule } from 'primeng/checkbox';
 import {SidebarModule} from 'primeng/sidebar';
 import { MainCompositionComponent } from './main-composition/main-composition.component';
-import { DataCompositionComponent } from './data-composition/data-composition.component';
-import { CompositionListComponent } from './composition-list/composition-list.component';
-import { CompositionDetailModule } from '../composition-detail/composition-detail.module';
+import { NewCompositionComponent } from './new-composition/new-composition.component';
+import { DetailCompositionComponent } from './detail-composition/detail-composition.component';
+import { CommonModule } from '@angular/common';
+import { StyleClassModule } from 'primeng/styleclass';
+import { DividerModule } from 'primeng/divider';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { CompositionDetailsComponent } from './composition-details/composition-details.component';
+import { DialogModule } from 'primeng/dialog';
 @NgModule({
-  declarations: [MainCompositionComponent,DataCompositionComponent,CompositionListComponent],
+  declarations: [MainCompositionComponent, NewCompositionComponent,DetailCompositionComponent, CompositionDetailsComponent],
   imports: [
     RouterModule.forChild([
-      { path: '', component: MainCompositionComponent }
+      { path: '', component: MainCompositionComponent },
+      {path:'new',component: NewCompositionComponent},
+      {path:':code',component: DetailCompositionComponent}
     ]),
+    CommonModule,
     TableModule,
     PanelModule,
     SplitterModule,
@@ -35,11 +43,13 @@ import { CompositionDetailModule } from '../composition-detail/composition-detai
     ReactiveFormsModule,
     InputTextModule,
     DropdownModule,
-    InputNumberModule,
-    CheckboxModule,
+    StyleClassModule,
     FormsModule,
-    SidebarModule,
-    CompositionDetailModule
+    DividerModule,
+    ConfirmDialogModule,
+    CheckboxModule,
+    DialogModule,
+    InputNumberModule
   ]
 })
 export class CompositionModule { }

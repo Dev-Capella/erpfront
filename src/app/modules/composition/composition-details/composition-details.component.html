@@ -1,0 +1,114 @@
+<section class="border-bottom-1 surface-border">
+    <div class="flex flex-wrap justify-content-between w-full align-items-center">
+        <h3 class="mb-4 mt-0 text-900 font-medium text-xl">Composition Detail List</h3>
+        <div class="flex gap-1">
+            <button icon="pi pi-plus" pButton pRipple label="Add" class="w-auto" (click)="new()"></button>
+            <button [disabled]="!selectedItem" icon="pi pi-eye" pButton pRipple label="Edit" class="w-auto" (click)="edit()"></button>
+            <button [disabled]="!selectedItem" icon="pi pi-trash" pButton pRipple label="Delete" class="w-auto" (click)="delete()"></button>
+        </div>
+        
+    </div>
+    <div class="overflow-x-scroll">
+        <p-table [value]="compositionDetailList" [resizableColumns]="true" selectionMode="single" [autoLayout]="true"
+            dataKey="code" [(selection)]="selectedItem" styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm">
+            <ng-template pTemplate="header" styleClass="w-full">
+                <tr>
+                    <th pResizableColumn>Short description</th>
+            <th pResizableColumn>Long description</th>
+            <th pResizableColumn>Search description</th>
+            <th pResizableColumn>Sequence Number</th>
+            <th pResizableColumn>Component Percentage</th>
+            <th pResizableColumn>Use</th>
+            <th pResizableColumn>Sub-Composition</th>
+            <th pResizableColumn>Component</th>
+
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item>
+                <tr class="cursor-pointer" [pSelectableRow]="item">
+                    <td>{{item.shortText}}</td>
+                    <td>{{item.longText}}</td>
+                    <td>{{item.searchText}}</td>
+                    <td>{{item.sequenceNumber}}</td>
+                    <td>{{item.percentage}}</td>
+                    <td>{{item.useType}}</td>
+                    <td>{{item.subComposition}}</td>
+                    <td>{{item.compositionComponent?.shortText}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</section>
+
+<p-dialog header="Composition Detail" [modal]="true" [(visible)]="compositionDetailDataDialog" [breakpoints]="{'960px': '75vw'}"
+    [style]="{width: '50vw'}" [draggable]="false" [resizable]="false">
+    <ng-template pTemplate="content">
+        <form [formGroup]="compositionDetailForm">
+                <div class="field flex flex-wrap align-items-center">
+                  <label for="shortText" style="min-width:100px;" class="w-3">Short</label>
+                  <div class="w-9">
+                    <input id="shortText" type="text" pInputText formControlName="shortText"/> 
+                  </div>
+              </div>
+              <div class="field flex flex-wrap align-items-center">
+                <label for="longText" style="min-width:100px;" class="w-3">Long</label>
+                <div class="w-9">
+                  <input id="longText" type="text" pInputText formControlName="longText"/> 
+                </div>
+            </div>
+            <div class="field flex flex-wrap align-items-center">
+              <label for="searchText" style="min-width:100px;" class="w-3">Search</label>
+              <div class="w-9">
+                <input id="searchText" type="text" pInputText formControlName="searchText"/> 
+              </div>
+          </div>
+            
+  
+        
+            <div class="field flex flex-wrap align-items-center">
+                <label for="sequenceNumber" style="min-width:100px;" class="w-3">Sequence Number</label>
+                <div class="w-9">
+                    <p-inputNumber inputId="sequenceNumber" formControlName="sequenceNumber">
+                    </p-inputNumber>
+                </div>
+            </div>
+
+
+            <div class="field flex flex-wrap align-items-center">
+                <label for="subComposition" style="min-width:100px;" class="w-3">Sub-Composition</label>
+                <div class="w-9">
+                  <p-dropdown appendTo="body" styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="subComposition" [autoDisplayFirst]="false" [options]="subCompositionTypes" formControlName="subComposition" optionLabel="name"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="field flex flex-wrap align-items-center">
+                <label for="useType" style="min-width:100px;" class="w-3">Use</label>
+                <div class="w-9">
+                  <p-dropdown appendTo="body" styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="useType" [autoDisplayFirst]="false" [options]="useTypes" formControlName="useType" optionLabel="name"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="field flex flex-wrap align-items-center">
+                <label for="compositionComponent" style="min-width:100px;" class="w-3">Component</label>
+                <div class="w-9">
+                  <p-dropdown appendTo="body" styleClass="w-full md:w-3" placeholder="Seçim Yapınız" inputId="compositionComponent" [autoDisplayFirst]="false" [options]="compositionComponentList" formControlName="compositionComponent" optionLabel="shortText"></p-dropdown>
+                </div>
+            </div>
+
+            <div class="field flex flex-wrap align-items-center">
+                <label for="percentage" style="min-width:100px;" class="w-3">Component percentage</label>
+                <div class="w-9">
+                    <p-inputNumber inputId="percentage" formControlName="percentage">
+                    </p-inputNumber>
+                </div>
+            </div>
+            </form>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <p-button (click)="delete()" label="Delete" icon="pi pi-trash" styleClass="p-button-danger p-button-text"></p-button>
+        <p-button (click)="compositionDetailDataDialog=false" label="Cancel" icon="pi pi-times" styleClass="p-button-text"></p-button>
+        <p-button (click)="onSubmit(compositionDetailForm.value)" label="Save" icon="pi pi-save" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-dialog>
+
+<p-confirmDialog key="delete-composition-detail" [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
