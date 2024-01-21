@@ -2,21 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../../../../environments/environment';
-import { BehaviorSubject } from 'rxjs';
 const ROOT_PATH = environment.requestRoot;
 
 @Injectable({
     providedIn: 'root'
 })
 export class ManufacturerService {
-    keepLeft:BehaviorSubject<boolean> = new BehaviorSubject(true);
-    keepLeft$ = this.keepLeft.asObservable();
-    keepRight:BehaviorSubject<boolean> = new BehaviorSubject(false);
-    keepRight$ = this.keepRight.asObservable();
-    isRefreshList:BehaviorSubject<boolean> = new BehaviorSubject(false);
-    selectedData:BehaviorSubject<any> = new BehaviorSubject(null);
-    selectedData$ = this.selectedData.asObservable();
-
     constructor(private http: HttpClient) { }
 
     async getManufacturers(callBackFunction?: () => void){
