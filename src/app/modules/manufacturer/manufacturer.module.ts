@@ -24,6 +24,7 @@ import { StyleClassModule } from 'primeng/styleclass';
 import { NewManufacturerComponent } from './components/new-manufacturer/new-manufacturer.component';
 import { DetailManufacturerComponent } from './components/detail-manufacturer/detail-manufacturer.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import {DialogService} from 'primeng/dynamicdialog';
 
 @NgModule({
   declarations: [MainManufacturerComponent,DataManufacturerComponent,ManufacturerListComponent, NewManufacturerComponent, DetailManufacturerComponent],
@@ -50,6 +51,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     DividerModule,
     ConfirmDialogModule,
     FileUploadModule
-  ]
+  ],
+  providers: [DialogService]
 })
 export class ManufacturerModule { }

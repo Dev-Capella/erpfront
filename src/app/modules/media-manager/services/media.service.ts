@@ -12,7 +12,7 @@ const ROOT_PATH = environment.requestRoot;
 export class MediaService {
     constructor(private http: HttpClient) { }
 
-    async getMediasByMediaCategory(mediaCategory: MediaCategory,callBackFunction?: () => void){
+    async getMediasByMediaCategory(mediaCategory: string,callBackFunction?: () => void){
         const observable = this.http.get<any>(ROOT_PATH + `/media/${mediaCategory}`)
         const response = await firstValueFrom(observable);
         callBackFunction();

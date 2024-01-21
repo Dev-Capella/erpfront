@@ -80,10 +80,10 @@
                       </div>
                       <div class="flex flex-column align-items-center flex-or">
                         <span class="font-normal text-900 mb-2">Media</span>
-                        <img src="assets/images/no-image.png" class="h-10rem w-10rem"/>
+                        <img [src]="imageUrl" class="h-10rem w-10rem"/>
                         <div class="flex flex-column gap-1">
-                            <button icon="pi pi-pencil" pButton type="button" label="Choose" class="p-button-rounded"></button>
-                            <p-fileUpload #fileUpload mode="basic" name="demo[]" chooseLabel="Upload" styleClass="p-button-rounded" accept="image/*" [maxFileSize]="1000000" (onSelect)="onSelect($event)"></p-fileUpload>
+                            <button icon="pi pi-pencil" pButton type="button" label="Choose" class="p-button-rounded" (click)="choose()"></button>
+                            <p-fileUpload #fileUpload mode="basic" name="demo[]" chooseLabel="Upload" styleClass="p-button-rounded" accept="image/*" [maxFileSize]="5000000000" (onSelect)="onSelect($event)"></p-fileUpload>
                         </div>
                         
                     </div>

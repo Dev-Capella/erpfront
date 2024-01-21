@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 import { MediaService } from '../../../media-manager/services/media.service';
 import { MediaCategory } from '../../../../shared/enums/media-category.enum';
 import { FileUpload } from 'primeng/fileupload';
+import { DialogService } from 'primeng/dynamicdialog';
+import { GenericMediaListComponent } from '../../../../shared/components/generic-media-list/generic-media-list.component';
 
 @Component({
   selector: 'app-new-manufacturer',
@@ -15,19 +17,21 @@ import { FileUpload } from 'primeng/fileupload';
   styleUrl: './new-manufacturer.component.scss'
 })
 export class NewManufacturerComponent extends BaseComponent implements OnInit {
+  imageUrl: string = "assets/images/no-image.png"
   manufacturerForm: FormGroup;
   activeTab: number = 0;
   activeMenu: number = 0;
   @ViewChild('fileUpload') fileUpload: FileUpload;
   constructor(spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
-    private manufacturerService:ManufacturerService,
+    private manufacturerService: ManufacturerService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
     private mediaService: MediaService,
-    private router: Router) {
+    private router: Router,
+    public dialogService: DialogService) {
     super(spinner);
-    
+
   }
   ngOnInit(): void {
     this.manufacturerForm = this.formBuilder.group({
@@ -37,15 +41,16 @@ export class NewManufacturerComponent extends BaseComponent implements OnInit {
       longText: new FormControl(null),
       searchText: new FormControl(null),
       name: new FormControl(null),
+      media: new FormControl(null),
     });
   }
 
-  get formControls(){
+  get formControls() {
     return this.manufacturerForm.controls;
   }
 
-  save(value){
-    if(this.manufacturerForm.invalid){
+  save(value) {
+    if (this.manufacturerForm.invalid) {
       return;
     }
     this.confirmationService.confirm({
@@ -58,26 +63,54 @@ export class NewManufacturerComponent extends BaseComponent implements OnInit {
           shortText: value?.shortText,
           searchText: value?.searchText,
           name: value?.name,
+          media: value.media!=null ? {code: value.media.code} : null,
         }
         this.showSpinner();
-        await this.manufacturerService.saveManufacturer(request, ()=> this.hideSpinner());
-        this.messageService.add({severity:'success', summary:'Transaction Result', detail:'Manufacturer has been saved successfully.'});
+        await this.manufacturerService.saveManufacturer(request, () => this.hideSpinner());
+        this.messageService.add({ severity: 'success', summary: 'Transaction Result', detail: 'Manufacturer has been saved successfully.' });
         this.router.navigate(['/manufacturer-list'])
       }
-  });
-   
+    });
+
   }
 
-  goBack(){
+  goBack() {
     this.router.navigate(['/manufacturer-list'])
   }
 
-  async onSelect(event){
-    if(event.files.length){
+  choose() {
+    const ref = this.dialogService.open(GenericMediaListComponent, {
+      header: 'Choose a Media',
+      styleClass: "w-full md:w-9",
+      closeOnEscape: false,
+      closable: false,
+      data: {
+        media: this.manufacturerForm.get('media').value != null ? this.manufacturerForm.get('media').value : null,
+        mediaCategory: MediaCategory.MANUFACTURER,
+      },
+    });
+    ref.onClose.subscribe(data => {
+      if(data){
+        this.imageUrl = data.absolutePath
+        this.manufacturerForm.patchValue({
+          media: data
+        })
+      }else{
+        this.imageUrl = "assets/images/no-image.png";
+        this.manufacturerForm.patchValue({
+          media: null
+        })
+      }
+        
+    })
+  }
+
+  async onSelect(event) {
+    if (event.files.length) {
       this.showSpinner();
-      await this.mediaService.save(event.files[0], MediaCategory.MANUFACTURER, ()=> this.hideSpinner());
+      await this.mediaService.save(event.files[0], MediaCategory.MANUFACTURER, () => this.hideSpinner());
       this.fileUpload.clear();
-      this.messageService.add({severity:'success', summary:'Transaction Result', detail:'Media has been upload successfully.'});
+      this.messageService.add({ severity: 'success', summary: 'Transaction Result', detail: 'Media has been upload successfully.' });
     }
   }
 }
