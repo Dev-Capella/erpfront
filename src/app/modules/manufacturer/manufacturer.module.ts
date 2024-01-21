@@ -21,12 +21,17 @@ import { DividerModule } from 'primeng/divider';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CheckboxModule } from 'primeng/checkbox';
 import { StyleClassModule } from 'primeng/styleclass';
+import { NewManufacturerComponent } from './components/new-manufacturer/new-manufacturer.component';
+import { DetailManufacturerComponent } from './components/detail-manufacturer/detail-manufacturer.component';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
-  declarations: [MainManufacturerComponent,DataManufacturerComponent,ManufacturerListComponent],
+  declarations: [MainManufacturerComponent,DataManufacturerComponent,ManufacturerListComponent, NewManufacturerComponent, DetailManufacturerComponent],
   imports: [
     RouterModule.forChild([
-      { path: '', component: MainManufacturerComponent }
+      { path: '', component: MainManufacturerComponent },
+      {path:'new',component: NewManufacturerComponent},
+      {path:':code',component: DetailManufacturerComponent}
     ]),
     CommonModule,
     TableModule,
@@ -40,13 +45,11 @@ import { StyleClassModule } from 'primeng/styleclass';
     ReactiveFormsModule,
     InputTextModule,
     DropdownModule,
-    FileUploadModule,
-    OverlayPanelModule,
-    DividerModule,
-    InputTextareaModule,
-    CheckboxModule,
     StyleClassModule,
-    FormsModule
+    FormsModule,
+    DividerModule,
+    ConfirmDialogModule,
+    FileUploadModule
   ]
 })
 export class ManufacturerModule { }
