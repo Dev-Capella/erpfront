@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -7,6 +7,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 import { MediaService } from '../../../media-manager/services/media.service';
 import { MediaCategory } from '../../../../shared/enums/media-category.enum';
+import { FileUpload } from 'primeng/fileupload';
 
 @Component({
   selector: 'app-new-manufacturer',
@@ -17,6 +18,7 @@ export class NewManufacturerComponent extends BaseComponent implements OnInit {
   manufacturerForm: FormGroup;
   activeTab: number = 0;
   activeMenu: number = 0;
+  @ViewChild('fileUpload') fileUpload: FileUpload;
   constructor(spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
     private manufacturerService:ManufacturerService,
@@ -74,6 +76,7 @@ export class NewManufacturerComponent extends BaseComponent implements OnInit {
     if(event.files.length){
       this.showSpinner();
       await this.mediaService.save(event.files[0], MediaCategory.MANUFACTURER, ()=> this.hideSpinner());
+      this.fileUpload.clear();
       this.messageService.add({severity:'success', summary:'Transaction Result', detail:'Media has been upload successfully.'});
     }
   }

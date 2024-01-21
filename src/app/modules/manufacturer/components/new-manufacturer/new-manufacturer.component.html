@@ -83,7 +83,7 @@
                         <img src="assets/images/no-image.png" class="h-10rem w-10rem"/>
                         <div class="flex flex-column gap-1">
                             <button icon="pi pi-pencil" pButton type="button" label="Choose" class="p-button-rounded"></button>
-                            <p-fileUpload mode="basic" name="demo[]" chooseLabel="Upload" styleClass="p-button-rounded" accept="image/*" [maxFileSize]="1000000" (onSelect)="onSelect($event)"></p-fileUpload>
+                            <p-fileUpload #fileUpload mode="basic" name="demo[]" chooseLabel="Upload" styleClass="p-button-rounded" accept="image/*" [maxFileSize]="1000000" (onSelect)="onSelect($event)"></p-fileUpload>
                         </div>
                         
                     </div>
