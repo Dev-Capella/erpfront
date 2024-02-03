@@ -76,6 +76,12 @@ export const routes: Routes = [
                     (m) => m.UserModule
                 )
             },
+            {
+                path: 'user-role-list',
+                loadChildren: () => import('../app/modules/user-role/user-role.module').then(
+                    (m) => m.UserRoleModule
+                )
+            },
         ],
     },
     {

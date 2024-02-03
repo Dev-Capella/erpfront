@@ -26,10 +26,16 @@ export class AppMenuComponent implements OnInit {
                     {label: 'User Generic Group', icon: 'pi pi-fw pi-id-card', routerLink: ['/user-generic-group-list']},
                     {label: 'Manufacturer', icon: 'pi pi-fw pi-id-card', routerLink: ['/manufacturer-list']},
                     {label: 'Production Group', icon: 'pi pi-fw pi-id-card', routerLink: ['/production-group-list']},
-                    {label: 'User', icon: 'pi pi-fw pi-id-card', routerLink: ['/user-list']},
                     // {label: 'Media Manager', icon: 'pi pi-fw pi-id-card', routerLink: ['/media-manager']},
                 ]
             },
+            {
+                label: 'Kullanıcı Yönetimi', icon: 'pi pi-fw pi-star', routerLink: ['/uikit'],
+                items: [
+                    {label: 'User', icon: 'pi pi-fw pi-id-card', routerLink: ['/user-list']},
+                    {label: 'User Role', icon: 'pi pi-fw pi-id-card', routerLink: ['/user-role-list']},
+                ]
+            }
         ];
     }
 }
