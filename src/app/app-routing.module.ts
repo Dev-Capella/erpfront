@@ -1,10 +1,12 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AppMainComponent } from './modules/layout/main/app.main.component';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
     {
         path: '', 
+        canActivate: [authGuard],
         component: AppMainComponent,
         children: [
             {
@@ -67,8 +69,12 @@ export const routes: Routes = [
                     (m) => m.ProductionGroupModule
                 )
             },
-        ]
-    }
+        ],
+    },
+    // {
+    //     path: 'login',
+    //     component: 
+    // }
 ];
 
 @NgModule({

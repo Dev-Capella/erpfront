@@ -14,6 +14,7 @@ import { CostCategoryModule } from "./modules/cost-category/cost-category.module
 import { CompositionComponentModule } from "./modules/composition-component/composition-component.module";
 import { UserGenericGroupModule } from "./modules/user-generic-group/user-generic-group.module";
 import { ConfirmationService } from "primeng/api";
+import { JwtModule } from "@auth0/angular-jwt";
 
 @NgModule({
     declarations: [
@@ -32,7 +33,13 @@ import { ConfirmationService } from "primeng/api";
         CostLevelModule,
         CostCategoryModule,
         CompositionComponentModule,
-        UserGenericGroupModule
+        UserGenericGroupModule,
+        JwtModule.forRoot({
+            config: {
+                tokenGetter: ()=> localStorage.getItem("accessToken"),
+                allowedDomains: ["localhost:9090"]
+            }
+        })
     ],
     providers: [ConfirmationService],
     bootstrap: [AppComponent]
