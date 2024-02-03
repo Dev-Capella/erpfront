@@ -4,15 +4,20 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
+import { LoginComponent } from './components/login/login.component';
+import { CheckboxModule } from 'primeng/checkbox';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
     imports: [
         CommonModule,
         RadioButtonModule, 
         FormsModule,
-        ButtonModule
+        ButtonModule,
+        CheckboxModule,
+        InputTextModule
     ],
-    declarations: [GenericMediaListComponent],
+    declarations: [GenericMediaListComponent,LoginComponent],
     providers: [],
 })
 export class SharedModule { }

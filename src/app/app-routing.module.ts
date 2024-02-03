@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AppMainComponent } from './modules/layout/main/app.main.component';
 import { authGuard } from './core/guards/auth.guard';
+import { LoginComponent } from './shared/components/login/login.component';
 
 export const routes: Routes = [
     {
@@ -71,10 +72,10 @@ export const routes: Routes = [
             },
         ],
     },
-    // {
-    //     path: 'login',
-    //     component: 
-    // }
+    {
+        path: 'login',
+        component: LoginComponent
+    }
 ];
 
 @NgModule({

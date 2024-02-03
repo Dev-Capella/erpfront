@@ -36,12 +36,4 @@ export class HttpErrorHandlerInterceptorService implements HttpInterceptor {
             return of(error.errorMessage);
         }));
     }
-
-    private addTokenHeader(request: HttpRequest<any>, token: string) {
-        return request.clone({
-            setHeaders: {
-                Authorization: `Bearer ${token}`,
-            },
-        });
-    }
 }
