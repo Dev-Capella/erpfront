@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule, inject } from "@angular/core";
 import { AppComponent } from "./app.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
@@ -15,6 +15,7 @@ import { CompositionComponentModule } from "./modules/composition-component/comp
 import { UserGenericGroupModule } from "./modules/user-generic-group/user-generic-group.module";
 import { ConfirmationService } from "primeng/api";
 import { JwtModule } from "@auth0/angular-jwt";
+import { AuthService } from "./core/services/auth.service";
 
 @NgModule({
     declarations: [
@@ -36,7 +37,10 @@ import { JwtModule } from "@auth0/angular-jwt";
         UserGenericGroupModule,
         JwtModule.forRoot({
             config: {
-                tokenGetter: ()=> localStorage.getItem("accessToken"),
+                tokenGetter: () => {
+                    const authService = inject(AuthService);
+                    return authService.getAccessToken(); 
+                },
                 allowedDomains: ["localhost:9090"]
             }
         })
