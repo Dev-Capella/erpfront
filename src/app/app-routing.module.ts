@@ -70,6 +70,12 @@ export const routes: Routes = [
                     (m) => m.ProductionGroupModule
                 )
             },
+            {
+                path: 'user-list',
+                loadChildren: () => import('../app/modules/user/user.module').then(
+                    (m) => m.UserModule
+                )
+            },
         ],
     },
     {
