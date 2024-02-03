@@ -5,6 +5,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { UserService } from '../../services/user.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
+import { UserRoleService } from '../../../user-role/services/user-role.service';
 
 @Component({
   selector: 'app-new-user',
@@ -15,16 +16,18 @@ export class NewUserComponent extends BaseComponent implements OnInit {
   userForm: FormGroup;
   activeTab: number = 0;
   activeMenu: number = 0;
+  userRoles: any[] = []
   constructor(spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
     private userService:UserService,
+    private userRoleService: UserRoleService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
     private router: Router) {
     super(spinner);
     
   }
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.userForm = this.formBuilder.group({
       firstName: new FormControl(null),
       lastName: new FormControl(null),
@@ -32,11 +35,18 @@ export class NewUserComponent extends BaseComponent implements OnInit {
       definedPassword: new FormControl(null),
       email: new FormControl(null),
       phoneNumber: new FormControl(null),
+      userRoles: new FormControl([])
     });
+    await this.getUserRoles();
   }
 
   get formControls(){
     return this.userForm.controls;
+  }
+
+  async getUserRoles(){
+    this.showSpinner();
+    this.userRoles = await this.userRoleService.getUserRoles(()=> this.hideSpinner());
   }
 
   save(value){
@@ -49,9 +59,13 @@ export class NewUserComponent extends BaseComponent implements OnInit {
       message: 'The user is being recorded. Are you sure?',
       accept: async () => {
         var request = {
-          longText: value?.longText,
-          shortText: value?.shortText,
-          searchText: value?.searchText,
+          firstName: value?.firstName,
+          lastName: value?.lastName,
+          username: value?.username,
+          definedPassword: value?.definedPassword,
+          email: value?.email,
+          phoneNumber: value?.phoneNumber,
+          userRoles: value.userRoles.length>0 ? value.userRoles.map(x=> {return {code: x.code}}) : []
         }
         this.showSpinner();
         await this.userService.saveUser(request, ()=> this.hideSpinner());

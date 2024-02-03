@@ -20,6 +20,7 @@ import { PanelModule } from 'primeng/panel';
 import { TableModule } from 'primeng/table';
 import { PasswordModule } from 'primeng/password';
 import { InputMaskModule } from 'primeng/inputmask';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 
 
@@ -48,7 +49,8 @@ import { InputMaskModule } from 'primeng/inputmask';
     DividerModule,
     ConfirmDialogModule,
     PasswordModule,
-    InputMaskModule
+    InputMaskModule,
+    MultiSelectModule
   ]
 })
 export class UserModule { }
