@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import { GenericMediaListComponent } from './components/generic-media-list/generic-media-list.component';
 import { RadioButtonModule } from 'primeng/radiobutton';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
@@ -15,7 +15,8 @@ import { InputTextModule } from 'primeng/inputtext';
         FormsModule,
         ButtonModule,
         CheckboxModule,
-        InputTextModule
+        InputTextModule,
+        ReactiveFormsModule
     ],
     declarations: [GenericMediaListComponent,LoginComponent],
     providers: [],

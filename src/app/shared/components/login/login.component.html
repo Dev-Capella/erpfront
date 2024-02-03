@@ -1,36 +1,48 @@
-<div class="login-body">
-    <div class="login-topbar">
-        <a href="#" class="logo">
-            <img src="assets/layout/images/ecuador-logo.png" alt="ecuador-layout"/>
-        </a>
-    </div>
-    <div class="login-image">
-        <div class="login-panel">
-            <img src="assets/layout/images/ecuador-orange-logo.png" alt="ecuador-layout"/>
-            <div class="p-col-12">
-                <div class="input-wrapper">
-                    <input type="text" autocomplete="off" placeholder="Username" pInputText>
-                </div>
-            </div>
-            <div class="p-col-12">
-                <div class="input-wrapper">
-                    <input type="password" autocomplete="off" placeholder="Password" pInputText>
-                </div>
-            </div>
-            <div class="checkbox-container">
-                <div class="remember-me">
-                    <p-checkbox [binary]="true"></p-checkbox>
-                    <span>Remember me</span>
-                </div>
-                <button type="button" pButton label="Login"></button>
-            </div>
-
-            <div class="separator"></div>
-
-            <a href="#" class="subinfo">
-                <span>Forgot your password?</span>
+<form [formGroup]="loginForm">
+    <div class="login-body">
+        <div class="login-topbar">
+            <a href="#" class="logo">
+                <img src="assets/layout/images/ecuador-logo.png" alt="ecuador-layout" />
             </a>
+        </div>
+        <div class="login-image">
+            <div class="login-panel">
+                <img src="assets/layout/images/ecuador-orange-logo.png" alt="ecuador-layout" />
+                <div class="p-col-12">
+                    <div class="input-wrapper">
+                        <input aria-describedby="username-help" formControlName="username" type="text" autocomplete="off" placeholder="Username" pInputText>
+                    </div>
+                    @if (submitted && formControls['username'].errors) {
+                        @if (formControls['username'].errors['required']) {
+                            <small id="username-help" class="p-error">Enter username.</small>
+                        }
+                    } 
+                </div>
+                <div class="p-col-12">
+                    <div class="input-wrapper">
+                        <input aria-describedby="password-help" formControlName="password" type="password" autocomplete="off" placeholder="Password" pInputText>
+                    </div>
+                    @if (submitted && formControls['password'].errors) {
+                        @if (formControls['password'].errors['required']) {
+                            <small id="password-help" class="p-error">Enter password.</small>
+                        }
+                    }
+                </div>
+                <div class="checkbox-container">
+                    <div class="remember-me">
+                        <p-checkbox [binary]="true"></p-checkbox>
+                        <span>Remember me</span>
+                    </div>
+                    <button type="submit" pButton label="Login" (click)="login(loginForm.value)"></button>
+                </div>
 
+                <div class="separator"></div>
+
+                <a href="#" class="subinfo">
+                    <span>Forgot your password?</span>
+                </a>
+
+            </div>
         </div>
     </div>
-</div>
+</form>

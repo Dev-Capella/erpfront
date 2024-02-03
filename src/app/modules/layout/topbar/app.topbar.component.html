@@ -14,7 +14,7 @@
     </a>
 
     <a id="topbar-profile-menu-button" href="#" (click)="app.onTopbarMenuButtonClick($event)">
-        <span>Jeniffer Reynolds</span>
+        <span>{{user?.firstName}} {{user?.lastName}}</span>
         <img src="assets/layout/images/avatar.png" alt="ecuador-layout" class="topbar-profile" />
         <i class="pi pi-caret-down"></i>
     </a>
@@ -123,6 +123,12 @@
                     </a>
                 </li>
             </ul>
+        </li>
+        <li>
+            <a href="#" (click)="app.onTopbarSubItemClick($event);signOut()">
+                <i class="pi pi-fw pi-sign-out"></i>
+                <span class="topbar-item-name">Sign Out</span>
+            </a>
         </li>
     </ul>
 
