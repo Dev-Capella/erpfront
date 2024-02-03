@@ -82,6 +82,12 @@ export const routes: Routes = [
                     (m) => m.UserRoleModule
                 )
             },
+            {
+                path: 'permission-list',
+                loadChildren: () => import('../app/modules/permission/permission.module').then(
+                    (m) => m.PermissionModule
+                )
+            },
         ],
     },
     {

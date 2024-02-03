@@ -30,10 +30,11 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
-                label: 'Kullanıcı Yönetimi', icon: 'pi pi-fw pi-star', routerLink: ['/uikit'],
+                label: 'User Management', icon: 'pi pi-fw pi-star', routerLink: ['/uikit'],
                 items: [
                     {label: 'User', icon: 'pi pi-fw pi-id-card', routerLink: ['/user-list']},
                     {label: 'User Role', icon: 'pi pi-fw pi-id-card', routerLink: ['/user-role-list']},
+                    {label: 'Permission', icon: 'pi pi-fw pi-id-card', routerLink: ['/permission-list']},
                 ]
             }
         ];
