@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { AppComponent } from '../../../app.component';
 import { MenuService } from '../menu/services/app.menu.service';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
     selector: 'app-main',
@@ -33,7 +34,12 @@ export class AppMainComponent implements OnInit{
 
     configClick: boolean;
 
-    constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig, public app: AppComponent) {}
+    constructor(private menuService: MenuService, 
+        private primengConfig: PrimeNGConfig, 
+        public app: AppComponent,
+        private authService: AuthService) {
+            this.authService.identityCheck();
+        }
 
     ngOnInit() {
         this.primengConfig.ripple = true;
