@@ -1,0 +1,1034 @@
+[
+    {
+        "code": "pi-align-center",
+        "name": "pi-align-center"
+    },
+    {
+        "code": "pi-align-justify",
+        "name": "pi-align-justify"
+    },
+    {
+        "code": "pi-align-left",
+        "name": "pi-align-left"
+    },
+    {
+        "code": "pi-align-right",
+        "name": "pi-align-right"
+    },
+    {
+        "code": "pi-amazon",
+        "name": "pi-amazon"
+    },
+    {
+        "code": "pi-android",
+        "name": "pi-android"
+    },
+    {
+        "code": "pi-angle-double-down",
+        "name": "pi-angle-double-down"
+    },
+    {
+        "code": "pi-angle-double-left",
+        "name": "pi-angle-double-left"
+    },
+    {
+        "code": "pi-angle-double-right",
+        "name": "pi-angle-double-right"
+    },
+    {
+        "code": "pi-angle-double-up",
+        "name": "pi-angle-double-up"
+    },
+    {
+        "code": "pi-angle-down",
+        "name": "pi-angle-down"
+    },
+    {
+        "code": "pi-angle-left",
+        "name": "pi-angle-left"
+    },
+    {
+        "code": "pi-angle-right",
+        "name": "pi-angle-right"
+    },
+    {
+        "code": "pi-angle-up",
+        "name": "pi-angle-up"
+    },
+    {
+        "code": "pi-apple",
+        "name": "pi-apple"
+    },
+    {
+        "code": "pi-arrow-circle-down",
+        "name": "pi-arrow-circle-down"
+    },
+    {
+        "code": "pi-arrow-circle-left",
+        "name": "pi-arrow-circle-left"
+    },
+    {
+        "code": "pi-arrow-circle-right",
+        "name": "pi-arrow-circle-right"
+    },
+    {
+        "code": "pi-arrow-circle-up",
+        "name": "pi-arrow-circle-up"
+    },
+    {
+        "code": "pi-arrow-down",
+        "name": "pi-arrow-down"
+    },
+    {
+        "code": "pi-arrow-down-left",
+        "name": "pi-arrow-down-left"
+    },
+    {
+        "code": "pi-arrow-down-right",
+        "name": "pi-arrow-down-right"
+    },
+    {
+        "code": "pi-arrow-left",
+        "name": "pi-arrow-left"
+    },
+    {
+        "code": "pi-arrow-right",
+        "name": "pi-arrow-right"
+    },
+    {
+        "code": "pi-arrow-right-arrow-left",
+        "name": "pi-arrow-right-arrow-left"
+    },
+    {
+        "code": "pi-arrow-up",
+        "name": "pi-arrow-up"
+    },
+    {
+        "code": "pi-arrow-up-left",
+        "name": "pi-arrow-up-left"
+    },
+    {
+        "code": "pi-arrow-up-right",
+        "name": "pi-arrow-up-right"
+    },
+    {
+        "code": "pi-arrows-alt",
+        "name": "pi-arrows-alt"
+    },
+    {
+        "code": "pi-arrows-h",
+        "name": "pi-arrows-h"
+    },
+    {
+        "code": "pi-arrows-v",
+        "name": "pi-arrows-v"
+    },
+    {
+        "code": "pi-at",
+        "name": "pi-at"
+    },
+    {
+        "code": "pi-backward",
+        "name": "pi-backward"
+    },
+    {
+        "code": "pi-ban",
+        "name": "pi-ban"
+    },
+    {
+        "code": "pi-bars",
+        "name": "pi-bars"
+    },
+    {
+        "code": "pi-bell",
+        "name": "pi-bell"
+    },
+    {
+        "code": "pi-bitcoin",
+        "name": "pi-bitcoin"
+    },
+    {
+        "code": "pi-bolt",
+        "name": "pi-bolt"
+    },
+    {
+        "code": "pi-book",
+        "name": "pi-book"
+    },
+    {
+        "code": "pi-bookmark",
+        "name": "pi-bookmark"
+    },
+    {
+        "code": "pi-bookmark-fill",
+        "name": "pi-bookmark-fill"
+    },
+    {
+        "code": "pi-box",
+        "name": "pi-box"
+    },
+    {
+        "code": "pi-briefcase",
+        "name": "pi-briefcase"
+    },
+    {
+        "code": "pi-building",
+        "name": "pi-building"
+    },
+    {
+        "code": "pi-calculator",
+        "name": "pi-calculator"
+    },
+    {
+        "code": "pi-calendar",
+        "name": "pi-calendar"
+    },
+    {
+        "code": "pi-calendar-minus",
+        "name": "pi-calendar-minus"
+    },
+    {
+        "code": "pi-calendar-plus",
+        "name": "pi-calendar-plus"
+    },
+    {
+        "code": "pi-calendar-times",
+        "name": "pi-calendar-times"
+    },
+    {
+        "code": "pi-camera",
+        "name": "pi-camera"
+    },
+    {
+        "code": "pi-car",
+        "name": "pi-car"
+    },
+    {
+        "code": "pi-caret-down",
+        "name": "pi-caret-down"
+    },
+    {
+        "code": "pi-caret-left",
+        "name": "pi-caret-left"
+    },
+    {
+        "code": "pi-caret-right",
+        "name": "pi-caret-right"
+    },
+    {
+        "code": "pi-caret-up",
+        "name": "pi-caret-up"
+    },
+    {
+        "code": "pi-cart-plus",
+        "name": "pi-cart-plus"
+    },
+    {
+        "code": "pi-chart-bar",
+        "name": "pi-chart-bar"
+    },
+    {
+        "code": "pi-chart-line",
+        "name": "pi-chart-line"
+    },
+    {
+        "code": "pi-chart-pie",
+        "name": "pi-chart-pie"
+    },
+    {
+        "code": "pi-check",
+        "name": "pi-check"
+    },
+    {
+        "code": "pi-check-circle",
+        "name": "pi-check-circle"
+    },
+    {
+        "code": "pi-check-square",
+        "name": "pi-check-square"
+    },
+    {
+        "code": "pi-chevron-circle-down",
+        "name": "pi-chevron-circle-down"
+    },
+    {
+        "code": "pi-chevron-circle-left",
+        "name": "pi-chevron-circle-left"
+    },
+    {
+        "code": "pi-chevron-circle-right",
+        "name": "pi-chevron-circle-right"
+    },
+    {
+        "code": "pi-chevron-circle-up",
+        "name": "pi-chevron-circle-up"
+    },
+    {
+        "code": "pi-chevron-down",
+        "name": "pi-chevron-down"
+    },
+    {
+        "code": "pi-chevron-left",
+        "name": "pi-chevron-left"
+    },
+    {
+        "code": "pi-chevron-right",
+        "name": "pi-chevron-right"
+    },
+    {
+        "code": "pi-chevron-up",
+        "name": "pi-chevron-up"
+    },
+    {
+        "code": "pi-circle",
+        "name": "pi-circle"
+    },
+    {
+        "code": "pi-circle-fill",
+        "name": "pi-circle-fill"
+    },
+    {
+        "code": "pi-clock",
+        "name": "pi-clock"
+    },
+    {
+        "code": "pi-clone",
+        "name": "pi-clone"
+    },
+    {
+        "code": "pi-cloud",
+        "name": "pi-cloud"
+    },
+    {
+        "code": "pi-cloud-download",
+        "name": "pi-cloud-download"
+    },
+    {
+        "code": "pi-cloud-upload",
+        "name": "pi-cloud-upload"
+    },
+    {
+        "code": "pi-code",
+        "name": "pi-code"
+    },
+    {
+        "code": "pi-cog",
+        "name": "pi-cog"
+    },
+    {
+        "code": "pi-comment",
+        "name": "pi-comment"
+    },
+    {
+        "code": "pi-comments",
+        "name": "pi-comments"
+    },
+    {
+        "code": "pi-compass",
+        "name": "pi-compass"
+    },
+    {
+        "code": "pi-copy",
+        "name": "pi-copy"
+    },
+    {
+        "code": "pi-credit-card",
+        "name": "pi-credit-card"
+    },
+    {
+        "code": "pi-database",
+        "name": "pi-database"
+    },
+    {
+        "code": "pi-delete-left",
+        "name": "pi-delete-left"
+    },
+    {
+        "code": "pi-desktop",
+        "name": "pi-desktop"
+    },
+    {
+        "code": "pi-directions",
+        "name": "pi-directions"
+    },
+    {
+        "code": "pi-directions-alt",
+        "name": "pi-directions-alt"
+    },
+    {
+        "code": "pi-discord",
+        "name": "pi-discord"
+    },
+    {
+        "code": "pi-dollar",
+        "name": "pi-dollar"
+    },
+    {
+        "code": "pi-download",
+        "name": "pi-download"
+    },
+    {
+        "code": "pi-eject",
+        "name": "pi-eject"
+    },
+    {
+        "code": "pi-ellipsis-h",
+        "name": "pi-ellipsis-h"
+    },
+    {
+        "code": "pi-ellipsis-v",
+        "name": "pi-ellipsis-v"
+    },
+    {
+        "code": "pi-envelope",
+        "name": "pi-envelope"
+    },
+    {
+        "code": "pi-eraser",
+        "name": "pi-eraser"
+    },
+    {
+        "code": "pi-euro",
+        "name": "pi-euro"
+    },
+    {
+        "code": "pi-exclamation-circle",
+        "name": "pi-exclamation-circle"
+    },
+    {
+        "code": "pi-exclamation-triangle",
+        "name": "pi-exclamation-triangle"
+    },
+    {
+        "code": "pi-external-link",
+        "name": "pi-external-link"
+    },
+    {
+        "code": "pi-eye",
+        "name": "pi-eye"
+    },
+    {
+        "code": "pi-eye-slash",
+        "name": "pi-eye-slash"
+    },
+    {
+        "code": "pi-facebook",
+        "name": "pi-facebook"
+    },
+    {
+        "code": "pi-fast-backward",
+        "name": "pi-fast-backward"
+    },
+    {
+        "code": "pi-fast-forward",
+        "name": "pi-fast-forward"
+    },
+    {
+        "code": "pi-file",
+        "name": "pi-file"
+    },
+    {
+        "code": "pi-file-edit",
+        "name": "pi-file-edit"
+    },
+    {
+        "code": "pi-file-excel",
+        "name": "pi-file-excel"
+    },
+    {
+        "code": "pi-file-export",
+        "name": "pi-file-export"
+    },
+    {
+        "code": "pi-file-import",
+        "name": "pi-file-import"
+    },
+    {
+        "code": "pi-file-pdf",
+        "name": "pi-file-pdf"
+    },
+    {
+        "code": "pi-file-word",
+        "name": "pi-file-word"
+    },
+    {
+        "code": "pi-filter",
+        "name": "pi-filter"
+    },
+    {
+        "code": "pi-filter-fill",
+        "name": "pi-filter-fill"
+    },
+    {
+        "code": "pi-filter-slash",
+        "name": "pi-filter-slash"
+    },
+    {
+        "code": "pi-flag",
+        "name": "pi-flag"
+    },
+    {
+        "code": "pi-flag-fill",
+        "name": "pi-flag-fill"
+    },
+    {
+        "code": "pi-folder",
+        "name": "pi-folder"
+    },
+    {
+        "code": "pi-folder-open",
+        "name": "pi-folder-open"
+    },
+    {
+        "code": "pi-forward",
+        "name": "pi-forward"
+    },
+    {
+        "code": "pi-gift",
+        "name": "pi-gift"
+    },
+    {
+        "code": "pi-github",
+        "name": "pi-github"
+    },
+    {
+        "code": "pi-globe",
+        "name": "pi-globe"
+    },
+    {
+        "code": "pi-google",
+        "name": "pi-google"
+    },
+    {
+        "code": "pi-hashtag",
+        "name": "pi-hashtag"
+    },
+    {
+        "code": "pi-heart",
+        "name": "pi-heart"
+    },
+    {
+        "code": "pi-heart-fill",
+        "name": "pi-heart-fill"
+    },
+    {
+        "code": "pi-history",
+        "name": "pi-history"
+    },
+    {
+        "code": "pi-home",
+        "name": "pi-home"
+    },
+    {
+        "code": "pi-hourglass",
+        "name": "pi-hourglass"
+    },
+    {
+        "code": "pi-id-card",
+        "name": "pi-id-card"
+    },
+    {
+        "code": "pi-image",
+        "name": "pi-image"
+    },
+    {
+        "code": "pi-images",
+        "name": "pi-images"
+    },
+    {
+        "code": "pi-inbox",
+        "name": "pi-inbox"
+    },
+    {
+        "code": "pi-info",
+        "name": "pi-info"
+    },
+    {
+        "code": "pi-info-circle",
+        "name": "pi-info-circle"
+    },
+    {
+        "code": "pi-instagram",
+        "name": "pi-instagram"
+    },
+    {
+        "code": "pi-key",
+        "name": "pi-key"
+    },
+    {
+        "code": "pi-language",
+        "name": "pi-language"
+    },
+    {
+        "code": "pi-link",
+        "name": "pi-link"
+    },
+    {
+        "code": "pi-linkedin",
+        "name": "pi-linkedin"
+    },
+    {
+        "code": "pi-list",
+        "name": "pi-list"
+    },
+    {
+        "code": "pi-lock",
+        "name": "pi-lock"
+    },
+    {
+        "code": "pi-lock-open",
+        "name": "pi-lock-open"
+    },
+    {
+        "code": "pi-map",
+        "name": "pi-map"
+    },
+    {
+        "code": "pi-map-marker",
+        "name": "pi-map-marker"
+    },
+    {
+        "code": "pi-megaphone",
+        "name": "pi-megaphone"
+    },
+    {
+        "code": "pi-microphone",
+        "name": "pi-microphone"
+    },
+    {
+        "code": "pi-microsoft",
+        "name": "pi-microsoft"
+    },
+    {
+        "code": "pi-minus",
+        "name": "pi-minus"
+    },
+    {
+        "code": "pi-minus-circle",
+        "name": "pi-minus-circle"
+    },
+    {
+        "code": "pi-mobile",
+        "name": "pi-mobile"
+    },
+    {
+        "code": "pi-money-bill",
+        "name": "pi-money-bill"
+    },
+    {
+        "code": "pi-moon",
+        "name": "pi-moon"
+    },
+    {
+        "code": "pi-palette",
+        "name": "pi-palette"
+    },
+    {
+        "code": "pi-paperclip",
+        "name": "pi-paperclip"
+    },
+    {
+        "code": "pi-pause",
+        "name": "pi-pause"
+    },
+    {
+        "code": "pi-paypal",
+        "name": "pi-paypal"
+    },
+    {
+        "code": "pi-pencil",
+        "name": "pi-pencil"
+    },
+    {
+        "code": "pi-percentage",
+        "name": "pi-percentage"
+    },
+    {
+        "code": "pi-phone",
+        "name": "pi-phone"
+    },
+    {
+        "code": "pi-play",
+        "name": "pi-play"
+    },
+    {
+        "code": "pi-plus",
+        "name": "pi-plus"
+    },
+    {
+        "code": "pi-plus-circle",
+        "name": "pi-plus-circle"
+    },
+    {
+        "code": "pi-pound",
+        "name": "pi-pound"
+    },
+    {
+        "code": "pi-power-off",
+        "name": "pi-power-off"
+    },
+    {
+        "code": "pi-prime",
+        "name": "pi-prime"
+    },
+    {
+        "code": "pi-print",
+        "name": "pi-print"
+    },
+    {
+        "code": "pi-qrcode",
+        "name": "pi-qrcode"
+    },
+    {
+        "code": "pi-question",
+        "name": "pi-question"
+    },
+    {
+        "code": "pi-question-circle",
+        "name": "pi-question-circle"
+    },
+    {
+        "code": "pi-reddit",
+        "name": "pi-reddit"
+    },
+    {
+        "code": "pi-refresh",
+        "name": "pi-refresh"
+    },
+    {
+        "code": "pi-replay",
+        "name": "pi-replay"
+    },
+    {
+        "code": "pi-reply",
+        "name": "pi-reply"
+    },
+    {
+        "code": "pi-save",
+        "name": "pi-save"
+    },
+    {
+        "code": "pi-search",
+        "name": "pi-search"
+    },
+    {
+        "code": "pi-search-minus",
+        "name": "pi-search-minus"
+    },
+    {
+        "code": "pi-search-plus",
+        "name": "pi-search-plus"
+    },
+    {
+        "code": "pi-send",
+        "name": "pi-send"
+    },
+    {
+        "code": "pi-server",
+        "name": "pi-server"
+    },
+    {
+        "code": "pi-share-alt",
+        "name": "pi-share-alt"
+    },
+    {
+        "code": "pi-shield",
+        "name": "pi-shield"
+    },
+    {
+        "code": "pi-shopping-bag",
+        "name": "pi-shopping-bag"
+    },
+    {
+        "code": "pi-shopping-cart",
+        "name": "pi-shopping-cart"
+    },
+    {
+        "code": "pi-sign-in",
+        "name": "pi-sign-in"
+    },
+    {
+        "code": "pi-sign-out",
+        "name": "pi-sign-out"
+    },
+    {
+        "code": "pi-sitemap",
+        "name": "pi-sitemap"
+    },
+    {
+        "code": "pi-slack",
+        "name": "pi-slack"
+    },
+    {
+        "code": "pi-sliders-h",
+        "name": "pi-sliders-h"
+    },
+    {
+        "code": "pi-sliders-v",
+        "name": "pi-sliders-v"
+    },
+    {
+        "code": "pi-sort",
+        "name": "pi-sort"
+    },
+    {
+        "code": "pi-sort-alpha-down",
+        "name": "pi-sort-alpha-down"
+    },
+    {
+        "code": "pi-sort-alpha-down-alt",
+        "name": "pi-sort-alpha-down-alt"
+    },
+    {
+        "code": "pi-sort-alpha-up",
+        "name": "pi-sort-alpha-up"
+    },
+    {
+        "code": "pi-sort-alpha-up-alt",
+        "name": "pi-sort-alpha-up-alt"
+    },
+    {
+        "code": "pi-sort-alt",
+        "name": "pi-sort-alt"
+    },
+    {
+        "code": "pi-sort-alt-slash",
+        "name": "pi-sort-alt-slash"
+    },
+    {
+        "code": "pi-sort-amount-down",
+        "name": "pi-sort-amount-down"
+    },
+    {
+        "code": "pi-sort-amount-down-alt",
+        "name": "pi-sort-amount-down-alt"
+    },
+    {
+        "code": "pi-sort-amount-up",
+        "name": "pi-sort-amount-up"
+    },
+    {
+        "code": "pi-sort-amount-up-alt",
+        "name": "pi-sort-amount-up-alt"
+    },
+    {
+        "code": "pi-sort-down",
+        "name": "pi-sort-down"
+    },
+    {
+        "code": "pi-sort-numeric-down",
+        "name": "pi-sort-numeric-down"
+    },
+    {
+        "code": "pi-sort-numeric-down-alt",
+        "name": "pi-sort-numeric-down-alt"
+    },
+    {
+        "code": "pi-sort-numeric-up",
+        "name": "pi-sort-numeric-up"
+    },
+    {
+        "code": "pi-sort-numeric-up-alt",
+        "name": "pi-sort-numeric-up-alt"
+    },
+    {
+        "code": "pi-sort-up",
+        "name": "pi-sort-up"
+    },
+    {
+        "code": "pi-spinner",
+        "name": "pi-spinner"
+    },
+    {
+        "code": "pi-star",
+        "name": "pi-star"
+    },
+    {
+        "code": "pi-star-fill",
+        "name": "pi-star-fill"
+    },
+    {
+        "code": "pi-step-backward",
+        "name": "pi-step-backward"
+    },
+    {
+        "code": "pi-step-backward-alt",
+        "name": "pi-step-backward-alt"
+    },
+    {
+        "code": "pi-step-forward",
+        "name": "pi-step-forward"
+    },
+    {
+        "code": "pi-step-forward-alt",
+        "name": "pi-step-forward-alt"
+    },
+    {
+        "code": "pi-stop",
+        "name": "pi-stop"
+    },
+    {
+        "code": "pi-stop-circle",
+        "name": "pi-stop-circle"
+    },
+    {
+        "code": "pi-stopwatch",
+        "name": "pi-stopwatch"
+    },
+    {
+        "code": "pi-sun",
+        "name": "pi-sun"
+    },
+    {
+        "code": "pi-sync",
+        "name": "pi-sync"
+    },
+    {
+        "code": "pi-table",
+        "name": "pi-table"
+    },
+    {
+        "code": "pi-tablet",
+        "name": "pi-tablet"
+    },
+    {
+        "code": "pi-tag",
+        "name": "pi-tag"
+    },
+    {
+        "code": "pi-tags",
+        "name": "pi-tags"
+    },
+    {
+        "code": "pi-telegram",
+        "name": "pi-telegram"
+    },
+    {
+        "code": "pi-th-large",
+        "name": "pi-th-large"
+    },
+    {
+        "code": "pi-thumbs-down",
+        "name": "pi-thumbs-down"
+    },
+    {
+        "code": "pi-thumbs-down-fill",
+        "name": "pi-thumbs-down-fill"
+    },
+    {
+        "code": "pi-thumbs-up",
+        "name": "pi-thumbs-up"
+    },
+    {
+        "code": "pi-thumbs-up-fill",
+        "name": "pi-thumbs-up-fill"
+    },
+    {
+        "code": "pi-ticket",
+        "name": "pi-ticket"
+    },
+    {
+        "code": "pi-times",
+        "name": "pi-times"
+    },
+    {
+        "code": "pi-times-circle",
+        "name": "pi-times-circle"
+    },
+    {
+        "code": "pi-trash",
+        "name": "pi-trash"
+    },
+    {
+        "code": "pi-truck",
+        "name": "pi-truck"
+    },
+    {
+        "code": "pi-twitter",
+        "name": "pi-twitter"
+    },
+    {
+        "code": "pi-undo",
+        "name": "pi-undo"
+    },
+    {
+        "code": "pi-unlock",
+        "name": "pi-unlock"
+    },
+    {
+        "code": "pi-upload",
+        "name": "pi-upload"
+    },
+    {
+        "code": "pi-user",
+        "name": "pi-user"
+    },
+    {
+        "code": "pi-user-edit",
+        "name": "pi-user-edit"
+    },
+    {
+        "code": "pi-user-minus",
+        "name": "pi-user-minus"
+    },
+    {
+        "code": "pi-user-plus",
+        "name": "pi-user-plus"
+    },
+    {
+        "code": "pi-users",
+        "name": "pi-users"
+    },
+    {
+        "code": "pi-verified",
+        "name": "pi-verified"
+    },
+    {
+        "code": "pi-video",
+        "name": "pi-video"
+    },
+    {
+        "code": "pi-vimeo",
+        "name": "pi-vimeo"
+    },
+    {
+        "code": "pi-volume-down",
+        "name": "pi-volume-down"
+    },
+    {
+        "code": "pi-volume-off",
+        "name": "pi-volume-off"
+    },
+    {
+        "code": "pi-volume-up",
+        "name": "pi-volume-up"
+    },
+    {
+        "code": "pi-wallet",
+        "name": "pi-wallet"
+    },
+    {
+        "code": "pi-whatsapp",
+        "name": "pi-whatsapp"
+    },
+    {
+        "code": "pi-wifi",
+        "name": "pi-wifi"
+    },
+    {
+        "code": "pi-window-maximize",
+        "name": "pi-window-maximize"
+    },
+    {
+        "code": "pi-window-minimize",
+        "name": "pi-window-minimize"
+    },
+    {
+        "code": "pi-wrench",
+        "name": "pi-wrench"
+    },
+    {
+        "code": "pi-youtube",
+        "name": "pi-youtube"
+    }
+]

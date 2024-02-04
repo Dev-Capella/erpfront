@@ -88,6 +88,12 @@ export const routes: Routes = [
                     (m) => m.PermissionModule
                 )
             },
+            {
+                path: 'menu-list',
+                loadChildren: () => import('../app/modules/menu/menu.module').then(
+                    (m) => m.MenuModule
+                )
+            },
         ],
     },
     {
