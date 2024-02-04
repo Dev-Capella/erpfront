@@ -77,9 +77,9 @@
                         </div>
                     </div>
                     <div class="field flex flex-wrap align-items-center">
-                        <label for="queue" style="min-width:100px;" class="w-3">Icon</label>
+                        <label for="icon" style="min-width:100px;" class="w-3">Icon</label>
                         <div class="w-9">
-                            <p-dropdown [options]="icons" formControlName="icon" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" [autoDisplayFirst]="false">
+                            <p-dropdown inputId="icon" [options]="icons" formControlName="icon" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" [autoDisplayFirst]="false">
                                 <ng-template pTemplate="selectedItem">
                                     <div class="flex align-items-center gap-1" *ngIf="menuForm?.value.icon!=null">
                                         <i [class]="'pi ' + menuForm?.value.icon.code"></i>
@@ -93,6 +93,13 @@
                                     </div>
                                 </ng-template>
                             </p-dropdown>
+                        </div>
+                    </div>
+
+                    <div class="field flex flex-wrap align-items-center">
+                        <label for="root" style="min-width:100px;" class="w-3">Root</label>
+                        <div class="w-9">
+                            <p-checkbox formControlName="root" [binary]="true" inputId="root"></p-checkbox>
                         </div>
                     </div>
                 

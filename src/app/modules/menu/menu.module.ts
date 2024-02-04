@@ -20,6 +20,7 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { NewMenuComponent } from './components/new-menu/new-menu.component';
 import { DetailMenuComponent } from './components/detail-menu/detail-menu.component';
 import { TreeTableModule } from 'primeng/treetable';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @NgModule({
   declarations: [MainMenuComponent,NewMenuComponent,DetailMenuComponent],
@@ -46,7 +47,8 @@ import { TreeTableModule } from 'primeng/treetable';
   DividerModule,
   ConfirmDialogModule,
   InputNumberModule,
-  TreeTableModule
+  TreeTableModule,
+  CheckboxModule
   ]
 })
 export class MenuModule { }
