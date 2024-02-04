@@ -17,6 +17,8 @@ export class NewMenuComponent extends BaseComponent implements OnInit{
   activeTab: number = 0;
   activeMenu: number = 0;
   icons: any[] = []
+  menus: any[] = []
+  parentVisible: boolean = true;
   constructor(spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
     private menuService:MenuService,
@@ -40,11 +42,17 @@ export class NewMenuComponent extends BaseComponent implements OnInit{
       root: new FormControl(null),
       parent: new FormControl(null)
     });
+    await this.getMenusForTreeNode();
     await this.getIcons();
   }
 
   get formControls(){
     return this.menuForm.controls;
+  }
+
+  async getMenusForTreeNode(){
+    this.showSpinner();
+    this.menus = await this.menuService.getMenusForTreeNode(()=> this.hideSpinner());
   }
 
   async getIcons(){
@@ -65,6 +73,11 @@ export class NewMenuComponent extends BaseComponent implements OnInit{
           longText: value?.longText,
           shortText: value?.shortText,
           searchText: value?.searchText,
+          routerLink: value?.routerLink,
+          queue: value?.queue,
+          icon: value.icon !=null ? value.icon.code : null,
+          root: value?.root,
+          parent: value.parent != null ? {code: value.parent.data} : null
         }
         this.showSpinner();
         await this.menuService.saveMenu(request, ()=> this.hideSpinner());
@@ -73,6 +86,16 @@ export class NewMenuComponent extends BaseComponent implements OnInit{
       }
   });
    
+  }
+
+  changeRoot(checked){
+    if (checked) {
+      this.parentVisible = false;
+      this.menuForm.get('parent').reset();
+    } else {
+      this.parentVisible = true;
+
+    }
   }
 
   goBack(){

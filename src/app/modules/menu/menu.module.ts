@@ -21,34 +21,36 @@ import { NewMenuComponent } from './components/new-menu/new-menu.component';
 import { DetailMenuComponent } from './components/detail-menu/detail-menu.component';
 import { TreeTableModule } from 'primeng/treetable';
 import { CheckboxModule } from 'primeng/checkbox';
+import { TreeSelectModule } from 'primeng/treeselect';
 
 @NgModule({
-  declarations: [MainMenuComponent,NewMenuComponent,DetailMenuComponent],
+  declarations: [MainMenuComponent, NewMenuComponent, DetailMenuComponent],
   imports: [
     RouterModule.forChild([
       { path: '', component: MainMenuComponent },
       { path: 'new', component: NewMenuComponent },
       { path: ':code', component: DetailMenuComponent }
-  ]),
-  CommonModule,
-  TableModule,
-  PanelModule,
-  SplitterModule,
-  AngularSplitModule,
-  ResizableModule,
-  ButtonModule,
-  TabViewModule,
-  MenubarModule,
-  ReactiveFormsModule,
-  InputTextModule,
-  DropdownModule,
-  StyleClassModule,
-  FormsModule,
-  DividerModule,
-  ConfirmDialogModule,
-  InputNumberModule,
-  TreeTableModule,
-  CheckboxModule
+    ]),
+    CommonModule,
+    TableModule,
+    PanelModule,
+    SplitterModule,
+    AngularSplitModule,
+    ResizableModule,
+    ButtonModule,
+    TabViewModule,
+    MenubarModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    DropdownModule,
+    StyleClassModule,
+    FormsModule,
+    DividerModule,
+    ConfirmDialogModule,
+    InputNumberModule,
+    TreeTableModule,
+    CheckboxModule,
+    TreeSelectModule
   ]
 })
 export class MenuModule { }
