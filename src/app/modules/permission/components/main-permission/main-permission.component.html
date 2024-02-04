@@ -1,1 +1,31 @@
-<p>main-permission works!</p>
+<section class="border-bottom-1 surface-border">
+    <div class="flex flex-wrap justify-content-between w-full align-items-center">
+        <h3 class="mb-4 mt-0 text-900 font-medium text-xl">Permission List</h3>
+        <div class="flex gap-1">
+            <button icon="pi pi-plus" pButton pRipple label="Add" class="w-auto" (click)="new()"></button>
+            <button [disabled]="!selectedItem" icon="pi pi-eye" pButton pRipple label="Edit" class="w-auto" (click)="edit()"></button>
+            <button [disabled]="!selectedItem" icon="pi pi-trash" pButton pRipple label="Delete" class="w-auto" (click)="delete()"></button>
+        </div>
+    </div>
+    <div class="overflow-x-scroll">
+        <p-table [value]="permissionList" [tableStyle]="{'min-width': '70rem'}" [rowHover]="true"
+        [resizableColumns]="true" [(selection)]="selectedItem" selectionMode="single"  dataKey="code" 
+        styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm" [autoLayout]="true">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pResizableColumn>Short Text</th>
+                    <th pResizableColumn>Long Text</th>
+                    <th pResizableColumn>Search Text</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item>
+                <tr class="cursor-pointer" [pSelectableRow]="item">
+                    <td>{{item.shortText}}</td>
+                    <td>{{item.longText}}</td>
+                    <td>{{item.searchText}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</section>
+<p-confirmDialog key="delete-permission" [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>

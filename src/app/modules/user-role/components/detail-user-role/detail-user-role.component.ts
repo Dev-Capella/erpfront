@@ -5,6 +5,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { UserRoleService } from '../../services/user-role.service';
+import { PermissionService } from '../../../permission/services/permission.service';
 
 @Component({
   selector: 'app-detail-user-role',
@@ -21,6 +22,7 @@ export class DetailUserRoleComponent extends BaseComponent implements OnInit {
   constructor(spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
     private userRoleService:UserRoleService,
+    private permissionService:PermissionService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
     private route: ActivatedRoute,
@@ -37,11 +39,17 @@ export class DetailUserRoleComponent extends BaseComponent implements OnInit {
       searchText: new FormControl(null),
       permissions: new FormControl([])
     });
+    await this.getPermissions();
     await this.getUserRoleByCode();
   }
 
   get formControls(){
     return this.userRoleForm.controls;
+  }
+
+  async getPermissions(){
+    this.showSpinner();
+    this.permissions =  await this.permissionService.getPermissions(()=> this.hideSpinner());
   }
 
   async getUserRoleByCode(){
@@ -53,6 +61,7 @@ export class DetailUserRoleComponent extends BaseComponent implements OnInit {
       shortText: result.shortText,
       longText: result.longText,
       searchText: result.searchText,
+      permissions: this.permissions.filter(permission => result.permissions.map(permission => permission.code).includes(permission.code))
     })
     this.descriptionText = `Short: ${result.shortText ? result.shortText : "-"}, Long: ${result.longText ? result.longText : "-"}, Search: ${result.searchText ? result.searchText : "-"}`
   }

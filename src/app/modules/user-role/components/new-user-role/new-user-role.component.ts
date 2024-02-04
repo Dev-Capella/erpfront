@@ -5,6 +5,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 import { UserRoleService } from '../../services/user-role.service';
 import { BaseComponent } from '../../../../core/components/base/base.component';
+import { PermissionService } from '../../../permission/services/permission.service';
 @Component({
   selector: 'app-new-user-role',
   templateUrl: './new-user-role.component.html',
@@ -18,13 +19,14 @@ export class NewUserRoleComponent extends BaseComponent implements OnInit {
   constructor(spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
     private userRoleService:UserRoleService,
+    private permissionService:PermissionService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
     private router: Router) {
     super(spinner);
     
   }
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.userRoleForm = this.formBuilder.group({
       id: new FormControl(null),
       code: new FormControl(null),
@@ -33,10 +35,16 @@ export class NewUserRoleComponent extends BaseComponent implements OnInit {
       searchText: new FormControl(null),
       permissions: new FormControl([])
     });
+    await this.getPermissions();
   }
 
   get formControls(){
     return this.userRoleForm.controls;
+  }
+
+  async getPermissions(){
+    this.showSpinner();
+    this.permissions =  await this.permissionService.getPermissions(()=> this.hideSpinner());
   }
 
   save(value){
