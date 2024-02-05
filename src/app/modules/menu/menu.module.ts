@@ -22,6 +22,7 @@ import { DetailMenuComponent } from './components/detail-menu/detail-menu.compon
 import { TreeTableModule } from 'primeng/treetable';
 import { CheckboxModule } from 'primeng/checkbox';
 import { TreeSelectModule } from 'primeng/treeselect';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [MainMenuComponent, NewMenuComponent, DetailMenuComponent],
@@ -50,7 +51,8 @@ import { TreeSelectModule } from 'primeng/treeselect';
     InputNumberModule,
     TreeTableModule,
     CheckboxModule,
-    TreeSelectModule
+    TreeSelectModule,
+    MultiSelectModule
   ]
 })
 export class MenuModule { }

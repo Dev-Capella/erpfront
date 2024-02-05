@@ -116,11 +116,18 @@
                         <div class="field flex flex-wrap align-items-center">
                             <label for="parent" style="min-width:100px;" class="w-3">Üst Menü</label>
                             <div class="w-9">
-                                <p-treeSelect inputId="parent" formControlName="parent"
+                                <p-treeSelect inputId="parent" formControlName="parent" selectionMode="single"
                                     [options]="menus"></p-treeSelect>
                             </div>
                         </div>
                         }
+
+                        <div class="field flex flex-wrap align-items-center">
+                            <label for="userRoles" style="min-width:100px;" class="w-3">User Roles</label>
+                            <div class="w-9">
+                                <p-multiSelect inputId="userRoles" display="chip" [options]="userRoles" formControlName="userRoles" optionLabel="shortText"></p-multiSelect>
+                            </div>
+                        </div>
 
                         <div>
                             <button pButton pRipple label="Save Changes" class="w-auto mt-3"

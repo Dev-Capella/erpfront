@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { MenuService } from '../../services/menu.service';
 import { IconService } from '../../../../shared/services/icon.service';
+import { UserRoleService } from '../../../user-role/services/user-role.service';
 
 @Component({
   selector: 'app-new-menu',
@@ -18,6 +19,7 @@ export class NewMenuComponent extends BaseComponent implements OnInit{
   activeMenu: number = 0;
   icons: any[] = []
   menus: any[] = []
+  userRoles: any[] = []
   parentVisible: boolean = true;
   constructor(spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
@@ -25,7 +27,8 @@ export class NewMenuComponent extends BaseComponent implements OnInit{
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
     private router: Router,
-    private iconService: IconService) {
+    private iconService: IconService,
+    private userRoleService: UserRoleService) {
     super(spinner);
     
   }
@@ -40,9 +43,11 @@ export class NewMenuComponent extends BaseComponent implements OnInit{
       queue: new FormControl(null),
       icon: new FormControl(null),
       root: new FormControl(null),
-      parent: new FormControl(null)
+      parent: new FormControl(null),
+      userRoles: new FormControl([])
     });
     await this.getMenusForTreeNode();
+    await this.getUserRoles();
     await this.getIcons();
   }
 
@@ -53,6 +58,11 @@ export class NewMenuComponent extends BaseComponent implements OnInit{
   async getMenusForTreeNode(){
     this.showSpinner();
     this.menus = await this.menuService.getMenusForTreeNode(()=> this.hideSpinner());
+  }
+
+  async getUserRoles(){
+    this.showSpinner();
+    this.userRoles = await this.userRoleService.getUserRoles(()=> this.hideSpinner());
   }
 
   async getIcons(){
@@ -77,7 +87,8 @@ export class NewMenuComponent extends BaseComponent implements OnInit{
           queue: value?.queue,
           icon: value.icon !=null ? value.icon.code : null,
           root: value?.root,
-          parent: value.parent != null ? {code: value.parent.data} : null
+          parent: value.parent != null ? {code: value.parent.key} : null,
+          userRoles: value.userRoles.length>0 ? value.userRoles.map(x=> {return {code: x.code}}) : []
         }
         this.showSpinner();
         await this.menuService.saveMenu(request, ()=> this.hideSpinner());

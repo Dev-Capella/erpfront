@@ -17,6 +17,13 @@ export class MenuService {
         return response.data;
     }
 
+    async getMenuByCode(code:string,callBackFunction?: () => void){
+        const observable = this.http.get<any>(ROOT_PATH + `/menu/${code}`)
+        const response = await firstValueFrom(observable);
+        callBackFunction();
+        return response.data;
+    }
+
     async saveMenu(menuData, callBackFunction?: () => void){
         const observable = this.http.post<any>(ROOT_PATH + `/menu`,menuData)
         const response = await firstValueFrom(observable);
@@ -25,7 +32,7 @@ export class MenuService {
     }
 
     async getMenuItemsByCode(code:string,callBackFunction?: () => void){
-        const observable = this.http.get<any>(ROOT_PATH + `/menu/${code}`)
+        const observable = this.http.get<any>(ROOT_PATH + `/menu/${code}/items`)
         const response = await firstValueFrom(observable);
         callBackFunction();
         return response.data;

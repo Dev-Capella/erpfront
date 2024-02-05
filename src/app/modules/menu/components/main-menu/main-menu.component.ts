@@ -39,7 +39,7 @@ export class MainMenuComponent extends BaseComponent implements OnInit {
   }
 
   async edit() {
-    var code = this.selectedItem?.code;
+    var code = this.selectedItem?.data?.code;
     this.router.navigate(['/menu-list/',code])
   }
 
