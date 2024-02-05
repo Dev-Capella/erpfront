@@ -115,10 +115,14 @@
                         </div>
                         @if (parentVisible) {
                         <div class="field flex flex-wrap align-items-center">
-                            <label for="parent" style="min-width:100px;" class="w-3">Üst Menü</label>
+                            <label for="parent" style="min-width:100px;" class="w-3">Parent</label>
                             <div class="w-9">
                                 <p-treeSelect inputId="parent" formControlName="parent" selectionMode="single"
-                                    [options]="menus"></p-treeSelect>
+                                    [options]="menus">
+                                    <ng-template pTemplate="default" let-node>
+                                        {{node.label}}
+                                      </ng-template>
+                                </p-treeSelect>
                             </div>
                         </div>
                         }
