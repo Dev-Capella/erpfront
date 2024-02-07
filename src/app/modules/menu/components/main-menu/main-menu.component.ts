@@ -44,16 +44,16 @@ export class MainMenuComponent extends BaseComponent implements OnInit {
   }
 
   async delete() {
-    var code = this.selectedItem?.code;
+    var code = this.selectedItem?.data?.code;
     this.confirmationService.confirm({
       key: 'delete-menu',
       header: 'Transaction Confirmation',
       message: 'The menu is being remove. Are you sure?',
       accept: async () => {
-        // this.showSpinner();
-        // await this.menuService.deleteCostLevelByCode(code,()=> this.hideSpinner());
-        // this.messageService.add({severity:'success', summary:'Transaction Result', detail:'Menu has been removed successfully.'});
-        // await this.getMenusByRoot();
+        this.showSpinner();
+        await this.menuService.deleteMenuByCode(code,()=> this.hideSpinner());
+        this.messageService.add({severity:'success', summary:'Transaction Result', detail:'Menu has been removed successfully.'});
+        await this.getMenusByRoot();
       }
   });
    

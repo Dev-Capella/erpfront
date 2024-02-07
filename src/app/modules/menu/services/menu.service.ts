@@ -45,4 +45,11 @@ export class MenuService {
         return response.data;
     }
 
+    async deleteMenuByCode(code:string,callBackFunction?: () => void){
+        const observable = this.http.delete<any>(ROOT_PATH + `/menu/${code}`)
+        const response = await firstValueFrom(observable);
+        callBackFunction();
+        return response.data;
+    }
+
 }
