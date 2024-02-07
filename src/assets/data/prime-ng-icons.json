@@ -1,1034 +1,1034 @@
 [
     {
-        "code": "pi-align-center",
-        "name": "pi-align-center"
+        "code": "pi pi-align-center",
+        "name": "pi pi-align-center"
     },
     {
-        "code": "pi-align-justify",
-        "name": "pi-align-justify"
+        "code": "pi pi-align-justify",
+        "name": "pi pi-align-justify"
     },
     {
-        "code": "pi-align-left",
-        "name": "pi-align-left"
+        "code": "pi pi-align-left",
+        "name": "pi pi-align-left"
     },
     {
-        "code": "pi-align-right",
-        "name": "pi-align-right"
+        "code": "pi pi-align-right",
+        "name": "pi pi-align-right"
     },
     {
-        "code": "pi-amazon",
-        "name": "pi-amazon"
+        "code": "pi pi-amazon",
+        "name": "pi pi-amazon"
     },
     {
-        "code": "pi-android",
-        "name": "pi-android"
+        "code": "pi pi-android",
+        "name": "pi pi-android"
     },
     {
-        "code": "pi-angle-double-down",
-        "name": "pi-angle-double-down"
+        "code": "pi pi-angle-double-down",
+        "name": "pi pi-angle-double-down"
     },
     {
-        "code": "pi-angle-double-left",
-        "name": "pi-angle-double-left"
+        "code": "pi pi-angle-double-left",
+        "name": "pi pi-angle-double-left"
     },
     {
-        "code": "pi-angle-double-right",
-        "name": "pi-angle-double-right"
+        "code": "pi pi-angle-double-right",
+        "name": "pi pi-angle-double-right"
     },
     {
-        "code": "pi-angle-double-up",
-        "name": "pi-angle-double-up"
+        "code": "pi pi-angle-double-up",
+        "name": "pi pi-angle-double-up"
     },
     {
-        "code": "pi-angle-down",
-        "name": "pi-angle-down"
+        "code": "pi pi-angle-down",
+        "name": "pi pi-angle-down"
     },
     {
-        "code": "pi-angle-left",
-        "name": "pi-angle-left"
+        "code": "pi pi-angle-left",
+        "name": "pi pi-angle-left"
     },
     {
-        "code": "pi-angle-right",
-        "name": "pi-angle-right"
+        "code": "pi pi-angle-right",
+        "name": "pi pi-angle-right"
     },
     {
-        "code": "pi-angle-up",
-        "name": "pi-angle-up"
+        "code": "pi pi-angle-up",
+        "name": "pi pi-angle-up"
     },
     {
-        "code": "pi-apple",
-        "name": "pi-apple"
+        "code": "pi pi-apple",
+        "name": "pi pi-apple"
     },
     {
-        "code": "pi-arrow-circle-down",
-        "name": "pi-arrow-circle-down"
+        "code": "pi pi-arrow-circle-down",
+        "name": "pi pi-arrow-circle-down"
     },
     {
-        "code": "pi-arrow-circle-left",
-        "name": "pi-arrow-circle-left"
+        "code": "pi pi-arrow-circle-left",
+        "name": "pi pi-arrow-circle-left"
     },
     {
-        "code": "pi-arrow-circle-right",
-        "name": "pi-arrow-circle-right"
+        "code": "pi pi-arrow-circle-right",
+        "name": "pi pi-arrow-circle-right"
     },
     {
-        "code": "pi-arrow-circle-up",
-        "name": "pi-arrow-circle-up"
+        "code": "pi pi-arrow-circle-up",
+        "name": "pi pi-arrow-circle-up"
     },
     {
-        "code": "pi-arrow-down",
-        "name": "pi-arrow-down"
+        "code": "pi pi-arrow-down",
+        "name": "pi pi-arrow-down"
     },
     {
-        "code": "pi-arrow-down-left",
-        "name": "pi-arrow-down-left"
+        "code": "pi pi-arrow-down-left",
+        "name": "pi pi-arrow-down-left"
     },
     {
-        "code": "pi-arrow-down-right",
-        "name": "pi-arrow-down-right"
+        "code": "pi pi-arrow-down-right",
+        "name": "pi pi-arrow-down-right"
     },
     {
-        "code": "pi-arrow-left",
-        "name": "pi-arrow-left"
+        "code": "pi pi-arrow-left",
+        "name": "pi pi-arrow-left"
     },
     {
-        "code": "pi-arrow-right",
-        "name": "pi-arrow-right"
+        "code": "pi pi-arrow-right",
+        "name": "pi pi-arrow-right"
     },
     {
-        "code": "pi-arrow-right-arrow-left",
-        "name": "pi-arrow-right-arrow-left"
+        "code": "pi pi-arrow-right-arrow-left",
+        "name": "pi pi-arrow-right-arrow-left"
     },
     {
-        "code": "pi-arrow-up",
-        "name": "pi-arrow-up"
+        "code": "pi pi-arrow-up",
+        "name": "pi pi-arrow-up"
     },
     {
-        "code": "pi-arrow-up-left",
-        "name": "pi-arrow-up-left"
+        "code": "pi pi-arrow-up-left",
+        "name": "pi pi-arrow-up-left"
     },
     {
-        "code": "pi-arrow-up-right",
-        "name": "pi-arrow-up-right"
+        "code": "pi pi-arrow-up-right",
+        "name": "pi pi-arrow-up-right"
     },
     {
-        "code": "pi-arrows-alt",
-        "name": "pi-arrows-alt"
+        "code": "pi pi-arrows-alt",
+        "name": "pi pi-arrows-alt"
     },
     {
-        "code": "pi-arrows-h",
-        "name": "pi-arrows-h"
+        "code": "pi pi-arrows-h",
+        "name": "pi pi-arrows-h"
     },
     {
-        "code": "pi-arrows-v",
-        "name": "pi-arrows-v"
+        "code": "pi pi-arrows-v",
+        "name": "pi pi-arrows-v"
     },
     {
-        "code": "pi-at",
-        "name": "pi-at"
+        "code": "pi pi-at",
+        "name": "pi pi-at"
     },
     {
-        "code": "pi-backward",
-        "name": "pi-backward"
+        "code": "pi pi-backward",
+        "name": "pi pi-backward"
     },
     {
-        "code": "pi-ban",
-        "name": "pi-ban"
+        "code": "pi pi-ban",
+        "name": "pi pi-ban"
     },
     {
-        "code": "pi-bars",
-        "name": "pi-bars"
+        "code": "pi pi-bars",
+        "name": "pi pi-bars"
     },
     {
-        "code": "pi-bell",
-        "name": "pi-bell"
+        "code": "pi pi-bell",
+        "name": "pi pi-bell"
     },
     {
-        "code": "pi-bitcoin",
-        "name": "pi-bitcoin"
+        "code": "pi pi-bitcoin",
+        "name": "pi pi-bitcoin"
     },
     {
-        "code": "pi-bolt",
-        "name": "pi-bolt"
+        "code": "pi pi-bolt",
+        "name": "pi pi-bolt"
     },
     {
-        "code": "pi-book",
-        "name": "pi-book"
+        "code": "pi pi-book",
+        "name": "pi pi-book"
     },
     {
-        "code": "pi-bookmark",
-        "name": "pi-bookmark"
+        "code": "pi pi-bookmark",
+        "name": "pi pi-bookmark"
     },
     {
-        "code": "pi-bookmark-fill",
-        "name": "pi-bookmark-fill"
+        "code": "pi pi-bookmark-fill",
+        "name": "pi pi-bookmark-fill"
     },
     {
-        "code": "pi-box",
-        "name": "pi-box"
+        "code": "pi pi-box",
+        "name": "pi pi-box"
     },
     {
-        "code": "pi-briefcase",
-        "name": "pi-briefcase"
+        "code": "pi pi-briefcase",
+        "name": "pi pi-briefcase"
     },
     {
-        "code": "pi-building",
-        "name": "pi-building"
+        "code": "pi pi-building",
+        "name": "pi pi-building"
     },
     {
-        "code": "pi-calculator",
-        "name": "pi-calculator"
+        "code": "pi pi-calculator",
+        "name": "pi pi-calculator"
     },
     {
-        "code": "pi-calendar",
-        "name": "pi-calendar"
+        "code": "pi pi-calendar",
+        "name": "pi pi-calendar"
     },
     {
-        "code": "pi-calendar-minus",
-        "name": "pi-calendar-minus"
+        "code": "pi pi-calendar-minus",
+        "name": "pi pi-calendar-minus"
     },
     {
-        "code": "pi-calendar-plus",
-        "name": "pi-calendar-plus"
+        "code": "pi pi-calendar-plus",
+        "name": "pi pi-calendar-plus"
     },
     {
-        "code": "pi-calendar-times",
-        "name": "pi-calendar-times"
+        "code": "pi pi-calendar-times",
+        "name": "pi pi-calendar-times"
     },
     {
-        "code": "pi-camera",
-        "name": "pi-camera"
+        "code": "pi pi-camera",
+        "name": "pi pi-camera"
     },
     {
-        "code": "pi-car",
-        "name": "pi-car"
+        "code": "pi pi-car",
+        "name": "pi pi-car"
     },
     {
-        "code": "pi-caret-down",
-        "name": "pi-caret-down"
+        "code": "pi pi-caret-down",
+        "name": "pi pi-caret-down"
     },
     {
-        "code": "pi-caret-left",
-        "name": "pi-caret-left"
+        "code": "pi pi-caret-left",
+        "name": "pi pi-caret-left"
     },
     {
-        "code": "pi-caret-right",
-        "name": "pi-caret-right"
+        "code": "pi pi-caret-right",
+        "name": "pi pi-caret-right"
     },
     {
-        "code": "pi-caret-up",
-        "name": "pi-caret-up"
+        "code": "pi pi-caret-up",
+        "name": "pi pi-caret-up"
     },
     {
-        "code": "pi-cart-plus",
-        "name": "pi-cart-plus"
+        "code": "pi pi-cart-plus",
+        "name": "pi pi-cart-plus"
     },
     {
-        "code": "pi-chart-bar",
-        "name": "pi-chart-bar"
+        "code": "pi pi-chart-bar",
+        "name": "pi pi-chart-bar"
     },
     {
-        "code": "pi-chart-line",
-        "name": "pi-chart-line"
+        "code": "pi pi-chart-line",
+        "name": "pi pi-chart-line"
     },
     {
-        "code": "pi-chart-pie",
-        "name": "pi-chart-pie"
+        "code": "pi pi-chart-pie",
+        "name": "pi pi-chart-pie"
     },
     {
-        "code": "pi-check",
-        "name": "pi-check"
+        "code": "pi pi-check",
+        "name": "pi pi-check"
     },
     {
-        "code": "pi-check-circle",
-        "name": "pi-check-circle"
+        "code": "pi pi-check-circle",
+        "name": "pi pi-check-circle"
     },
     {
-        "code": "pi-check-square",
-        "name": "pi-check-square"
+        "code": "pi pi-check-square",
+        "name": "pi pi-check-square"
     },
     {
-        "code": "pi-chevron-circle-down",
-        "name": "pi-chevron-circle-down"
+        "code": "pi pi-chevron-circle-down",
+        "name": "pi pi-chevron-circle-down"
     },
     {
-        "code": "pi-chevron-circle-left",
-        "name": "pi-chevron-circle-left"
+        "code": "pi pi-chevron-circle-left",
+        "name": "pi pi-chevron-circle-left"
     },
     {
-        "code": "pi-chevron-circle-right",
-        "name": "pi-chevron-circle-right"
+        "code": "pi pi-chevron-circle-right",
+        "name": "pi pi-chevron-circle-right"
     },
     {
-        "code": "pi-chevron-circle-up",
-        "name": "pi-chevron-circle-up"
+        "code": "pi pi-chevron-circle-up",
+        "name": "pi pi-chevron-circle-up"
     },
     {
-        "code": "pi-chevron-down",
-        "name": "pi-chevron-down"
+        "code": "pi pi-chevron-down",
+        "name": "pi pi-chevron-down"
     },
     {
-        "code": "pi-chevron-left",
-        "name": "pi-chevron-left"
+        "code": "pi pi-chevron-left",
+        "name": "pi pi-chevron-left"
     },
     {
-        "code": "pi-chevron-right",
-        "name": "pi-chevron-right"
+        "code": "pi pi-chevron-right",
+        "name": "pi pi-chevron-right"
     },
     {
-        "code": "pi-chevron-up",
-        "name": "pi-chevron-up"
+        "code": "pi pi-chevron-up",
+        "name": "pi pi-chevron-up"
     },
     {
-        "code": "pi-circle",
-        "name": "pi-circle"
+        "code": "pi pi-circle",
+        "name": "pi pi-circle"
     },
     {
-        "code": "pi-circle-fill",
-        "name": "pi-circle-fill"
+        "code": "pi pi-circle-fill",
+        "name": "pi pi-circle-fill"
     },
     {
-        "code": "pi-clock",
-        "name": "pi-clock"
+        "code": "pi pi-clock",
+        "name": "pi pi-clock"
     },
     {
-        "code": "pi-clone",
-        "name": "pi-clone"
+        "code": "pi pi-clone",
+        "name": "pi pi-clone"
     },
     {
-        "code": "pi-cloud",
-        "name": "pi-cloud"
+        "code": "pi pi-cloud",
+        "name": "pi pi-cloud"
     },
     {
-        "code": "pi-cloud-download",
-        "name": "pi-cloud-download"
+        "code": "pi pi-cloud-download",
+        "name": "pi pi-cloud-download"
     },
     {
-        "code": "pi-cloud-upload",
-        "name": "pi-cloud-upload"
+        "code": "pi pi-cloud-upload",
+        "name": "pi pi-cloud-upload"
     },
     {
-        "code": "pi-code",
-        "name": "pi-code"
+        "code": "pi pi-code",
+        "name": "pi pi-code"
     },
     {
-        "code": "pi-cog",
-        "name": "pi-cog"
+        "code": "pi pi-cog",
+        "name": "pi pi-cog"
     },
     {
-        "code": "pi-comment",
-        "name": "pi-comment"
+        "code": "pi pi-comment",
+        "name": "pi pi-comment"
     },
     {
-        "code": "pi-comments",
-        "name": "pi-comments"
+        "code": "pi pi-comments",
+        "name": "pi pi-comments"
     },
     {
-        "code": "pi-compass",
-        "name": "pi-compass"
+        "code": "pi pi-compass",
+        "name": "pi pi-compass"
     },
     {
-        "code": "pi-copy",
-        "name": "pi-copy"
+        "code": "pi pi-copy",
+        "name": "pi pi-copy"
     },
     {
-        "code": "pi-credit-card",
-        "name": "pi-credit-card"
+        "code": "pi pi-credit-card",
+        "name": "pi pi-credit-card"
     },
     {
-        "code": "pi-database",
-        "name": "pi-database"
+        "code": "pi pi-database",
+        "name": "pi pi-database"
     },
     {
-        "code": "pi-delete-left",
-        "name": "pi-delete-left"
+        "code": "pi pi-delete-left",
+        "name": "pi pi-delete-left"
     },
     {
-        "code": "pi-desktop",
-        "name": "pi-desktop"
+        "code": "pi pi-desktop",
+        "name": "pi pi-desktop"
     },
     {
-        "code": "pi-directions",
-        "name": "pi-directions"
+        "code": "pi pi-directions",
+        "name": "pi pi-directions"
     },
     {
-        "code": "pi-directions-alt",
-        "name": "pi-directions-alt"
+        "code": "pi pi-directions-alt",
+        "name": "pi pi-directions-alt"
     },
     {
-        "code": "pi-discord",
-        "name": "pi-discord"
+        "code": "pi pi-discord",
+        "name": "pi pi-discord"
     },
     {
-        "code": "pi-dollar",
-        "name": "pi-dollar"
+        "code": "pi pi-dollar",
+        "name": "pi pi-dollar"
     },
     {
-        "code": "pi-download",
-        "name": "pi-download"
+        "code": "pi pi-download",
+        "name": "pi pi-download"
     },
     {
-        "code": "pi-eject",
-        "name": "pi-eject"
+        "code": "pi pi-eject",
+        "name": "pi pi-eject"
     },
     {
-        "code": "pi-ellipsis-h",
-        "name": "pi-ellipsis-h"
+        "code": "pi pi-ellipsis-h",
+        "name": "pi pi-ellipsis-h"
     },
     {
-        "code": "pi-ellipsis-v",
-        "name": "pi-ellipsis-v"
+        "code": "pi pi-ellipsis-v",
+        "name": "pi pi-ellipsis-v"
     },
     {
-        "code": "pi-envelope",
-        "name": "pi-envelope"
+        "code": "pi pi-envelope",
+        "name": "pi pi-envelope"
     },
     {
-        "code": "pi-eraser",
-        "name": "pi-eraser"
+        "code": "pi pi-eraser",
+        "name": "pi pi-eraser"
     },
     {
-        "code": "pi-euro",
-        "name": "pi-euro"
+        "code": "pi pi-euro",
+        "name": "pi pi-euro"
     },
     {
-        "code": "pi-exclamation-circle",
-        "name": "pi-exclamation-circle"
+        "code": "pi pi-exclamation-circle",
+        "name": "pi pi-exclamation-circle"
     },
     {
-        "code": "pi-exclamation-triangle",
-        "name": "pi-exclamation-triangle"
+        "code": "pi pi-exclamation-triangle",
+        "name": "pi pi-exclamation-triangle"
     },
     {
-        "code": "pi-external-link",
-        "name": "pi-external-link"
+        "code": "pi pi-external-link",
+        "name": "pi pi-external-link"
     },
     {
-        "code": "pi-eye",
-        "name": "pi-eye"
+        "code": "pi pi-eye",
+        "name": "pi pi-eye"
     },
     {
-        "code": "pi-eye-slash",
-        "name": "pi-eye-slash"
+        "code": "pi pi-eye-slash",
+        "name": "pi pi-eye-slash"
     },
     {
-        "code": "pi-facebook",
-        "name": "pi-facebook"
+        "code": "pi pi-facebook",
+        "name": "pi pi-facebook"
     },
     {
-        "code": "pi-fast-backward",
-        "name": "pi-fast-backward"
+        "code": "pi pi-fast-backward",
+        "name": "pi pi-fast-backward"
     },
     {
-        "code": "pi-fast-forward",
-        "name": "pi-fast-forward"
+        "code": "pi pi-fast-forward",
+        "name": "pi pi-fast-forward"
     },
     {
-        "code": "pi-file",
-        "name": "pi-file"
+        "code": "pi pi-file",
+        "name": "pi pi-file"
     },
     {
-        "code": "pi-file-edit",
-        "name": "pi-file-edit"
+        "code": "pi pi-file-edit",
+        "name": "pi pi-file-edit"
     },
     {
-        "code": "pi-file-excel",
-        "name": "pi-file-excel"
+        "code": "pi pi-file-excel",
+        "name": "pi pi-file-excel"
     },
     {
-        "code": "pi-file-export",
-        "name": "pi-file-export"
+        "code": "pi pi-file-export",
+        "name": "pi pi-file-export"
     },
     {
-        "code": "pi-file-import",
-        "name": "pi-file-import"
+        "code": "pi pi-file-import",
+        "name": "pi pi-file-import"
     },
     {
-        "code": "pi-file-pdf",
-        "name": "pi-file-pdf"
+        "code": "pi pi-file-pdf",
+        "name": "pi pi-file-pdf"
     },
     {
-        "code": "pi-file-word",
-        "name": "pi-file-word"
+        "code": "pi pi-file-word",
+        "name": "pi pi-file-word"
     },
     {
-        "code": "pi-filter",
-        "name": "pi-filter"
+        "code": "pi pi-filter",
+        "name": "pi pi-filter"
     },
     {
-        "code": "pi-filter-fill",
-        "name": "pi-filter-fill"
+        "code": "pi pi-filter-fill",
+        "name": "pi pi-filter-fill"
     },
     {
-        "code": "pi-filter-slash",
-        "name": "pi-filter-slash"
+        "code": "pi pi-filter-slash",
+        "name": "pi pi-filter-slash"
     },
     {
-        "code": "pi-flag",
-        "name": "pi-flag"
+        "code": "pi pi-flag",
+        "name": "pi pi-flag"
     },
     {
-        "code": "pi-flag-fill",
-        "name": "pi-flag-fill"
+        "code": "pi pi-flag-fill",
+        "name": "pi pi-flag-fill"
     },
     {
-        "code": "pi-folder",
-        "name": "pi-folder"
+        "code": "pi pi-folder",
+        "name": "pi pi-folder"
     },
     {
-        "code": "pi-folder-open",
-        "name": "pi-folder-open"
+        "code": "pi pi-folder-open",
+        "name": "pi pi-folder-open"
     },
     {
-        "code": "pi-forward",
-        "name": "pi-forward"
+        "code": "pi pi-forward",
+        "name": "pi pi-forward"
     },
     {
-        "code": "pi-gift",
-        "name": "pi-gift"
+        "code": "pi pi-gift",
+        "name": "pi pi-gift"
     },
     {
-        "code": "pi-github",
-        "name": "pi-github"
+        "code": "pi pi-github",
+        "name": "pi pi-github"
     },
     {
-        "code": "pi-globe",
-        "name": "pi-globe"
+        "code": "pi pi-globe",
+        "name": "pi pi-globe"
     },
     {
-        "code": "pi-google",
-        "name": "pi-google"
+        "code": "pi pi-google",
+        "name": "pi pi-google"
     },
     {
-        "code": "pi-hashtag",
-        "name": "pi-hashtag"
+        "code": "pi pi-hashtag",
+        "name": "pi pi-hashtag"
     },
     {
-        "code": "pi-heart",
-        "name": "pi-heart"
+        "code": "pi pi-heart",
+        "name": "pi pi-heart"
     },
     {
-        "code": "pi-heart-fill",
-        "name": "pi-heart-fill"
+        "code": "pi pi-heart-fill",
+        "name": "pi pi-heart-fill"
     },
     {
-        "code": "pi-history",
-        "name": "pi-history"
+        "code": "pi pi-history",
+        "name": "pi pi-history"
     },
     {
-        "code": "pi-home",
-        "name": "pi-home"
+        "code": "pi pi-home",
+        "name": "pi pi-home"
     },
     {
-        "code": "pi-hourglass",
-        "name": "pi-hourglass"
+        "code": "pi pi-hourglass",
+        "name": "pi pi-hourglass"
     },
     {
-        "code": "pi-id-card",
-        "name": "pi-id-card"
+        "code": "pi pi-id-card",
+        "name": "pi pi-id-card"
     },
     {
-        "code": "pi-image",
-        "name": "pi-image"
+        "code": "pi pi-image",
+        "name": "pi pi-image"
     },
     {
-        "code": "pi-images",
-        "name": "pi-images"
+        "code": "pi pi-images",
+        "name": "pi pi-images"
     },
     {
-        "code": "pi-inbox",
-        "name": "pi-inbox"
+        "code": "pi pi-inbox",
+        "name": "pi pi-inbox"
     },
     {
-        "code": "pi-info",
-        "name": "pi-info"
+        "code": "pi pi-info",
+        "name": "pi pi-info"
     },
     {
-        "code": "pi-info-circle",
-        "name": "pi-info-circle"
+        "code": "pi pi-info-circle",
+        "name": "pi pi-info-circle"
     },
     {
-        "code": "pi-instagram",
-        "name": "pi-instagram"
+        "code": "pi pi-instagram",
+        "name": "pi pi-instagram"
     },
     {
-        "code": "pi-key",
-        "name": "pi-key"
+        "code": "pi pi-key",
+        "name": "pi pi-key"
     },
     {
-        "code": "pi-language",
-        "name": "pi-language"
+        "code": "pi pi-language",
+        "name": "pi pi-language"
     },
     {
-        "code": "pi-link",
-        "name": "pi-link"
+        "code": "pi pi-link",
+        "name": "pi pi-link"
     },
     {
-        "code": "pi-linkedin",
-        "name": "pi-linkedin"
+        "code": "pi pi-linkedin",
+        "name": "pi pi-linkedin"
     },
     {
-        "code": "pi-list",
-        "name": "pi-list"
+        "code": "pi pi-list",
+        "name": "pi pi-list"
     },
     {
-        "code": "pi-lock",
-        "name": "pi-lock"
+        "code": "pi pi-lock",
+        "name": "pi pi-lock"
     },
     {
-        "code": "pi-lock-open",
-        "name": "pi-lock-open"
+        "code": "pi pi-lock-open",
+        "name": "pi pi-lock-open"
     },
     {
-        "code": "pi-map",
-        "name": "pi-map"
+        "code": "pi pi-map",
+        "name": "pi pi-map"
     },
     {
-        "code": "pi-map-marker",
-        "name": "pi-map-marker"
+        "code": "pi pi-map-marker",
+        "name": "pi pi-map-marker"
     },
     {
-        "code": "pi-megaphone",
-        "name": "pi-megaphone"
+        "code": "pi pi-megaphone",
+        "name": "pi pi-megaphone"
     },
     {
-        "code": "pi-microphone",
-        "name": "pi-microphone"
+        "code": "pi pi-microphone",
+        "name": "pi pi-microphone"
     },
     {
-        "code": "pi-microsoft",
-        "name": "pi-microsoft"
+        "code": "pi pi-microsoft",
+        "name": "pi pi-microsoft"
     },
     {
-        "code": "pi-minus",
-        "name": "pi-minus"
+        "code": "pi pi-minus",
+        "name": "pi pi-minus"
     },
     {
-        "code": "pi-minus-circle",
-        "name": "pi-minus-circle"
+        "code": "pi pi-minus-circle",
+        "name": "pi pi-minus-circle"
     },
     {
-        "code": "pi-mobile",
-        "name": "pi-mobile"
+        "code": "pi pi-mobile",
+        "name": "pi pi-mobile"
     },
     {
-        "code": "pi-money-bill",
-        "name": "pi-money-bill"
+        "code": "pi pi-money-bill",
+        "name": "pi pi-money-bill"
     },
     {
-        "code": "pi-moon",
-        "name": "pi-moon"
+        "code": "pi pi-moon",
+        "name": "pi pi-moon"
     },
     {
-        "code": "pi-palette",
-        "name": "pi-palette"
+        "code": "pi pi-palette",
+        "name": "pi pi-palette"
     },
     {
-        "code": "pi-paperclip",
-        "name": "pi-paperclip"
+        "code": "pi pi-paperclip",
+        "name": "pi pi-paperclip"
     },
     {
-        "code": "pi-pause",
-        "name": "pi-pause"
+        "code": "pi pi-pause",
+        "name": "pi pi-pause"
     },
     {
-        "code": "pi-paypal",
-        "name": "pi-paypal"
+        "code": "pi pi-paypal",
+        "name": "pi pi-paypal"
     },
     {
-        "code": "pi-pencil",
-        "name": "pi-pencil"
+        "code": "pi pi-pencil",
+        "name": "pi pi-pencil"
     },
     {
-        "code": "pi-percentage",
-        "name": "pi-percentage"
+        "code": "pi pi-percentage",
+        "name": "pi pi-percentage"
     },
     {
-        "code": "pi-phone",
-        "name": "pi-phone"
+        "code": "pi pi-phone",
+        "name": "pi pi-phone"
     },
     {
-        "code": "pi-play",
-        "name": "pi-play"
+        "code": "pi pi-play",
+        "name": "pi pi-play"
     },
     {
-        "code": "pi-plus",
-        "name": "pi-plus"
+        "code": "pi pi-plus",
+        "name": "pi pi-plus"
     },
     {
-        "code": "pi-plus-circle",
-        "name": "pi-plus-circle"
+        "code": "pi pi-plus-circle",
+        "name": "pi pi-plus-circle"
     },
     {
-        "code": "pi-pound",
-        "name": "pi-pound"
+        "code": "pi pi-pound",
+        "name": "pi pi-pound"
     },
     {
-        "code": "pi-power-off",
-        "name": "pi-power-off"
+        "code": "pi pi-power-off",
+        "name": "pi pi-power-off"
     },
     {
-        "code": "pi-prime",
-        "name": "pi-prime"
+        "code": "pi pi-prime",
+        "name": "pi pi-prime"
     },
     {
-        "code": "pi-print",
-        "name": "pi-print"
+        "code": "pi pi-print",
+        "name": "pi pi-print"
     },
     {
-        "code": "pi-qrcode",
-        "name": "pi-qrcode"
+        "code": "pi pi-qrcode",
+        "name": "pi pi-qrcode"
     },
     {
-        "code": "pi-question",
-        "name": "pi-question"
+        "code": "pi pi-question",
+        "name": "pi pi-question"
     },
     {
-        "code": "pi-question-circle",
-        "name": "pi-question-circle"
+        "code": "pi pi-question-circle",
+        "name": "pi pi-question-circle"
     },
     {
-        "code": "pi-reddit",
-        "name": "pi-reddit"
+        "code": "pi pi-reddit",
+        "name": "pi pi-reddit"
     },
     {
-        "code": "pi-refresh",
-        "name": "pi-refresh"
+        "code": "pi pi-refresh",
+        "name": "pi pi-refresh"
     },
     {
-        "code": "pi-replay",
-        "name": "pi-replay"
+        "code": "pi pi-replay",
+        "name": "pi pi-replay"
     },
     {
-        "code": "pi-reply",
-        "name": "pi-reply"
+        "code": "pi pi-reply",
+        "name": "pi pi-reply"
     },
     {
-        "code": "pi-save",
-        "name": "pi-save"
+        "code": "pi pi-save",
+        "name": "pi pi-save"
     },
     {
-        "code": "pi-search",
-        "name": "pi-search"
+        "code": "pi pi-search",
+        "name": "pi pi-search"
     },
     {
-        "code": "pi-search-minus",
-        "name": "pi-search-minus"
+        "code": "pi pi-search-minus",
+        "name": "pi pi-search-minus"
     },
     {
-        "code": "pi-search-plus",
-        "name": "pi-search-plus"
+        "code": "pi pi-search-plus",
+        "name": "pi pi-search-plus"
     },
     {
-        "code": "pi-send",
-        "name": "pi-send"
+        "code": "pi pi-send",
+        "name": "pi pi-send"
     },
     {
-        "code": "pi-server",
-        "name": "pi-server"
+        "code": "pi pi-server",
+        "name": "pi pi-server"
     },
     {
-        "code": "pi-share-alt",
-        "name": "pi-share-alt"
+        "code": "pi pi-share-alt",
+        "name": "pi pi-share-alt"
     },
     {
-        "code": "pi-shield",
-        "name": "pi-shield"
+        "code": "pi pi-shield",
+        "name": "pi pi-shield"
     },
     {
-        "code": "pi-shopping-bag",
-        "name": "pi-shopping-bag"
+        "code": "pi pi-shopping-bag",
+        "name": "pi pi-shopping-bag"
     },
     {
-        "code": "pi-shopping-cart",
-        "name": "pi-shopping-cart"
+        "code": "pi pi-shopping-cart",
+        "name": "pi pi-shopping-cart"
     },
     {
-        "code": "pi-sign-in",
-        "name": "pi-sign-in"
+        "code": "pi pi-sign-in",
+        "name": "pi pi-sign-in"
     },
     {
-        "code": "pi-sign-out",
-        "name": "pi-sign-out"
+        "code": "pi pi-sign-out",
+        "name": "pi pi-sign-out"
     },
     {
-        "code": "pi-sitemap",
-        "name": "pi-sitemap"
+        "code": "pi pi-sitemap",
+        "name": "pi pi-sitemap"
     },
     {
-        "code": "pi-slack",
-        "name": "pi-slack"
+        "code": "pi pi-slack",
+        "name": "pi pi-slack"
     },
     {
-        "code": "pi-sliders-h",
-        "name": "pi-sliders-h"
+        "code": "pi pi-sliders-h",
+        "name": "pi pi-sliders-h"
     },
     {
-        "code": "pi-sliders-v",
-        "name": "pi-sliders-v"
+        "code": "pi pi-sliders-v",
+        "name": "pi pi-sliders-v"
     },
     {
-        "code": "pi-sort",
-        "name": "pi-sort"
+        "code": "pi pi-sort",
+        "name": "pi pi-sort"
     },
     {
-        "code": "pi-sort-alpha-down",
-        "name": "pi-sort-alpha-down"
+        "code": "pi pi-sort-alpha-down",
+        "name": "pi pi-sort-alpha-down"
     },
     {
-        "code": "pi-sort-alpha-down-alt",
-        "name": "pi-sort-alpha-down-alt"
+        "code": "pi pi-sort-alpha-down-alt",
+        "name": "pi pi-sort-alpha-down-alt"
     },
     {
-        "code": "pi-sort-alpha-up",
-        "name": "pi-sort-alpha-up"
+        "code": "pi pi-sort-alpha-up",
+        "name": "pi pi-sort-alpha-up"
     },
     {
-        "code": "pi-sort-alpha-up-alt",
-        "name": "pi-sort-alpha-up-alt"
+        "code": "pi pi-sort-alpha-up-alt",
+        "name": "pi pi-sort-alpha-up-alt"
     },
     {
-        "code": "pi-sort-alt",
-        "name": "pi-sort-alt"
+        "code": "pi pi-sort-alt",
+        "name": "pi pi-sort-alt"
     },
     {
-        "code": "pi-sort-alt-slash",
-        "name": "pi-sort-alt-slash"
+        "code": "pi pi-sort-alt-slash",
+        "name": "pi pi-sort-alt-slash"
     },
     {
-        "code": "pi-sort-amount-down",
-        "name": "pi-sort-amount-down"
+        "code": "pi pi-sort-amount-down",
+        "name": "pi pi-sort-amount-down"
     },
     {
-        "code": "pi-sort-amount-down-alt",
-        "name": "pi-sort-amount-down-alt"
+        "code": "pi pi-sort-amount-down-alt",
+        "name": "pi pi-sort-amount-down-alt"
     },
     {
-        "code": "pi-sort-amount-up",
-        "name": "pi-sort-amount-up"
+        "code": "pi pi-sort-amount-up",
+        "name": "pi pi-sort-amount-up"
     },
     {
-        "code": "pi-sort-amount-up-alt",
-        "name": "pi-sort-amount-up-alt"
+        "code": "pi pi-sort-amount-up-alt",
+        "name": "pi pi-sort-amount-up-alt"
     },
     {
-        "code": "pi-sort-down",
-        "name": "pi-sort-down"
+        "code": "pi pi-sort-down",
+        "name": "pi pi-sort-down"
     },
     {
-        "code": "pi-sort-numeric-down",
-        "name": "pi-sort-numeric-down"
+        "code": "pi pi-sort-numeric-down",
+        "name": "pi pi-sort-numeric-down"
     },
     {
-        "code": "pi-sort-numeric-down-alt",
-        "name": "pi-sort-numeric-down-alt"
+        "code": "pi pi-sort-numeric-down-alt",
+        "name": "pi pi-sort-numeric-down-alt"
     },
     {
-        "code": "pi-sort-numeric-up",
-        "name": "pi-sort-numeric-up"
+        "code": "pi pi-sort-numeric-up",
+        "name": "pi pi-sort-numeric-up"
     },
     {
-        "code": "pi-sort-numeric-up-alt",
-        "name": "pi-sort-numeric-up-alt"
+        "code": "pi pi-sort-numeric-up-alt",
+        "name": "pi pi-sort-numeric-up-alt"
     },
     {
-        "code": "pi-sort-up",
-        "name": "pi-sort-up"
+        "code": "pi pi-sort-up",
+        "name": "pi pi-sort-up"
     },
     {
-        "code": "pi-spinner",
-        "name": "pi-spinner"
+        "code": "pi pi-spinner",
+        "name": "pi pi-spinner"
     },
     {
-        "code": "pi-star",
-        "name": "pi-star"
+        "code": "pi pi-star",
+        "name": "pi pi-star"
     },
     {
-        "code": "pi-star-fill",
-        "name": "pi-star-fill"
+        "code": "pi pi-star-fill",
+        "name": "pi pi-star-fill"
     },
     {
-        "code": "pi-step-backward",
-        "name": "pi-step-backward"
+        "code": "pi pi-step-backward",
+        "name": "pi pi-step-backward"
     },
     {
-        "code": "pi-step-backward-alt",
-        "name": "pi-step-backward-alt"
+        "code": "pi pi-step-backward-alt",
+        "name": "pi pi-step-backward-alt"
     },
     {
-        "code": "pi-step-forward",
-        "name": "pi-step-forward"
+        "code": "pi pi-step-forward",
+        "name": "pi pi-step-forward"
     },
     {
-        "code": "pi-step-forward-alt",
-        "name": "pi-step-forward-alt"
+        "code": "pi pi-step-forward-alt",
+        "name": "pi pi-step-forward-alt"
     },
     {
-        "code": "pi-stop",
-        "name": "pi-stop"
+        "code": "pi pi-stop",
+        "name": "pi pi-stop"
     },
     {
-        "code": "pi-stop-circle",
-        "name": "pi-stop-circle"
+        "code": "pi pi-stop-circle",
+        "name": "pi pi-stop-circle"
     },
     {
-        "code": "pi-stopwatch",
-        "name": "pi-stopwatch"
+        "code": "pi pi-stopwatch",
+        "name": "pi pi-stopwatch"
     },
     {
-        "code": "pi-sun",
-        "name": "pi-sun"
+        "code": "pi pi-sun",
+        "name": "pi pi-sun"
     },
     {
-        "code": "pi-sync",
-        "name": "pi-sync"
+        "code": "pi pi-sync",
+        "name": "pi pi-sync"
     },
     {
-        "code": "pi-table",
-        "name": "pi-table"
+        "code": "pi pi-table",
+        "name": "pi pi-table"
     },
     {
-        "code": "pi-tablet",
-        "name": "pi-tablet"
+        "code": "pi pi-tablet",
+        "name": "pi pi-tablet"
     },
     {
-        "code": "pi-tag",
-        "name": "pi-tag"
+        "code": "pi pi-tag",
+        "name": "pi pi-tag"
     },
     {
-        "code": "pi-tags",
-        "name": "pi-tags"
+        "code": "pi pi-tags",
+        "name": "pi pi-tags"
     },
     {
-        "code": "pi-telegram",
-        "name": "pi-telegram"
+        "code": "pi pi-telegram",
+        "name": "pi pi-telegram"
     },
     {
-        "code": "pi-th-large",
-        "name": "pi-th-large"
+        "code": "pi pi-th-large",
+        "name": "pi pi-th-large"
     },
     {
-        "code": "pi-thumbs-down",
-        "name": "pi-thumbs-down"
+        "code": "pi pi-thumbs-down",
+        "name": "pi pi-thumbs-down"
     },
     {
-        "code": "pi-thumbs-down-fill",
-        "name": "pi-thumbs-down-fill"
+        "code": "pi pi-thumbs-down-fill",
+        "name": "pi pi-thumbs-down-fill"
     },
     {
-        "code": "pi-thumbs-up",
-        "name": "pi-thumbs-up"
+        "code": "pi pi-thumbs-up",
+        "name": "pi pi-thumbs-up"
     },
     {
-        "code": "pi-thumbs-up-fill",
-        "name": "pi-thumbs-up-fill"
+        "code": "pi pi-thumbs-up-fill",
+        "name": "pi pi-thumbs-up-fill"
     },
     {
-        "code": "pi-ticket",
-        "name": "pi-ticket"
+        "code": "pi pi-ticket",
+        "name": "pi pi-ticket"
     },
     {
-        "code": "pi-times",
-        "name": "pi-times"
+        "code": "pi pi-times",
+        "name": "pi pi-times"
     },
     {
-        "code": "pi-times-circle",
-        "name": "pi-times-circle"
+        "code": "pi pi-times-circle",
+        "name": "pi pi-times-circle"
     },
     {
-        "code": "pi-trash",
-        "name": "pi-trash"
+        "code": "pi pi-trash",
+        "name": "pi pi-trash"
     },
     {
-        "code": "pi-truck",
-        "name": "pi-truck"
+        "code": "pi pi-truck",
+        "name": "pi pi-truck"
     },
     {
-        "code": "pi-twitter",
-        "name": "pi-twitter"
+        "code": "pi pi-twitter",
+        "name": "pi pi-twitter"
     },
     {
-        "code": "pi-undo",
-        "name": "pi-undo"
+        "code": "pi pi-undo",
+        "name": "pi pi-undo"
     },
     {
-        "code": "pi-unlock",
-        "name": "pi-unlock"
+        "code": "pi pi-unlock",
+        "name": "pi pi-unlock"
     },
     {
-        "code": "pi-upload",
-        "name": "pi-upload"
+        "code": "pi pi-upload",
+        "name": "pi pi-upload"
     },
     {
-        "code": "pi-user",
-        "name": "pi-user"
+        "code": "pi pi-user",
+        "name": "pi pi-user"
     },
     {
-        "code": "pi-user-edit",
-        "name": "pi-user-edit"
+        "code": "pi pi-user-edit",
+        "name": "pi pi-user-edit"
     },
     {
-        "code": "pi-user-minus",
-        "name": "pi-user-minus"
+        "code": "pi pi-user-minus",
+        "name": "pi pi-user-minus"
     },
     {
-        "code": "pi-user-plus",
-        "name": "pi-user-plus"
+        "code": "pi pi-user-plus",
+        "name": "pi pi-user-plus"
     },
     {
-        "code": "pi-users",
-        "name": "pi-users"
+        "code": "pi pi-users",
+        "name": "pi pi-users"
     },
     {
-        "code": "pi-verified",
-        "name": "pi-verified"
+        "code": "pi pi-verified",
+        "name": "pi pi-verified"
     },
     {
-        "code": "pi-video",
-        "name": "pi-video"
+        "code": "pi pi-video",
+        "name": "pi pi-video"
     },
     {
-        "code": "pi-vimeo",
-        "name": "pi-vimeo"
+        "code": "pi pi-vimeo",
+        "name": "pi pi-vimeo"
     },
     {
-        "code": "pi-volume-down",
-        "name": "pi-volume-down"
+        "code": "pi pi-volume-down",
+        "name": "pi pi-volume-down"
     },
     {
-        "code": "pi-volume-off",
-        "name": "pi-volume-off"
+        "code": "pi pi-volume-off",
+        "name": "pi pi-volume-off"
     },
     {
-        "code": "pi-volume-up",
-        "name": "pi-volume-up"
+        "code": "pi pi-volume-up",
+        "name": "pi pi-volume-up"
     },
     {
-        "code": "pi-wallet",
-        "name": "pi-wallet"
+        "code": "pi pi-wallet",
+        "name": "pi pi-wallet"
     },
     {
-        "code": "pi-whatsapp",
-        "name": "pi-whatsapp"
+        "code": "pi pi-whatsapp",
+        "name": "pi pi-whatsapp"
     },
     {
-        "code": "pi-wifi",
-        "name": "pi-wifi"
+        "code": "pi pi-wifi",
+        "name": "pi pi-wifi"
     },
     {
-        "code": "pi-window-maximize",
-        "name": "pi-window-maximize"
+        "code": "pi pi-window-maximize",
+        "name": "pi pi-window-maximize"
     },
     {
-        "code": "pi-window-minimize",
-        "name": "pi-window-minimize"
+        "code": "pi pi-window-minimize",
+        "name": "pi pi-window-minimize"
     },
     {
-        "code": "pi-wrench",
-        "name": "pi-wrench"
+        "code": "pi pi-wrench",
+        "name": "pi pi-wrench"
     },
     {
-        "code": "pi-youtube",
-        "name": "pi-youtube"
+        "code": "pi pi-youtube",
+        "name": "pi pi-youtube"
     }
 ]

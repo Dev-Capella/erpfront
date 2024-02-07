@@ -12,7 +12,7 @@ import { MenuService } from '../services/app.menu.service';
     /* tslint:enable:component-selector */
     template: `
 		<ng-container>
-			<a [attr.href]="item.url" (click)="itemClick($event)" *ngIf="(!item.routerLink || item.items) && item.visible !== false"
+			<a [attr.href]="item.url" (click)="itemClick($event)" *ngIf="(!item.routerLink || item.items.length) && item.visible !== false"
 			   (mouseenter)="onMouseEnter()" (keydown.enter)="itemClick($event)"
 			   [attr.target]="item.target" [attr.tabindex]="0" [ngClass]="item.class" pRipple>
 				<i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
@@ -20,7 +20,7 @@ import { MenuService } from '../services/app.menu.service';
 				<i class="pi pi-fw pi-angle-down layout-menuitem-toggler" *ngIf="item.items"></i>
 				<span class="menuitem-badge" *ngIf="item.badge">{{item.badge}}</span>
 			</a>
-			<a (click)="itemClick($event)" (mouseenter)="onMouseEnter()" *ngIf="(item.routerLink && !item.items) && item.visible !== false"
+			<a (click)="itemClick($event)" (mouseenter)="onMouseEnter()" *ngIf="(item.routerLink && !item.items.length) && item.visible !== false"
 			   [routerLink]="item.routerLink" routerLinkActive="active-menuitem-routerlink"
 			   [routerLinkActiveOptions]="{exact: !item.preventExact}" [attr.target]="item.target" [attr.tabindex]="0" [ngClass]="item.class" pRipple>
 				<i [ngClass]="item.icon" class="layout-menuitem-icon"></i>

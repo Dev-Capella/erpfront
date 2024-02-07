@@ -91,13 +91,13 @@
                                     [filter]="true" filterBy="name" [showClear]="true" [autoDisplayFirst]="false">
                                     <ng-template pTemplate="selectedItem">
                                         <div class="flex align-items-center gap-1" *ngIf="menuForm?.value.icon!=null">
-                                            <i [class]="'pi ' + menuForm?.value.icon.code"></i>
+                                            <i [class]="menuForm?.value.icon.code"></i>
                                             <div>{{menuForm?.value.icon.name}}</div>
                                         </div>
                                     </ng-template>
                                     <ng-template let-icon pTemplate="item">
                                         <div class="flex align-items-center gap-1">
-                                            <i [class]="'pi ' + icon.code"></i>
+                                            <i [class]="icon.code"></i>
                                             <div>{{icon.name}}</div>
                                         </div>
                                     </ng-template>

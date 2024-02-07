@@ -52,4 +52,11 @@ export class MenuService {
         return response.data;
     }
 
+    async getCurrentUserMenus(callBackFunction?: () => void){
+        const observable = this.http.get<any>(ROOT_PATH + `/menu/current-user`)
+        const response = await firstValueFrom(observable);
+        callBackFunction();
+        return response.data;
+    }
+
 }
