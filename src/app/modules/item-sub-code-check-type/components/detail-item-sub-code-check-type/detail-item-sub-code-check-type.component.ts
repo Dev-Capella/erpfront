@@ -19,6 +19,13 @@ export class DetailItemSubCodeCheckTypeComponent extends BaseComponent implement
   activeMenu: number = 0;
   code: string;
   descriptionText: string = "";
+  checkTypes: any[] = [
+    { code: 'NONE', name: 'NONE' },
+    { code: 'ALPHA_NUMERIC', name: 'ALPHA_NUMERIC' },
+    { code: 'ALPHABETIC', name: 'ALPHABETIC' },
+    { code: 'NUMERIC', name: 'NUMERIC' },
+    { code: 'ANYTHING', name: 'ANYTHING' },
+  ]
   constructor(spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
     private itemSubCodeCheckTypeService: ItemSubCodeCheckTypeService,
@@ -38,7 +45,9 @@ export class DetailItemSubCodeCheckTypeComponent extends BaseComponent implement
       longText: new FormControl(null),
       searchText: new FormControl(null),
       relatedItem: new FormControl(null),
+      checkType: new FormControl(null),
     });
+    await this.getAllDomainModels();
     await this.getItemSubCodeCheckTypeByCode();
   }
 
@@ -55,6 +64,10 @@ export class DetailItemSubCodeCheckTypeComponent extends BaseComponent implement
     this.showSpinner();
     var result = await this.itemSubCodeCheckTypeService.getItemSubCodeCheckTypeByCode(this.code, ()=> this.hideSpinner());
     this.itemSubCodeCheckTypeForm.setValue(result);
+    this.itemSubCodeCheckTypeForm.patchValue({
+      relatedItem: result.relatedItem,
+      checkType: result.checkType
+    });
     this.descriptionText = `Short: ${result.shortText ? result.shortText : "-"}, Long: ${result.longText ? result.longText : "-"}, Search: ${result.searchText ? result.searchText : "-"}`
   }
 
@@ -74,7 +87,8 @@ export class DetailItemSubCodeCheckTypeComponent extends BaseComponent implement
           longText: value?.longText,
           shortText: value?.shortText,
           searchText: value?.searchText,
-          relatedItem: value?.relatedItem
+          relatedItem: value?.relatedItem,
+          checkType: value?.checkType
         }
         this.showSpinner();
         await this.itemSubCodeCheckTypeService.saveItemSubCodeCheckType(request, ()=> this.hideSpinner());

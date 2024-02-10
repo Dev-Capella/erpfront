@@ -17,6 +17,13 @@ export class NewItemSubCodeCheckTypeComponent extends BaseComponent implements O
   activeTab: number = 0;
   activeMenu: number = 0;
   domainModels: any[] = []
+  checkTypes: any[] = [
+    { code: 'NONE', name: 'NONE' },
+    { code: 'ALPHA_NUMERIC', name: 'ALPHA_NUMERIC' },
+    { code: 'ALPHABETIC', name: 'ALPHABETIC' },
+    { code: 'NUMERIC', name: 'NUMERIC' },
+    { code: 'ANYTHING', name: 'ANYTHING' },
+  ]
   constructor(spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
     private itemSubCodeCheckTypeService: ItemSubCodeCheckTypeService,
@@ -35,6 +42,7 @@ export class NewItemSubCodeCheckTypeComponent extends BaseComponent implements O
       longText: new FormControl(null),
       searchText: new FormControl(null),
       relatedItem: new FormControl(null),
+      checkType: new FormControl(null),
     });
     await this.getAllDomainModels();
   }
@@ -61,7 +69,8 @@ export class NewItemSubCodeCheckTypeComponent extends BaseComponent implements O
           longText: value?.longText,
           shortText: value?.shortText,
           searchText: value?.searchText,
-          relatedItem: value?.relatedItem
+          relatedItem: value?.relatedItem,
+          checkType: value?.checkType
         }
         this.showSpinner();
         await this.itemSubCodeCheckTypeService.saveItemSubCodeCheckType(request, ()=> this.hideSpinner());

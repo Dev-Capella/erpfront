@@ -95,15 +95,15 @@ export const routes: Routes = [
                 )
             },
             {
-                path: 'product-list',
-                loadChildren: () => import('../app/modules/product/product.module').then(
-                    (m) => m.ProductModule
-                )
-            },
-            {
                 path: 'item-sub-code-check-type-list',
                 loadChildren: () => import('../app/modules/item-sub-code-check-type/item-sub-code-check-type.module').then(
                     (m) => m.ItemSubCodeCheckTypeModule
+                )
+            },
+            {
+                path: 'product-list',
+                loadChildren: () => import('../app/modules/product/product.module').then(
+                    (m) => m.ProductModule
                 )
             },
         ],

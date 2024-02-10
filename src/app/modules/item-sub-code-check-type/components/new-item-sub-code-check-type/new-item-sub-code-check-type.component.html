@@ -70,6 +70,13 @@
                           <p-dropdown [filter]="true" filterBy="name" styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="relatedItem" [autoDisplayFirst]="false" [options]="domainModels" formControlName="relatedItem" optionLabel="name"></p-dropdown>
                         </div>
                     </div>
+
+                    <div class="field flex flex-wrap align-items-center">
+                        <label for="checkType" style="min-width:100px;" class="w-3">Check Type</label>
+                        <div class="w-9">
+                          <p-dropdown [filter]="true" filterBy="name" styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="checkType" [autoDisplayFirst]="false" [options]="checkTypes" formControlName="checkType" optionLabel="name"></p-dropdown>
+                        </div>
+                    </div>
                         
                 
                         <div>
