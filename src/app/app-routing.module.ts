@@ -106,6 +106,12 @@ export const routes: Routes = [
                     (m) => m.ProductModule
                 )
             },
+            {
+                path: 'user-audit-logs',
+                loadChildren: () => import('../app/modules/user-audit/user-audit.module').then(
+                    (m) => m.UserAuditModule
+                )
+            },
         ],
     },
     {
