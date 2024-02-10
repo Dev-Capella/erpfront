@@ -6,6 +6,7 @@ import { UnitOfMeasureService } from '../../../unit-of-measure/services/unit-of-
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { DomainModelService } from '../../../../shared/services/domain-model.service';
 
 @Component({
   selector: 'app-detail-item-type',
@@ -58,7 +59,8 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private domainModelService: DomainModelService) {
     super(spinner)
     this.code = this.route.snapshot.params['code']
   }
@@ -100,6 +102,7 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
 
     await this.getUnitOfMeasures();
     await this.getItemTypeByCode();
+    await this.getAllDomainModels();
   }
 
   get formControls() {
@@ -114,6 +117,11 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
       this.itemTypeForm.get('secondaryUOM').reset();
       this.itemTypeForm.get('secondaryConversionFactor').reset();
     }
+  }
+
+  async getAllDomainModels(){
+    this.showSpinner();
+    await this.domainModelService.getAllDomainModels(()=> this.hideSpinner());
   }
 
   changePackagingUoM(checked) {
@@ -136,11 +144,12 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
   async getItemTypeByCode() {
     this.showSpinner();
     var result = await this.itemTypeService.getItemTypeByCode(this.code,() => this.hideSpinner());
+    delete result.itemSubCodes
     this.itemTypeForm.setValue(result);
     this.itemTypeForm.patchValue({
       primaryUOM: result.primaryUOM ? this.uomList.filter(x=> x.code==result.primaryUOM.code)[0] : null,
       secondaryUOM: result.secondaryUOM ? this.uomList.filter(x=> x.code==result.secondaryUOM.code)[0] : null,
-      packagingUOM: result.packagingUOM ? this.packagingUOMList.filter(x=> x.code==result.packagingUOM.code)[0] : null
+      packagingUOM: result.packagingUOM ? this.packagingUOMList.filter(x=> x.code==result.packagingUOM.code)[0] : null,
     })
     this.changeSecondaryUoM(result.secondaryUnitControlled);
     this.changePackagingUoM(result.packagingUnitControlled);

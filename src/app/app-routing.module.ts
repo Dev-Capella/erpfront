@@ -94,6 +94,12 @@ export const routes: Routes = [
                     (m) => m.MenuModule
                 )
             },
+            {
+                path: 'product-list',
+                loadChildren: () => import('../app/modules/product/product.module').then(
+                    (m) => m.ProductModule
+                )
+            },
         ],
     },
     {

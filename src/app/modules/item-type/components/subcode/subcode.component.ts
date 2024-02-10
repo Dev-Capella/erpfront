@@ -6,6 +6,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ItemSubCodeService } from '../../services/item-subcode.service';
+import { UserGenericGroupService } from '../../../user-generic-group/services/user-generic-group.service';
 
 @Component({
   selector: 'app-subcode',
@@ -13,6 +14,9 @@ import { ItemSubCodeService } from '../../services/item-subcode.service';
   styleUrl: './subcode.component.scss'
 })
 export class SubcodeComponent extends BaseComponent implements OnInit {
+  checks: any[] = [
+    {code: 'UserGenericGroup', name: 'User Generic Group'}
+  ]
   subCodeList: any[] = []
   code: string;
   subCodeDataDialog: boolean = false;
@@ -28,6 +32,8 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
     {code: 'NUMERIC', name: 'Numeric'},
     {code: 'ANYTHING', name: 'Anything'},
   ]
+  groupTypeVisible: boolean = false;
+  userGenericGroups: any[] = []
   selectedItem: any;
   constructor(spinner: NgxSpinnerService,
     private itemSubCodeService: ItemSubCodeService,
@@ -35,7 +41,9 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
     private messageService: MessageService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private confirmationService: ConfirmationService) {
+    private confirmationService: ConfirmationService,
+    private userGenericGroupService: UserGenericGroupService
+    ) {
     super(spinner);
     this.code = this.route.snapshot.params['code']
   }
@@ -55,6 +63,8 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
       excludedCostManagement: new FormControl(false),
       type: new FormControl(null),
       itemSubCodeDataType: new FormControl(null),
+      check: new FormControl(null),
+      groupType: new FormControl(null),
     });
     await this.getItemSubCodeList();
   }
@@ -64,9 +74,23 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
     this.subCodeList = await this.itemTypeService.getItemSubCodesByItemType(this.code,()=> this.hideSpinner());
   }
 
+  async getUserGenericGroups(){
+    this.showSpinner();
+    this.userGenericGroups = await this.userGenericGroupService.getUserGenericGroups(()=> this.hideSpinner());
+  }
+
   new(){
     this.subCodeForm.reset();
     this.subCodeDataDialog = true;
+  }
+
+  async changeCheck(event){
+    if(event=='UserGenericGroup'){
+      this.groupTypeVisible = true;
+      await this.getUserGenericGroups();
+    }else{
+      this.groupTypeVisible = false;
+    }
   }
 
   async onSubmit(value){

@@ -19,6 +19,8 @@ import { DividerModule } from 'primeng/divider';
 import { StyleClassModule } from 'primeng/styleclass';
 import { NewUserGenericGroupComponent } from './components/new-user-generic-group/new-user-generic-group.component';
 import { DetailUserGenericGroupComponent } from './components/detail-user-generic-group/detail-user-generic-group.component';
+import { UserGenericGroupDetailsComponent } from './components/user-generic-group-details/user-generic-group-details.component';
+import { DialogModule } from 'primeng/dialog';
 @NgModule({
     imports: [
         RouterModule.forChild([
@@ -42,9 +44,10 @@ import { DetailUserGenericGroupComponent } from './components/detail-user-generi
         FormsModule,
         DividerModule,
         ConfirmDialogModule,
-        InputNumberModule
+        InputNumberModule,
+        DialogModule
     ],
-    declarations: [MainUserGenericGroupComponent, NewUserGenericGroupComponent, DetailUserGenericGroupComponent],
+    declarations: [MainUserGenericGroupComponent, NewUserGenericGroupComponent, DetailUserGenericGroupComponent, UserGenericGroupDetailsComponent],
     providers: [],
 
 })

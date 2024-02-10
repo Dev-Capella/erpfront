@@ -38,4 +38,11 @@ export class UserGenericGroupService {
         return response.data;
     }
 
+    async getUserGenericGroupDetailsByUserGenericGroup(code:string,callBackFunction?: () => void){
+        const observable = this.http.get<any>(ROOT_PATH + `/user-generic-group/${code}/user-generic-group-detail`)
+        const response = await firstValueFrom(observable);
+        callBackFunction();
+        return response.data;
+    }
+
 }

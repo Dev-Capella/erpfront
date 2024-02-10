@@ -13,16 +13,7 @@
                     <a pRipple class="xl:border-round-top flex align-items-center h-3rem px-3 font-medium cursor-pointer transition-colors transition-duration-150"
                         [ngClass]="{'surface-50 text-900': activeTab === 0, 'surface-700 text-50': activeTab !== 0}" (click)="activeTab = 0">
                         <i class="pi pi-bolt mr-2" [ngClass]="{'text-800': activeTab === 0}"></i>
-                        <span>User Generic Group</span>
-                    </a>
-                </li>
-                <li class="xl:flex xl:align-items-end">
-                    <a pRipple
-                        class="xl:border-round-top flex align-items-center h-3rem px-3 font-medium cursor-pointer transition-colors transition-duration-150"
-                        [ngClass]="{'surface-50 text-900': activeTab === 1, 'surface-700 text-50': activeTab !== 1}"
-                        (click)="activeTab = 1">
-                        <i class="pi pi-cog mr-2" [ngClass]="{'text-800': activeTab === 1}"></i>
-                        <span>Detail</span>
+                        <span>Product</span>
                     </a>
                 </li>
             </ul>
@@ -32,8 +23,7 @@
         <div class="surface-section px-4 py-4 lg:py-5 lg:px-6 h-full border-round-top-3xl">
             <div class="flex flex-column md:flex-row w-full justify-content-between md:align-items-center">
                 <div>
-                    <h2 class="mt-0 mb-2 text-900 font-medium text-2xl">User Generic Group</h2>
-                    <p class="mt-0 mb-2 text-500">{{descriptionText}}</p>
+                    <h2 class="mt-0 mb-2 text-900 font-medium text-2xl">Product</h2>
                     <button (click)="goBack()" pButton pRipple type="button" icon="pi pi-arrow-left" label="Go Back" class="p-button-text"></button>
                     <!-- <p class="mt-0 mb-0 text-500">You can review the details of your measurement units.</p> -->
                 </div>
@@ -50,10 +40,10 @@
                             </a>
                         </li>
                     </ul>
-                
+                }
                 <div class="surface-card p-5 shadow-2 border-round flex-auto xl:ml-5">
                     <p-divider></p-divider>
-                    <form [formGroup]="userGenericGroupForm">
+                    <form [formGroup]="costLevelForm">
                         @if (activeMenu==0) {
                             <div class="field flex flex-wrap align-items-center">
                               <label for="shortText" style="min-width:100px;" class="w-3">Short</label>
@@ -75,39 +65,55 @@
                       </div>
 
                       <div class="field flex flex-wrap align-items-center">
-                        <label for="type" style="min-width:100px;" class="w-3">Data type</label>
+                        <label for="itemType" style="min-width:100px;" class="w-3">Item Type</label>
                         <div class="w-9">
-                          <p-dropdown styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="type" [autoDisplayFirst]="false" [options]="types" formControlName="type" optionLabel="name"></p-dropdown>
+                          <p-dropdown (onChange)="changeItemType($event.value)" styleClass="w-full md:w-3" placeholder="Seçim Yapınız" inputId="itemType" [autoDisplayFirst]="false" [options]="itemTypes" formControlName="itemType" optionLabel="shortText"></p-dropdown>
                         </div>
                     </div>
-          
-                      <div class="field flex flex-wrap align-items-center">
-                        <label for="maxCodeLength" style="min-width:100px;" class="w-3">Max code length</label>
-                        <div class="w-9">
-                            <p-inputNumber inputId="maxCodeLength" formControlName="maxCodeLength">
-                            </p-inputNumber>
-                        </div>
-                    </div>
+
+                    <fieldset class="field">
+                        <legend>Product</legend>
+                        @for (item of subCodes; track $index) {
+                            <div class="field flex flex-wrap align-items-center">
+                                <label [for]="item" style="min-width:100px;" class="w-3">{{item.longText}}</label>
+                                @switch (item.itemSubCodeDataType) {
+                                    @case ("NUMERIC") {
+                                        <div class="w-9">
+                                            <p-inputNumber [inputId]="item"></p-inputNumber>
+                                        </div>
+                                    }
+                                    @case ("ALPHA_NUMERIC") {
+                                        <div class="w-9">
+                                            <input [id]="item" type="text" pInputText/> 
+                                        </div>
+                                    }
+                                    @case ("ALPHABETIC") {
+                                        <div class="w-9">
+                                            <input [id]="item" type="text" pInputText/> 
+                                        </div>
+                                    }
+                                    @default{
+                                        <div class="w-9">
+                                            <input [id]="item" type="text" pInputText/> 
+                                        </div>
+                                    }
+                                }
+                               
+                            </div> 
+                        }
+                    </fieldset>
                         
                 
                         <div>
-                            <button pButton pRipple label="Save Changes" class="w-auto mt-3" (click)="save(userGenericGroupForm.value)"></button>
+                            <button pButton pRipple label="Save Changes" class="w-auto mt-3" (click)="save(costLevelForm.value)"></button>
                         </div>
                     }
                       </form>
                 </div>
-            }
-            @if (activeTab!=0) {
-                <div class="surface-card p-5 shadow-2 border-round flex-auto xl:ml-5 w-full">
-                    @if (activeTab==1) {
-                        <app-user-generic-group-details></app-user-generic-group-details>
-                    }
-                </div>
-            }
             </div>
          </div>
     </div>
 </section>
 
 
-<p-confirmDialog key="save-user-generic-group" [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+<p-confirmDialog key="save-cost-level" [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
