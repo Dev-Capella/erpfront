@@ -82,6 +82,7 @@ export class DetailUserRoleComponent extends BaseComponent implements OnInit {
           longText: value?.longText,
           shortText: value?.shortText,
           searchText: value?.searchText,
+          permissions: value?.permissions.length>0 ? value.permissions.map(x=> {return {code: x.code}}) : []
         }
         this.showSpinner();
         await this.userRoleService.saveUserRole(request, ()=> this.hideSpinner());
