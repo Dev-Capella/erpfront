@@ -100,6 +100,12 @@ export const routes: Routes = [
                     (m) => m.ProductModule
                 )
             },
+            {
+                path: 'item-sub-code-check-type-list',
+                loadChildren: () => import('../app/modules/item-sub-code-check-type/item-sub-code-check-type.module').then(
+                    (m) => m.ItemSubCodeCheckTypeModule
+                )
+            },
         ],
     },
     {

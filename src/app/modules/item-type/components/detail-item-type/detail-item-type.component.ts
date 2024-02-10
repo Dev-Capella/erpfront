@@ -6,7 +6,6 @@ import { UnitOfMeasureService } from '../../../unit-of-measure/services/unit-of-
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { DomainModelService } from '../../../../shared/services/domain-model.service';
 
 @Component({
   selector: 'app-detail-item-type',
@@ -59,8 +58,7 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
     private route: ActivatedRoute,
-    private router: Router,
-    private domainModelService: DomainModelService) {
+    private router: Router) {
     super(spinner)
     this.code = this.route.snapshot.params['code']
   }
@@ -102,7 +100,6 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
 
     await this.getUnitOfMeasures();
     await this.getItemTypeByCode();
-    await this.getAllDomainModels();
   }
 
   get formControls() {
@@ -117,11 +114,6 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
       this.itemTypeForm.get('secondaryUOM').reset();
       this.itemTypeForm.get('secondaryConversionFactor').reset();
     }
-  }
-
-  async getAllDomainModels(){
-    this.showSpinner();
-    await this.domainModelService.getAllDomainModels(()=> this.hideSpinner());
   }
 
   changePackagingUoM(checked) {
