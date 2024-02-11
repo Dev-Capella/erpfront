@@ -88,30 +88,30 @@
                         </div>
 
                         <div class="field flex flex-wrap align-items-center">
-                            
-                            
-                                @if (parameterForm.value['dataType']=='LOGIC') {
-                                    <label for="value" style="min-width:100px;" class="w-3">Value</label>
-                                    <div class="w-9">
-                                        <p-inputSwitch id="value" formControlName="logicValue"></p-inputSwitch>
-                                    </div>
-                                    
-                                }
-                                @if (parameterForm.value['dataType']=='TEXT') {
-                                    <label for="value" style="min-width:100px;" class="w-3">Value</label>
-                                    <div class="w-9">
-                                        <input id="value" type="text" pInputText formControlName="textValue" />
-                                    </div>
-                                    
-                                }
-                                @if (parameterForm.value['dataType']=='NUMERIC') {
-                                    <label for="value" style="min-width:100px;" class="w-3">Value</label>
-                                    <div class="w-9">
-                                        <p-inputNumber inputId="value" formControlName="numericValue"></p-inputNumber>
-                                    </div>
-                                    
-                                }
-                       
+
+
+                            @if (parameterForm.value['dataType']=='LOGIC') {
+                            <label for="value" style="min-width:100px;" class="w-3">Value</label>
+                            <div class="w-9">
+                                <p-inputSwitch id="value" formControlName="logicValue"></p-inputSwitch>
+                            </div>
+
+                            }
+                            @if (parameterForm.value['dataType']=='TEXT') {
+                            <label for="value" style="min-width:100px;" class="w-3">Value</label>
+                            <div class="w-9">
+                                <input id="value" type="text" pInputText formControlName="textValue" />
+                            </div>
+
+                            }
+                            @if (parameterForm.value['dataType']=='NUMERIC') {
+                            <label for="value" style="min-width:100px;" class="w-3">Value</label>
+                            <div class="w-9">
+                                <p-inputNumber inputId="value" formControlName="numericValue"></p-inputNumber>
+                            </div>
+
+                            }
+
                         </div>
 
                         <div>
