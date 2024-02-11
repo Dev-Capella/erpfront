@@ -152,7 +152,6 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
     this.subCodeForm.patchValue({
       userGenericGroup: this.userGenericGroups.find(x=> x.code==result?.userGenericGroup?.code)
     })
-    console.log(this.subCodeForm)
     this.subCodeDataDialog = true;
   }
 
