@@ -112,6 +112,12 @@ export const routes: Routes = [
                     (m) => m.UserAuditModule
                 )
             },
+            {
+                path: 'parameter-list',
+                loadChildren: () => import('../app/modules/parameter/parameter.module').then(
+                    (m) => m.ParameterModule
+                )
+            },
         ],
     },
     {
