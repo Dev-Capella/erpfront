@@ -4,8 +4,7 @@
     </div>
     <div class="overflow-x-scroll">
         <p-table [value]="userAuditLogs" [tableStyle]="{'min-width': '70rem'}" [rowHover]="true"
-        [resizableColumns]="true" [(selection)]="selectedItem" selectionMode="single"  dataKey="code" 
-        styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm" [autoLayout]="true">
+        [resizableColumns]="true" styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm" [autoLayout]="true">
             <ng-template pTemplate="header">
                 <tr>
                     <th pResizableColumn>First Name</th>
