@@ -136,12 +136,37 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
   async getItemTypeByCode() {
     this.showSpinner();
     var result = await this.itemTypeService.getItemTypeByCode(this.code,() => this.hideSpinner());
-    delete result.itemSubCodes
-    this.itemTypeForm.setValue(result);
     this.itemTypeForm.patchValue({
-      primaryUOM: result.primaryUOM ? this.uomList.filter(x=> x.code==result.primaryUOM.code)[0] : null,
-      secondaryUOM: result.secondaryUOM ? this.uomList.filter(x=> x.code==result.secondaryUOM.code)[0] : null,
-      packagingUOM: result.packagingUOM ? this.packagingUOMList.filter(x=> x.code==result.packagingUOM.code)[0] : null,
+      id: result.id,
+      code: result.code,
+      shortText: result.shortText,
+      longText: result.longText,
+      searchText: result.searchText,
+      itemNature: result.itemNature,
+      maxCodeLength: result.maxCodeLength,
+      sellingType: result.sellingType,
+      valid: result.valid,
+      managedByBox: result.managedByBox,
+      handleComponentStatus: result.handleComponentStatus,
+      structure: result.structure,
+      statusAllowed: result.statusAllowed,
+      primaryUOM: result.primaryUOM ? this.uomList.find(x=> x.code==result?.primaryUOM?.code): null,
+      secondaryUOM: result.secondaryUOM ? this.uomList.find(x=> x.code==result?.secondaryUOM?.code) : null,
+      packagingUOM: result.packagingUOM ? this.packagingUOMList.find(x=> x.code==result?.packagingUOM?.code) : null,
+      secondaryUnitControlled: result.secondaryUnitControlled,
+      secondaryConversionFactor: result.secondaryConversionFactor,
+      packagingUnitControlled: result.packagingUnitControlled,
+      baseUoMPackagingType: result.baseUoMPackagingType,
+      packagingConversionFactor: result.packagingConversionFactor,
+      qualityControlled: result.qualityControlled,
+      lotControlled: result.lotControlled,
+      containerControlled: result.containerControlled,
+      elementControlled: result.elementControlled,
+      projectControlled:result.projectControlled,
+      customerControlled: result.customerControlled,
+      supplierControlled: result.supplierControlled,
+      statisticalGroupControlled: result.statisticalGroupControlled,
+      costForStatisticalGroupControlled: result.costForStatisticalGroupControlled
     })
     this.changeSecondaryUoM(result.secondaryUnitControlled);
     this.changePackagingUoM(result.packagingUnitControlled);
