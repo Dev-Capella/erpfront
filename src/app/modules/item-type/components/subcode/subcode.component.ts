@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ItemSubCodeService } from '../../services/item-subcode.service';
 import { UserGenericGroupService } from '../../../user-generic-group/services/user-generic-group.service';
+import { ItemSubCodeCheckTypeService } from '../../../item-sub-code-check-type/services/item-sub-code-check-type.service';
 
 @Component({
   selector: 'app-subcode',
@@ -14,9 +15,6 @@ import { UserGenericGroupService } from '../../../user-generic-group/services/us
   styleUrl: './subcode.component.scss'
 })
 export class SubcodeComponent extends BaseComponent implements OnInit {
-  checks: any[] = [
-    {code: 'UserGenericGroup', name: 'User Generic Group'}
-  ]
   subCodeList: any[] = []
   code: string;
   subCodeDataDialog: boolean = false;
@@ -35,6 +33,7 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
   groupTypeVisible: boolean = false;
   userGenericGroups: any[] = []
   selectedItem: any;
+  itemSubCodeCheckTypes: any[] = []
   constructor(spinner: NgxSpinnerService,
     private itemSubCodeService: ItemSubCodeService,
     private itemTypeService: ItemTypeService,
@@ -42,7 +41,8 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private confirmationService: ConfirmationService,
-    private userGenericGroupService: UserGenericGroupService
+    private userGenericGroupService: UserGenericGroupService,
+    private itemSubCodeCheckTypeService: ItemSubCodeCheckTypeService
     ) {
     super(spinner);
     this.code = this.route.snapshot.params['code']
@@ -63,9 +63,10 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
       excludedCostManagement: new FormControl(false),
       type: new FormControl(null),
       itemSubCodeDataType: new FormControl(null),
-      check: new FormControl(null),
-      groupType: new FormControl(null),
+      itemSubCodeCheckType: new FormControl(null),
+      userGenericGroup: new FormControl(null),
     });
+    await this.getItemSubCodeCheckTypes();
     await this.getItemSubCodeList();
   }
 
@@ -79,16 +80,23 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
     this.userGenericGroups = await this.userGenericGroupService.getUserGenericGroups(()=> this.hideSpinner());
   }
 
+  async getItemSubCodeCheckTypes(){
+    this.showSpinner();
+    this.itemSubCodeCheckTypes = await this.itemSubCodeCheckTypeService.getItemSubCodeCheckTypes(()=> this.hideSpinner());
+  }
+
   new(){
     this.subCodeForm.reset();
+    this.groupTypeVisible = false;
     this.subCodeDataDialog = true;
   }
 
   async changeCheck(event){
-    if(event=='UserGenericGroup'){
+    if(event?.relatedItem=='UserGenericGroupModel'){
       this.groupTypeVisible = true;
       await this.getUserGenericGroups();
     }else{
+      this.subCodeForm.get('userGenericGroup').reset();
       this.groupTypeVisible = false;
     }
   }
@@ -108,7 +116,9 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
       excludedCostManagement: value?.excludedCostManagement,
       type: value?.type,
       itemSubCodeDataType: value?.itemSubCodeDataType,
-      itemType: {code: this.code }
+      itemType: {code: this.code },
+      itemSubCodeCheckType: value.itemSubCodeCheckType!=null ? {code: value.itemSubCodeCheckType.code} : null,
+      userGenericGroup: value.userGenericGroup!=null ? {code: value.userGenericGroup.code} : null,
     }
     this.showSpinner();
     await this.itemSubCodeService.saveItemSubCode(request,()=> this.hideSpinner());
@@ -136,7 +146,13 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
       excludedCostManagement: result?.excludedCostManagement,
       type: result?.type,
       itemSubCodeDataType: result?.itemSubCodeDataType,
+      itemSubCodeCheckType: this.itemSubCodeCheckTypes.find(x=> x.code==result?.itemSubCodeCheckType?.code),
     })
+    await this.changeCheck(this.itemSubCodeCheckTypes.find(x=> x.code==result?.itemSubCodeCheckType?.code))
+    this.subCodeForm.patchValue({
+      userGenericGroup: this.userGenericGroups.find(x=> x.code==result?.userGenericGroup?.code)
+    })
+    console.log(this.subCodeForm)
     this.subCodeDataDialog = true;
   }
 

@@ -126,20 +126,20 @@
             <fieldset class="field">
                 <legend>Checks</legend>
                 <div class="field flex flex-wrap align-items-center">
-                    <label for="check" style="min-width:100px;" class="w-3">Check</label>
+                    <label for="itemSubCodeCheckType" style="min-width:100px;" class="w-3">Check</label>
                     <div class="w-9">
-                        <p-dropdown (onChange)="changeCheck($event.value)" styleClass="w-full md:w-3" optionValue="code"
-                            placeholder="Seçim Yapınız" inputId="check" [autoDisplayFirst]="false" [options]="checks"
-                            formControlName="check" optionLabel="name"></p-dropdown>
+                        <p-dropdown (onChange)="changeCheck($event.value)" styleClass="w-full md:w-3" appendTo="body"
+                            placeholder="Seçim Yapınız" inputId="itemSubCodeCheckType" [autoDisplayFirst]="false" [options]="itemSubCodeCheckTypes"
+                            formControlName="itemSubCodeCheckType" optionLabel="relatedItem"></p-dropdown>
                     </div>
                 </div>
                 @if (groupTypeVisible) {
                     <div class="field flex flex-wrap align-items-center">
-                        <label for="groupType" style="min-width:100px;" class="w-3">Group Type</label>
+                        <label for="userGenericGroup" style="min-width:100px;" class="w-3">Group Type</label>
                         <div class="w-9">
-                            <p-dropdown styleClass="w-full md:w-3" 
-                                placeholder="Seçim Yapınız" inputId="groupType" [autoDisplayFirst]="false" [options]="userGenericGroups"
-                                formControlName="groupType" optionLabel="shortText"></p-dropdown>
+                            <p-dropdown styleClass="w-full md:w-3" appendTo="body"
+                                placeholder="Seçim Yapınız" inputId="userGenericGroup" [autoDisplayFirst]="false" [options]="userGenericGroups"
+                                formControlName="userGenericGroup" optionLabel="shortText"></p-dropdown>
                         </div>
                     </div>
                 }
