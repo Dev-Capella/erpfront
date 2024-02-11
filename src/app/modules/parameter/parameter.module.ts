@@ -21,6 +21,7 @@ import { NewParameterComponent } from './components/new-parameter/new-parameter.
 import { DetailParameterComponent } from './components/detail-parameter/detail-parameter.component';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { CheckboxModule } from 'primeng/checkbox';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
     ConfirmDialogModule,
     MultiSelectModule,
     InputSwitchModule,
-    InputNumberModule
+    InputNumberModule,
+    CheckboxModule
   ]
 })
 export class ParameterModule { }

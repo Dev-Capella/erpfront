@@ -4,6 +4,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { ParameterService } from '../../services/parameter.service';
+import { ParameterDataType } from '../../../../shared/enums/parameter-data-type.enum';
 
 @Component({
   selector: 'app-main-parameter',
@@ -27,7 +28,13 @@ export class MainParameterComponent extends BaseComponent implements OnInit {
 
   async getParameterList() {
     this.showSpinner();
-    this.parameterList = await this.parameterService.getParameters(() => this.hideSpinner());
+    var result = await this.parameterService.getParameters(() => this.hideSpinner());
+    this.parameterList = result.map(item => {
+      if (item.dataType === ParameterDataType.LOGIC) {
+        return { ...item, value: item.value === 'true' };
+      }
+      return item;
+    });
   }
 
   async edit() {

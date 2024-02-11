@@ -26,7 +26,14 @@
                     <td>{{item.longText}}</td>
                     <td>{{item.searchText}}</td>
                     <td>{{item.dataType}}</td>
-                    <td>{{item.value}}</td>
+                    <td>
+                        <ng-container *ngIf="item.dataType === 'LOGIC'">
+                            <p-checkbox [(ngModel)]="item.value" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                        </ng-container>
+                        <ng-container *ngIf="item.dataType !== 'LOGIC'">
+                            {{item.value}}
+                        </ng-container>
+                    </td>
                 </tr>
             </ng-template>
         </p-table>
