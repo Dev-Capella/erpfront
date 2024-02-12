@@ -64,6 +64,13 @@
                             <input id="searchText" type="text" pInputText formControlName="searchText"/> 
                           </div>
                       </div>
+
+                      <div class="field flex flex-wrap align-items-center">
+                        <label for="washSymbolCategory" style="min-width:100px;" class="w-3">Wash Symbol Category</label>
+                        <div class="w-9">
+                          <p-dropdown styleClass="w-full md:w-3" placeholder="Seçim Yapınız" inputId="washSymbolCategory" [autoDisplayFirst]="false" [options]="washSymbolCategories" formControlName="washSymbolCategory" optionLabel="shortText"></p-dropdown>
+                        </div>
+                    </div>
                         
                 
                         <div>

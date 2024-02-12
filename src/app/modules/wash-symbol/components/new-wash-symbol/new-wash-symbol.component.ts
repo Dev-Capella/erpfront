@@ -14,6 +14,7 @@ import { WashSymbolService } from '../../services/wash-symbol.service';
 })
 export class NewWashSymbolComponent extends BaseComponent implements OnInit{
   washSymbolForm: FormGroup;
+  washSymbolCategories: any[] = []
   activeTab: number = 0;
   activeMenu: number = 0;
   constructor(spinner: NgxSpinnerService,
@@ -26,18 +27,25 @@ export class NewWashSymbolComponent extends BaseComponent implements OnInit{
     super(spinner);
     
   }
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.washSymbolForm = this.formBuilder.group({
       id: new FormControl(null),
       code: new FormControl(null),
       shortText: new FormControl(null),
       longText: new FormControl(null),
       searchText: new FormControl(null),
+      washSymbolCategory: new FormControl(null),
     });
+    await this.getWashSymbolCategories();
   }
 
   get formControls(){
     return this.washSymbolForm.controls;
+  }
+
+  async getWashSymbolCategories(){
+    this.showSpinner();
+    this.washSymbolCategories = await this.washSymbolCategoryService.getWashSymbolCategories(()=> this.hideSpinner());
   }
 
   save(value){
@@ -53,6 +61,7 @@ export class NewWashSymbolComponent extends BaseComponent implements OnInit{
           longText: value?.longText,
           shortText: value?.shortText,
           searchText: value?.searchText,
+          washSymbolCategory: value.washSymbolCategory!=null ? {code: value.washSymbolCategory.code} : null
         }
         this.showSpinner();
         await this.washSymbolService.saveWashSymbol(request, ()=> this.hideSpinner());

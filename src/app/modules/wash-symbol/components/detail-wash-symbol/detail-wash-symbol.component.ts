@@ -14,6 +14,7 @@ import { WashSymbolService } from '../../services/wash-symbol.service';
 })
 export class DetailWashSymbolComponent extends BaseComponent implements OnInit {
   washSymbolForm: FormGroup;
+  washSymbolCategories: any[] = []
   activeTab: number = 0;
   activeMenu: number = 0;
   code: string;
@@ -36,7 +37,9 @@ export class DetailWashSymbolComponent extends BaseComponent implements OnInit {
       shortText: new FormControl(null),
       longText: new FormControl(null),
       searchText: new FormControl(null),
+      washSymbolCategory: new FormControl(null),
     });
+    await this.getWashSymbolCategories();
     await this.getWashSymbolByCode();
   }
 
@@ -44,10 +47,22 @@ export class DetailWashSymbolComponent extends BaseComponent implements OnInit {
     return this.washSymbolForm.controls;
   }
 
+  async getWashSymbolCategories(){
+    this.showSpinner();
+    this.washSymbolCategories = await this.washSymbolCategoryService.getWashSymbolCategories(()=> this.hideSpinner());
+  }
+
   async getWashSymbolByCode(){
     this.showSpinner();
     var result = await this.washSymbolService.getWashSymbolByCode(this.code, ()=> this.hideSpinner());
-    this.washSymbolForm.setValue(result);
+    this.washSymbolForm.patchValue({
+      id: result.id,
+      code: result.code,
+      shortText: result.shortText,
+      longText: result.longText,
+      searchText: result.searchText,
+      washSymbolCategory: this.washSymbolCategories.find(x=> x.code==result?.washSymbolCategory?.code),
+    })
     this.descriptionText = `Short: ${result.shortText ? result.shortText : "-"}, Long: ${result.longText ? result.longText : "-"}, Search: ${result.searchText ? result.searchText : "-"}`
   }
 
@@ -67,6 +82,7 @@ export class DetailWashSymbolComponent extends BaseComponent implements OnInit {
           longText: value?.longText,
           shortText: value?.shortText,
           searchText: value?.searchText,
+          washSymbolCategory: value.washSymbolCategory!=null ? {code: value.washSymbolCategory.code} : null
         }
         this.showSpinner();
         await this.washSymbolService.saveWashSymbol(request, ()=> this.hideSpinner());
