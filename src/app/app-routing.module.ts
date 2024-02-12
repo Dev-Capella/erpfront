@@ -118,6 +118,18 @@ export const routes: Routes = [
                     (m) => m.ParameterModule
                 )
             },
+            {
+                path: 'wash-symbol-category-list',
+                loadChildren: () => import('../app/modules/wash-symbol-category/wash-symbol-category.module').then(
+                    (m) => m.WashSymbolCategoryModule
+                )
+            },
+            {
+                path: 'wash-symbol-list',
+                loadChildren: () => import('../app/modules/wash-symbol/wash-symbol.module').then(
+                    (m) => m.WashSymbolModule
+                )
+            }
         ],
     },
     {
