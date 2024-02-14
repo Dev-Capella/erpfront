@@ -141,6 +141,12 @@ export const routes: Routes = [
                 loadChildren: () => import('../app/modules/counter/counter.module').then(
                     (m) => m.CounterModule
                 )
+            },
+            {
+                path: 'currency-list',
+                loadChildren: () => import('../app/modules/currency/currency.module').then(
+                    (m) => m.CurrencyModule
+                )
             }
         ],
     },
