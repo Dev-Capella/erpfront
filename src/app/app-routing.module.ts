@@ -135,6 +135,12 @@ export const routes: Routes = [
                 loadChildren: () => import('../app/modules/counter-type/counter-type.module').then(
                     (m) => m.CounterTypeModule
                 )
+            },
+            {
+                path: 'counter-list',
+                loadChildren: () => import('../app/modules/counter/counter.module').then(
+                    (m) => m.CounterModule
+                )
             }
         ],
     },
