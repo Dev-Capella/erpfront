@@ -129,6 +129,12 @@ export const routes: Routes = [
                 loadChildren: () => import('../app/modules/wash-symbol/wash-symbol.module').then(
                     (m) => m.WashSymbolModule
                 )
+            },
+            {
+                path: 'counter-type-list',
+                loadChildren: () => import('../app/modules/counter-type/counter-type.module').then(
+                    (m) => m.CounterTypeModule
+                )
             }
         ],
     },
