@@ -18,6 +18,15 @@
                         <span>Counter</span>
                     </a>
                 </li>
+                <li class="xl:flex xl:align-items-end">
+                    <a pRipple
+                        class="xl:border-round-top flex align-items-center h-3rem px-3 font-medium cursor-pointer transition-colors transition-duration-150"
+                        [ngClass]="{'surface-50 text-900': activeTab === 1, 'surface-700 text-50': activeTab !== 1}"
+                        (click)="activeTab = 1">
+                        <i class="pi pi-cog mr-2" [ngClass]="{'text-800': activeTab === 1}"></i>
+                        <span>Subseries</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -226,6 +235,13 @@
                                 (click)="save(counterForm.value)"></button>
                         </div>
                     </div>
+                    }
+                    @if (activeTab!=0) {
+                        <div class="surface-card p-5 shadow-2 border-round flex-auto xl:ml-5 w-full">
+                            @if (activeTab==1) {
+                                <app-sub-series></app-sub-series>
+                            }
+                        </div>
                     }
                 </div>
             </form>
