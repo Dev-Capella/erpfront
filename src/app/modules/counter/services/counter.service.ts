@@ -38,4 +38,11 @@ export class CounterService {
         return response.data;
     }
 
+    async getSubSeriesByCounter(code:string,callBackFunction?: () => void){
+        const observable = this.http.get<any>(ROOT_PATH + `/counter/${code}/sub-series`)
+        const response = await firstValueFrom(observable);
+        callBackFunction();
+        return response.data;
+    }
+
 }

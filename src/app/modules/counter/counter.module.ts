@@ -20,8 +20,10 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { MainCounterComponent } from './components/main-counter/main-counter.component';
 import { NewCounterComponent } from './components/new-counter/new-counter.component';
 import { DetailCounterComponent } from './components/detail-counter/detail-counter.component';
+import { SubSeriesComponent } from './components/sub-series/sub-series.component';
+import { DialogModule } from 'primeng/dialog';
 @NgModule({
-  declarations: [MainCounterComponent, NewCounterComponent, DetailCounterComponent],
+  declarations: [MainCounterComponent, NewCounterComponent, DetailCounterComponent,SubSeriesComponent],
   imports: [
     RouterModule.forChild([
       { path: '', component: MainCounterComponent },
@@ -45,7 +47,8 @@ import { DetailCounterComponent } from './components/detail-counter/detail-count
     DividerModule,
     ConfirmDialogModule,
     CheckboxModule,
-    InputNumberModule
+    InputNumberModule,
+    DialogModule
   ]
 })
 export class CounterModule { }
