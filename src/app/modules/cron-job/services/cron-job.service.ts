@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 const ROOT_PATH = environment.requestRoot;
+const SCHEDULED_TASK_PATH = environment.scheduledTaskRoot;
 
 @Injectable({
     providedIn: 'root'
@@ -33,6 +34,13 @@ export class CronJobService {
 
     async deleteCronJobByCode(code:string,callBackFunction?: () => void){
         const observable = this.http.delete<any>(ROOT_PATH + `/cron-job/${code}`)
+        const response = await firstValueFrom(observable);
+        callBackFunction();
+        return response.data;
+    }
+
+    async runCronJob(code:string,callBackFunction?: () => void){
+        const observable = this.http.get<any>(SCHEDULED_TASK_PATH + `/cron-job/run/${code}`)
         const response = await firstValueFrom(observable);
         callBackFunction();
         return response.data;

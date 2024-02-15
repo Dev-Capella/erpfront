@@ -5,6 +5,7 @@
             <button icon="pi pi-plus" pButton pRipple label="Add" class="w-auto" (click)="new()"></button>
             <button [disabled]="!selectedItem" icon="pi pi-eye" pButton pRipple label="Edit" class="w-auto" (click)="edit()"></button>
             <button [disabled]="!selectedItem" icon="pi pi-trash" pButton pRipple label="Delete" class="w-auto" (click)="delete()"></button>
+            <button [disabled]="!selectedItem" icon="pi pi-play" pButton pRipple label="Run" class="w-auto" (click)="run()"></button>
         </div>
     </div>
     <div class="overflow-x-scroll">

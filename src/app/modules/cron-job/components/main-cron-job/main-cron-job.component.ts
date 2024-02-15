@@ -54,4 +54,10 @@ export class MainCronJobComponent extends BaseComponent implements OnInit{
   new() {
     this.router.navigate(['/cron-job-list/new'])
   }
+
+  async run(){
+    var code = this.selectedItem?.code;
+    this.showSpinner();
+    await this.cronJobService.runCronJob(code, ()=> this.hideSpinner());
+  }
 }
