@@ -41,7 +41,7 @@ import { AuthService } from "./core/services/auth.service";
                     const authService = inject(AuthService);
                     return authService.getAccessToken(); 
                 },
-                allowedDomains: ["localhost:9090"]
+                allowedDomains: ["localhost:9090","localhost:9200"]
             }
         })
     ],
