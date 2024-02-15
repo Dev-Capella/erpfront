@@ -1,4 +1,9 @@
 export enum PageRoutes {
     LocalHost = 'http://localhost:9090',
-    Version = '/v1'
+
+
+    Api = '/api',
+    Version = '/v1',
+    Webapp = '/webapp',
+    Cron = '/cron'
 }
