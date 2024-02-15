@@ -147,6 +147,12 @@ export const routes: Routes = [
                 loadChildren: () => import('../app/modules/currency/currency.module').then(
                     (m) => m.CurrencyModule
                 )
+            },
+            {
+                path: 'cron-job-list',
+                loadChildren: () => import('../app/modules/cron-job/cron-job.module').then(
+                    (m) => m.CronJobModule
+                )
             }
         ],
     },
