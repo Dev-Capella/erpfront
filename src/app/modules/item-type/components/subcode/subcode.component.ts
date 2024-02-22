@@ -92,13 +92,8 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
   }
 
   async changeCheck(event){
-    if(event?.relatedItem=='UserGenericGroupModel'){
-      this.groupTypeVisible = true;
-      await this.getUserGenericGroups();
-    }else{
-      this.subCodeForm.get('userGenericGroup').reset();
-      this.groupTypeVisible = false;
-    }
+    this.showSpinner();
+    await this.itemSubCodeCheckTypeService.getItemSubCodeCheckTypeByPolicy(event.code, ()=> this.hideSpinner());
   }
 
   async onSubmit(value){

@@ -38,4 +38,11 @@ export class ItemSubCodeCheckTypeService {
         return response.data;
     }
 
+    async getItemSubCodeCheckTypeByPolicy(code:string,callBackFunction?: () => void){
+        const observable = this.http.get<any>(ROOT_PATH + `/item-sub-code-check-type/${code}/policy`)
+        const response = await firstValueFrom(observable);
+        callBackFunction();
+        return response.data;
+    }
+
 }
