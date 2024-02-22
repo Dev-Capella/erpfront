@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ItemSubCodeCheckTypeService } from '../../services/item-sub-code-check-type.service';
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { DomainModelService } from '../../../../shared/services/domain-model.service';
+import { PolicyService } from '../../../../shared/services/policy.service';
 
 @Component({
   selector: 'app-new-item-sub-code-check-type',
@@ -24,13 +25,15 @@ export class NewItemSubCodeCheckTypeComponent extends BaseComponent implements O
     { code: 'NUMERIC', name: 'NUMERIC' },
     { code: 'ANYTHING', name: 'ANYTHING' },
   ]
+  policies: any[] = []
   constructor(spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
     private itemSubCodeCheckTypeService: ItemSubCodeCheckTypeService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
     private router: Router,
-    private domainModelService: DomainModelService) {
+    private domainModelService: DomainModelService,
+    private policyService: PolicyService) {
     super(spinner);
     
   }
@@ -43,8 +46,10 @@ export class NewItemSubCodeCheckTypeComponent extends BaseComponent implements O
       searchText: new FormControl(null),
       relatedItem: new FormControl(null),
       checkType: new FormControl(null),
+      policy: new FormControl(null),
     });
     await this.getAllDomainModels();
+    await this.getAllPolicies();
   }
 
   get formControls(){
@@ -54,6 +59,12 @@ export class NewItemSubCodeCheckTypeComponent extends BaseComponent implements O
   async getAllDomainModels(){
     this.showSpinner();
     this.domainModels = await this.domainModelService.getAllDomainModels(()=> this.hideSpinner());
+  }
+
+  async getAllPolicies(){
+    this.showSpinner();
+    var result = await this.policyService.getAllPolicies(()=> this.hideSpinner());
+    this.policies = result.map(x=> {return {code: x, name: x}})
   }
 
   save(value){
@@ -70,7 +81,8 @@ export class NewItemSubCodeCheckTypeComponent extends BaseComponent implements O
           shortText: value?.shortText,
           searchText: value?.searchText,
           relatedItem: value?.relatedItem,
-          checkType: value?.checkType
+          checkType: value?.checkType,
+          policy: value.policy
         }
         this.showSpinner();
         await this.itemSubCodeCheckTypeService.saveItemSubCodeCheckType(request, ()=> this.hideSpinner());

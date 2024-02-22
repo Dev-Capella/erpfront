@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { ItemSubCodeCheckTypeService } from '../../services/item-sub-code-check-type.service';
 import { DomainModelService } from '../../../../shared/services/domain-model.service';
+import { PolicyService } from '../../../../shared/services/policy.service';
 
 @Component({
   selector: 'app-detail-item-sub-code-check-type',
@@ -26,6 +27,7 @@ export class DetailItemSubCodeCheckTypeComponent extends BaseComponent implement
     { code: 'NUMERIC', name: 'NUMERIC' },
     { code: 'ANYTHING', name: 'ANYTHING' },
   ]
+  policies: any[] = []
   constructor(spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
     private itemSubCodeCheckTypeService: ItemSubCodeCheckTypeService,
@@ -33,7 +35,8 @@ export class DetailItemSubCodeCheckTypeComponent extends BaseComponent implement
     private messageService: MessageService,
     private route: ActivatedRoute,
     private router: Router,
-    private domainModelService: DomainModelService) {
+    private domainModelService: DomainModelService,
+    private policyService: PolicyService) {
     super(spinner);
     this.code = this.route.snapshot.params['code']
   }
@@ -46,8 +49,10 @@ export class DetailItemSubCodeCheckTypeComponent extends BaseComponent implement
       searchText: new FormControl(null),
       relatedItem: new FormControl(null),
       checkType: new FormControl(null),
+      policy: new FormControl(null),
     });
     await this.getAllDomainModels();
+    await this.getAllPolicies();
     await this.getItemSubCodeCheckTypeByCode();
   }
 
@@ -60,13 +65,24 @@ export class DetailItemSubCodeCheckTypeComponent extends BaseComponent implement
     this.domainModels = await this.domainModelService.getAllDomainModels(()=> this.hideSpinner());
   }
 
+  async getAllPolicies(){
+    this.showSpinner();
+    var result = await this.policyService.getAllPolicies(()=> this.hideSpinner());
+    this.policies = result.map(x=> {return {code: x, name: x}})
+  }
+
   async getItemSubCodeCheckTypeByCode(){
     this.showSpinner();
     var result = await this.itemSubCodeCheckTypeService.getItemSubCodeCheckTypeByCode(this.code, ()=> this.hideSpinner());
-    this.itemSubCodeCheckTypeForm.setValue(result);
     this.itemSubCodeCheckTypeForm.patchValue({
+      id: result.id,
+      code: result.code,
+      shortText: result.shortText,
+      longText: result.longText,
+      searchText: result.searchText,
       relatedItem: result.relatedItem,
-      checkType: result.checkType
+      checkType: result.checkType,
+      policy: result.policy
     });
     this.descriptionText = `Short: ${result.shortText ? result.shortText : "-"}, Long: ${result.longText ? result.longText : "-"}, Search: ${result.searchText ? result.searchText : "-"}`
   }
@@ -88,7 +104,8 @@ export class DetailItemSubCodeCheckTypeComponent extends BaseComponent implement
           shortText: value?.shortText,
           searchText: value?.searchText,
           relatedItem: value?.relatedItem,
-          checkType: value?.checkType
+          checkType: value?.checkType,
+          policy: value.policy
         }
         this.showSpinner();
         await this.itemSubCodeCheckTypeService.saveItemSubCodeCheckType(request, ()=> this.hideSpinner());

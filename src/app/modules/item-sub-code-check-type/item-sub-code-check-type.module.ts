@@ -18,6 +18,7 @@ import { CommonModule } from '@angular/common';
 import { MainItemSubCodeCheckTypeComponent } from './components/main-item-sub-code-check-type/main-item-sub-code-check-type.component';
 import { NewItemSubCodeCheckTypeComponent } from './components/new-item-sub-code-check-type/new-item-sub-code-check-type.component';
 import { DetailItemSubCodeCheckTypeComponent } from './components/detail-item-sub-code-check-type/detail-item-sub-code-check-type.component';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [MainItemSubCodeCheckTypeComponent, NewItemSubCodeCheckTypeComponent,DetailItemSubCodeCheckTypeComponent],
@@ -42,7 +43,8 @@ import { DetailItemSubCodeCheckTypeComponent } from './components/detail-item-su
     StyleClassModule,
     FormsModule,
     DividerModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    MultiSelectModule
   ]
 })
 export class ItemSubCodeCheckTypeModule { }
