@@ -79,9 +79,9 @@
                     </div>
 
                     <div class="field flex flex-wrap align-items-center">
-                        <label for="policy" style="min-width:100px;" class="w-3">Policy</label>
+                        <label for="policyCheck" style="min-width:100px;" class="w-3">Policy Check</label>
                         <div class="w-9">
-                            <p-dropdown [filter]="true" filterBy="name" styleClass="w-full md:w-3" optionValue="code" placeholder="Seçim Yapınız" inputId="policy" [autoDisplayFirst]="false" [options]="policies" formControlName="policy" optionLabel="name"></p-dropdown>
+                            <p-dropdown [filter]="true" filterBy="shortText" styleClass="w-full md:w-3" placeholder="Seçim Yapınız" inputId="policyCheck" [autoDisplayFirst]="false" [options]="policyChecks" formControlName="policyCheck" optionLabel="shortText"></p-dropdown>
                         </div>
                     </div>
                 

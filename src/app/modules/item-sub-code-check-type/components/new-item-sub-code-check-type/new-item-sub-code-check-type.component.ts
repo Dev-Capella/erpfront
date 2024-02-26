@@ -7,6 +7,7 @@ import { ItemSubCodeCheckTypeService } from '../../services/item-sub-code-check-
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { DomainModelService } from '../../../../shared/services/domain-model.service';
 import { PolicyService } from '../../../../shared/services/policy.service';
+import { PolicyCheckService } from '../../../policy-check/services/policy-check.service';
 
 @Component({
   selector: 'app-new-item-sub-code-check-type',
@@ -25,7 +26,7 @@ export class NewItemSubCodeCheckTypeComponent extends BaseComponent implements O
     { code: 'NUMERIC', name: 'NUMERIC' },
     { code: 'ANYTHING', name: 'ANYTHING' },
   ]
-  policies: any[] = []
+  policyChecks: any[] = []
   constructor(spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
     private itemSubCodeCheckTypeService: ItemSubCodeCheckTypeService,
@@ -33,7 +34,7 @@ export class NewItemSubCodeCheckTypeComponent extends BaseComponent implements O
     private messageService: MessageService,
     private router: Router,
     private domainModelService: DomainModelService,
-    private policyService: PolicyService) {
+    private policyCheckService: PolicyCheckService) {
     super(spinner);
     
   }
@@ -46,10 +47,10 @@ export class NewItemSubCodeCheckTypeComponent extends BaseComponent implements O
       searchText: new FormControl(null),
       relatedItem: new FormControl(null),
       checkType: new FormControl(null),
-      policy: new FormControl(null),
+      policyCheck: new FormControl(null),
     });
     await this.getAllDomainModels();
-    await this.getAllPolicies();
+    await this.getPolicyChecks();
   }
 
   get formControls(){
@@ -61,10 +62,9 @@ export class NewItemSubCodeCheckTypeComponent extends BaseComponent implements O
     this.domainModels = await this.domainModelService.getAllDomainModels(()=> this.hideSpinner());
   }
 
-  async getAllPolicies(){
+  async getPolicyChecks(){
     this.showSpinner();
-    var result = await this.policyService.getAllPolicies(()=> this.hideSpinner());
-    this.policies = result.map(x=> {return {code: x, name: x}})
+    this.policyChecks = await this.policyCheckService.getPolicyChecks(()=> this.hideSpinner());
   }
 
   save(value){
@@ -82,7 +82,7 @@ export class NewItemSubCodeCheckTypeComponent extends BaseComponent implements O
           searchText: value?.searchText,
           relatedItem: value?.relatedItem,
           checkType: value?.checkType,
-          policy: value.policy
+          policyCheck: value.policyCheck!=null ? {code: value.policyCheck.code} : null
         }
         this.showSpinner();
         await this.itemSubCodeCheckTypeService.saveItemSubCodeCheckType(request, ()=> this.hideSpinner());
