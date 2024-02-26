@@ -153,6 +153,12 @@ export const routes: Routes = [
                 loadChildren: () => import('../app/modules/cron-job/cron-job.module').then(
                     (m) => m.CronJobModule
                 )
+            },
+            {
+                path: 'policy-check-category-list',
+                loadChildren: () => import('../app/modules/policy-check-category/policy-check-category.module').then(
+                    (m) => m.PolicyCheckCategoryModule
+                )
             }
         ],
     },
