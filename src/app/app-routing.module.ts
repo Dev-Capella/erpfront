@@ -159,6 +159,12 @@ export const routes: Routes = [
                 loadChildren: () => import('../app/modules/policy-check-category/policy-check-category.module').then(
                     (m) => m.PolicyCheckCategoryModule
                 )
+            },
+            {
+                path: 'policy-check-list',
+                loadChildren: () => import('../app/modules/policy-check/policy-check.module').then(
+                    (m) => m.PolicyCheckModule
+                )
             }
         ],
     },
