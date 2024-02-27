@@ -34,6 +34,7 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
   userGenericGroups: any[] = []
   selectedItem: any;
   itemSubCodeCheckTypes: any[] = []
+  pLData: any;
   constructor(spinner: NgxSpinnerService,
     private itemSubCodeService: ItemSubCodeService,
     private itemTypeService: ItemTypeService,
@@ -64,7 +65,7 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
       type: new FormControl(null),
       itemSubCodeDataType: new FormControl(null),
       itemSubCodeCheckType: new FormControl(null),
-      userGenericGroup: new FormControl(null),
+      groupTypeCode: new FormControl(null),
     });
     await this.getItemSubCodeCheckTypes();
     await this.getItemSubCodeList();
@@ -93,7 +94,7 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
 
   async changeCheck(event){
     this.showSpinner();
-    await this.itemSubCodeCheckTypeService.getItemSubCodeCheckTypeByPolicy(event.code, ()=> this.hideSpinner());
+    this.pLData = await this.itemSubCodeCheckTypeService.getItemSubCodeCheckTypeByPolicy(event.code, ()=> this.hideSpinner());
   }
 
   async onSubmit(value){
@@ -113,7 +114,7 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
       itemSubCodeDataType: value?.itemSubCodeDataType,
       itemType: {code: this.code },
       itemSubCodeCheckType: value.itemSubCodeCheckType!=null ? {code: value.itemSubCodeCheckType.code} : null,
-      userGenericGroup: value.userGenericGroup!=null ? {code: value.userGenericGroup.code} : null,
+      groupTypeCode: value.groupTypeCode!=null ? value.groupTypeCode.code : null,
     }
     this.showSpinner();
     await this.itemSubCodeService.saveItemSubCode(request,()=> this.hideSpinner());
@@ -142,10 +143,11 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
       type: result?.type,
       itemSubCodeDataType: result?.itemSubCodeDataType,
       itemSubCodeCheckType: this.itemSubCodeCheckTypes.find(x=> x.code==result?.itemSubCodeCheckType?.code),
+     
     })
     await this.changeCheck(this.itemSubCodeCheckTypes.find(x=> x.code==result?.itemSubCodeCheckType?.code))
     this.subCodeForm.patchValue({
-      userGenericGroup: this.userGenericGroups.find(x=> x.code==result?.userGenericGroup?.code)
+      groupTypeCode: this.pLData.data.find(x=> x.code==result?.groupTypeCode)
     })
     this.subCodeDataDialog = true;
   }

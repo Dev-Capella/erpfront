@@ -133,13 +133,13 @@
                             formControlName="itemSubCodeCheckType" optionLabel="relatedItem"></p-dropdown>
                     </div>
                 </div>
-                @if (groupTypeVisible) {
+                @if (pLData) {
                     <div class="field flex flex-wrap align-items-center">
-                        <label for="userGenericGroup" style="min-width:100px;" class="w-3">Group Type</label>
+                        <label for="groupTypeCode" style="min-width:100px;" class="w-3">{{pLData?.label}}</label>
                         <div class="w-9">
                             <p-dropdown styleClass="w-full md:w-3" appendTo="body"
-                                placeholder="Seçim Yapınız" inputId="userGenericGroup" [autoDisplayFirst]="false" [options]="userGenericGroups"
-                                formControlName="userGenericGroup" optionLabel="shortText"></p-dropdown>
+                                placeholder="Seçim Yapınız" inputId="groupTypeCode" [autoDisplayFirst]="false" [options]="pLData?.data"
+                                formControlName="groupTypeCode" optionLabel="shortText"></p-dropdown>
                         </div>
                     </div>
                 }

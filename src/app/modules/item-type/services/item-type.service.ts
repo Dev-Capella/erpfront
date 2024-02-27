@@ -66,5 +66,12 @@ export class ItemTypeService {
         return response.data;
     }
 
+    async getItemSubCodesByItemTypeForProduct(code:string,callBackFunction?: () => void){
+        const observable = this.http.get<any>(ROOT_PATH + `/item-type/${code}/item-sub-code/product`)
+        const response = await firstValueFrom(observable);
+        callBackFunction();
+        return response.data;
+    }
+
     
 }

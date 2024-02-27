@@ -74,10 +74,11 @@ export class NewProductComponent extends BaseComponent implements OnInit {
     this.uomList = await this.unitOfMeasureService.getUnitOfMeasures(()=> this.hideSpinner());
   }
 
-  changeItemType(event) {
+  async changeItemType(event) {
     this.productSubCodeValues.clear();
-    const itemSubCodes = event.itemSubCodes.filter(x => x.type == ItemSubCodeType.PRIMARY);
-    const formGroups = itemSubCodes.map(item => this.formBuilder.group({
+    var result = await this.itemTypeService.getItemSubCodesByItemTypeForProduct(event.code, ()=> this.hideSpinner());
+    // const itemSubCodes = event.itemSubCodes.filter(x => x.type == ItemSubCodeType.PRIMARY);
+    const formGroups = result.map(item => this.formBuilder.group({
       userGenericGroupDetail: [null],
       itemSubCode: [item],
       numericValue: [null],
