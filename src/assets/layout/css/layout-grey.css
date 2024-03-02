@@ -709,7 +709,7 @@ a {
   color: #828282;
 }
 .layout-wrapper.layout-menu-light .layout-sidebar .layout-menu li ul {
-  background-color: #efefef;
+  background-color: #ffffff;
 }
 .layout-wrapper.layout-menu-light .layout-sidebar .layout-menu li ul li a.active-menuitem-routerlink span {
   color: #7085ba;
@@ -1039,8 +1039,9 @@ body .layout-wrapper .layout-main .route-bar .route-bar-breadcrumb ul li i {
   top: 1px;
 }
 body .layout-wrapper .layout-main .layout-content {
-  padding: 21px;
+  padding: 15px;
   flex: 1 1 0;
+  background-color: #EFEFEF;
 }
 @media (max-width: 1024px) {
   body .layout-wrapper .layout-main {

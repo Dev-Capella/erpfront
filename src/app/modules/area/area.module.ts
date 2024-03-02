@@ -18,7 +18,6 @@ import { CommonModule } from '@angular/common';
 import { MainAreaComponent } from './components/main-area/main-area.component';
 import { NewAreaComponent } from './components/new-area/new-area.component';
 import { DetailAreaComponent } from './components/detail-area/detail-area.component';
-import {MatTabsModule} from '@angular/material/tabs';
 import { ToolbarModule } from 'primeng/toolbar';
 @NgModule({
   declarations: [MainAreaComponent,NewAreaComponent, DetailAreaComponent],
@@ -44,7 +43,6 @@ import { ToolbarModule } from 'primeng/toolbar';
     FormsModule,
     DividerModule,
     ConfirmDialogModule,
-    MatTabsModule,
     ToolbarModule
   ]
 })

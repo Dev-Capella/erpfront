@@ -17,7 +17,7 @@ import { MenuService } from '../services/app.menu.service';
 			   [attr.target]="item.target" [attr.tabindex]="0" [ngClass]="item.class" pRipple>
 				<i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
 				<span>{{item.label}}</span>
-				<i class="pi pi-fw pi-angle-down layout-menuitem-toggler" *ngIf="item.items"></i>
+				<i class="pi pi-fw pi-angle-down layout-menuitem-toggler" *ngIf="item.items.length>0"></i>
 				<span class="menuitem-badge" *ngIf="item.badge">{{item.badge}}</span>
 			</a>
 			<a (click)="itemClick($event)" (mouseenter)="onMouseEnter()" *ngIf="(item.routerLink && !item.items.length) && item.visible !== false"
@@ -25,7 +25,7 @@ import { MenuService } from '../services/app.menu.service';
 			   [routerLinkActiveOptions]="{exact: !item.preventExact}" [attr.target]="item.target" [attr.tabindex]="0" [ngClass]="item.class" pRipple>
 				<i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
 				<span>{{item.label}}</span>
-				<i class="pi pi-fw pi-angle-down layout-menuitem-toggler" *ngIf="item.items"></i>
+				<i class="pi pi-fw pi-angle-down layout-menuitem-toggler" *ngIf="item.items.length>0"></i>
 				<span class="menuitem-badge" *ngIf="item.badge">{{item.badge}}</span>
 			</a>
 			<div class="layout-menu-tooltip" *ngIf="item.visible !== false">

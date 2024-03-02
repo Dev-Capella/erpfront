@@ -9,9 +9,9 @@ import { PrimeNGConfig } from 'primeng/api';
 export class AppComponent {
   menuMode = 'static';
 
-  lightMenu = false;
+  lightMenu = true;
 
-  theme = 'blue';
+  theme = 'grey';
 
   inputStyle = 'outlined';
 

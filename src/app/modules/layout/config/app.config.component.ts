@@ -88,6 +88,7 @@ export class AppConfigComponent implements OnInit {
     }
 
     changeTheme(theme: string) {
+ 
         this.app.theme = theme;
 
         const layoutLink: HTMLLinkElement = document.getElementById('layout-css') as HTMLLinkElement;

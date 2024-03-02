@@ -1,24 +1,43 @@
 <p-menubar [model]="items"></p-menubar>
-<div class="flex flex-auto flex-grow-1 flex-column flex-nowrap" style="max-width: 675px;">
-    <div class="field col-12 md:col-12">
-        <label for="firstname6">Short Text</label>
-        <input id="firstname6" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-    </div>
-    <div class="field col-12 md:col-12">
-        <label for="firstname6">Long Text</label>
-        <input id="firstname6" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-    </div>
-    <div class="field col-12 md:col-12">
-        <label for="firstname6">Search Text</label>
-        <input id="firstname6" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-    </div>
 
-    <!-- <div class="flex flex-row flex-nowrap align-items-center justify-content-end gap-2" style="margin-top:120px">
-        <button pButton pRipple label="Create" class="p-button-success"></button>
-        <button pButton pRipple label="Cancel" class="p-button-success"></button>
-    </div> -->
-    
+<div class="card shadow-2">
+    <p-tabView>
+        <p-tabPanel header="Basic">
+            <div class="flex flex-auto flex-grow-1 flex-column flex-nowrap" style="max-width: 675px;">
+
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">Short Text</label>
+                    <input type="text" pInputText class="w-full"/>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">Long Text</label>
+                    <input type="text" pInputText class="w-full"/>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">Search Text</label>
+                    <input type="text" pInputText class="w-full"/>
+                </div>
+            
+                <!-- <div class="flex flex-row flex-nowrap align-items-center justify-content-end gap-2" >
+                    <button pButton pRipple label="Create" class="p-button-success"></button>
+                    <button pButton pRipple label="Cancel" class="p-button-success"></button>
+                </div> -->
+            </div>
+        </p-tabPanel>
+        <!-- <p-tabPanel header="Header 2">
+            Content 2
+        </p-tabPanel>
+        <p-tabPanel header="Header 3">
+            Content 3
+        </p-tabPanel> -->
+    </p-tabView>
 </div>
+ 
+     
+
+   
+  
+
  
 
 
