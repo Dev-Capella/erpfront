@@ -1041,6 +1041,8 @@ body .layout-wrapper .layout-main .route-bar .route-bar-breadcrumb ul li i {
 body .layout-wrapper .layout-main .layout-content {
   padding: 21px;
   flex: 1 1 0;
+  /* background-color: #efefef; */
+  background-color: rgba(var(--palette-neutral-2,248, 248, 248),1);
 }
 @media (max-width: 1024px) {
   body .layout-wrapper .layout-main {

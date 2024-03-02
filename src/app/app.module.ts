@@ -16,6 +16,7 @@ import { UserGenericGroupModule } from "./modules/user-generic-group/user-generi
 import { ConfirmationService } from "primeng/api";
 import { JwtModule } from "@auth0/angular-jwt";
 import { AuthService } from "./core/services/auth.service";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -43,7 +44,8 @@ import { AuthService } from "./core/services/auth.service";
                 },
                 allowedDomains: ["localhost:9090","localhost:9200"]
             }
-        })
+        }),
+        BrowserAnimationsModule
     ],
     providers: [ConfirmationService],
     bootstrap: [AppComponent]

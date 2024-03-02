@@ -2,3 +2,25 @@
 @import "../node_modules/primeflex/primeflex.scss";
 @import "../node_modules/primeicons/primeicons.css";
 @import "../node_modules/prismjs/themes/prism-coy.css";
+
+
+.p-datatable {
+    font-size: 14px;
+}
+
+.p-datatable-thead {
+    font-size: 12px;
+}
+
+.p-menuitem-text {
+    font-size: 12px;
+}
+.p-tabview{
+    background-color: rgba(var(--palette-neutral-8,234, 234, 234),1) !important;
+}
+.p-tabview-nav {
+    background-color: rgba(var(--palette-neutral-8,234, 234, 234),1) !important;
+}
+.p-tabview-panels {
+    background-color: rgba(var(--palette-neutral-2,248, 248, 248),1) !important;
+}

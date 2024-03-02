@@ -165,6 +165,12 @@ export const routes: Routes = [
                 loadChildren: () => import('../app/modules/policy-check/policy-check.module').then(
                     (m) => m.PolicyCheckModule
                 )
+            },
+            {
+                path: 'area-list',
+                loadChildren: () => import('../app/modules/area/area.module').then(
+                    (m) => m.AreaModule
+                )
             }
         ],
     },
