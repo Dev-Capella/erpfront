@@ -183,6 +183,12 @@ export const routes: Routes = [
                 loadChildren: () => import('../app/modules/payment-method/payment-method.module').then(
                     (m) => m.PaymentMethodModule
                 )
+            },
+            {
+                path: 'country-list',
+                loadChildren: () => import('../app/modules/country/country.module').then(
+                    (m) => m.CountryModule
+                )
             }
         ],
     },

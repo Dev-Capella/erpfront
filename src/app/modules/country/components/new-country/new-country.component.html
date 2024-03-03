@@ -1,0 +1,125 @@
+<p-menubar [model]="items"></p-menubar>
+
+<div class="card shadow-2">
+    <form [formGroup]="countryForm">
+    <p-tabView>
+        <p-tabPanel header="Basic">
+            <div class="flex flex-auto flex-grow-1 flex-column flex-nowrap" style="max-width: 675px;">
+
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">Short Text</label>
+                    <input type="text" pInputText class="w-full" formControlName="shortText"/>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">Long Text</label>
+                    <input type="text" pInputText class="w-full" formControlName="longText"/>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">Search Text</label>
+                    <input type="text" pInputText class="w-full" formControlName="searchText"/>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex flex-column gap-1">
+                            <label class="font-bold text-sm" for="firstname6">European community member</label>
+                            <p-checkbox formControlName="europeanCommunityMember" [binary]="true"></p-checkbox>
+                        </div>
+                        <div class="flex flex-column gap-1">
+                            <label class="font-bold text-sm" for="firstname6">EURO currency</label>
+                            <p-checkbox formControlName="euroCurrency" [binary]="true"></p-checkbox>
+                        </div>
+                        <div class="flex flex-column gap-1">
+                            <label class="font-bold text-sm" for="firstname6">IBAN</label>
+                            <p-checkbox formControlName="iban" [binary]="true"></p-checkbox>
+                        </div>
+                        <div class="flex flex-column gap-1">
+                            <label class="font-bold text-sm" for="firstname6">SEPA</label>
+                            <p-checkbox formControlName="sepa" [binary]="true"></p-checkbox>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">Control bank check</label>
+                    <p-dropdown styleClass="w-full" optionValue="code" [autoDisplayFirst]="false" [options]="controlBankCheckTypes" formControlName="controlBankCheckType" optionLabel="name"></p-dropdown>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">ISO code</label>
+                    <input type="text" pInputText class="w-full" formControlName="isoCode"/>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <div class="flex flex-column gap-1">
+                    <label class="font-bold text-sm" for="firstname6">International numeric code</label>
+                    <p-inputNumber styleClass="w-full" formControlName="internationalNumericCode" mode="decimal"></p-inputNumber>
+                    </div>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <div class="flex flex-column gap-1">
+                        <label class="font-bold text-sm" for="firstname6">Tax registration number length</label>
+                        <p-inputNumber styleClass="w-full" formControlName="taxRegistrationNumberLength" mode="decimal"></p-inputNumber>
+                    </div>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <div class="flex flex-column gap-1">
+                        <label class="font-bold text-sm" for="firstname6">Tax Stamp Excluded</label>
+                        <p-checkbox formControlName="taxStampExcluded" [binary]="true"></p-checkbox>
+                    </div>
+                </div>
+            </div>
+            
+        </p-tabPanel>
+        <p-tabPanel header="Setup">
+            <div class="flex flex-auto flex-grow-1 flex-column flex-nowrap" style="max-width: 675px;">
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">First</label>
+                    <input type="text" pInputText class="w-full" formControlName="firstAddressLine"/>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">Second</label>
+                    <input type="text" pInputText class="w-full" formControlName="secondAddressLine"/>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">Third</label>
+                    <input type="text" pInputText class="w-full" formControlName="thirdAddressLine"/>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">Fourth</label>
+                    <input type="text" pInputText class="w-full" formControlName="fourthAddressLine"/>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">Fifth</label>
+                    <input type="text" pInputText class="w-full" formControlName="fifthAddressLine"/>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">Postal Code</label>
+                    <input type="text" pInputText class="w-full" formControlName="postalCode"/>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">Town</label>
+                    <input type="text" pInputText class="w-full" formControlName="town"/>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">District</label>
+                    <input type="text" pInputText class="w-full" formControlName="district"/>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <div class="flex flex-column gap-1">
+                        <label class="font-bold text-sm" for="firstname6">Validate IBAN</label>
+                        <p-checkbox formControlName="validateIban" [binary]="true"></p-checkbox>
+                    </div>
+                </div>
+            </div>
+        </p-tabPanel>
+    </p-tabView>
+    </form>
+</div>
+ 
+<p-confirmDialog key="save-country" [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+
+   
+  
+
+ 
+
+
+        
