@@ -5,11 +5,39 @@
 
 
 .p-datatable {
-    font-size: 14px;
+    font-size: 13px;
+}
+
+.p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):hover {
+  background: #efefef;
+}
+.p-datatable .p-datatable-tbody > tr.p-highlight {
+  background: #deecf9 !important;
+  color: #0096d6 !important;
+}
+.p-datatable .p-datatable-tbody > tr:focus {
+  outline: 0;
+  outline-offset: 0;
 }
 
 .p-datatable-thead {
-    font-size: 12px;
+    font-size: 11px;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  border-bottom: 1px solid #080808;
+  border-width: 0 0 1px 0;
+  background: #ffffff;
+  color: #000000;
+  font-weight: 500;
+}
+
+.cell-underline {
+  text-decoration: none
+}
+
+.cell-underline:hover {
+  text-decoration: underline
 }
 
 .p-menuitem-text {

@@ -19,6 +19,7 @@ import { MainAreaComponent } from './components/main-area/main-area.component';
 import { NewAreaComponent } from './components/new-area/new-area.component';
 import { DetailAreaComponent } from './components/detail-area/detail-area.component';
 import { ToolbarModule } from 'primeng/toolbar';
+import { MenuModule } from 'primeng/menu';
 @NgModule({
   declarations: [MainAreaComponent,NewAreaComponent, DetailAreaComponent],
   imports: [
@@ -43,7 +44,8 @@ import { ToolbarModule } from 'primeng/toolbar';
     FormsModule,
     DividerModule,
     ConfirmDialogModule,
-    ToolbarModule
+    ToolbarModule,
+    MenuModule
   ]
 })
 export class AreaModule { }
