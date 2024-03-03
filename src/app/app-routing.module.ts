@@ -171,6 +171,12 @@ export const routes: Routes = [
                 loadChildren: () => import('../app/modules/area/area.module').then(
                     (m) => m.AreaModule
                 )
+            },
+            {
+                path: 'market-list',
+                loadChildren: () => import('../app/modules/market/market.module').then(
+                    (m) => m.MarketModule
+                )
             }
         ],
     },
