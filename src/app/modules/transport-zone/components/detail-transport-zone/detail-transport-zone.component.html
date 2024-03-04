@@ -1,0 +1,40 @@
+<p-menubar [model]="items"></p-menubar>
+
+<div class="card shadow-2">
+    <form [formGroup]="transportZoneForm">
+    <p-tabView>
+        <p-tabPanel header="Basic">
+            <div class="flex flex-auto flex-grow-1 flex-column flex-nowrap" style="max-width: 675px;">
+
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">Short Text</label>
+                    <input type="text" pInputText class="w-full" formControlName="shortText"/>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">Long Text</label>
+                    <input type="text" pInputText class="w-full" formControlName="longText"/>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">Search Text</label>
+                    <input type="text" pInputText class="w-full" formControlName="searchText"/>
+                </div>
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">Country</label>
+                    <p-dropdown [showClear]="true" [filter]="true" filterBy="shortText" styleClass="w-full" optionValue="code" [autoDisplayFirst]="false" [options]="countries" formControlName="country" optionLabel="shortText"></p-dropdown>
+                </div>
+            </div>
+        </p-tabPanel>
+    </p-tabView>
+    </form>
+</div>
+ 
+<p-confirmDialog key="save-transport-zone" [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+<p-confirmDialog key="delete-transport-zone" [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+
+   
+  
+
+ 
+
+
+        

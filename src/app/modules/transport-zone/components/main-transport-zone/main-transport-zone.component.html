@@ -1,0 +1,38 @@
+<p-menubar [model]="items"></p-menubar>
+
+<div class="card shadow-2">
+    <p-table [value]="transportZoneList" [tableStyle]="{'min-width': '70rem'}" [rowHover]="true"
+    [resizableColumns]="true" [(selection)]="selectedItem" selectionMode="single"  dataKey="code" 
+    styleClass="p-datatable-striped p-datatable-sm" [autoLayout]="true">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="id" pResizableColumn>ID<p-sortIcon field="id"></p-sortIcon></th>
+                <th pSortableColumn="shortText" pResizableColumn>Short Text<p-sortIcon field="shortText"></p-sortIcon></th>
+                <th pSortableColumn="longText" pResizableColumn>Long Text<p-sortIcon field="longText"></p-sortIcon></th>
+                <th pSortableColumn="searchText" pResizableColumn>Search Text<p-sortIcon field="searchText"></p-sortIcon></th>
+                <th pSortableColumn="country.shortText" pResizableColumn>Country<p-sortIcon field="country.shortText"></p-sortIcon></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-item>
+            <tr class="cursor-pointer" [pSelectableRow]="item" >
+                <td class="cell-underline" (dblclick)="onRowDblClick(item)">{{item.id}}</td>
+                <td>{{item.shortText}}</td>
+                <td>{{item.longText}}</td>
+                <td>{{item.searchText}}</td>
+                <td>{{item?.country?.shortText}}</td>
+                <td><p-button pTooltip="More Actions..." tooltipPosition="top" (click)="menu.toggle($event);selectedItem=item" icon="pi pi-ellipsis-h" [text]="true" [plain]="true"></p-button></td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td [attr.colspan]="5">
+                    No data
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<p-menu #menu [model]="actions" [popup]="true"></p-menu>
+<p-confirmDialog key="delete-transport-zone" [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>

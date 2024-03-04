@@ -189,6 +189,12 @@ export const routes: Routes = [
                 loadChildren: () => import('../app/modules/country/country.module').then(
                     (m) => m.CountryModule
                 )
+            },
+            {
+                path: 'transport-zone-list',
+                loadChildren: () => import('../app/modules/transport-zone/transport-zone.module').then(
+                    (m) => m.TransportZoneModule
+                )
             }
         ],
     },
