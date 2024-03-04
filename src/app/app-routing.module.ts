@@ -195,6 +195,12 @@ export const routes: Routes = [
                 loadChildren: () => import('../app/modules/transport-zone/transport-zone.module').then(
                     (m) => m.TransportZoneModule
                 )
+            },
+            {
+                path: 'order-partner-list',
+                loadChildren: () => import('../app/modules/order-partner/order-partner.module').then(
+                    (m) => m.OrderPartnerModule
+                )
             }
         ],
     },

@@ -1,0 +1,41 @@
+<p-menubar [model]="items"></p-menubar>
+
+<div class="card shadow-2">
+    <form [formGroup]="orderPartnerForm">
+    <p-tabView>
+        <p-tabPanel header="Basic">
+            <div class="flex flex-auto flex-grow-1 flex-column flex-nowrap" style="max-width: 675px;">
+
+                <div class="field col-12 md:col-12">
+                    <label class="font-bold text-sm" for="firstname6">Order Partner Type</label>
+                    <p-dropdown (onChange)="changeOrderPartnerType($event.value)" [ngModelOptions]="{standalone: true}" [filter]="true" filterBy="name" styleClass="w-full" 
+                    [options]="orderPartnerTypes" [autoDisplayFirst]="false" [(ngModel)]="selectedOrderType" optionValue="code" optionLabel="name"></p-dropdown>
+                </div>
+
+                @if (customerVisible) {
+                    CUSTOMER
+                }
+
+                @if (supplierVisible) {
+                    SUPPLIER
+                }
+
+                @if (internalVisible) {
+                    INTERNAL
+                }
+                
+            </div>
+        </p-tabPanel>
+    </p-tabView>
+    </form>
+</div>
+ 
+<p-confirmDialog key="save-order-partner" [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+
+   
+  
+
+ 
+
+
+        
