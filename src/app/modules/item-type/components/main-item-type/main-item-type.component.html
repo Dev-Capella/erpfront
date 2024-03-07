@@ -1,69 +1,72 @@
-<section class="border-bottom-1 surface-border">
-    <div class="flex flex-wrap justify-content-between w-full align-items-center">
-        <h3 class="mb-4 mt-0 text-900 font-medium text-xl">Item Type List</h3>
-        <div class="flex gap-1">
-            <button icon="pi pi-plus" pButton pRipple label="Add" class="w-auto" (click)="new()"></button>
-            <button [disabled]="!selectedItem" icon="pi pi-eye" pButton pRipple label="Edit" class="w-auto" (click)="edit()"></button>
-            <button [disabled]="!selectedItem" icon="pi pi-trash" pButton pRipple label="Delete" class="w-auto" (click)="delete()"></button>
-        </div>
-    </div>
-    <div class="overflow-x-scroll">
-        <p-table [value]="itemTypeList" [tableStyle]="{'min-width': '70rem'}" [rowHover]="true"
-        [resizableColumns]="true" [(selection)]="selectedItem" selectionMode="single"  dataKey="code" 
-        styleClass="p-datatable-striped p-datatable-gridlines p-datatable-sm" [autoLayout]="true">
-            <ng-template pTemplate="header">
-                <tr>
-                    <th pResizableColumn>Short description</th>
-                    <th pResizableColumn>Nature</th>
-                    <th pResizableColumn>Selling</th>
-                    <th pResizableColumn>Int. IT</th>
-                    <th pResizableColumn>Valid</th>
-                    <th pResizableColumn>Specific Type</th>
-                    <th pResizableColumn>Quality</th>
-                    <th pResizableColumn>Lot</th>
-                    <th pResizableColumn>Container</th>
-                    <th pResizableColumn>Element</th>
-                    <th pResizableColumn>Project</th>
-                    <th pResizableColumn>Customer</th>
-                    <th pResizableColumn>Supplier</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-item>
-                <tr class="cursor-pointer" [pSelectableRow]="item">
-                    <td>{{item.shortText}}</td>
-                    <td>{{item.itemNature}}</td>
-                    <td>
-                        <p-checkbox [(ngModel)]="item.sellingType" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
-                    </td>
-                    <td></td>
-                    <td>
-                        <p-checkbox [(ngModel)]="item.valid" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
-                    </td>
-                    <td></td>
-                    <td>
-                        <p-checkbox [(ngModel)]="item.qualityControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
-                    </td>
-                    <td>
-                        <p-checkbox [(ngModel)]="item.lotControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
-                    </td>
-                    <td>
-                        <p-checkbox [(ngModel)]="item.containerControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
-                    </td>
-                    <td>
-                        <p-checkbox [(ngModel)]="item.elementControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
-                    </td>
-                    <td>
-                        <p-checkbox [(ngModel)]="item.projectControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
-                    </td>
-                    <td>
-                        <p-checkbox [(ngModel)]="item.customerControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
-                    </td>
-                    <td>
-                        <p-checkbox [(ngModel)]="item.supplierControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
-                    </td>
-                </tr>
-            </ng-template>
-        </p-table>
-    </div>
-</section>
+<p-menubar [model]="items"></p-menubar>
+
+<div class="card shadow-2">
+    <p-table [value]="itemTypeList" [tableStyle]="{'min-width': '70rem'}" [rowHover]="true"
+    [resizableColumns]="true" [(selection)]="selectedItem" selectionMode="single"  dataKey="code" 
+    styleClass="p-datatable-striped p-datatable-sm" [autoLayout]="true">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="id" pResizableColumn>ID<p-sortIcon field="id"></p-sortIcon></th>
+                <th pSortableColumn="shortText" pResizableColumn>Short Text<p-sortIcon field="shortText"></p-sortIcon></th>
+                <th pSortableColumn="itemNature" pResizableColumn>Nature<p-sortIcon field="itemNature"></p-sortIcon></th>
+                <th pSortableColumn="sellingType" pResizableColumn>Selling<p-sortIcon field="sellingType"></p-sortIcon></th>
+                <th pSortableColumn="valid" pResizableColumn>Valid<p-sortIcon field="valid"></p-sortIcon></th>
+                <th pSortableColumn="qualityControlled" pResizableColumn>Quality<p-sortIcon field="qualityControlled"></p-sortIcon></th>
+                <th pSortableColumn="lotControlled" pResizableColumn>Lot<p-sortIcon field="lotControlled"></p-sortIcon></th>
+                <th pSortableColumn="containerControlled" pResizableColumn>Container<p-sortIcon field="containerControlled"></p-sortIcon></th>
+                <th pSortableColumn="elementControlled" pResizableColumn>Element<p-sortIcon field="elementControlled"></p-sortIcon></th>
+                <th pSortableColumn="projectControlled" pResizableColumn>Project<p-sortIcon field="projectControlled"></p-sortIcon></th>
+                <th pSortableColumn="customerControlled" pResizableColumn>Customer<p-sortIcon field="customerControlled"></p-sortIcon></th>
+                <th pSortableColumn="supplierControlled" pResizableColumn>Supplier<p-sortIcon field="supplierControlled"></p-sortIcon></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-item>
+            <tr class="cursor-pointer" [pSelectableRow]="item">
+                <td class="cell-underline" (dblclick)="onRowDblClick(item)">{{item.id}}</td>
+                <td>{{item.shortText}}</td>
+                <td>{{item.itemNature}}</td>
+                <td>
+                    <p-checkbox [(ngModel)]="item.sellingType" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                </td>
+                <td>
+                    <p-checkbox [(ngModel)]="item.valid" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                </td>
+                <td>
+                    <p-checkbox [(ngModel)]="item.qualityControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                </td>
+                <td>
+                    <p-checkbox [(ngModel)]="item.lotControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                </td>
+                <td>
+                    <p-checkbox [(ngModel)]="item.containerControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                </td>
+                <td>
+                    <p-checkbox [(ngModel)]="item.elementControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                </td>
+                <td>
+                    <p-checkbox [(ngModel)]="item.projectControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                </td>
+                <td>
+                    <p-checkbox [(ngModel)]="item.customerControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                </td>
+                <td>
+                    <p-checkbox [(ngModel)]="item.supplierControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                </td>
+                <td>
+                    <p-button pTooltip="More Actions..." tooltipPosition="top" (click)="menu.toggle($event);selectedItem=item" icon="pi pi-ellipsis-h" [text]="true" [plain]="true"></p-button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td [attr.colspan]="13">
+                    No data
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<p-menu #menu [model]="actions" [popup]="true"></p-menu>
 <p-confirmDialog key="delete-item-type" [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
