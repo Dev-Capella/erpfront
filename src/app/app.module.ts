@@ -17,6 +17,7 @@ import { ConfirmationService } from "primeng/api";
 import { JwtModule } from "@auth0/angular-jwt";
 import { AuthService } from "./core/services/auth.service";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogService } from "primeng/dynamicdialog";
 
 @NgModule({
     declarations: [
@@ -47,7 +48,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         }),
         BrowserAnimationsModule
     ],
-    providers: [ConfirmationService],
+    providers: [ConfirmationService,DialogService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

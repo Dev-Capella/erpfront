@@ -5,26 +5,28 @@
 
 
 .p-datatable {
-    font-size: 13px;
+  font-size: 13px;
 }
 
-.p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):hover {
+.p-datatable.p-datatable-hoverable-rows .p-datatable-tbody>tr:not(.p-highlight):hover {
   background: #efefef;
 }
-.p-datatable .p-datatable-tbody > tr.p-highlight {
+
+.p-datatable .p-datatable-tbody>tr.p-highlight {
   background: #deecf9 !important;
   color: #0096d6 !important;
 }
-.p-datatable .p-datatable-tbody > tr:focus {
+
+.p-datatable .p-datatable-tbody>tr:focus {
   outline: 0;
   outline-offset: 0;
 }
 
 .p-datatable-thead {
-    font-size: 11px;
+  font-size: 11px;
 }
 
-.p-datatable .p-datatable-thead > tr > th {
+.p-datatable .p-datatable-thead>tr>th {
   border-bottom: 1px solid #080808;
   border-width: 0 0 1px 0;
   background: #ffffff;
@@ -41,51 +43,79 @@
 }
 
 .p-menuitem-text {
-    font-size: 12px;
+  font-size: 12px;
 }
+
 .p-menubar {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.03), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.12);
-    background: #ffffff;
-    margin-bottom: 0.5rem;;
+  background: #ffffff;
+  margin-bottom: 0.5rem;
+  ;
 }
 
-p-menubarsub{
-    width: 100%;
-    
+p-menubarsub {
+  width: 100%;
+
 }
+
 .route-bar {
-    padding-top: 0.5rem;
+  padding-top: 0.5rem;
 }
+
 ::-webkit-scrollbar {
-    width: 20px;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #efefef;
-  }
+  width: 20px;
+}
 
-  ::-webkit-scrollbar-thumb {
-    background-color: #efefef;
-    border-radius: 20px;
-  }
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
 
-  ::-webkit-scrollbar-thumb {
-    background-color: #efefef;
-    border-radius: 20px;
-    border: 6px solid transparent;
-    background-clip: content-box;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #c6c3c3;
-  }
+::-webkit-scrollbar-thumb {
+  background-color: #efefef;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #efefef;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #efefef;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #c6c3c3;
+}
 
 .p-toolbar {
-    background: #ffffff;
-    font-size: 12px;
-    padding: 0.6rem !important;
+  background: #ffffff;
+  font-size: 12px;
+  padding: 0.6rem !important;
 }
+
 fieldset {
   border-color: #eeeeee;
+}
+
+.maximize-dialog {
+  transition: none;
+  transform: none;
+  width: 100vw !important;
+  height: 100vh !important;
+  top: 0 !important;
+  left: 0 !important;
+  max-height: 100%;
+}
+.p-dialog-header{
+  background: #eeeeee !important;
+}
+.p-dialog-content {
+  background: #eeeeee !important;
+}
+
+.p-dialog-footer {
+  background: #eeeeee !important;
 }

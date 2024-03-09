@@ -7,6 +7,11 @@ import { BaseComponent } from '../../../../core/components/base/base.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 import { BreadcrumbService } from '../../../layout/breadcrumb/services/app.breadcrumb.service';
+import { DialogService } from 'primeng/dynamicdialog';
+import { QualityComponent } from '../quality/quality.component';
+import { SubcodeComponent } from '../subcode/subcode.component';
+import { BomSbcComponent } from '../bom-sbc/bom-sbc.component';
+import { RoutingSbcComponent } from '../routing-sbc/routing-sbc.component';
 
 @Component({
   selector: 'app-detail-item-type',
@@ -14,6 +19,7 @@ import { BreadcrumbService } from '../../../layout/breadcrumb/services/app.bread
   styleUrl: './detail-item-type.component.scss'
 })
 export class DetailItemTypeComponent extends BaseComponent implements OnInit {
+  itemTypeData: any;
   itemTypeForm: FormGroup;
   itemNatures: any[] = [
     { code: 'PRODUCT', name: 'Product' },
@@ -61,6 +67,35 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
       }
     },
     {
+      label: 'Functions',
+      items: [
+          {
+            label: 'Quality',
+            command: () => {
+              this.openQuality();
+            }
+          },
+          {
+            label: 'Subcode',
+            command: () => {
+              this.openSubcode();
+            }
+          },
+          {
+            label: 'BoM SBC',
+            command: () => {
+              this.openBoMSBC();
+            }
+          },
+          {
+            label: 'Routing SBC',
+            command: () => {
+              this.openRoutingSBC();
+            }
+          },
+      ]
+  },
+    {
       label: 'Save',
       icon: 'pi pi-save',
       styleClass: 'ml-auto',
@@ -92,7 +127,8 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
     private messageService: MessageService,
     private route: ActivatedRoute,
     private router: Router,
-    private breadcrumbService: BreadcrumbService) {
+    private breadcrumbService: BreadcrumbService,
+    public dialogService: DialogService) {
     super(spinner)
     this.code = this.route.snapshot.params['code']
   }
@@ -169,41 +205,41 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
 
   async getItemTypeByCode() {
     this.showSpinner();
-    var result = await this.itemTypeService.getItemTypeByCode(this.code,() => this.hideSpinner());
+    this.itemTypeData = await this.itemTypeService.getItemTypeByCode(this.code,() => this.hideSpinner());
     this.itemTypeForm.patchValue({
-      id: result.id,
-      code: result.code,
-      shortText: result.shortText,
-      longText: result.longText,
-      searchText: result.searchText,
-      itemNature: result.itemNature,
-      maxCodeLength: result.maxCodeLength,
-      sellingType: result.sellingType,
-      valid: result.valid,
-      managedByBox: result.managedByBox,
-      handleComponentStatus: result.handleComponentStatus,
-      structure: result.structure,
-      statusAllowed: result.statusAllowed,
-      primaryUOM: result.primaryUOM ? this.uomList.find(x=> x.code==result?.primaryUOM?.code): null,
-      secondaryUOM: result.secondaryUOM ? this.uomList.find(x=> x.code==result?.secondaryUOM?.code) : null,
-      packagingUOM: result.packagingUOM ? this.packagingUOMList.find(x=> x.code==result?.packagingUOM?.code) : null,
-      secondaryUnitControlled: result.secondaryUnitControlled,
-      secondaryConversionFactor: result.secondaryConversionFactor,
-      packagingUnitControlled: result.packagingUnitControlled,
-      baseUoMPackagingType: result.baseUoMPackagingType,
-      packagingConversionFactor: result.packagingConversionFactor,
-      qualityControlled: result.qualityControlled,
-      lotControlled: result.lotControlled,
-      containerControlled: result.containerControlled,
-      elementControlled: result.elementControlled,
-      projectControlled:result.projectControlled,
-      customerControlled: result.customerControlled,
-      supplierControlled: result.supplierControlled,
-      statisticalGroupControlled: result.statisticalGroupControlled,
-      costForStatisticalGroupControlled: result.costForStatisticalGroupControlled
+      id: this.itemTypeData?.id,
+      code: this.itemTypeData?.code,
+      shortText: this.itemTypeData?.shortText,
+      longText: this.itemTypeData?.longText,
+      searchText: this.itemTypeData?.searchText,
+      itemNature: this.itemTypeData?.itemNature,
+      maxCodeLength: this.itemTypeData?.maxCodeLength,
+      sellingType: this.itemTypeData?.sellingType,
+      valid: this.itemTypeData?.valid,
+      managedByBox: this.itemTypeData?.managedByBox,
+      handleComponentStatus: this.itemTypeData?.handleComponentStatus,
+      structure: this.itemTypeData?.structure,
+      statusAllowed: this.itemTypeData?.statusAllowed,
+      primaryUOM: this.itemTypeData?.primaryUOM ? this.uomList.find(x=> x.code==this.itemTypeData?.primaryUOM?.code): null,
+      secondaryUOM: this.itemTypeData?.secondaryUOM ? this.uomList.find(x=> x.code==this.itemTypeData?.secondaryUOM?.code) : null,
+      packagingUOM: this.itemTypeData?.packagingUOM ? this.packagingUOMList.find(x=> x.code==this.itemTypeData?.packagingUOM?.code) : null,
+      secondaryUnitControlled: this.itemTypeData?.secondaryUnitControlled,
+      secondaryConversionFactor: this.itemTypeData?.secondaryConversionFactor,
+      packagingUnitControlled: this.itemTypeData?.packagingUnitControlled,
+      baseUoMPackagingType: this.itemTypeData?.baseUoMPackagingType,
+      packagingConversionFactor: this.itemTypeData?.packagingConversionFactor,
+      qualityControlled: this.itemTypeData?.qualityControlled,
+      lotControlled: this.itemTypeData?.lotControlled,
+      containerControlled: this.itemTypeData?.containerControlled,
+      elementControlled: this.itemTypeData?.elementControlled,
+      projectControlled:this.itemTypeData?.projectControlled,
+      customerControlled: this.itemTypeData?.customerControlled,
+      supplierControlled: this.itemTypeData?.supplierControlled,
+      statisticalGroupControlled: this.itemTypeData?.statisticalGroupControlled,
+      costForStatisticalGroupControlled: this.itemTypeData?.costForStatisticalGroupControlled
     })
-    this.changeSecondaryUoM(result.secondaryUnitControlled);
-    this.changePackagingUoM(result.packagingUnitControlled);
+    this.changeSecondaryUoM(this.itemTypeData?.secondaryUnitControlled);
+    this.changePackagingUoM(this.itemTypeData?.packagingUnitControlled);
     this.breadcrumbService.setItems([
       {
         label: 'Item Type List',
@@ -277,6 +313,38 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
         this.router.navigate(['/item-type-list/'])
       }
   });
+}
+
+openQuality(){
+  let ref = this.dialogService.open(QualityComponent, {
+    data: {
+      itemType: this.itemTypeData
+    },
+    contentStyle: {"overflow": "auto"},
+    styleClass: "maximize-dialog",
+    closeOnEscape: false,
+    closable: false,
+    showHeader: false
+})
+}
+
+openSubcode(){
+  const ref = this.dialogService.open(SubcodeComponent, {
+    width: '100%',
+    height: '100vh',
+ });
+}
+
+openBoMSBC(){
+  const ref = this.dialogService.open(BomSbcComponent, {
+ })
+}
+
+openRoutingSBC(){
+  const ref = this.dialogService.open(RoutingSbcComponent, {
+    width: '100%',
+    height: '100vh',
+ });
 }
 
   goBack() {

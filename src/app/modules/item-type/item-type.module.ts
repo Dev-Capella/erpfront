@@ -27,6 +27,8 @@ import { SubcodeComponent } from './components/subcode/subcode.component';
 import { RoutingSbcComponent } from './components/routing-sbc/routing-sbc.component';
 import { BomSbcComponent } from './components/bom-sbc/bom-sbc.component';
 import { DialogModule } from 'primeng/dialog';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { AccordionModule } from 'primeng/accordion';
 
 @NgModule({
   declarations: [MainItemTypeComponent, NewItemTypeComponent,DetailItemTypeComponent, QualityComponent,SubcodeComponent,RoutingSbcComponent,BomSbcComponent],
@@ -56,7 +58,9 @@ import { DialogModule } from 'primeng/dialog';
     MenuModule,
     CommonModule,
     DividerModule,
-    DialogModule
+    DialogModule,
+    DynamicDialogModule,
+    AccordionModule
   ]
 })
 export class ItemTypeModule { }

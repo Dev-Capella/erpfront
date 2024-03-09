@@ -1,4 +1,163 @@
-<section class="border-bottom-1 surface-border">
+<div class="w-full p-2">
+    <div class="card shadow-2">
+        <p-table [value]="[itemTypeData]"
+        [resizableColumns]="true" [rowHover]="true"
+        styleClass="p-datatable-striped p-datatable-sm" [autoLayout]="true">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pResizableColumn>ID</th>
+                    <th pResizableColumn>Short Text</th>
+                    <th pResizableColumn>Nature</th>
+                    <th pResizableColumn>Selling</th>
+                    <th pResizableColumn>Valid</th>
+                    <th pResizableColumn>Quality</th>
+                    <th pResizableColumn>Lot</th>
+                    <th pResizableColumn>Container</th>
+                    <th pResizableColumn>Element</th>
+                    <th pResizableColumn>Project</th>
+                    <th pResizableColumn>Customer</th>
+                    <th pResizableColumn>Supplier</th>
+
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item>
+                <tr class="cursor-pointer" style="background-color: #deecf9;" [pSelectableRow]="item">
+                    <td>{{item.id}}</td>
+                    <td>{{item.shortText}}</td>
+                    <td>{{item.itemNature}}</td>
+                    <td>
+                        <p-checkbox [(ngModel)]="item.sellingType" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                    </td>
+                    <td>
+                        <p-checkbox [(ngModel)]="item.valid" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                    </td>
+                    <td>
+                        <p-checkbox [(ngModel)]="item.qualityControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                    </td>
+                    <td>
+                        <p-checkbox [(ngModel)]="item.lotControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                    </td>
+                    <td>
+                        <p-checkbox [(ngModel)]="item.containerControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                    </td>
+                    <td>
+                        <p-checkbox [(ngModel)]="item.elementControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                    </td>
+                    <td>
+                        <p-checkbox [(ngModel)]="item.projectControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                    </td>
+                    <td>
+                        <p-checkbox [(ngModel)]="item.customerControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                    </td>
+                    <td>
+                        <p-checkbox [(ngModel)]="item.supplierControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                    </td>
+
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td [attr.colspan]="13">
+                        No data
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    
+    <p-menubar [model]="items"></p-menubar>
+    
+    <div class="card shadow-2">
+        <p-table [value]="qualityLevelList" [rowHover]="true"
+        [resizableColumns]="true" [(selection)]="selectedItem" selectionMode="single" dataKey="code" [paginator]="true" [rows]="10" 
+        styleClass="p-datatable-striped p-datatable-sm" [autoLayout]="true">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="id" pResizableColumn>ID<p-sortIcon field="id"></p-sortIcon></th>
+                    <th pSortableColumn="shortText" pResizableColumn>Short Text<p-sortIcon field="shortText"></p-sortIcon></th>
+                    <th pSortableColumn="longText" pResizableColumn>Long Text<p-sortIcon field="longText"></p-sortIcon></th>
+                    <th pSortableColumn="searchText" pResizableColumn>Search Text<p-sortIcon field="searchText"></p-sortIcon></th>
+                    <th pSortableColumn="level" pResizableColumn>Level<p-sortIcon field="level"></p-sortIcon></th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item>
+                <tr class="cursor-pointer" [pSelectableRow]="item" >
+                    <td class="cell-underline" (dblclick)="onRowDblClick(item)">{{item.id}}</td>
+                    <td>{{item.shortText}}</td>
+                    <td>{{item.longText}}</td>
+                    <td>{{item.searchText}}</td>
+                    <td>{{item.level}}</td>
+                    <td>
+                        <p-button pTooltip="More Actions..." tooltipPosition="top" (click)="actionMenu.toggle($event);selectedItem=item" icon="pi pi-ellipsis-h" [text]="true" [plain]="true"></p-button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td [attr.colspan]="5">
+                        No data
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+        <p-menu #actionMenu [model]="actions" [popup]="true"></p-menu>
+    </div>
+</div>
+
+
+<p-dialog header="Quality Level" [modal]="true" [(visible)]="qualityDataDialog" [breakpoints]="{'960px': '75vw'}"
+    [style]="{width: '50vw'}" [draggable]="true" [resizable]="false">
+    <ng-template pTemplate="content">
+        <div class="card shadow-2">
+            <form [formGroup]="qualityForm">
+            <p-tabView>
+                <p-tabPanel header="Basic">
+                    <div class="flex flex-auto flex-grow-1 flex-column flex-nowrap" style="max-width: 675px;">
+        
+                        <div class="field col-12 md:col-12">
+                            <label class="font-bold text-sm" for="firstname6">Short Text</label>
+                            <input type="text" pInputText class="w-full" formControlName="shortText"/>
+                        </div>
+                        <div class="field col-12 md:col-12">
+                            <label class="font-bold text-sm" for="firstname6">Long Text</label>
+                            <input type="text" pInputText class="w-full" formControlName="longText"/>
+                        </div>
+                        <div class="field col-12 md:col-12">
+                            <label class="font-bold text-sm" for="firstname6">Search Text</label>
+                            <input type="text" pInputText class="w-full" formControlName="searchText"/>
+                        </div>
+                        <div class="field col-12 md:col-12">
+                            <div class="flex flex-column gap-1">
+                                <label class="font-bold text-sm" for="firstname6">Level</label>
+                                <p-inputNumber styleClass="w-full"  inputId="level" formControlName="level">
+                                </p-inputNumber>
+                            </div>
+               
+                        </div>
+                    </div>
+                </p-tabPanel>
+            </p-tabView>
+            </form>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <div class="flex md:flex-wrap justify-content-between">
+            <div>
+                <button pButton *ngIf="this.qualityForm.value.id!=null" (click)="delete()" label="Delete" icon="pi pi-trash" class="p-button-danger p-button-sm  w-full md:w-auto"></button>
+            </div>
+            <div class="flex flex-wrap gap-1">
+                <button pButton (click)="qualityDataDialog=false" label="Cancel" icon="pi pi-times" class="p-button-sm w-full md:w-auto"></button>
+                <button pButton  (click)="onSubmit(qualityForm.value)" label="Save" icon="pi pi-save" class="p-button-sm p-button-success  w-full md:w-auto"></button>
+            </div>
+        </div>
+
+    </ng-template>
+</p-dialog>
+
+<p-confirmDialog key="delete-quality-level" [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+
+<!-- <section class="border-bottom-1 surface-border">
     <div class="flex flex-wrap justify-content-between w-full align-items-center">
         <h3 class="mb-4 mt-0 text-900 font-medium text-xl">Quality List</h3>
         <div class="flex gap-1">
@@ -32,44 +191,6 @@
     </div>
 </section>
 
-<p-dialog header="Quality Level" [modal]="true" [(visible)]="qualityDataDialog" [breakpoints]="{'960px': '75vw'}"
-    [style]="{width: '50vw'}" [draggable]="false" [resizable]="false">
-    <ng-template pTemplate="content">
-        <form [formGroup]="qualityForm">
-            <div class="field flex flex-wrap align-items-center">
-                <label for="shortText" style="min-width:100px;" class="w-3">Short</label>
-                <div class="w-9">
-                    <input id="shortText" type="text" pInputText formControlName="shortText" />
-                </div>
-            </div>
-            <div class="field flex flex-wrap align-items-center">
-                <label for="longText" style="min-width:100px;" class="w-3">Long</label>
-                <div class="w-9">
-                    <input id="longText" type="text" pInputText formControlName="longText" />
-                </div>
-            </div>
-            <div class="field flex flex-wrap align-items-center">
-                <label for="searchText" style="min-width:100px;" class="w-3">Search</label>
-                <div class="w-9">
-                    <input id="searchText" type="text" pInputText formControlName="searchText" />
-                </div>
-            </div>
 
 
-            <div class="field flex flex-wrap align-items-center">
-                <label for="level" style="min-width:100px;" class="w-3">Level</label>
-                <div class="w-9">
-                    <p-inputNumber inputId="level" formControlName="level">
-                    </p-inputNumber>
-                </div>
-            </div>
-        </form>
-    </ng-template>
-    <ng-template pTemplate="footer">
-        <p-button (click)="delete()" label="Delete" icon="pi pi-trash" styleClass="p-button-danger p-button-text"></p-button>
-        <p-button (click)="qualityDataDialog=false" label="Cancel" icon="pi pi-times" styleClass="p-button-text"></p-button>
-        <p-button (click)="onSubmit(qualityForm.value)" label="Save" icon="pi pi-save" styleClass="p-button-text"></p-button>
-    </ng-template>
-</p-dialog>
-
-<p-confirmDialog key="delete-quality-level" [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+ -->

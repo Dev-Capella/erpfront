@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { ConfirmationService, MessageService } from 'primeng/api';
+import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
 import { ItemTypeService } from '../../services/item-type.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { QualityLevelService } from '../../services/quality-level.service';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-quality',
@@ -18,15 +19,56 @@ export class QualityComponent extends BaseComponent implements OnInit {
   qualityDataDialog: boolean = false;
   qualityForm: FormGroup;
   selectedItem: any;
+  itemTypeData: any;
+  items: MenuItem[];
+
+  actions: any[] = [{
+    label: 'Actions',
+    items: [{
+         label: 'Detail',
+         icon: 'pi pi-refresh',
+         command: () => {
+             this.edit();
+         }
+     },
+     {
+         label: 'Delete',
+         icon: 'pi pi-times',
+         command: () => {
+             this.delete();
+         }
+     }
+     ]},
+ ];
   constructor(spinner: NgxSpinnerService,
     private qualityLevelService: QualityLevelService,
     private messageService: MessageService,
     private itemTypeService: ItemTypeService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private confirmationService: ConfirmationService) {
+    private confirmationService: ConfirmationService,
+    public config: DynamicDialogConfig,
+    public ref: DynamicDialogRef) {
     super(spinner);
-    this.code = this.route.snapshot.params['code']
+    this.itemTypeData = this.config.data.itemType
+    this.items = [
+      {
+        label: 'New',
+        icon: 'pi pi-plus',
+        command: () => {
+          this.qualityForm.reset();
+          this.qualityDataDialog = true;
+        }
+      },
+      {
+        label: 'Close',
+        styleClass: 'ml-auto',
+        icon: 'pi pi-times',
+        command: () => {
+          this.ref.close();
+        }
+      },
+    ];
   }
 
   async ngOnInit(): Promise<void> {
@@ -38,12 +80,13 @@ export class QualityComponent extends BaseComponent implements OnInit {
       searchText: new FormControl(null),
       level: new FormControl(null)
     });
+    
     await this.getQualityLevelList();
   }
 
   async getQualityLevelList(){
     this.showSpinner();
-    this.qualityLevelList = await this.itemTypeService.getQualityLevelsByItemType(this.code,()=> this.hideSpinner());
+    this.qualityLevelList = await this.itemTypeService.getQualityLevelsByItemType(this.itemTypeData?.code,()=> this.hideSpinner());
   }
 
   new(){
@@ -59,7 +102,7 @@ export class QualityComponent extends BaseComponent implements OnInit {
       longText: value?.longText,
       searchText:value?.searchText,
       level: value?.level,
-      itemType: {code: this.code }
+      itemType: {code: this.itemTypeData.code }
     }
     this.showSpinner();
     await this.qualityLevelService.saveQualityLevel(request,()=> this.hideSpinner());
@@ -82,6 +125,11 @@ export class QualityComponent extends BaseComponent implements OnInit {
       level: result?.level,
     })
     this.qualityDataDialog = true;
+  }
+
+  onRowDblClick(item){
+    this.selectedItem = item;
+    this.edit();
   }
 
   async delete(){
