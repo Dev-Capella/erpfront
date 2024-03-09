@@ -170,7 +170,7 @@ export class NewItemTypeComponent extends BaseComponent implements OnInit {
     this.confirmationService.confirm({
       key: 'save-item-type',
       header: 'Transaction Confirmation',
-      message: 'The area is being recorded. Are you sure?',
+      message: 'The item type is being recorded. Are you sure?',
       accept: async () => {
         var request = {
          shortText: value?.shortText,
