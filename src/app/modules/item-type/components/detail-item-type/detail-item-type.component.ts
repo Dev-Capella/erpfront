@@ -5,7 +5,7 @@ import { ItemTypeService } from '../../services/item-type.service';
 import { UnitOfMeasureService } from '../../../unit-of-measure/services/unit-of-measure.service';
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ConfirmationService, MessageService } from 'primeng/api';
+import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-detail-item-type',
@@ -50,6 +50,38 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
   activeMenu: number = 0;
   code: string;
   descriptionText: string = "";
+  items: MenuItem[] = [
+    {
+      label: 'Back to List',
+      icon: 'pi pi-arrow-left',
+      styleClass: 'justify-content-center',
+      command: () => {
+        this.router.navigate(['/item-type-list'])
+      }
+    },
+    {
+      label: 'Save',
+      icon: 'pi pi-save',
+      styleClass: 'ml-auto',
+      command: () => {
+        this.save(this.itemTypeForm.value, false)
+      }
+    },
+    {
+      label: 'Save And Close',
+      icon: 'pi pi-replay',
+      command: () => {
+        this.save(this.itemTypeForm.value, true);
+      }
+    },
+    {
+      label: 'Delete',
+      icon: 'pi pi-times',
+      command: () => {
+        this.delete();
+      }
+    },
+  ];
   constructor(
     spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
@@ -173,18 +205,66 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
     this.descriptionText = `Short: ${result.shortText ? result.shortText : "-"}, Long: ${result.longText ? result.longText : "-"}, Search: ${result.searchText ? result.searchText : "-"}`
   }
 
-  save(value) {
+  // save(value) {
+  //   if (this.itemTypeForm.invalid) {
+  //     return;
+  //   }
+  //   this.confirmationService.confirm({
+  //     key: 'save-uom',
+  //     header: 'Transaction Confirmation',
+  //     message: 'The Item type is being recorded. Are you sure?',
+  //     accept: async () => {
+  //       var request = {
+  //         id: value?.id,
+  //         code: value.code,
+  //         shortText: value?.shortText,
+  //         longText: value?.longText,
+  //         searchText: value?.searchText,
+  //         itemNature: value?.itemNature,
+  //         maxCodeLength: value?.maxCodeLength,
+  //         sellingType: value?.sellingType,
+  //         valid: value?.valid,
+  //         managedByBox: value?.managedByBox,
+  //         handleComponentStatus: value?.handleComponentStatus,
+  //         structure: value?.structure,
+  //         statusAllowed: value?.statusAllowed,
+  //         primaryUOM: { code: value?.primaryUOM?.code },
+  //         secondaryUnitControlled: value?.secondaryUnitControlled !== null,
+  //         secondaryUOM: value?.secondaryUOM?.code ? { code: value?.secondaryUOM?.code } : null,
+  //         secondaryConversionFactor: value?.secondaryConversionFactor,
+  //         packagingUnitControlled: value?.packagingUnitControlled !== null,
+  //         baseUoMPackagingType: value?.baseUoMPackagingType,
+  //         packagingUOM: value?.packagingUOM?.code ? { code: value?.packagingUOM?.code } : null,
+  //         packagingConversionFactor: value?.packagingConversionFactor,
+  //         qualityControlled: value?.qualityControlled,
+  //         lotControlled: value?.lotControlled,
+  //         containerControlled: value?.containerControlled,
+  //         elementControlled: value?.elementControlled,
+  //         projectControlled: value?.projectControlled,
+  //         customerControlled: value?.customerControlled,
+  //         supplierControlled: value?.supplierControlled
+  //       }
+  //       this.showSpinner();
+  //       await this.itemTypeService.saveItemType(request, () => this.hideSpinner());
+  //       this.messageService.add({ severity: 'success', summary: 'Transaction Result', detail: 'Item type has been saved successfully.' });
+  //       this.router.navigate(['/item-type-list'])
+  //     }
+  //   });
+
+  // }
+
+  save(value, close: boolean) {
     if (this.itemTypeForm.invalid) {
       return;
     }
     this.confirmationService.confirm({
-      key: 'save-uom',
+      key: 'save-item-type',
       header: 'Transaction Confirmation',
-      message: 'The Item type is being recorded. Are you sure?',
+      message: 'The area is being recorded. Are you sure?',
       accept: async () => {
         var request = {
           id: value?.id,
-          code: value.code,
+          code: value?.code,
           shortText: value?.shortText,
           longText: value?.longText,
           searchText: value?.searchText,
@@ -213,13 +293,27 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
           supplierControlled: value?.supplierControlled
         }
         this.showSpinner();
-        await this.itemTypeService.saveItemType(request, () => this.hideSpinner());
+        var result = await this.itemTypeService.saveItemType(request, () => this.hideSpinner());
+        close ? this.router.navigate(['/item-type-list/']) : this.router.navigate(['/item-type-list/' + result.code])
         this.messageService.add({ severity: 'success', summary: 'Transaction Result', detail: 'Item type has been saved successfully.' });
-        this.router.navigate(['/item-type-list'])
       }
     });
-
   }
+
+  async delete() {
+    var code = this.code;
+    this.confirmationService.confirm({
+      key: 'delete-item-type',
+      header: 'Transaction Confirmation',
+      message: 'The item type is being remove. Are you sure?',
+      accept: async () => {
+        this.showSpinner();
+        await this.itemTypeService.deleteItemTypeByCode(code,()=> this.hideSpinner());
+        this.messageService.add({severity:'success', summary:'Transaction Result', detail:'Item type has been removed successfully.'});
+        this.router.navigate(['/item-type-list/'])
+      }
+  });
+}
 
   goBack() {
     this.router.navigate(['/item-type-list'])
