@@ -58,31 +58,140 @@
                 </div>
                 <div class="field col-12 md:col-12">
                     <label class="font-bold text-sm" for="firstname6">Status allowed</label>
-                    <p-dropdown [filter]="true" filterBy="name" styleClass="w-full" optionValue="code" [autoDisplayFirst]="false" [options]="statusAlloweds" formControlName="structure" optionLabel="name"></p-dropdown>
+                    <p-dropdown [filter]="true" filterBy="name" styleClass="w-full" optionValue="code" [autoDisplayFirst]="false" [options]="statusAlloweds" formControlName="statusAllowed" optionLabel="name"></p-dropdown>
                 </div>
                 <div class="field col-12 md:col-12">
                     <label class="font-bold text-sm" for="firstname6">Primary UoM</label>
                     <p-dropdown [filter]="true" filterBy="shortText" styleClass="w-full" inputId="primaryUOM" [autoDisplayFirst]="false" [options]="uomList" formControlName="primaryUOM" optionLabel="shortText"></p-dropdown>
                 </div>
-                <div class="field col-12 md:col-12">
-                    <div class="flex flex-column gap-1">
-                        <label class="font-bold text-sm" for="firstname6">Secondary unit controlled</label>
-                        <p-checkbox (onChange)="changeSecondaryUoM($event.checked)" formControlName="secondaryUnitControlled" [binary]="true" inputId="secondaryUnitControlled"></p-checkbox>
-                    </div>
-                </div>
-                @if (secondaryUOMVisible) {
-                    <div class="field col-12 md:col-12">
-                        <label for="secondaryUOM" style="min-width:100px;" class="w-3">Secondary UoM</label>
-                        <p-dropdown [filter]="true" filterBy="shortText" styleClass="w-full" inputId="secondaryUOM" [autoDisplayFirst]="false" [options]="uomList" formControlName="secondaryUOM" optionLabel="shortText"></p-dropdown>
-                    </div>
-        
-                    <div class="field col-12 md:col-12">
-                        <div class="flex flex-column gap-1">
-                            <label for="secondaryConversionFactor" style="min-width:100px;" class="w-3">Secondary conversion factor</label>
-                            <p-inputNumber  styleClass="w-full"  inputId="secondaryConversionFactor" formControlName="secondaryConversionFactor" mode="decimal"></p-inputNumber>
+
+                <fieldset class="field">
+                    <legend>
+                        <div class="field-checkbox">
+                            <p-checkbox (onChange)="changeSecondaryUoM($event.checked)" formControlName="secondaryUnitControlled" [binary]="true" inputId="secondaryUnitControlled"></p-checkbox>
+                            <label class="font-bold text-sm" for="firstname6" for="qualityControlled">Secondary unit controlled</label>
                         </div>
-                    </div>                
-                }
+                    </legend>
+                    @if (secondaryUOMVisible) {
+                        <div class="field col-12 md:col-12">
+                            <label class="font-bold text-sm" for="firstname6">Secondary UoM</label>
+                            <p-dropdown [filter]="true" filterBy="shortText" styleClass="w-full" inputId="secondaryUOM" [autoDisplayFirst]="false" [options]="uomList" formControlName="secondaryUOM" optionLabel="shortText"></p-dropdown>
+                        </div>
+            
+                        <div class="field col-12 md:col-12">
+                            <div class="flex flex-column gap-1">
+                                <label class="font-bold text-sm" for="firstname6">Secondary conversion factor</label>
+                                <p-inputNumber  styleClass="w-full"  inputId="secondaryConversionFactor" formControlName="secondaryConversionFactor" mode="decimal"></p-inputNumber>
+                            </div>
+                        </div>                
+                    }
+                </fieldset>
+
+                <fieldset class="field">
+                    <legend>
+                        <div class="field-checkbox">
+                            <p-checkbox (onChange)="changePackagingUoM($event.checked)" formControlName="packagingUnitControlled" [binary]="true" inputId="packagingUnitControlled"></p-checkbox>
+                            <label class="font-bold text-sm" for="firstname6" for="elementControlled">Packaging unit controlled</label>
+                        </div>
+                    </legend>
+                    @if (packagingUOMVisible) {
+                        <div class="field col-12 md:col-12">
+                            <label class="font-bold text-sm" for="firstname6">Base UoM for
+                                packaging type</label>
+                                <p-dropdown  [filter]="true" filterBy="name" styleClass="w-full" optionValue="code"
+                                inputId="baseUoMPackagingType" [autoDisplayFirst]="false"
+                                [options]="basePackagingTypes" formControlName="baseUoMPackagingType"
+                                optionLabel="name"></p-dropdown>
+                        </div>
+                        <div class="field col-12 md:col-12">
+                            <label class="font-bold text-sm" for="firstname6">Packaging UoM</label>
+                            <p-dropdown styleClass="w-full" [filter]="true" filterBy="shortText"
+                            inputId="packagingUOM" [autoDisplayFirst]="false" [options]="packagingUOMList"
+                            formControlName="packagingUOM" optionLabel="shortText"></p-dropdown>
+                        </div>
+                        <div class="field col-12 md:col-12">
+                            <div class="flex flex-column gap-1">
+                                <label class="font-bold text-sm" for="firstname6">Packaging
+                                    conversion factor</label>
+                                    <p-inputNumber styleClass="w-full" inputId="packagingConversionFactor"
+                                    formControlName="packagingConversionFactor" mode="decimal"></p-inputNumber>
+                            </div>
+                        </div> 
+                    }
+                </fieldset>
+               
+                <fieldset class="field">
+                    <legend>
+                        <div class="field-checkbox">
+                            <p-checkbox formControlName="qualityControlled" [binary]="true"
+                                inputId="qualityControlled"></p-checkbox>
+                            <label class="font-bold text-sm" for="firstname6" for="qualityControlled">Quality controlled</label>
+                        </div>
+                    </legend>
+                </fieldset>
+
+                <fieldset class="field">
+                    <legend>
+                        <div class="field-checkbox">
+                            <p-checkbox formControlName="lotControlled" [binary]="true"
+                                inputId="lotControlled"></p-checkbox>
+                            <label class="font-bold text-sm" for="firstname6" for="lotControlled">Lot controlled</label>
+                        </div>
+                    </legend>
+                </fieldset>
+
+                <fieldset class="field">
+                    <legend>
+                        <div class="field-checkbox">
+                            <p-checkbox formControlName="containerControlled" [binary]="true"
+                                inputId="containerControlled"></p-checkbox>
+                            <label class="font-bold text-sm" for="firstname6" for="containerControlled">Container controlled</label>
+                        </div>
+                    </legend>
+                </fieldset>
+
+
+                <fieldset class="field">
+                    <legend>
+                        <div class="field-checkbox">
+                            <p-checkbox formControlName="elementControlled" [binary]="true"
+                                inputId="elementControlled"></p-checkbox>
+                            <label class="font-bold text-sm" for="firstname6" for="elementControlled">Element controlled</label>
+                        </div>
+                    </legend>
+                </fieldset>
+
+
+                <fieldset class="field">
+                    <legend>
+                        
+                        <label class="font-bold text-sm" for="firstname6">Controlled</label>
+                    </legend>
+                    <div class="field col-12 md:col-12">
+                        <div class="flex flex-wrap gap-4">
+                            <div class="flex flex-column gap-1">
+                                <label class="font-bold text-sm" for="firstname6">Project
+                                    controlled</label>
+                                    <p-checkbox formControlName="projectControlled" [binary]="true"
+                                    inputId="projectControlled"></p-checkbox>
+                            </div>
+                            <div class="flex flex-column gap-1">
+                                <label class="font-bold text-sm" for="firstname6">Customer
+                                    controlled</label>
+                                    <p-checkbox formControlName="customerControlled" [binary]="true"
+                                    inputId="customerControlled"></p-checkbox>
+                            </div>
+                            <div class="flex flex-column gap-1">
+                                <label class="font-bold text-sm" for="firstname6">Supplier
+                                    controlled</label>
+                                    <p-checkbox formControlName="supplierControlled" [binary]="true"
+                                    inputId="supplierControlled"></p-checkbox>
+                            </div>
+                           
+                        </div>
+                        
+                    </div>
+                </fieldset>
             </div>
           
         </p-tabPanel>
