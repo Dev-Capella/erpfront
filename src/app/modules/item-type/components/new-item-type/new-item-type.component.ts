@@ -5,7 +5,8 @@ import { ItemTypeService } from '../../services/item-type.service';
 import { UnitOfMeasureService } from '../../../unit-of-measure/services/unit-of-measure.service';
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { Router } from '@angular/router';
-import { ConfirmationService, MessageService } from 'primeng/api';
+import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
+import { BreadcrumbService } from '../../../layout/breadcrumb/services/app.breadcrumb.service';
 
 @Component({
   selector: 'app-new-item-type',
@@ -46,8 +47,31 @@ export class NewItemTypeComponent extends BaseComponent implements OnInit {
   packagingUOMList: any[] = []
   secondaryUOMVisible: boolean = false;
   packagingUOMVisible: boolean = false;
-  activeTab: number = 0;
-  activeMenu: number = 0;
+  items: MenuItem[] = [
+    {
+      label: 'Back to List',
+      icon: 'pi pi-arrow-left',
+      styleClass: 'justify-content-center',
+      command: () => {
+        this.router.navigate(['/item-type-list'])
+      }
+    },
+    {
+      label: 'Save',
+      icon: 'pi pi-save',
+      styleClass: 'ml-auto',
+      command: () => {
+        this.save(this.itemTypeForm.value, false)
+      }
+    },
+    {
+      label: 'Save And Close',
+      icon: 'pi pi-replay',
+      command: () => {
+        this.save(this.itemTypeForm.value, true);
+      }
+    },
+  ];
   constructor(
     spinner: NgxSpinnerService,
     private formBuilder: FormBuilder,
@@ -55,8 +79,19 @@ export class NewItemTypeComponent extends BaseComponent implements OnInit {
     private unitOfMeasureService: UnitOfMeasureService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
-    private router: Router) {
+    private router: Router,
+    private breadcrumbService: BreadcrumbService) {
     super(spinner)
+    this.breadcrumbService.setItems([
+      {
+        label: 'Item Type List',
+        routerLink: ['/item-type-list']
+      },
+      {
+        label: 'New',
+        routerLink: ['/item-type-list/new']
+      }
+    ])
   }
   async ngOnInit(): Promise<void> {
     this.itemTypeForm = this.formBuilder.group({
@@ -128,17 +163,17 @@ export class NewItemTypeComponent extends BaseComponent implements OnInit {
     this.packagingUOMList = this.uomList.filter(x => x.unitOfMeasureType == 'PACKAGING')
   }
 
-  save(value) {
+  save(value, close: boolean) {
     if (this.itemTypeForm.invalid) {
       return;
     }
     this.confirmationService.confirm({
-      key: 'save-uom',
+      key: 'save-item-type',
       header: 'Transaction Confirmation',
-      message: 'The Item type is being recorded. Are you sure?',
+      message: 'The area is being recorded. Are you sure?',
       accept: async () => {
         var request = {
-          shortText: value?.shortText,
+         shortText: value?.shortText,
           longText: value?.longText,
           searchText: value?.searchText,
           itemNature: value?.itemNature,
@@ -166,13 +201,58 @@ export class NewItemTypeComponent extends BaseComponent implements OnInit {
           supplierControlled: value?.supplierControlled
         }
         this.showSpinner();
-        await this.itemTypeService.saveItemType(request, () => this.hideSpinner());
+        var result = await this.itemTypeService.saveItemType(request, () => this.hideSpinner());
+        close ? this.router.navigate(['/item-type-list/']) : this.router.navigate(['/item-type-list/' + result.code])
         this.messageService.add({ severity: 'success', summary: 'Transaction Result', detail: 'Item type has been saved successfully.' });
-        this.router.navigate(['/item-type-list'])
       }
     });
-
   }
+
+  // save(value) {
+  //   if (this.itemTypeForm.invalid) {
+  //     return;
+  //   }
+  //   this.confirmationService.confirm({
+  //     key: 'save-uom',
+  //     header: 'Transaction Confirmation',
+  //     message: 'The Item type is being recorded. Are you sure?',
+  //     accept: async () => {
+  //       var request = {
+  //         shortText: value?.shortText,
+  //         longText: value?.longText,
+  //         searchText: value?.searchText,
+  //         itemNature: value?.itemNature,
+  //         maxCodeLength: value?.maxCodeLength,
+  //         sellingType: value?.sellingType,
+  //         valid: value?.valid,
+  //         managedByBox: value?.managedByBox,
+  //         handleComponentStatus: value?.handleComponentStatus,
+  //         structure: value?.structure,
+  //         statusAllowed: value?.statusAllowed,
+  //         primaryUOM: { code: value?.primaryUOM?.code },
+  //         secondaryUnitControlled: value?.secondaryUnitControlled !== null,
+  //         secondaryUOM: value?.secondaryUOM?.code ? { code: value?.secondaryUOM?.code } : null,
+  //         secondaryConversionFactor: value?.secondaryConversionFactor,
+  //         packagingUnitControlled: value?.packagingUnitControlled !== null,
+  //         baseUoMPackagingType: value?.baseUoMPackagingType,
+  //         packagingUOM: value?.packagingUOM?.code ? { code: value?.packagingUOM?.code } : null,
+  //         packagingConversionFactor: value?.packagingConversionFactor,
+  //         qualityControlled: value?.qualityControlled,
+  //         lotControlled: value?.lotControlled,
+  //         containerControlled: value?.containerControlled,
+  //         elementControlled: value?.elementControlled,
+  //         projectControlled: value?.projectControlled,
+  //         customerControlled: value?.customerControlled,
+  //         supplierControlled: value?.supplierControlled
+  //       }
+  //       this.showSpinner();
+  //       await this.itemTypeService.saveItemType(request, () => this.hideSpinner());
+  //       this.messageService.add({ severity: 'success', summary: 'Transaction Result', detail: 'Item type has been saved successfully.' });
+  //       this.router.navigate(['/item-type-list'])
+  //     }
+  //   });
+
+  // }
 
   goBack() {
     this.router.navigate(['/item-type-list'])
