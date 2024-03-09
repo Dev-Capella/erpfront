@@ -6,6 +6,7 @@ import { UnitOfMeasureService } from '../../../unit-of-measure/services/unit-of-
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
+import { BreadcrumbService } from '../../../layout/breadcrumb/services/app.breadcrumb.service';
 
 @Component({
   selector: 'app-detail-item-type',
@@ -90,7 +91,8 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private breadcrumbService: BreadcrumbService) {
     super(spinner)
     this.code = this.route.snapshot.params['code']
   }
@@ -202,56 +204,18 @@ export class DetailItemTypeComponent extends BaseComponent implements OnInit {
     })
     this.changeSecondaryUoM(result.secondaryUnitControlled);
     this.changePackagingUoM(result.packagingUnitControlled);
-    this.descriptionText = `Short: ${result.shortText ? result.shortText : "-"}, Long: ${result.longText ? result.longText : "-"}, Search: ${result.searchText ? result.searchText : "-"}`
+    this.breadcrumbService.setItems([
+      {
+        label: 'Item Type List',
+        routerLink: ['/item-type-list']
+      },
+      {
+        label: this.itemTypeForm?.value?.shortText,
+        routerLink: ['/item-type-list/' + this.code]
+      }
+    ])
   }
 
-  // save(value) {
-  //   if (this.itemTypeForm.invalid) {
-  //     return;
-  //   }
-  //   this.confirmationService.confirm({
-  //     key: 'save-uom',
-  //     header: 'Transaction Confirmation',
-  //     message: 'The Item type is being recorded. Are you sure?',
-  //     accept: async () => {
-  //       var request = {
-  //         id: value?.id,
-  //         code: value.code,
-  //         shortText: value?.shortText,
-  //         longText: value?.longText,
-  //         searchText: value?.searchText,
-  //         itemNature: value?.itemNature,
-  //         maxCodeLength: value?.maxCodeLength,
-  //         sellingType: value?.sellingType,
-  //         valid: value?.valid,
-  //         managedByBox: value?.managedByBox,
-  //         handleComponentStatus: value?.handleComponentStatus,
-  //         structure: value?.structure,
-  //         statusAllowed: value?.statusAllowed,
-  //         primaryUOM: { code: value?.primaryUOM?.code },
-  //         secondaryUnitControlled: value?.secondaryUnitControlled !== null,
-  //         secondaryUOM: value?.secondaryUOM?.code ? { code: value?.secondaryUOM?.code } : null,
-  //         secondaryConversionFactor: value?.secondaryConversionFactor,
-  //         packagingUnitControlled: value?.packagingUnitControlled !== null,
-  //         baseUoMPackagingType: value?.baseUoMPackagingType,
-  //         packagingUOM: value?.packagingUOM?.code ? { code: value?.packagingUOM?.code } : null,
-  //         packagingConversionFactor: value?.packagingConversionFactor,
-  //         qualityControlled: value?.qualityControlled,
-  //         lotControlled: value?.lotControlled,
-  //         containerControlled: value?.containerControlled,
-  //         elementControlled: value?.elementControlled,
-  //         projectControlled: value?.projectControlled,
-  //         customerControlled: value?.customerControlled,
-  //         supplierControlled: value?.supplierControlled
-  //       }
-  //       this.showSpinner();
-  //       await this.itemTypeService.saveItemType(request, () => this.hideSpinner());
-  //       this.messageService.add({ severity: 'success', summary: 'Transaction Result', detail: 'Item type has been saved successfully.' });
-  //       this.router.navigate(['/item-type-list'])
-  //     }
-  //   });
-
-  // }
 
   save(value, close: boolean) {
     if (this.itemTypeForm.invalid) {
