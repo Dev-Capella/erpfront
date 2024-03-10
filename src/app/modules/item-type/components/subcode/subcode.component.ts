@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from '../../../../core/components/base/base.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ItemTypeService } from '../../services/item-type.service';
-import { ConfirmationService, MessageService } from 'primeng/api';
+import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ItemSubCodeService } from '../../services/item-subcode.service';
 import { UserGenericGroupService } from '../../../user-generic-group/services/user-generic-group.service';
 import { ItemSubCodeCheckTypeService } from '../../../item-sub-code-check-type/services/item-sub-code-check-type.service';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-subcode',
@@ -19,6 +20,7 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
   code: string;
   subCodeDataDialog: boolean = false;
   subCodeForm: FormGroup;
+  itemTypeData: any;
   types: any[] = [
     {code: 'PRIMARY', name: 'Primary'},
     {code: 'SECONDARY', name: 'Secondary'}
@@ -35,6 +37,25 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
   selectedItem: any;
   itemSubCodeCheckTypes: any[] = []
   pLData: any;
+  items: MenuItem[];
+  actions: any[] = [{
+    label: 'Actions',
+    items: [{
+         label: 'Detail',
+         icon: 'pi pi-refresh',
+         command: () => {
+             this.edit();
+         }
+     },
+     {
+         label: 'Delete',
+         icon: 'pi pi-times',
+         command: () => {
+             this.delete();
+         }
+     }
+     ]},
+ ];
   constructor(spinner: NgxSpinnerService,
     private itemSubCodeService: ItemSubCodeService,
     private itemTypeService: ItemTypeService,
@@ -43,10 +64,30 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
     private route: ActivatedRoute,
     private confirmationService: ConfirmationService,
     private userGenericGroupService: UserGenericGroupService,
-    private itemSubCodeCheckTypeService: ItemSubCodeCheckTypeService
+    private itemSubCodeCheckTypeService: ItemSubCodeCheckTypeService,
+    public config: DynamicDialogConfig,
+    public ref: DynamicDialogRef
     ) {
     super(spinner);
-    this.code = this.route.snapshot.params['code']
+    this.itemTypeData = this.config.data.itemType
+    this.items = [
+      {
+        label: 'New',
+        icon: 'pi pi-plus',
+        command: () => {
+          this.subCodeForm.reset();
+          this.subCodeDataDialog = true;
+        }
+      },
+      {
+        label: 'Close',
+        styleClass: 'ml-auto',
+        icon: 'pi pi-times',
+        command: () => {
+          this.ref.close();
+        }
+      },
+    ];
   }
 
   async ngOnInit(): Promise<void> {
@@ -73,7 +114,7 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
 
   async getItemSubCodeList(){
     this.showSpinner();
-    this.subCodeList = await this.itemTypeService.getItemSubCodesByItemType(this.code,()=> this.hideSpinner());
+    this.subCodeList = await this.itemTypeService.getItemSubCodesByItemType(this.itemTypeData?.code,()=> this.hideSpinner());
   }
 
   async getUserGenericGroups(){
@@ -97,6 +138,11 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
     this.pLData = await this.itemSubCodeCheckTypeService.getItemSubCodeCheckTypeByPolicy(event.code, ()=> this.hideSpinner());
   }
 
+  onRowDblClick(item){
+    this.selectedItem = item;
+    this.edit();
+  }
+
   async onSubmit(value){
     var request = {
       id: value?.id,
@@ -112,7 +158,7 @@ export class SubcodeComponent extends BaseComponent implements OnInit {
       excludedCostManagement: value?.excludedCostManagement,
       type: value?.type,
       itemSubCodeDataType: value?.itemSubCodeDataType,
-      itemType: {code: this.code },
+      itemType: {code: this.itemTypeData.code },
       itemSubCodeCheckType: value.itemSubCodeCheckType!=null ? {code: value.itemSubCodeCheckType.code} : null,
       groupTypeCode: value.groupTypeCode!=null ? value.groupTypeCode.code : null,
     }

@@ -329,22 +329,42 @@ openQuality(){
 }
 
 openSubcode(){
-  const ref = this.dialogService.open(SubcodeComponent, {
-    width: '100%',
-    height: '100vh',
- });
+  let ref = this.dialogService.open(SubcodeComponent, {
+    data: {
+      itemType: this.itemTypeData
+    },
+    contentStyle: {"overflow": "auto"},
+    styleClass: "maximize-dialog",
+    closeOnEscape: false,
+    closable: false,
+    showHeader: false
+})
 }
 
 openBoMSBC(){
-  const ref = this.dialogService.open(BomSbcComponent, {
- })
+  let ref = this.dialogService.open(BomSbcComponent, {
+    data: {
+      itemType: this.itemTypeData
+    },
+    contentStyle: {"overflow": "auto"},
+    styleClass: "maximize-dialog",
+    closeOnEscape: false,
+    closable: false,
+    showHeader: false
+})
 }
 
 openRoutingSBC(){
-  const ref = this.dialogService.open(RoutingSbcComponent, {
-    width: '100%',
-    height: '100vh',
- });
+  let ref = this.dialogService.open(RoutingSbcComponent, {
+    data: {
+      itemType: this.itemTypeData
+    },
+    contentStyle: {"overflow": "auto"},
+    styleClass: "maximize-dialog",
+    closeOnEscape: false,
+    closable: false,
+    showHeader: false
+})
 }
 
   goBack() {

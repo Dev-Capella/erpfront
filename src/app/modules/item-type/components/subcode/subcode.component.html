@@ -1,4 +1,4 @@
-<section class="border-bottom-1 surface-border">
+<!-- <section class="border-bottom-1 surface-border">
     <div class="flex flex-wrap justify-content-between w-full align-items-center">
         <h3 class="mb-4 mt-0 text-900 font-medium text-xl">Subcode List</h3>
         <div class="flex gap-1">
@@ -182,4 +182,283 @@
 </p-dialog>
 
 <p-confirmDialog key="delete-subcode" [style]="{width: '50vw'}" [baseZIndex]="10000"
-    rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+    rejectButtonStyleClass="p-button-text"></p-confirmDialog> -->
+
+    <div class="w-full p-2">
+        <div class="card shadow-2">
+            <p-table [value]="[itemTypeData]"
+            [resizableColumns]="true" [rowHover]="true"
+            styleClass="p-datatable-striped p-datatable-sm" [autoLayout]="true">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pResizableColumn>ID</th>
+                        <th pResizableColumn>Short Text</th>
+                        <th pResizableColumn>Nature</th>
+                        <th pResizableColumn>Selling</th>
+                        <th pResizableColumn>Valid</th>
+                        <th pResizableColumn>Quality</th>
+                        <th pResizableColumn>Lot</th>
+                        <th pResizableColumn>Container</th>
+                        <th pResizableColumn>Element</th>
+                        <th pResizableColumn>Project</th>
+                        <th pResizableColumn>Customer</th>
+                        <th pResizableColumn>Supplier</th>
+    
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item>
+                    <tr class="cursor-pointer" style="background-color: #deecf9;" [pSelectableRow]="item">
+                        <td>{{item.id}}</td>
+                        <td>{{item.shortText}}</td>
+                        <td>{{item.itemNature}}</td>
+                        <td>
+                            <p-checkbox [(ngModel)]="item.sellingType" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="item.valid" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="item.qualityControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="item.lotControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="item.containerControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="item.elementControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="item.projectControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="item.customerControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="item.supplierControlled" [binary]="true" inputId="binary" [readonly]="true"></p-checkbox>
+                        </td>
+    
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td [attr.colspan]="13">
+                            No data
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        
+        <p-menubar [model]="items"></p-menubar>
+        
+        <div class="card shadow-2">
+            <div class="font-bold text-lg mb-2">
+                Subcode List
+            </div>
+            <p-table [value]="subCodeList" [rowHover]="true"
+            [resizableColumns]="true" [(selection)]="selectedItem" selectionMode="single" dataKey="code" [paginator]="true" [rows]="10" 
+            styleClass="p-datatable-striped p-datatable-sm" [autoLayout]="true">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="id" pResizableColumn>ID<p-sortIcon field="id"></p-sortIcon></th>
+                        <th pSortableColumn="shortText" pResizableColumn>Short Text<p-sortIcon field="shortText"></p-sortIcon></th>
+                        <th pSortableColumn="longText" pResizableColumn>Long Text<p-sortIcon field="longText"></p-sortIcon></th>
+                        <th pSortableColumn="searchText" pResizableColumn>Search Text<p-sortIcon field="searchText"></p-sortIcon></th>
+                        <th pSortableColumn="position" pResizableColumn>Position<p-sortIcon field="position"></p-sortIcon></th>
+                        <th pSortableColumn="length" pResizableColumn>Length<p-sortIcon field="length"></p-sortIcon></th>
+                        <th pSortableColumn="type" pResizableColumn>Type<p-sortIcon field="type"></p-sortIcon></th>
+                        <th pSortableColumn="mandatory" pResizableColumn>Mandatory<p-sortIcon field="mandatory"></p-sortIcon></th>
+                        <th pSortableColumn="itemSubCodeDataType" pResizableColumn>Data Type<p-sortIcon field="itemSubCodeDataType"></p-sortIcon></th>
+                        <th pSortableColumn="outputSeparator" pResizableColumn>Int. output separator<p-sortIcon field="outputSeparator"></p-sortIcon></th>
+                        <th pSortableColumn="wareHouseManagement" pResizableColumn>Warehouse management<p-sortIcon field="wareHouseManagement"></p-sortIcon></th>
+                        <th pSortableColumn="excludedCostManagement" pResizableColumn>Excluded from cost management<p-sortIcon field="excludedCostManagement"></p-sortIcon></th>
+                        <th></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item>
+                    <tr class="cursor-pointer" [pSelectableRow]="item" >
+                        <td class="cell-underline" (dblclick)="onRowDblClick(item)">{{item.id}}</td>
+                        <td>{{item.shortText}}</td>
+                        <td>{{item.longText}}</td>
+                        <td>{{item.searchText}}</td>
+                        <td>{{item.position}}</td>
+                        <td>{{item.length}}</td>
+                        <td>{{item.type}}</td>
+                        <td>
+                            <p-checkbox [(ngModel)]="item.mandatory" [binary]="true" inputId="binary"
+                                [readonly]="true"></p-checkbox>
+                        </td>
+                        <td>{{item.itemSubCodeDataType}}</td>
+                        <td>{{item.outputSeparator}}</td>
+                        <td>
+                            <p-checkbox [(ngModel)]="item.wareHouseManagement" [binary]="true" inputId="binary"
+                                [readonly]="true"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="item.excludedCostManagement" [binary]="true" inputId="binary"
+                                [readonly]="true"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-button pTooltip="More Actions..." tooltipPosition="top" (click)="actionMenu.toggle($event);selectedItem=item" icon="pi pi-ellipsis-h" [text]="true" [plain]="true"></p-button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td [attr.colspan]="13">
+                            No data
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+            <p-menu appendTo="body" #actionMenu [model]="actions" [popup]="true" ></p-menu>
+        </div>
+    </div>
+    
+    
+    <p-dialog header="Item Subcode" [modal]="true" [(visible)]="subCodeDataDialog" [breakpoints]="{'960px': '75vw'}"
+        [style]="{width: '75vw'}" [draggable]="true" [resizable]="false">
+        <ng-template pTemplate="content">
+            <div class="card shadow-2">
+                <form [formGroup]="subCodeForm">
+                <p-tabView>
+                    <p-tabPanel header="Basic">
+                        <div class="flex flex-auto flex-grow-1 flex-column flex-nowrap" style="max-width: 675px;">
+                            <div class="field col-12 md:col-12">
+                                <label class="font-bold text-sm" for="firstname6">Short Text</label>
+                                <input type="text" pInputText class="w-full" formControlName="shortText"/>
+                            </div>
+                            <div class="field col-12 md:col-12">
+                                <label class="font-bold text-sm" for="firstname6">Long Text</label>
+                                <input type="text" pInputText class="w-full" formControlName="longText"/>
+                            </div>
+                            <div class="field col-12 md:col-12">
+                                <label class="font-bold text-sm" for="firstname6">Search Text</label>
+                                <input type="text" pInputText class="w-full" formControlName="searchText"/>
+                            </div>
+                
+                            <div class="field col-12 md:col-12">
+                                <div class="flex flex-column gap-1">
+                                    <label class="font-bold text-sm" for="firstname6">Position</label>
+                                    <p-inputNumber styleClass="w-full" inputId="position" formControlName="position">
+                                    </p-inputNumber>
+                                </div>
+                   
+                            </div>
+                
+                            <div class="field col-12 md:col-12">
+                                <div class="flex flex-column gap-1">
+                                    <label class="font-bold text-sm" for="firstname6">Length</label>
+                                    <p-inputNumber styleClass="w-full" inputId="length" formControlName="length">
+                                    </p-inputNumber>
+                                </div>
+                   
+                            </div>
+                
+                            <div class="field col-12 md:col-12">
+                                <label class="font-bold text-sm" for="firstname6">Type</label>
+                                <p-dropdown [filter]="true" filterBy="name" styleClass="w-full" optionValue="code"  inputId="type"
+                                [autoDisplayFirst]="false" [options]="types" formControlName="type"
+                                optionLabel="name"></p-dropdown>
+                            </div>
+  
+
+                            <div class="field col-12 md:col-12">
+                                <label class="font-bold text-sm" for="firstname6">Data Type</label>
+                                <p-dropdown [filter]="true" filterBy="name" styleClass="w-full" optionValue="code"
+                                inputId="itemSubCodeDataType" [autoDisplayFirst]="false" [options]="dataTypes"
+                                formControlName="itemSubCodeDataType" optionLabel="name"></p-dropdown>
+                            </div>
+                                         
+                
+                            <fieldset class="field">
+                                <legend>
+                        
+                                    <label class="font-bold text-sm" for="firstname6">Checks</label>
+                                </legend>
+                                <div class="field col-12 md:col-12">
+                                    <label class="font-bold text-sm" for="firstname6">Check</label>
+                                    <p-dropdown [filter]="true" filterBy="relatedItem" (onChange)="changeCheck($event.value)" styleClass="w-full" appendTo="body"
+                                             inputId="itemSubCodeCheckType" [autoDisplayFirst]="false" [options]="itemSubCodeCheckTypes"
+                                            formControlName="itemSubCodeCheckType" optionLabel="relatedItem"></p-dropdown>
+                                </div>
+                                @if (pLData) {
+                                    <div class="field col-12 md:col-12">
+                                        <label class="font-bold text-sm" for="firstname6">{{pLData?.label}}</label>
+                                        <p-dropdown [filter]="true" filterBy="shortText" styleClass="w-full" appendTo="body"
+                                        inputId="groupTypeCode" [autoDisplayFirst]="false" [options]="pLData?.data"
+                                        formControlName="groupTypeCode" optionLabel="shortText"></p-dropdown>
+                                    </div>
+                                }
+                                
+                            </fieldset>
+                
+                            <div class="field col-12 md:col-12">
+                                <label class="font-bold text-sm" for="firstname6">Initial output separator</label>
+                                <input type="text" pInputText class="w-full" formControlName="outputSeparator"/>
+                            </div>
+                
+                            <div class="field col-12 md:col-12">
+                                <div class="flex flex-wrap gap-4">
+                                    <div class="flex flex-column gap-1">
+                                        <label class="font-bold text-sm" for="mandatory">Mandatory</label>
+                                            <p-checkbox formControlName="mandatory" [binary]="true"
+                                            inputId="mandatory"></p-checkbox>
+                                    </div>
+                                    <div class="flex flex-column gap-1">
+                                        <label class="font-bold text-sm" for="wareHouseManagement">Warehouse management</label>
+                                            <p-checkbox formControlName="wareHouseManagement" [binary]="true"
+                                            inputId="wareHouseManagement"></p-checkbox>
+                                    </div>
+                                    <div class="flex flex-column gap-1">
+                                        <label class="font-bold text-sm" for="excludedCostManagement">Excluded from cost
+                                            management</label>
+                                            <p-checkbox formControlName="excludedCostManagement" [binary]="true"
+                                            inputId="excludedCostManagement"></p-checkbox>
+                                    </div>
+
+                                   
+                                </div>
+                                
+                            </div>
+
+                        </div>
+
+                    </p-tabPanel>
+                </p-tabView>
+                </form>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <div class="flex flex-wrap gap-1 justify-content-end">
+                <!-- Delete button -->
+                <button pButton
+                        *ngIf="subCodeForm.value.id != null"
+                        (click)="delete()"
+                        label="Delete"
+                        icon="pi pi-trash"
+                        class="p-button-danger p-button-sm md:order-1 w-full md:w-auto">
+                </button>
+            
+                <!-- Cancel button -->
+                <button pButton
+                        (click)="subCodeDataDialog=false"
+                        label="Cancel"
+                        icon="pi pi-times"
+                        class="p-button-sm w-full md:w-auto">
+                </button>
+            
+                <!-- Save button -->
+                <button pButton
+                        (click)="onSubmit(subCodeForm.value)"
+                        label="Save"
+                        icon="pi pi-save"
+                        class="p-button-sm p-button-success md:order-3 w-full md:w-auto">
+                </button>
+            </div>
+        </ng-template>
+    </p-dialog>
+    
+    <p-confirmDialog key="delete-subcode" [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
